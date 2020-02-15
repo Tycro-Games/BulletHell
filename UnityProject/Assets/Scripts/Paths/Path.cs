@@ -63,6 +63,7 @@ public class Path
                         AutoSetStartAndEndControls();
                     }
                 }
+                EventCheck();
             }
         }
     }
@@ -81,6 +82,7 @@ public class Path
                 if (autoSetControlPoints)
                 {
                     AutoSetAllControlPoints();
+                    EventCheck();
                 }
             }
         }
@@ -159,6 +161,7 @@ public class Path
     {
         if (moved != null)
             moved();
+
     }
     public Vector2[] GetPointsInSegment(int i)
     {

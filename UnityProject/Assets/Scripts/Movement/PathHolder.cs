@@ -6,20 +6,16 @@ public class PathHolder : MonoBehaviour
 {
 
     private Vector2[] points = null;
-    [Header("Parameters")]
-    [SerializeField]
-    private float speed = 0.0f;
-
-
 
     public void Init(Vector2[] Pathpoints)
     {
         points = Pathpoints;
+
     }
 
-    public IEnumerator MoveToLastWaypoint()
+    public IEnumerator MoveToLastWaypoint(float speed)
     {
-
+        transform.position = points[0];
 
         for (int i = 0; i < points.Length; i++)
         {

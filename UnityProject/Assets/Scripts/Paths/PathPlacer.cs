@@ -6,7 +6,7 @@ public class PathPlacer : MonoBehaviour
 
     public float spacing = .1f;
     public float resolution = 1;
-
+    [HideInInspector]
     public Vector2[] points;
     [SerializeField]
     GameObject Point = null;

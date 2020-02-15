@@ -24,6 +24,7 @@ public class PathEditor : Editor
         base.OnInspectorGUI();
 
         EditorGUI.BeginChangeCheck();
+
         if (GUILayout.Button("Create new"))
         {
             Undo.RecordObject(creator, "Create new");
@@ -145,16 +146,27 @@ public class PathEditor : Editor
             {
                 Handles.color = (i % 3 == 0) ? creator.anchorCol : creator.controlCol;
                 float handleSize = (i % 3 == 0) ? creator.anchorDiameter : creator.controlDiameter;
+                #region ColorChanges
+                if (i == 0)
+                    ChangeColor(creator.startAnchordCol);
+                if (i == Path.NumPoints - 1)
+                    ChangeColor(creator.endAnchorCol);
+                #endregion
                 Vector2 newPos = Handles.FreeMoveHandle(Path[i], Quaternion.identity, handleSize, Vector2.zero, Handles.CylinderHandleCap);
                 if (Path[i] != newPos)
                 {
                     Undo.RecordObject(creator, "Move point");
                     Path.MovePoint(i, newPos);
                 }
+
             }
         }
-    }
 
+    }
+    void ChangeColor(Color color)
+    {
+        Handles.color = color;
+    }
     void OnEnable()
     {
         creator = (PathCreator)target;

@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[ExecuteInEditMode]
-public class BulletSpawner : Spawner
+public class BulletSpawnerOnPath : Spawner
 {
     public Transform path;
     PathPlacer placerPoints;
+    [Header("Parameters for Bullets")]
+    [SerializeField]
+    private float speed = 0;
     private void Start()
     {
         placerPoints = path.GetComponent<PathPlacer>();
+
     }
+
+
     public override void Spawn()
     {
         base.Spawn();
@@ -19,7 +24,7 @@ public class BulletSpawner : Spawner
 
 
         pathHolder.Init(placerPoints.GetPoints());//reset the path and shit
-        StartCoroutine(pathHolder.MoveToLastWaypoint());
+        StartCoroutine(pathHolder.MoveToLastWaypoint(speed));
 
 
     }

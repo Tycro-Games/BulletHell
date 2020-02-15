@@ -7,6 +7,8 @@ public class PathCreator : MonoBehaviour
 
     [HideInInspector]
     public Path path;
+    public Color startAnchordCol = Color.white;
+    public Color endAnchorCol = Color.black;
     public Color anchorCol = Color.red;
     public Color controlCol = Color.white;
     public Color segmentCol = Color.green;
