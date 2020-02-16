@@ -6,7 +6,7 @@ using UnityEditor;
 [CustomEditor(typeof(PathCreator))]
 public class PathEditor : Editor
 {
-
+    //changed
     PathCreator creator;
     Path Path
     {
