@@ -22,7 +22,9 @@ public class Path
             centre+(Vector2.left+Vector2.up)*.5f,
             centre + (Vector2.right+Vector2.down)*.5f,
             centre + Vector2.right
+
         };
+        SplitSegment(Vector2.Lerp(points[0], points[3], .5f), 0);
     }
 
     public Vector2 this[int i]
