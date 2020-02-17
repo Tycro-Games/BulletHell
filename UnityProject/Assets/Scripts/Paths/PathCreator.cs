@@ -16,13 +16,11 @@ public class PathCreator : MonoBehaviour
     public float anchorDiameter = .1f;
     public float controlDiameter = .075f;
     public bool displayControlPoints = true;
-    public void GeneratePath()
-    {
-        path = PathGenerator.CreatePath(transform.position, transform.position);
-    }
+
     public void CreatePath()
     {
         path = new Path(transform.position);
+
     }
 
     void Reset()
