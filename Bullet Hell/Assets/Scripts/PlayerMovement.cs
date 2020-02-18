@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     float speedMovement=0.0f;
-    Rigidbody rb;
+    CharacterController characterController;
     PlayerInput input;
     Vector2 movement;
     private void Awake()
@@ -16,15 +16,15 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         float h = movement.x;
         float v = movement.y;
          Vector3 velocity = new Vector3(h, 0, v);
-        rb.MovePosition(rb.position + velocity*Time.fixedDeltaTime*speedMovement);
+        characterController.Move(velocity * Time.deltaTime * speedMovement);
     }
     private void OnEnable()
     {
