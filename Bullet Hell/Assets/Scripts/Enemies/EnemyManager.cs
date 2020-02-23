@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    EnemySpawner spawner;
-    private void Start ( )
+    public GameObject[] EnemyPrefabs;
+    private EnemyInfo enemy;
+
+    public  delegate void OnSpawn(EnemyInfo info);
+    public static event OnSpawn onSpawn;
+   
+    void GenerateEnemy ()
     {
-        spawner = GetComponent<EnemySpawner> ();
+        enemy = new EnemyInfo
+        {
+            EnemyPrefab = EnemyGenerator.RandomPrefab (EnemyPrefabs)
+        };
+       
+    }
+
+    public void Spawn ()
+    {
+        GenerateEnemy ();
+        Debug.Assert (enemy != null, "object null");
+        onSpawn (enemy);
     }
 
 }
