@@ -2,13 +2,25 @@
 
 public class EnemySpawner : MonoBehaviour
 {
-    
-    public EnemyInfo enemyInfo = null; 
-    private GameObject spawnedObject;
 
-    public void Spawn ( )
+    private GameObject spawnedObject;
+    private EnemyAI enemyAI;
+    private void OnEnable ()
     {
-        spawnedObject = Instantiate (enemyInfo.EnemyPrefab, transform.position, Quaternion.identity);
+        EnemyManager.onSpawn += Spawn;
+    }
+    private void OnDisable ()
+    {
+        EnemyManager.onSpawn -= Spawn;
+    }
+
+    public void Spawn (EnemyInfo enemyInfo)
+    {
+        spawnedObject = PoolingObjectsSystem.Instantiate (enemyInfo.EnemyPrefab, transform.position, Quaternion.identity);
         spawnedObject.transform.SetParent (transform);
+
+        enemyAI = spawnedObject.GetComponent<EnemyAI> ();
+        enemyAI.Init (enemyInfo);
+
     }
 }
