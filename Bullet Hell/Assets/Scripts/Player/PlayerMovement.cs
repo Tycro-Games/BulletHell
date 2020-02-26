@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header ("Movement")]
     [SerializeField]
-    private float speedMovement =0.0f;
+    private float speedMovement = 0.0f;
     [SerializeField]
     private float gravity = 20.0f;
     Rigidbody rb;
@@ -15,52 +13,52 @@ public class PlayerMovement : MonoBehaviour
     PlayerInput input;
     Vector2 movement;
     Vector2 lookRotation;
-    private void Awake()
+    private void Awake ()
     {
 
-        input = new PlayerInput();
-        input.PlayerMovement.Movement.performed += ctx => movement = ctx.ReadValue<Vector2>();
-        input.PlayerMovement.LookToShoot.performed += ctx => lookRotation = ctx.ReadValue<Vector2>();
+        input = new PlayerInput ();
+        input.PlayerMovement.Movement.performed += ctx => movement = ctx.ReadValue<Vector2> ();
+        input.PlayerMovement.LookToShoot.performed += ctx => lookRotation = ctx.ReadValue<Vector2> ();
     }
-    void Start()
+    void Start ()
     {
-        rb = GetComponent<Rigidbody>();
-        characterController = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody> ();
+        characterController = GetComponent<CharacterController> ();
     }
 
-    void Update()
+    void Update ()
     {
-        Turn();
-        Move();
-        
-        
+        Turn ();
+        Move ();
+
+
     }
- 
-    void Move()
+
+    void Move ()
     {
         float h = movement.x;
         float v = movement.y;
-        Vector3 velocity = new Vector3(h, 0, v);
+        Vector3 velocity = new Vector3 (h, 0, v);
         velocity.y -= gravity * Time.deltaTime;
-        characterController.Move(velocity * Time.deltaTime * speedMovement);
+        characterController.Move (velocity * Time.deltaTime * speedMovement);
     }
-    void Turn()
+    void Turn ()
     {
         Vector2 input = lookRotation;
-        Vector3 turn = new Vector3(input.x, 0, input.y);
+        Vector3 turn = new Vector3 (input.x, 0, input.y);
         if (turn != Vector3.zero)
         {
-            Quaternion newRotation = Quaternion.LookRotation(turn);
-            transform.rotation=newRotation;
+            Quaternion newRotation = Quaternion.LookRotation (turn);
+            transform.rotation = newRotation;
         }
     }
 
-    private void OnEnable()
+    private void OnEnable ()
     {
-        input.Enable();
+        input.Enable ();
     }
-    private void OnDisable()
+    private void OnDisable ()
     {
-        input.Disable();
+        input.Disable ();
     }
 }
