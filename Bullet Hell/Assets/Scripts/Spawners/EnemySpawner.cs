@@ -7,11 +7,11 @@ public class EnemySpawner : MonoBehaviour
     private EnemyAI enemyAI;
     private void OnEnable ()
     {
-        EnemyManager.onSpawn += Spawn;
+        EnemyManager.OnSpawning += Spawn;
     }
     private void OnDisable ()
     {
-        EnemyManager.onSpawn -= Spawn;
+        EnemyManager.OnSpawning -= Spawn;
     }
 
     public void Spawn (EnemyInfo enemyInfo)

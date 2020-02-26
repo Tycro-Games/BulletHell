@@ -8,5 +8,5 @@ public static class EnemyGenerator
         int index = Random.Range (0, prefabs.Length);
         return prefabs[index];
     }
-    
+
 }

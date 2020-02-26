@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
@@ -8,10 +6,10 @@ public class Spawner : MonoBehaviour
     GameObject ObjectToSpawn = null;
     protected GameObject spawnedObject;
 
-    public virtual void Spawn()
+    public virtual void Spawn ()
     {
-        spawnedObject = PoolingObjectsSystem.Instantiate(ObjectToSpawn, transform.position, Quaternion.identity);
-        spawnedObject.transform.SetParent(transform);
+        spawnedObject = PoolingObjectsSystem.Instantiate (ObjectToSpawn, transform.position, Quaternion.identity);
+        spawnedObject.transform.SetParent (transform);
     }
 
 }
