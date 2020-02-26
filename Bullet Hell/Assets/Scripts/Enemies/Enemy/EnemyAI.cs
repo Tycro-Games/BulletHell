@@ -2,12 +2,8 @@
 
 public class EnemyAI : MonoBehaviour
 {
-    private int healthPoints;
+    //functionability for fucking enemies
 
-    public void Init (EnemyInfo info)
-    {
-        //properties
-
-    }
+    
 
 }
