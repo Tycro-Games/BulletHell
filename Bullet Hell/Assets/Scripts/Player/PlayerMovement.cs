@@ -8,13 +8,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
 
     //Input
-    PlayerInput input;
+    PlayerInputActions input;
     Vector2 movement;
     Vector2 lookRotation;
     private void Awake ()
     {
 
-        input = new PlayerInput ();
+        input = new PlayerInputActions ();
         input.PlayerMovement.Movement.performed += ctx => movement = ctx.ReadValue<Vector2> ();
         input.PlayerMovement.LookToShoot.performed += ctx => lookRotation = ctx.ReadValue<Vector2> ();
     }

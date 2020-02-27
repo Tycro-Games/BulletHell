@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Input/PlayerInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Input/PlayerInputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @PlayerInput : IInputActionCollection, IDisposable
+public class @PlayerInputActions : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @PlayerInput ()
+    public @PlayerInputActions()
     {
-        asset = InputActionAsset.FromJson (@"{
-    ""name"": ""PlayerInput"",
+        asset = InputActionAsset.FromJson(@"{
+    ""name"": ""PlayerInputActions"",
     ""maps"": [
         {
             ""name"": ""PlayerMovement"",
@@ -197,14 +197,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     ]
 }");
         // PlayerMovement
-        m_PlayerMovement = asset.FindActionMap ("PlayerMovement", throwIfNotFound: true);
-        m_PlayerMovement_Movement = m_PlayerMovement.FindAction ("Movement", throwIfNotFound: true);
-        m_PlayerMovement_LookToShoot = m_PlayerMovement.FindAction ("LookToShoot", throwIfNotFound: true);
+        m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
+        m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerMovement_LookToShoot = m_PlayerMovement.FindAction("LookToShoot", throwIfNotFound: true);
     }
 
-    public void Dispose ()
+    public void Dispose()
     {
-        UnityEngine.Object.Destroy (asset);
+        UnityEngine.Object.Destroy(asset);
     }
 
     public InputBinding? bindingMask
@@ -221,29 +221,29 @@ public class @PlayerInput : IInputActionCollection, IDisposable
 
     public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
 
-    public bool Contains (InputAction action)
+    public bool Contains(InputAction action)
     {
-        return asset.Contains (action);
+        return asset.Contains(action);
     }
 
-    public IEnumerator<InputAction> GetEnumerator ()
+    public IEnumerator<InputAction> GetEnumerator()
     {
-        return asset.GetEnumerator ();
+        return asset.GetEnumerator();
     }
 
-    IEnumerator IEnumerable.GetEnumerator ()
+    IEnumerator IEnumerable.GetEnumerator()
     {
-        return GetEnumerator ();
+        return GetEnumerator();
     }
 
-    public void Enable ()
+    public void Enable()
     {
-        asset.Enable ();
+        asset.Enable();
     }
 
-    public void Disable ()
+    public void Disable()
     {
-        asset.Disable ();
+        asset.Disable();
     }
 
     // PlayerMovement
@@ -253,16 +253,16 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_LookToShoot;
     public struct PlayerMovementActions
     {
-        private @PlayerInput m_Wrapper;
-        public PlayerMovementActions (@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        private @PlayerInputActions m_Wrapper;
+        public PlayerMovementActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerMovement_Movement;
         public InputAction @LookToShoot => m_Wrapper.m_PlayerMovement_LookToShoot;
-        public InputActionMap Get () { return m_Wrapper.m_PlayerMovement; }
-        public void Enable () { Get ().Enable (); }
-        public void Disable () { Get ().Disable (); }
-        public bool enabled => Get ().enabled;
-        public static implicit operator InputActionMap (PlayerMovementActions set) { return set.Get (); }
-        public void SetCallbacks (IPlayerMovementActions instance)
+        public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerMovementActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerMovementActions instance)
         {
             if (m_Wrapper.m_PlayerMovementActionsCallbackInterface != null)
             {
@@ -285,13 +285,13 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             }
         }
     }
-    public PlayerMovementActions @PlayerMovement => new PlayerMovementActions (this);
+    public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
     private int m_GamePadSchemeIndex = -1;
     public InputControlScheme GamePadScheme
     {
         get
         {
-            if (m_GamePadSchemeIndex == -1) m_GamePadSchemeIndex = asset.FindControlSchemeIndex ("GamePad");
+            if (m_GamePadSchemeIndex == -1) m_GamePadSchemeIndex = asset.FindControlSchemeIndex("GamePad");
             return asset.controlSchemes[m_GamePadSchemeIndex];
         }
     }
@@ -300,13 +300,13 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     {
         get
         {
-            if (m_KeboardSchemeIndex == -1) m_KeboardSchemeIndex = asset.FindControlSchemeIndex ("Keboard");
+            if (m_KeboardSchemeIndex == -1) m_KeboardSchemeIndex = asset.FindControlSchemeIndex("Keboard");
             return asset.controlSchemes[m_KeboardSchemeIndex];
         }
     }
     public interface IPlayerMovementActions
     {
-        void OnMovement (InputAction.CallbackContext context);
-        void OnLookToShoot (InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
+        void OnLookToShoot(InputAction.CallbackContext context);
     }
 }
