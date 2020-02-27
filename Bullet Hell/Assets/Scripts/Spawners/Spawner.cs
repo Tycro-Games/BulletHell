@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Spawner
 {
-    [SerializeField]
-    GameObject ObjectToSpawn = null;
-    protected GameObject spawnedObject;
-
-    public virtual void Spawn ()
+    
+    public static GameObject Spawn (GameObject ObjectToSpawn,Transform transform)
     {
-        spawnedObject = PoolingObjectsSystem.Instantiate (ObjectToSpawn, transform.position, Quaternion.identity);
+        GameObject spawnedObject = PoolingObjectsSystem.Instantiate (ObjectToSpawn, transform.position, Quaternion.identity);
         spawnedObject.transform.SetParent (transform);
+        return spawnedObject;
     }
 
 }
