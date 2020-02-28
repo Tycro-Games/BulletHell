@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,50 +10,42 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
 
     //Input
-    PlayerInputActions input;
     Vector2 movement;
-    Vector2 lookRotation;
+    Keyboard kb;
     private void Awake ()
     {
-
-        input = new PlayerInputActions ();
-        input.PlayerMovement.Movement.performed += ctx => movement = ctx.ReadValue<Vector2> ();
-        input.PlayerMovement.LookToShoot.performed += ctx => lookRotation = ctx.ReadValue<Vector2> ();
+        kb = InputSystem.GetDevice<Keyboard> ();
     }
     void Start ()
     {
         rb = GetComponent<Rigidbody2D> ();
-    }
 
-    void FixedUpdate ()
+
+    }
+    private void FixedUpdate ()
     {
-        Turn ();
         Move ();
-
-
     }
-
-    void Move ()
+    public void SetMovement (InputAction.CallbackContext ctx)
+    {
+        movement = ctx.ReadValue<Vector2> ();
+    }
+    public void Move ()
     {
         rb.MovePosition (rb.position + movement * Time.fixedDeltaTime * speedMovement);
     }
-    void Turn ()
+    public void Turn (InputAction.CallbackContext ctx)
     {
-        Vector2 input = lookRotation;
-        
+
+        Vector2 input = ctx.ReadValue<Vector2>();
+
         if (input != Vector2.zero)
         {
             Quaternion newRotation = Quaternion.LookRotation (transform.forward, input);
             transform.rotation = newRotation;
         }
+
+
     }
 
-    private void OnEnable ()
-    {
-        input.Enable ();
-    }
-    private void OnDisable ()
-    {
-        input.Disable ();
-    }
 }

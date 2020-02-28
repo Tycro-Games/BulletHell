@@ -29,7 +29,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": ""LookToShoot"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""11d944ce-25cc-42c7-af82-ba79ccaa0fd5"",
+                    ""id"": ""3bac845f-a11a-4d0f-b6bc-76bab14d86b4"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -53,7 +53,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keboard"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -64,7 +64,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keboard"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -75,7 +75,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keboard"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -86,7 +86,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keboard"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -103,8 +103,19 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""arrows"",
-                    ""id"": ""61da958c-5991-4215-bdbc-fd5dca80eb5b"",
+                    ""name"": """",
+                    ""id"": ""ad156087-5b5c-4b3e-ab4e-3059679e0f57"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""LookToShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""wasd"",
+                    ""id"": ""7de8d6c7-123c-4441-91c8-facc8971aa15"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -115,58 +126,47 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""365b5ec0-fe61-4ab7-a92e-1b40e0160c76"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""id"": ""bb14f0a1-9d8f-4911-a0fe-d5d58bb8f5af"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keboard"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""LookToShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""3ce9b574-2b01-4528-9475-c62ef0bdd731"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""id"": ""24d43dc2-7536-418c-a257-341185172421"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keboard"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""LookToShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""e60c7e15-53c2-4979-9b96-e03faa52f950"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""id"": ""6bb81ad4-7478-4ae9-a591-248fa973d340"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keboard"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""LookToShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""79ffca67-13ac-47fb-981a-709698ba65e6"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""id"": ""99a13e95-6c78-4d66-a737-dbf08049e395"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keboard"",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""LookToShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""384c3a32-bfb1-47f1-b303-2ec9e4b1a0fe"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""LookToShoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -184,8 +184,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             ]
         },
         {
-            ""name"": ""Keboard"",
-            ""bindingGroup"": ""Keboard"",
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -295,13 +295,13 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_GamePadSchemeIndex];
         }
     }
-    private int m_KeboardSchemeIndex = -1;
-    public InputControlScheme KeboardScheme
+    private int m_KeyboardSchemeIndex = -1;
+    public InputControlScheme KeyboardScheme
     {
         get
         {
-            if (m_KeboardSchemeIndex == -1) m_KeboardSchemeIndex = asset.FindControlSchemeIndex("Keboard");
-            return asset.controlSchemes[m_KeboardSchemeIndex];
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
     public interface IPlayerMovementActions
