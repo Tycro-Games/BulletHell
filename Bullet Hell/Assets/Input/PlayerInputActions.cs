@@ -15,7 +15,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     ""name"": ""PlayerInputActions"",
     ""maps"": [
         {
-            ""name"": ""PlayerMovement"",
+            ""name"": ""Player"",
             ""id"": ""5767173e-3bec-432d-8b7d-c1d6f0eecf65"",
             ""actions"": [
                 {
@@ -27,10 +27,18 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""LookToShoot"",
+                    ""name"": ""Rotate"",
                     ""type"": ""PassThrough"",
                     ""id"": ""3bac845f-a11a-4d0f-b6bc-76bab14d86b4"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""e748cd7c-48d0-462a-bfc7-f8382dcad93d"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -109,7 +117,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
-                    ""action"": ""LookToShoot"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -120,7 +128,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LookToShoot"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -131,7 +139,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""LookToShoot"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -142,7 +150,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""LookToShoot"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -153,7 +161,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""LookToShoot"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -164,9 +172,31 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""LookToShoot"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""797ff945-5fda-487c-87ba-d4a52f77e482"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a4cfd377-c3dc-46d1-96ff-575e37d7ce13"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -196,10 +226,11 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // PlayerMovement
-        m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
-        m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
-        m_PlayerMovement_LookToShoot = m_PlayerMovement.FindAction("LookToShoot", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
+        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -246,46 +277,54 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // PlayerMovement
-    private readonly InputActionMap m_PlayerMovement;
-    private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
-    private readonly InputAction m_PlayerMovement_Movement;
-    private readonly InputAction m_PlayerMovement_LookToShoot;
-    public struct PlayerMovementActions
+    // Player
+    private readonly InputActionMap m_Player;
+    private IPlayerActions m_PlayerActionsCallbackInterface;
+    private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_Rotate;
+    private readonly InputAction m_Player_Shoot;
+    public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
-        public PlayerMovementActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_PlayerMovement_Movement;
-        public InputAction @LookToShoot => m_Wrapper.m_PlayerMovement_LookToShoot;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
+        public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
+        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerMovementActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerMovementActions instance)
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerActions instance)
         {
-            if (m_Wrapper.m_PlayerMovementActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnMovement;
-                @LookToShoot.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnLookToShoot;
-                @LookToShoot.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnLookToShoot;
-                @LookToShoot.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnLookToShoot;
+                @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Rotate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
+                @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
             }
-            m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
+            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @LookToShoot.started += instance.OnLookToShoot;
-                @LookToShoot.performed += instance.OnLookToShoot;
-                @LookToShoot.canceled += instance.OnLookToShoot;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
-    public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+    public PlayerActions @Player => new PlayerActions(this);
     private int m_GamePadSchemeIndex = -1;
     public InputControlScheme GamePadScheme
     {
@@ -304,9 +343,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
-    public interface IPlayerMovementActions
+    public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnLookToShoot(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

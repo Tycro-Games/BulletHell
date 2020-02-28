@@ -2,7 +2,7 @@
     "name": "PlayerInputActions",
     "maps": [
         {
-            "name": "PlayerMovement",
+            "name": "Player",
             "id": "5767173e-3bec-432d-8b7d-c1d6f0eecf65",
             "actions": [
                 {
@@ -14,10 +14,18 @@
                     "interactions": ""
                 },
                 {
-                    "name": "LookToShoot",
+                    "name": "Rotate",
                     "type": "PassThrough",
                     "id": "3bac845f-a11a-4d0f-b6bc-76bab14d86b4",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "e748cd7c-48d0-462a-bfc7-f8382dcad93d",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -96,7 +104,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "GamePad",
-                    "action": "LookToShoot",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -107,7 +115,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookToShoot",
+                    "action": "Rotate",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -118,7 +126,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "LookToShoot",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -129,7 +137,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "LookToShoot",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -140,7 +148,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "LookToShoot",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -151,9 +159,31 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "LookToShoot",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "797ff945-5fda-487c-87ba-d4a52f77e482",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4cfd377-c3dc-46d1-96ff-575e37d7ce13",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

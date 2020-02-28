@@ -9,7 +9,8 @@ public class PlayerShooting : MonoBehaviour
     bool pressing;
     public void Shoot (InputAction.CallbackContext ctx)
     {
-        pressing = ctx.ReadValue<Vector2> () != Vector2.zero ? true : false;
+
+        pressing = ctx.ReadValue<float> () == 1 ? true : false;
         if (pressing)
         {
 
@@ -29,13 +30,6 @@ public class PlayerShooting : MonoBehaviour
             Debug.Log ("Shoot");
             yield return null;
         }
-
-
         shooting = false;
     }
-
-
-
-
-
 }
