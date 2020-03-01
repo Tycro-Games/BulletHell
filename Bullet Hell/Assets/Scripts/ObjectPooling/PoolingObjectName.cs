@@ -8,7 +8,8 @@ public class PoolingObjectName : MonoBehaviour
     {
         if (entryName == "Test")
         {
-            entryName = gameObject.name;
+            entryName = entryName.GetHashCode().ToString();
+            Debug.Log (entryName);
         }
     }
     public string EntryName
