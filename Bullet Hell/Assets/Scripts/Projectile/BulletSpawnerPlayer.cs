@@ -6,12 +6,15 @@ public class BulletSpawnerPlayer : MonoBehaviour
     private ProjectileObjects projectile;
     [SerializeField]
     private Transform projectiles = null;
+    [SerializeField]
+    private LayerMask CollideableMask = 0;
     public void ChangeProjectile (ProjectileObjects project)
     {
         projectile = project;
     }
     public void Spawn ()
     {
-        Spawner.Spawn (projectile.projectilePrefab, transform, true, projectiles);
+        Projectile projectileInit = Spawner.Spawn (projectile.projectilePrefab, transform, true, projectiles).GetComponent<Projectile> ();
+        projectileInit.Init (projectile.speed, projectile.damage, CollideableMask,projectile.Thickness);
     }
 }

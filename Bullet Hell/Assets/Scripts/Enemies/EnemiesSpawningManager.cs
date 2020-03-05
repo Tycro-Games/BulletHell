@@ -15,7 +15,7 @@ public class EnemiesSpawningManager : MonoBehaviour
             EnemySpawnersParent = transform.GetChild (0);
         }
     }
-    
+
     bool CheckForNull ()
     {
         if (currentSpawners.Count == 0)

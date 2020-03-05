@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-[RequireComponent(typeof(PoolingObjectName))]
+[RequireComponent (typeof (PoolingObjectName))]
 public class EnemyAI : MonoBehaviour
 {
     //functionability for fucking enemies

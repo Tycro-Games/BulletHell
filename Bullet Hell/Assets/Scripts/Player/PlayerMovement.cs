@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -37,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public void Turn (InputAction.CallbackContext ctx)
     {
 
-        Vector2 input = ctx.ReadValue<Vector2>();
+        Vector2 input = ctx.ReadValue<Vector2> ();
 
         if (input != Vector2.zero)
         {
