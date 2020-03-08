@@ -11,15 +11,21 @@ public class Timer : MonoBehaviour
     [SerializeField]
     private UnityEvent OnTimerFinished = null;
 
-    private void Awake ()
+    private void OnEnable ()
     {
         StartCoroutine (TimerLoop ());
     }
-
+    private void OnDisable ()
+    {
+        StopCoroutine (TimerLoop ());
+    }
     IEnumerator TimerLoop ()
     {
         yield return new WaitForSeconds (TimeToWait);
         OnTimerFinished.Invoke ();
+
+        if(gameObject.activeInHierarchy)
         StartCoroutine (TimerLoop ());
     }
+
 }

@@ -29,12 +29,10 @@ public class PlayerShooting : MonoBehaviour
     }
     IEnumerator Shooting ()
     {
-
         while (pressing)
         {
             OnShoot.Invoke ();
             yield return new WaitForSeconds (fireRate);
-            yield return null;
         }
         shooting = false;
     }

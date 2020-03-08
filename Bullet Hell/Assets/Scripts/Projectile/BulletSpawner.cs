@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BulletSpawnerPlayer : MonoBehaviour
+public class BulletSpawner : MonoBehaviour
 {
     [SerializeField]
     private ProjectileObjects projectile;
@@ -14,7 +14,7 @@ public class BulletSpawnerPlayer : MonoBehaviour
     }
     public void Spawn ()
     {
-        Projectile projectileInit = Spawner.Spawn (projectile.projectilePrefab, transform, true, projectiles).GetComponent<Projectile> ();
-        projectileInit.Init (projectile.speed, projectile.damage, CollideableMask,projectile.Thickness);
+        Projectile projectileInit = Spawner.Spawn (projectile.projectilePrefab, transform, projectiles).GetComponent<Projectile> ();
+        projectileInit.Init (projectile.speed, projectile.damage, CollideableMask);
     }
 }

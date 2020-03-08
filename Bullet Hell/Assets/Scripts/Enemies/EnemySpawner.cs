@@ -6,6 +6,6 @@ public class EnemySpawner : MonoBehaviour
 
     public void Spawn ()
     {
-        Spawner.Spawn (enemyPrefab, transform, true, transform);
+        Spawner.Spawn (enemyPrefab, transform, transform);
     }
 }
