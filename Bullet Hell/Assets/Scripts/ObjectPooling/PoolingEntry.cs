@@ -18,9 +18,10 @@ public class PoolingEntry
         {
             GameObject objectToAdd = entries.Dequeue ();
 
+            objectToAdd.SetActive (true);
             objectToAdd.transform.position = pos;
             objectToAdd.transform.rotation = rot;
-            objectToAdd.SetActive (true);
+            
             
 
             return objectToAdd;

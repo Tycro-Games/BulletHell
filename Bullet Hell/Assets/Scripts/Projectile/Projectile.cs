@@ -15,10 +15,11 @@ public class Projectile : MonoBehaviour
         speed = Speed;
         collideableLayer = Collide;
         damage = Damage;
+        CheckStart ();
     }
     private void OnEnable ()
     {
-        CheckStart ();
+        
         Invoke ("DestroyProjectile", 4f);
     }
     private void Awake ()
@@ -29,12 +30,16 @@ public class Projectile : MonoBehaviour
     private void Update ()
     {
         velocity = Time.deltaTime * speed;
-        CheckSoroundings (velocity);
+       
         transform.Translate (Vector3.up * velocity, Space.Self);
+    }
+    private void FixedUpdate ()
+    {
+        CheckSoroundings (velocity);
     }
     public void DestroyProjectile ()
     {
-        PoolingObjectsSystem.Destroy (gameObject);
+       PoolingObjectsSystem.Destroy (gameObject);
     }
     void CheckSoroundings (float veloc)
     {
@@ -58,7 +63,7 @@ public class Projectile : MonoBehaviour
     void CheckStart ()
     {
         Collider2D[] colliders=new Collider2D[10];
-        int cols=Physics2D.OverlapCircleNonAlloc (transform.position, thickness/2,colliders, collideableLayer);
+        int cols=Physics2D.OverlapCircleNonAlloc (transform.position, thickness,colliders, collideableLayer);
         if (cols > 0)
         {
             HitObject (colliders[0], transform.position);
