@@ -9,11 +9,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
 
     //Input
+    private Camera cam;
     Vector2 movement;
-    Keyboard kb;
+    Mouse mouse;
     private void Awake ()
     {
-        kb = InputSystem.GetDevice<Keyboard> ();
+        cam = Camera.main;
+        mouse = InputSystem.GetDevice<Mouse> ();
     }
     void Start ()
     {
@@ -35,11 +37,14 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Turn (InputAction.CallbackContext ctx)
     {
+        if (ctx.canceled == true)
+            return;
 
-        Vector2 input = ctx.ReadValue<Vector2> ();
-
+        Vector2 MousePos = ctx.ReadValue<Vector2> ();
+        Vector2 input = (cam.ScreenToWorldPoint (MousePos) - transform.position).normalized;
         if (input != Vector2.zero)
         {
+
             Quaternion newRotation = Quaternion.LookRotation (transform.forward, input);
             transform.rotation = newRotation;
         }
