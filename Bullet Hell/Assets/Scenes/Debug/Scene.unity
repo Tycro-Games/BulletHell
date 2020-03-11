@@ -319,7 +319,7 @@ MonoBehaviour:
   CollideableMask:
     serializedVersion: 2
     m_Bits: 2560
-  HowManyBulletsReady: 100
+  HowManyBulletsReady: 0
 --- !u!1 &497808377
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +760,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  fireRate: 0.1
 --- !u!4 &1929419723
 Transform:
   m_ObjectHideFlags: 0

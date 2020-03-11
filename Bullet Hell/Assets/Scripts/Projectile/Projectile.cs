@@ -10,17 +10,22 @@ public class Projectile : MonoBehaviour
     private CircleCollider2D col = null;
 
     private int damage;
+
+    private bool destroyed = false;
+    private float lifetime=5.0f;
     public void Init (float Speed, int Damage, LayerMask Collide)
     {
         speed = Speed;
         collideableLayer = Collide;
         damage = Damage;
+
+        destroyed = false;
+
         CheckStart ();
     }
     private void OnEnable ()
     {
-        
-        Invoke ("DestroyProjectile", 4f);
+        StartCoroutine (DestroyProjectileTime (lifetime));
     }
     private void Awake ()
     {
@@ -35,11 +40,18 @@ public class Projectile : MonoBehaviour
     }
     private void FixedUpdate ()
     {
+        if(!destroyed)
         CheckSoroundings (velocity);
     }
     public void DestroyProjectile ()
     {
+       if(gameObject.activeInHierarchy)
        PoolingObjectsSystem.Destroy (gameObject);
+    }
+    public IEnumerator DestroyProjectileTime (float lifetime)
+    {
+        yield return new WaitForSeconds (lifetime);
+            PoolingObjectsSystem.Destroy (gameObject);
     }
     void CheckSoroundings (float veloc)
     {
@@ -57,7 +69,7 @@ public class Projectile : MonoBehaviour
             Debug.Log (col.name + " was hurt with " + damage + "damage");
             hit.TakeDamage (damage);
         }
-        Debug.Log (col.name + " hitted");
+
         DestroyProjectile ();
     }
     void CheckStart ()
@@ -67,6 +79,7 @@ public class Projectile : MonoBehaviour
         if (cols > 0)
         {
             HitObject (colliders[0], transform.position);
+            destroyed = true;
         }
     }
     private void OnDrawGizmos ()

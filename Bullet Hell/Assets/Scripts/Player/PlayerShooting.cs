@@ -9,9 +9,7 @@ public class PlayerShooting : MonoBehaviour
     bool pressing;
     [SerializeField]
     private UnityEvent OnShoot = null;
-    [Header ("Shooting")]
-    [SerializeField]
-    private float fireRate = 0.4f;
+   
     public void Shoot (InputAction.CallbackContext ctx)
     {
 
@@ -32,7 +30,7 @@ public class PlayerShooting : MonoBehaviour
         while (pressing)
         {
             OnShoot.Invoke ();
-            yield return new WaitForSeconds (fireRate);
+            yield return null;
         }
         shooting = false;
     }

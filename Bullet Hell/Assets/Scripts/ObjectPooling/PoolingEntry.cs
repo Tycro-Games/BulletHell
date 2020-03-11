@@ -29,7 +29,8 @@ public class PoolingEntry
     }
     public void Destroy (GameObject objectToAdd)
     {
-        objectToAdd.SetActive (false);
         entries.Enqueue (objectToAdd);
+        objectToAdd.SetActive (false);
+        
     }
 }
