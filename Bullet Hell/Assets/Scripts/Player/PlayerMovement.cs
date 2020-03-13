@@ -1,55 +1,79 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header ("Movement")]
     [SerializeField]
+    private AnimationCurve RotationCurve = null;
+    [SerializeField]
+    private float RotationSpeed = 10.0f;
+    [SerializeField]
     private float speedMovement = 0.0f;
     Rigidbody2D rb;
 
     //Input
     private Camera cam;
-    Vector2 movement;
-    Mouse mouse;
+    private Vector2 movement;
+    private Quaternion newRotation;
+
     private void Awake ()
     {
         cam = Camera.main;
-        mouse = InputSystem.GetDevice<Mouse> ();
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
     void Start ()
     {
-        rb = GetComponent<Rigidbody2D> ();
+        newRotation = Quaternion.LookRotation (transform.forward, transform.up);
 
+        rb = GetComponent<Rigidbody2D> ();
+        StartCoroutine(Rotate ());
 
     }
     private void FixedUpdate ()
     {
         Move ();
     }
+    private void Update ()
+    {
+        
+    }
     public void SetMovement (InputAction.CallbackContext ctx)
     {
         movement = ctx.ReadValue<Vector2> ();
     }
-    public void Move ()
+    private void Move ()
     {
         rb.MovePosition (rb.position + movement * Time.fixedDeltaTime * speedMovement);
     }
-    public void Turn (InputAction.CallbackContext ctx)
+    IEnumerator  Rotate ()
+    {
+        float initRot = transform.rotation.z;
+        
+        
+        while (true)
+        {
+            float CurveX = Mathf.InverseLerp (initRot, newRotation.z, transform.rotation.z);
+            while (CurveX <= 1)
+            {
+                CurveX += Time.deltaTime;
+                transform.rotation = Quaternion.RotateTowards (transform.rotation, newRotation, RotationCurve.Evaluate (CurveX)*RotationSpeed);
+                yield return null;
+            }
+        }
+    }
+    public void SetRotationTurn (InputAction.CallbackContext ctx)
     {
         if (ctx.canceled == true)
             return;
 
-        Vector2 MousePos = ctx.ReadValue<Vector2> ();
-        Vector2 input = (cam.ScreenToWorldPoint (MousePos) - transform.position).normalized;
+        Vector2 input = ctx.ReadValue<Vector2> ();
+        Vector2 MousePos = (cam.ScreenToWorldPoint (input) - transform.position).normalized;
         if (input != Vector2.zero)
         {
-
-            Quaternion newRotation = Quaternion.LookRotation (transform.forward, input);
-            transform.rotation = newRotation;
+            newRotation = Quaternion.LookRotation (transform.forward, MousePos);
         }
-
-
     }
-
 }
