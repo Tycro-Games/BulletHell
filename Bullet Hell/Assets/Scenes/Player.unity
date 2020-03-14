@@ -251,7 +251,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399748598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.595, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -830,12 +830,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6abda6efcb719a4dbddc8a92df53e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transformToTurn: {fileID: 399748599}
   RotationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.0016708374
-      value: 0.50476074
+      time: -0.0050582886
+      value: 0.2994995
       inSlope: 0.44079933
       outSlope: 0.44079933
       tangentMode: 0
@@ -854,7 +855,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  RotationSpeed: 2
+  RotationSpeed: 10
   speedMovement: 6
 --- !u!1 &2122649237
 GameObject:

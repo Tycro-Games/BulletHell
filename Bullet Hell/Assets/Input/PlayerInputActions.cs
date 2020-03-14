@@ -125,7 +125,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""94ec4d52-c5c9-48f9-b1e0-23f6e6c96562"",
                     ""path"": ""<Pointer>/position"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": ""Keyboard+Mouse"",
                     ""action"": ""Rotate"",
