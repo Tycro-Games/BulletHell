@@ -18,13 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private Camera cam;
     private Vector2 movement;
     private Quaternion newRotation;
-    private Vector2 InputMousePosition;
+    private Vector2 Input;
     private Vector2 MousePos;
     void Start ()
     {
         cam = Camera.main;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
 
         newRotation = transformToTurn.rotation;
@@ -36,10 +36,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate ()
     {
         Move ();
-    }
-    private void Update ()
-    {
-        SetRotationTurn ();
     }
     public void SetMovement (InputAction.CallbackContext ctx)
     {
@@ -55,36 +51,27 @@ public class PlayerMovement : MonoBehaviour
         Transform previousTransform = transformToRotate;
 
         while (true)
-        {
-            float CurveX = Mathf.InverseLerp (previousTransform.rotation.z, newRotation.z, transformToRotate.rotation.z);
-            while (CurveX <= 1)
-            {
+        {            
                 Quaternion rotation = Quaternion.RotateTowards (previousTransform.rotation, newRotation, RotationSpeed);
 
-                transformToRotate.RotateAround (transform.position, Vector3.forward, Vector2.SignedAngle (previousTransform.localPosition, MousePos));
+                transformToRotate.RotateAround (transform.position, Vector3.forward, Vector2.SignedAngle (previousTransform.localPosition, Input));
 
                 transformToRotate.rotation = rotation;
-                yield return null;
-            }
+                yield return null;           
         }
     }
-    public void SetRotationTurn ()
+    public void SetRotationTurn (InputAction.CallbackContext ctx)
     {
+        Input = ctx.ReadValue<Vector2>();
+        if (Input == Vector2.zero)
+            return;
 
-        InputMousePosition = Mouse.current.position.ReadValue ();
-         MousePos = (cam.ScreenToWorldPoint (InputMousePosition) - transform.position).normalized;
-        if (InputMousePosition != Vector2.zero)
+
+        if (Input.magnitude > 1)//it is a mouse
         {
-            newRotation = Quaternion.LookRotation (transform.forward, MousePos);
+            Input = (cam.ScreenToWorldPoint (Input) - transformToTurn.position).normalized; //make it a direction
         }
 
-    }
-
-    public static Vector3 ClampMagnitude (Vector3 v, float max, float min)
-    {
-        double sm = v.sqrMagnitude;
-        if (sm > (double)max * (double)max) return v.normalized * max;
-        else if (sm < (double)min * (double)min) return v.normalized * min;
-        return v;
+        newRotation = Quaternion.LookRotation (transform.forward, Input);
     }
 }
