@@ -123,17 +123,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""94ec4d52-c5c9-48f9-b1e0-23f6e6c96562"",
-                    ""path"": ""<Pointer>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard+Mouse"",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""797ff945-5fda-487c-87ba-d4a52f77e482"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",

@@ -19,17 +19,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private Quaternion newRotation;
     private Vector2 Input;
-    private Vector2 MousePos;
+
     void Start ()
     {
         cam = Camera.main;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
 
-        newRotation = transformToTurn.rotation;
+
 
         rb = GetComponent<Rigidbody2D> ();
+        
         StartCoroutine (Rotate (transformToTurn));
 
     }
@@ -48,29 +47,47 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator Rotate (Transform transformToRotate)
     {
+
         Transform previousTransform = transformToRotate;
-
+        PlayerInput that = GetComponent<PlayerInput> ();
         while (true)
-        {            
-                Quaternion rotation = Quaternion.RotateTowards (previousTransform.rotation, newRotation, RotationSpeed);
+        {
 
-                transformToRotate.RotateAround (transform.position, Vector3.forward, Vector2.SignedAngle (previousTransform.localPosition, Input));
+            if (that.currentControlScheme == "Keyboard+Mouse")
+            {
+                SetRotationTurn (Mouse.current.position.ReadValue ());
+            }
 
-                transformToRotate.rotation = rotation;
-                yield return null;           
+            transformToRotate.rotation = Quaternion.RotateTowards (previousTransform.rotation, newRotation, RotationSpeed);
+
+            transformToRotate.RotateAround (transform.position, Vector3.forward, Vector2.SignedAngle (transformToRotate.localPosition, Input));
+
+
+            yield return null;
         }
     }
-    public void SetRotationTurn (InputAction.CallbackContext ctx)
+    void SetRotationTurn (Vector2 input)
     {
-        Input = ctx.ReadValue<Vector2>();
-        if (Input == Vector2.zero)
-            return;
+        if (!Cursor.visible)
+            Cursor.visible = true;
 
+        Input = input;
 
         if (Input.magnitude > 1)//it is a mouse
         {
-            Input = (cam.ScreenToWorldPoint (Input) - transformToTurn.position).normalized; //make it a direction
+            Input = (cam.ScreenToWorldPoint (Input) - transform.position).normalized; //make it a direction
         }
+
+        newRotation = Quaternion.LookRotation (transform.forward, Input);
+        Debug.Log (Input);
+    }
+    public void SetRotationTurn (InputAction.CallbackContext ctx) //controller
+    {
+        if (Cursor.visible)
+            Cursor.visible = false;
+
+        Input = ctx.ReadValue<Vector2> ();
+
 
         newRotation = Quaternion.LookRotation (transform.forward, Input);
     }
