@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         rb = GetComponent<Rigidbody2D> ();
-        
+
         StartCoroutine (Rotate (transformToTurn));
 
     }
@@ -48,8 +48,10 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Rotate (Transform transformToRotate)
     {
 
-        Transform previousTransform = transformToRotate;
-        PlayerInput that = GetComponent<PlayerInput> ();
+        Transform previousTransform = transformToRotate;//save the transform
+
+        PlayerInput that = GetComponent<PlayerInput> ();//ref to the player input
+        newRotation = Quaternion.LookRotation (transform.forward, transformToRotate.up);
         while (true)
         {
 
@@ -79,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         newRotation = Quaternion.LookRotation (transform.forward, Input);
-        Debug.Log (Input);
     }
     public void SetRotationTurn (InputAction.CallbackContext ctx) //controller
     {
