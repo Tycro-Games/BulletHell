@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430955c6e90a6d94f866de765a95619b, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  playerTransfrom: {fileID: 0}
+  TypeOfMove: 1
