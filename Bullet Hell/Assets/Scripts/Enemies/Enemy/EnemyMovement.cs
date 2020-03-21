@@ -8,17 +8,18 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private AIEnemyMovement movement = null;
 
-    private AIPath path;
+    private AIDestinationSetter setter;
     private void Start ()
     {
-        path = GetComponentInParent<AIPath> ();
+        setter = GetComponentInParent<AIDestinationSetter> ();
+        ChangeOfMovement ();
     }
     public void ChangeOfMovement ()
     {
         switch (movement.TypeOfMove)
         {
             case Movement.Chase:
-                path.destination = movement.PlayerTransfrom.position;
+                setter.target = movement.PlayerTransfrom;
                 break;
             case Movement.Run:
                 //run from the player
@@ -27,10 +28,6 @@ public class EnemyMovement : MonoBehaviour
                 //stay right where you are
                 break;
         }
-    }
-    private void Update ()
-    {
-        ChangeOfMovement ();
     }
     private void OnDrawGizmos ()
     {
