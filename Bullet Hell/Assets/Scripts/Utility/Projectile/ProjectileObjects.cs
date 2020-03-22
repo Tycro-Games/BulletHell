@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-[CreateAssetMenu (fileName = "new projectile", menuName = "Create new projectile", order = 2)]
+[CreateAssetMenu (fileName = "new projectile", menuName = "Create staff/new projectile", order = 2)]
 public class ProjectileObjects : ScriptableObject
 {
     public GameObject projectilePrefab;

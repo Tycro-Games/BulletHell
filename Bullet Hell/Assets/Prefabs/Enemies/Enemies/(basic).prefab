@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6884490221845543559}
   - component: {fileID: 7734190385874309530}
   - component: {fileID: 3650871416994878061}
+  - component: {fileID: 374585248}
+  - component: {fileID: 374585249}
   m_Layer: 0
   m_Name: (basic)
   m_TagString: Untagged
@@ -91,10 +93,10 @@ MonoBehaviour:
   version: 2
   radius: 0.5
   height: 2
-  repathRate: 0.5
+  repathRate: 0.1
   canSearch: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 7
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -106,12 +108,41 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 0.63
   endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
+  alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!114 &374585248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661414515073952346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
+--- !u!114 &374585249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661414515073952346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f586f285b3847808d79083bd19ef1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  unwrap: 1
+  splitAtEveryPortal: 0
 --- !u!1 &2661414515534824435
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2661414515534824435}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2661414515073952345}
@@ -201,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8157959476630310156}
   - component: {fileID: 323780240044638039}
+  - component: {fileID: 372907606}
   m_Layer: 0
   m_Name: Atack
   m_TagString: Untagged
@@ -234,6 +266,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcd81aa37644644dada8ae9b9c99d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
+--- !u!58 &372907606
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636775528047000004}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8344647342010657177
 GameObject:
   m_ObjectHideFlags: 0
