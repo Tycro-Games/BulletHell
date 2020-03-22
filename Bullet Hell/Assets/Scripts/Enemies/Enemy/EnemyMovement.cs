@@ -1,6 +1,5 @@
 ﻿using Pathfinding;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent (typeof (Seeker))]
 public class EnemyMovement : MonoBehaviour
@@ -9,6 +8,9 @@ public class EnemyMovement : MonoBehaviour
     private AIEnemyMovement movement = null;
 
     private AIDestinationSetter setter;
+
+
+
     private void Start ()
     {
         setter = GetComponentInParent<AIDestinationSetter> ();
@@ -25,10 +27,11 @@ public class EnemyMovement : MonoBehaviour
                 //run from the player
                 break;
             case Movement.Stay:
-                //stay right where you are
+                setter.target = null;
                 break;
         }
     }
+
     private void OnDrawGizmos ()
     {
         if (movement != null)
