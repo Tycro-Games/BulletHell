@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public enum Movement { Run, Chase, Stay }
 
@@ -6,10 +7,29 @@ public enum Movement { Run, Chase, Stay }
 public class AIEnemyMovement : ScriptableObject
 {
     public Transform PlayerTransfrom { get; private set; }
-    public Movement TypeOfMove;
+
+    [HideInInspector]
+    public UnityEvent OnChangeMovement;
+    [SerializeField]
+    private Movement typeOfMove;
+    public Movement TypeOfMove
+    {
+        get
+        {
+            return typeOfMove;
+        }
+        set
+        {
+            typeOfMove = value; //assign the type of movement
+
+            OnChangeMovement.Invoke ();     //notify that we changed the movement     
+        }
+    }
+    
 
     public void SetTransfrom (Transform player)
     {
         PlayerTransfrom = player;
     }
+
 }

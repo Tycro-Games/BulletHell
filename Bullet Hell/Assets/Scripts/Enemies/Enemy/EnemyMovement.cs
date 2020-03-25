@@ -1,16 +1,21 @@
 ﻿using Pathfinding;
 using System.Collections;
 using UnityEngine;
-[RequireComponent (typeof (Seeker))]
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
     private AIEnemyMovement movement = null;
 
     private AIDestinationSetter setter;
-
-
-
+    
+    private void OnEnable ()
+    {
+        movement.OnChangeMovement.AddListener (ChangeOfMovement);
+    }
+    private void OnDisable ()
+    {
+        movement.OnChangeMovement.RemoveListener (ChangeOfMovement);
+    }
     private void Start ()
     {
         setter = GetComponentInParent<AIDestinationSetter> ();
@@ -31,11 +36,4 @@ public class EnemyMovement : MonoBehaviour
                 break;
         }
     }
-
-    private void OnDrawGizmos ()
-    {
-        if (movement != null)
-            Gizmos.DrawLine (transform.position, movement.PlayerTransfrom.position);
-    }
-
 }
