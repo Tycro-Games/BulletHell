@@ -66,7 +66,6 @@ public class Projectile : MonoBehaviour
         IHitable hit = col.GetComponent<IHitable> ();
         if (hit != null)
         {
-            Debug.Log (col.name + " was hurt with " + damage + "damage");
             hit.TakeDamage (damage);
         }
 

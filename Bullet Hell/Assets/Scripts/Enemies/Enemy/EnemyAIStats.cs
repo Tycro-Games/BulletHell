@@ -1,10 +1,22 @@
 ﻿using UnityEngine;
-public class EnemyAIStats : MonoBehaviour,IHitable
+public class EnemyAIStats : CommonStats,IHitable,IKillable
 {
     //this script kills you
-    public void TakeDamage (int damage)
+    public override void Start ()
+    {
+        base.Start ();
+    }
+    public void Die ()
     {
         
+    }
+
+    
+    public void TakeDamage (int dg)
+    {
+        stats.Health -= dg;
+        if (stats.Health <= 0)
+            Die ();
     }
 
 

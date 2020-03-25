@@ -140,7 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 2cdb1da418a65c146aa37cbec52e7d46, type: 2}
-  TimeToWaitUntilNextHit: 1
+  statingHP: 100
+  TimeToWaitUntilNextHit: 2
 --- !u!50 &605830113828030286
 Rigidbody2D:
   serializedVersion: 4
