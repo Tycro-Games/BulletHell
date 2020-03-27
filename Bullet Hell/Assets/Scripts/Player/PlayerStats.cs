@@ -15,11 +15,11 @@ public class PlayerStats : CommonStats
     }
     private void OnEnable ()
     {
-        EnemyAtackClose.OnHit += TakeDamage;
+        EnemyAtack.OnHit += TakeDamage;
     }
     private void OnDisable ()
     {
-        EnemyAtackClose.OnHit -= TakeDamage;
+        EnemyAtack.OnHit -= TakeDamage;
     }
     private IEnumerator TakeDamage (int dg)
     {
