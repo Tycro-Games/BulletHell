@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyAtackController : MonoBehaviour
 {
     [SerializeField]
     private AIEnemyAtack AtackType = null;
 
-    private EnemyAtack atack; 
-
+    private EnemyAtack atack;
     private void OnEnable ()
     {
         AtackType.OnChangeAtack.AddListener (ChangeOfAtack);
@@ -28,6 +25,7 @@ public class EnemyAtackController : MonoBehaviour
         {
             case Attack.Ranged:
                 //range attack
+                Debug.Log ("range");
                 break;
             case Attack.Melee:
                 atack.DamageProximity = true;

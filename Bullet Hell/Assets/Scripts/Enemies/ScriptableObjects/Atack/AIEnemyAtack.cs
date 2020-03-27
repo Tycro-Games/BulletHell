@@ -1,7 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
-public enum Attack { Melee, Ranged, Stay }
+public enum Attack
+{
+    Melee,
+    Ranged,
+    Stay
+};
 
 [CreateAssetMenu (fileName = "new atack", menuName = "Create enemies/new atack")]
 public class AIEnemyAtack : ScriptableObject
