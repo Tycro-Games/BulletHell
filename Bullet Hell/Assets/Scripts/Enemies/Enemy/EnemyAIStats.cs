@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-public class EnemyAIStats : CommonStats,IHitable,IKillable
+[RequireComponent(typeof(Collider2D))]
+public class EnemyAIStats : CommonStats, IHitable
 {
     //this script kills you
     public override void Start ()
@@ -8,16 +9,12 @@ public class EnemyAIStats : CommonStats,IHitable,IKillable
     }
     public void Die ()
     {
-        
+        PoolingObjectsSystem.Destroy (gameObject);
     }
-
-    
     public void TakeDamage (int dg)
     {
         stats.Health -= dg;
         if (stats.Health <= 0)
             Die ();
     }
-
-
 }

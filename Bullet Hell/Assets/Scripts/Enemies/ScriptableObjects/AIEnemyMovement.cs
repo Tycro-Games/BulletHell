@@ -25,11 +25,8 @@ public class AIEnemyMovement : ScriptableObject
             OnChangeMovement.Invoke ();     //notify that we changed the movement     
         }
     }
-    
-
     public void SetTransfrom (Transform player)
     {
         PlayerTransfrom = player;
     }
-
 }

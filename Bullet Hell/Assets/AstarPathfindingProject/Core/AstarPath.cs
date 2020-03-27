@@ -40,7 +40,7 @@ public class AstarPath : VersionedMonoBehaviour {
 	/// users of the development versions can get notifications of development
 	/// updates.
 	/// </summary>
-	public static readonly string Branch = "master_Free";
+	public static readonly string Branch = "master_Pro";
 
 	/// <summary>
 	/// See Pathfinding.AstarData

@@ -10,9 +10,8 @@ public class Projectile : MonoBehaviour
     private CircleCollider2D col = null;
 
     private int damage;
-
     private bool destroyed = false;
-    private float lifetime=5.0f;
+    private readonly float lifetime = 5.0f;
     public void Init (float Speed, int Damage, LayerMask Collide)
     {
         speed = Speed;
@@ -35,23 +34,23 @@ public class Projectile : MonoBehaviour
     private void Update ()
     {
         velocity = Time.deltaTime * speed;
-       
+
         transform.Translate (Vector3.up * velocity, Space.Self);
     }
     private void FixedUpdate ()
     {
-        if(!destroyed)
-        CheckSoroundings (velocity);
+        if (!destroyed)
+            CheckSoroundings (velocity);
     }
     public void DestroyProjectile ()
     {
-       if(gameObject.activeInHierarchy)
-       PoolingObjectsSystem.Destroy (gameObject);
+        if (gameObject.activeInHierarchy)
+            PoolingObjectsSystem.Destroy (gameObject);
     }
     public IEnumerator DestroyProjectileTime (float lifetime)
     {
         yield return new WaitForSeconds (lifetime);
-            PoolingObjectsSystem.Destroy (gameObject);
+        PoolingObjectsSystem.Destroy (gameObject);
     }
     void CheckSoroundings (float veloc)
     {
@@ -65,16 +64,13 @@ public class Projectile : MonoBehaviour
     {
         IHitable hit = col.GetComponent<IHitable> ();
         if (hit != null)
-        {
             hit.TakeDamage (damage);
-        }
-
         DestroyProjectile ();
     }
     void CheckStart ()
     {
-        Collider2D[] colliders=new Collider2D[10];
-        int cols=Physics2D.OverlapCircleNonAlloc (transform.position, thickness,colliders, collideableLayer);
+        Collider2D[] colliders = new Collider2D[10];
+        int cols = Physics2D.OverlapCircleNonAlloc (transform.position, thickness, colliders, collideableLayer);
         if (cols > 0)
         {
             HitObject (colliders[0], transform.position);
