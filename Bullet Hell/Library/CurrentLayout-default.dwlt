@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 371}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 321}
   m_MaxSize: {x: 12002, y: 8021}
   vertical: 1
-  controlID: 107
+  controlID: 21
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 221}
   m_MaxSize: {x: 12002, y: 4021}
   vertical: 0
-  controlID: 108
+  controlID: 22
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,8 +188,8 @@ MonoBehaviour:
     y: 0
     width: 1390
     height: 676
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -375,23 +375,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 38fbffff6efbffff
+      m_SelectedIDs: 1afbffff
+      m_LastClickedID: -1254
+      m_ExpandedIDs: 22fbffff38fbffff6cfbffff6efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Functionality
+        m_OriginalName: Functionality
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -1246
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 7}
       m_SearchString: 
@@ -437,7 +437,7 @@ MonoBehaviour:
     m_ControlHash: 1412526313
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: -1254
   m_LastVerticalScrollValue: 0
 --- !u!114 &14
 MonoBehaviour:
@@ -475,9 +475,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.7619035, y: 0.10642047, z: -7.0585938}
+    m_Target: {x: 1.5760106, y: 0.38822553, z: -7.0585938}
     speed: 2
-    m_Value: {x: 0.7619035, y: 0.10642047, z: -7.0585938}
+    m_Value: {x: 1.5760106, y: 0.38822553, z: -7.0585938}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1276,19 +1276,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Enemies/ScriptableObjects/Atack
+    - Assets/Scripts/Player
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Enemies/ScriptableObjects/Atack
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Unity\BulletHell\Bullet Hell
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 234}
-    m_SelectedIDs: 00410000
-    m_LastClickedID: 16640
+    m_SelectedIDs: dc460000
+    m_LastClickedID: 18140
     m_ExpandedIDs: 00000000363e00003c4000003e40000040400000424000004440000046400000484000004a4000004c4000004e4000005040000052400000544000005640000058400000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1342,8 +1342,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f43f0000
-    m_LastClickedInstanceID: 16372
+    m_SelectedInstanceIDs: 1afbffff
+    m_LastClickedInstanceID: -1254
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300009e3c00003e3f0000263c00006c3c0000205d00009a390000803900003c540000523d0000bacb0000c6b5000018cf0000acaa00004c3a0000948a0000368f0000be48000000000000344d0000443e00006c420000
     m_RenameOverlay:
@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1224
+  m_LastSelectedObjectID: -1254
 --- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52

@@ -27,13 +27,7 @@ public class EnemyAtackController : MonoBehaviour
                 //range attack
                 Debug.Log ("range");
                 break;
-            case Attack.Melee:
-                atack.DamageProximity = true;
-                break;
-            case Attack.Stay:
-                //do nothing
-                atack.DamageProximity = false;
-                break;
+            
         }
     }
 }

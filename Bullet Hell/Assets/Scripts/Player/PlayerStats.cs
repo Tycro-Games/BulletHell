@@ -23,7 +23,9 @@ public class PlayerStats : CommonStats
     }
     private IEnumerator TakeDamage (int dg)
     {
+        
         stats.Health -= dg;
+        Debug.Log (stats.Health);
         if (stats.Health <= 0)
             Die ();
         yield return new WaitForSeconds (TimeToWaitUntilNextHit);  

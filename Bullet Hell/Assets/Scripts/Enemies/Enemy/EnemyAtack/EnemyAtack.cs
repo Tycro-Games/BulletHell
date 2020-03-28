@@ -1,43 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Pathfinding;
-
 [RequireComponent (typeof (Collider2D))]
 public class EnemyAtack : MonoBehaviour
 {
     //Damage PlayerEvent
     public delegate IEnumerator Onhit (int dg);
     public static event Onhit OnHit;
-    //aux
-    private Collider2D col;
 
     private AIPath path;
 
     [SerializeField]
     protected Stats stats = null;
 
-    public bool DamageProximity = true;
+    [SerializeField]
+    private bool damageProximity = true;
+    private bool inRange = false;
+
     private void Start ()
     {
         path = GetComponentInParent<AIPath> ();
-        col = GetComponent<Collider2D> ();
+
+        StartCoroutine (CheckDamageProxi ());
     }
-
-    private IEnumerator OnTriggerEnter2D (Collider2D other)
+    private void OnTriggerEnter2D (Collider2D collision)
     {
-        if (!DamageProximity)
-            yield break;
-        if (other.tag == "Player" && PlayerStats.CanTakeDG)
+        //Enemies layer can only interact with the player
+        inRange = true;
+    }
+    private void OnTriggerExit2D (Collider2D collision)
+    {
+        //Enemies layer can only interact with the player
+        inRange = false;
+    }
+    private IEnumerator CheckDamageProxi ()
+    {
+        while (OnHit != null)
         {
-            col.enabled = false;
+            if (PlayerStats.CanTakeDG && inRange && damageProximity) 
+          //translation: the player cand take damage, is in range and you've set true damage proximity
+            {
+                PlayerStats.CanTakeDG = false;
 
-            PlayerStats.CanTakeDG = false;
+                yield return StartCoroutine (OnHit (stats.Damage));
 
-            yield return StartCoroutine (OnHit (stats.Damage));
-
-            PlayerStats.CanTakeDG = true;
-
-            col.enabled = true;
+                PlayerStats.CanTakeDG = true;
+            }
+            yield return null;
         }
+
     }
 }
