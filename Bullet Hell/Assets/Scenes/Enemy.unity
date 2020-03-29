@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &85797426 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 85797426, guid: f60c073027006ee45a3b083e256616d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2077869873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b47312f367fe84791a683a43426bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1486791651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 605830113828030285, guid: 3dd9a9968bad06740997d0314e065c29,
@@ -147,7 +159,7 @@ PrefabInstance:
     - target: {fileID: 605830113828030285, guid: 3dd9a9968bad06740997d0314e065c29,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.54
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 605830113828030285, guid: 3dd9a9968bad06740997d0314e065c29,
         type: 3}
@@ -396,10 +408,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 490733933, guid: f60c073027006ee45a3b083e256616d8, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2661414515073952345, guid: f60c073027006ee45a3b083e256616d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -408,7 +416,7 @@ PrefabInstance:
     - target: {fileID: 2661414515073952345, guid: f60c073027006ee45a3b083e256616d8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.61
       objectReference: {fileID: 0}
     - target: {fileID: 2661414515073952345, guid: f60c073027006ee45a3b083e256616d8,
         type: 3}
@@ -460,20 +468,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: (basic)
       objectReference: {fileID: 0}
-    - target: {fileID: 5636775528047000004, guid: f60c073027006ee45a3b083e256616d8,
+    - target: {fileID: 3650871416994878061, guid: f60c073027006ee45a3b083e256616d8,
         type: 3}
-      propertyPath: m_Layer
-      value: 11
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3650871416994878061, guid: f60c073027006ee45a3b083e256616d8,
+        type: 3}
+      propertyPath: repathRate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8828120865210329540, guid: f60c073027006ee45a3b083e256616d8,
         type: 3}
-      propertyPath: DamageProximity
-      value: 0
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8828120865210329540, guid: f60c073027006ee45a3b083e256616d8,
         type: 3}
-      propertyPath: damageProximity
-      value: 0
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8828120865210329540, guid: f60c073027006ee45a3b083e256616d8,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8828120865210329540, guid: f60c073027006ee45a3b083e256616d8,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 85797426}
+    - target: {fileID: 8828120865210329540, guid: f60c073027006ee45a3b083e256616d8,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8828120865210329540, guid: f60c073027006ee45a3b083e256616d8,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f60c073027006ee45a3b083e256616d8, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   OnChangeMovement:
     m_PersistentCalls:
       m_Calls: []
-  typeOfMove: 1
+  typeOfMove: 0

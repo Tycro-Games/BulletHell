@@ -29,4 +29,5 @@ public class AIEnemyMovement : ScriptableObject
     {
         PlayerTransfrom = player;
     }
+    
 }

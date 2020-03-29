@@ -30,6 +30,7 @@ public class EnemyMovementController : MonoBehaviour
                 break;
             case Movement.Run:
                 //run from the player
+                setter.target = movement.PlayerTransfrom;
                 break;
             case Movement.Stay:
                 setter.target = null;
