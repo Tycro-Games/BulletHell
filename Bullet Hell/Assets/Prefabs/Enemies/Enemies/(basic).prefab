@@ -143,7 +143,7 @@ MonoBehaviour:
   version: 2
   radius: 0.5
   height: 2
-  repathRate: 0.1
+  repathRate: 0.75
   canSearch: 1
   canMove: 1
   maxSpeed: 7
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 8157959476630310156}
   - component: {fileID: 8828120865210329540}
   - component: {fileID: 490733933}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Atack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
-  damageProximity: 0
+  damageProximity: 1
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 85797426}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!58 &490733933
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -386,6 +400,7 @@ GameObject:
   - component: {fileID: 9196872526317293296}
   - component: {fileID: 9111804611157865270}
   - component: {fileID: 1432688523326940733}
+  - component: {fileID: 1041143113}
   m_Layer: 0
   m_Name: Functionality
   m_TagString: Untagged
@@ -434,3 +449,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AtackType: {fileID: 11400000, guid: 11e9fb2cced56b54db3da9ad8961a374, type: 2}
+  meleeSpeed: 0.1
+  rangeSpeed: 0.75
+--- !u!114 &1041143113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486593115378393522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627f0bd5c7d8f44b9a98365ffe697c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToWait: 2
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1432688523326940733}
+        m_MethodName: ChangeOfAtack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

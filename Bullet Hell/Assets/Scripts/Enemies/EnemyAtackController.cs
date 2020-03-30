@@ -6,6 +6,11 @@ public class EnemyAtackController : MonoBehaviour
     private AIEnemyAtack AtackType = null;
 
     private EnemyAtack atack;
+    [Header ("RepathSpeeds")]
+    [SerializeField]
+    private float meleeSpeed = 0.1f;
+    [SerializeField]
+    private float rangeSpeed = 0.75f;
     private void OnEnable ()
     {
         AtackType.OnChangeAtack.AddListener (ChangeOfAtack);
@@ -19,15 +24,31 @@ public class EnemyAtackController : MonoBehaviour
         atack = GetComponentInChildren<EnemyAtack> ();
         ChangeOfAtack ();
     }
+    public void ChangeTheAtackType (Attack attack)
+    {
+        AtackType.TypeOfAtack = attack;
+    }
     public void ChangeOfAtack ()
     {
+        atack.StopAllCoroutines ();
         switch (AtackType.TypeOfAtack)
         {
+
             case Attack.Ranged:
                 //range attack
-                Debug.Log ("range");
+                atack.ChangeRepath (rangeSpeed);
+                atack.StartCoroutine (atack.CheckDamageProxi ());//player takes damage if it is too close
+
+                atack.StartCoroutine (atack.AtackRange ());//shoots the player from distance
                 break;
-            
+            case Attack.Melee:
+                atack.ChangeRepath (meleeSpeed);
+                atack.StartCoroutine (atack.CheckDamageProxi ());//player takes damage if it is too close
+                break;
+            case Attack.Stay:
+                Debug.Log ("atack Nothing");
+                break;
+
         }
     }
 }

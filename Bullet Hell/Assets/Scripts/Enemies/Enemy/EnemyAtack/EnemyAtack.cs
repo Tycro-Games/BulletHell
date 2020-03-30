@@ -24,20 +24,26 @@ public class EnemyAtack : MonoBehaviour
 
     [SerializeField]
     private UnityEvent OnShoot = null;
+    [SerializeField]
     private float rangeToShoot = 5.0f;
-    private float speedRotation = 360f;
+    [SerializeField]
+    private float speedRotation = 180.0f;
     #endregion
-
+    private void Awake ()
+    {
+        path = GetComponentInParent<AIPath> ();
+    }
     private void Start ()
     {
 
-        path = GetComponentInParent<AIPath> ();
-        #region melee
-        StartCoroutine (CheckDamageProxi ());
-        #endregion
+        
         #region range
         enemyTransform = path.transform;
         #endregion
+    }
+    public void ChangeRepath (float speed)
+    {
+        path.repathRate = speed;
     }
     #region melee
     private void OnTriggerEnter2D (Collider2D collision)
@@ -50,18 +56,19 @@ public class EnemyAtack : MonoBehaviour
         //Enemies layer can only interact with the player
         inRange = false;
     }
-    private IEnumerator CheckDamageProxi ()
+    public IEnumerator CheckDamageProxi ()
     {
+        bool atacked = false;
         while (OnHit != null)
         {
-            if (PlayerStats.CanTakeDG && inRange && damageProximity)
+            if (!atacked && inRange && damageProximity)
             //translation: the player cand take damage, is in range and you've set true, the damage proximity bool
             {
-                PlayerStats.CanTakeDG = false;
+                atacked = true;
 
                 yield return StartCoroutine (OnHit (stats.Damage));
 
-                PlayerStats.CanTakeDG = true;
+                atacked = false;
             }
             yield return null;
         }
@@ -74,33 +81,36 @@ public class EnemyAtack : MonoBehaviour
     {
         while (!path.canMove)
         {
-            Debug.Log (true);
             Vector3 dir = (path.destination - transform.position).normalized;
-            enemyTransform.rotation = path.SimulateRotationTowards (dir, speedRotation);
+            Quaternion newRot = path.SimulateRotationTowards (dir, 360);
+            enemyTransform.rotation = Quaternion.RotateTowards(enemyTransform.rotation,newRot, speedRotation*Time.deltaTime);
             yield return null;
         }
     }
     void StartMovement ()
     {
-       path.canMove = true;
+        path.canMove = true;
     }
     #endregion
 
-
-    private void Update ()
+   public IEnumerator AtackRange ()
     {
-        if (path.remainingDistance <= rangeToShoot)
+        while (OnShoot != null)
         {
-            if (path.canMove)
+            if (path.remainingDistance <= rangeToShoot)
             {
-                path.canMove = false;
-                StartCoroutine (StopMovement ());
+                if (path.canMove)
+                {
+                    path.canMove = false;
+                    StartCoroutine (StopMovement ());
+                }
+                OnShoot.Invoke ();
             }
-            OnShoot.Invoke ();
-        }
-        else
-        {
-            StartMovement ();
+            else
+            {
+                StartMovement ();
+            }
+            yield return null;
         }
     }
     private void OnDrawGizmos ()

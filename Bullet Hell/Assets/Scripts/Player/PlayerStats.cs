@@ -7,8 +7,6 @@ public class PlayerStats : CommonStats
     private float TimeToWaitUntilNextHit = .5f;
 
     //auxiliary
-    [Header("Stats")]
-    public static bool CanTakeDG = true;
     public override void Start ()
     {
         base.Start ();
