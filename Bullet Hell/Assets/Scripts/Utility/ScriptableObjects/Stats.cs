@@ -2,6 +2,7 @@
 [CreateAssetMenu (fileName = "new stats", menuName = "Create staff/new stats")]
 public class Stats : ScriptableObject
 {
-    public int Health { get; set; } = 100;
-    public int Damage { get; set; } = 25;
+
+    public int Health  = 100;
+    public int Damage  = 25;
 }

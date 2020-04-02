@@ -12,6 +12,9 @@ public class Projectile : MonoBehaviour
     private int damage;
     private bool destroyed = false;
     private readonly float lifetime = 5.0f;
+
+    public delegate IEnumerator Onhit (int dg);
+    public static event Onhit OnHit;
     public void Init (float Speed, int Damage, LayerMask Collide)
     {
         speed = Speed;
@@ -57,23 +60,37 @@ public class Projectile : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast (transform.position, thickness, transform.up, veloc, collideableLayer);
         if (hit.collider != null)
         {
-            HitObject (hit.collider, hit.point);
+            StartCoroutine (HitObject (hit.collider, hit.point));
         }
     }
-    void HitObject (Collider2D col, Vector2 pointHit)
+    IEnumerator HitObject (Collider2D col, Vector2 pointHit)
     {
         IHitable hit = col.GetComponent<IHitable> ();
-        if (hit != null)
-            hit.TakeDamage (damage);
+        if (col.tag != "Player")
+        {
+            if (hit != null)
+                StartCoroutine (hit.TakeDamage (damage));
+
+        }
+        else
+        {
+            if (hit != null && !PlayerStats.atacked && OnHit != null)
+            {
+                PlayerStats.atacked = true;
+                yield return StartCoroutine (OnHit (damage));
+            }
+        }
         DestroyProjectile ();
+        yield return null;
     }
+
     void CheckStart ()
     {
         Collider2D[] colliders = new Collider2D[10];
         int cols = Physics2D.OverlapCircleNonAlloc (transform.position, thickness, colliders, collideableLayer);
         if (cols > 0)
         {
-            HitObject (colliders[0], transform.position);
+            StartCoroutine (HitObject (colliders[0], transform.position));
             destroyed = true;
         }
     }

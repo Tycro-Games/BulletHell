@@ -1,7 +1,9 @@
 ﻿
+using System.Collections;
+
 public interface IHitable
 {
-    void TakeDamage (int damage);
+    IEnumerator TakeDamage (int damage);
     
 }
 public interface IKillable
