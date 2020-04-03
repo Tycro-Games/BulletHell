@@ -8,7 +8,7 @@ public class BaseEnemy : MonoBehaviour
     private AIPath path = null;
     [SerializeField]
     private Stats stats = null;
-
+    private float TimeBetweenAtacks = .5f;
 
     private void Awake ()
     {
@@ -56,14 +56,14 @@ public class BaseEnemy : MonoBehaviour
     private float rangeToShoot = 5.0f;
     [SerializeField]
     private float speedRotation = 180.0f;
-    
+
 
     private Transform enemyTransform = null;
 
     public IEnumerator AtackRange ()
     {
 
-        while (OnShoot != null)
+        while (OnShoot != null && OnHit != null)
         {
 
             if (path.remainingDistance <= rangeToShoot)
@@ -89,8 +89,8 @@ public class BaseEnemy : MonoBehaviour
 
             Vector3 dir = (path.destination - transform.position).normalized;
             Quaternion newRot = path.SimulateRotationTowards (dir, 360);
-            if(path.enableRotation)
-            transform.rotation = Quaternion.RotateTowards (transform.rotation, newRot, speedRotation * Time.deltaTime);
+            if (!path.enableRotation)
+                transform.rotation = Quaternion.RotateTowards (transform.rotation, newRot, speedRotation * Time.deltaTime);
             else
                 enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
             yield return null;
@@ -107,7 +107,7 @@ public class BaseEnemy : MonoBehaviour
     #region atack proximity
     //Damage PlayerEvent
 
-    public delegate IEnumerator Onhit (int dg);
+    public delegate void Onhit (int dg);
     public static event Onhit OnHit;
 
     [Header ("Damge Proximity")]
@@ -132,13 +132,9 @@ public class BaseEnemy : MonoBehaviour
             if (!PlayerStats.atacked && inRange && damageProxy && gameObject.activeSelf)
             //translation: the player cand take damage, is in range and you've set true, the damage proximity bool
             {
-                PlayerStats.atacked = true;
-
-                yield return StartCoroutine (OnHit (stats.Damage));
-
-                PlayerStats.atacked = false;
+                OnHit (stats.Damage);
             }
-            yield return null;
+            yield return new WaitForSeconds (TimeBetweenAtacks);
         }
 
     }
