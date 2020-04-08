@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         Transform previousTransform = transformToRotate;//save the transform
 
-        PlayerInput that = GetComponent<PlayerInput> ();//ref to the player input
+        PlayerInput that = GetComponentInParent<PlayerInput> ();//ref to the player input
         newRotation = Quaternion.LookRotation (transform.forward, transformToRotate.up);
         while (true)
         {
@@ -70,8 +70,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void SetRotationTurn (Vector2 input)
     {
-        if (!Cursor.visible)
-            Cursor.visible = true;
 
         Input = input;
 
@@ -84,8 +82,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SetRotationTurn (InputAction.CallbackContext ctx) //controller
     {
-        if (Cursor.visible)
-            Cursor.visible = false;
 
         Input = ctx.ReadValue<Vector2> ();
 
