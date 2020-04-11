@@ -12,7 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private float RotationSpeed = 10.0f;
     [SerializeField]
     private float speedMovement = 0.0f;
-    Rigidbody2D rb;
+    Rigidbody rb;
+    [SerializeField]
+    private float Height = 0.0f;
 
     //Input
     private Camera cam;
@@ -24,10 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         cam = Camera.main;
 
-
-
-
-        rb = GetComponent<Rigidbody2D> ();
+        rb = GetComponent<Rigidbody> ();
 
         StartCoroutine (Rotate (transformToTurn));
 
@@ -42,7 +41,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Move ()
     {
-        rb.MovePosition (rb.position + movement * Time.fixedDeltaTime * speedMovement);
+        Vector3 move = new Vector3 (movement.x, Height, movement.y);
+        move *= Time.fixedDeltaTime * speedMovement;
+        rb.MovePosition (rb.position + move);
 
     }
     IEnumerator Rotate (Transform transformToRotate)
@@ -51,35 +52,21 @@ public class PlayerMovement : MonoBehaviour
         Transform previousTransform = transformToRotate;//save the transform
 
         PlayerInput that = GetComponentInParent<PlayerInput> ();//ref to the player input
-        newRotation = Quaternion.LookRotation (transform.forward, transformToRotate.up);
+
         while (true)
         {
-
-            if (that.currentControlScheme == "Keyboard+Mouse")
-            {
-                SetRotationTurn (Mouse.current.position.ReadValue ());
-            }
+            Vector3 dir = (CursorController.MousePosition () - transform.position).normalized;
+            Quaternion newRotation = Quaternion.LookRotation (dir, transform.up);
 
             transformToRotate.rotation = Quaternion.RotateTowards (previousTransform.rotation, newRotation, RotationSpeed);
 
-            transformToRotate.RotateAround (transform.position, Vector3.forward, Vector2.SignedAngle (transformToRotate.localPosition, Input));
+            transformToRotate.RotateAround (transform.position, Vector3.up, Vector3.SignedAngle (transformToRotate.localPosition,dir,Vector3.up));
 
 
             yield return null;
         }
     }
-    void SetRotationTurn (Vector2 input)
-    {
-
-        Input = input;
-
-        if (Input.magnitude > 1)//it is a mouse
-        {
-            Input = (cam.ScreenToWorldPoint (Input) - transform.position).normalized; //make it a direction
-        }
-
-        newRotation = Quaternion.LookRotation (transform.forward, Input);
-    }
+   
     public void SetRotationTurn (InputAction.CallbackContext ctx) //controller
     {
 
@@ -88,4 +75,5 @@ public class PlayerMovement : MonoBehaviour
 
         newRotation = Quaternion.LookRotation (transform.forward, Input);
     }
+
 }

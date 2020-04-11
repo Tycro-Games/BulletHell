@@ -1,11 +1,9 @@
-﻿using Pathfinding;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     public static Transform playerTransform = null;
 
-    private AIDestinationSetter setter;
 
     private BaseEnemy atack;
 
@@ -19,8 +17,6 @@ public class EnemyController : MonoBehaviour
     private float RepathSpeed = 0.75f;
     void Start()
     {
-        setter = GetComponentInParent<AIDestinationSetter> ();
-
         atack = GetComponentInChildren<BaseEnemy> ();
 
         atack.Init (Shooting, damageProximity, RepathSpeed);

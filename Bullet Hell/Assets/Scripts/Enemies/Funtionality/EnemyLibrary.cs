@@ -13,5 +13,9 @@ public class EnemyLibrary : MonoBehaviour
     {
         EnemiesSpawningManager.EverySpawnerAct (EnemyPrefabs[Random.Range(0,EnemyPrefabs.Length)]);
     }
+    public void SpawnEnemy (EnemySpawner enemySpawner, GameObject enemyPrefab)
+    {
+        EnemiesSpawningManager.SpawnerAct (enemySpawner, enemyPrefab);
+    }
 
 }

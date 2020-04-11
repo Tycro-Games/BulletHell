@@ -2,8 +2,8 @@
 
 public static class StaticInfo
 {
-    private static Vector2 playerPos;
-    public static Vector2 PlayerPos
+    private static Vector3 playerPos;
+    public static Vector3 PlayerPos
     {
         get
         {

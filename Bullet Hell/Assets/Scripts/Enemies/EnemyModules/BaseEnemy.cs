@@ -1,30 +1,32 @@
-﻿using Pathfinding;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
-[RequireComponent (typeof (Collider2D))]
+[RequireComponent (typeof (Collider))]
 public class BaseEnemy : MonoBehaviour
 {
-    private AIPath path = null;
+    private NavMeshAgent agent = null;
     [SerializeField]
     private Stats stats = null;
     private float TimeBetweenAtacks = .5f;
-
+    [SerializeField]
+    private float speedRotation = 180.0f;
     private void Awake ()
     {
-        path = GetComponentInParent<AIPath> ();
+        agent = GetComponentInParent<NavMeshAgent> ();
     }
     void Start ()
     {
-        enemyTransform = path.transform;
+        enemyTransform = agent.transform;
     }
     private void Update ()
     {
-        path.destination = StaticInfo.PlayerPos;
+        if (enabled)
+            agent.SetDestination (StaticInfo.PlayerPos);
     }
     public void Init (bool Shoot, bool Proxy, float repathSpeed)
     {
-        ChangeRepath (repathSpeed);
+        //ChangeRepath (repathSpeed);
 
         StopAllCoroutines ();
         if (Shoot)
@@ -43,7 +45,7 @@ public class BaseEnemy : MonoBehaviour
     }
     public void ChangeRepath (float speed)
     {
-        path.repathRate = speed;
+
     }
 
     #region Atack Range
@@ -54,8 +56,6 @@ public class BaseEnemy : MonoBehaviour
     private UnityEvent OnShoot = null;
     [SerializeField]
     private float rangeToShoot = 5.0f;
-    [SerializeField]
-    private float speedRotation = 180.0f;
 
 
     private Transform enemyTransform = null;
@@ -66,33 +66,28 @@ public class BaseEnemy : MonoBehaviour
         while (OnShoot != null && OnHit != null)
         {
 
-            if (path.remainingDistance <= rangeToShoot)
+            if (agent.remainingDistance <= rangeToShoot)
             {
-                if (path.canMove)
-                {
-                    path.canMove = false;
-                    StartCoroutine (PointPlayer ());
-                }
+                agent.isStopped = true;
+                StartCoroutine (PointPlayer ());
                 OnShoot.Invoke ();
             }
             else
             {
-                path.canMove = true;
+                agent.isStopped = false;
             }
             yield return null;
         }
     }
     IEnumerator PointPlayer ()
     {
-        while (!path.canMove)
+        while (agent.isStopped)
         {
 
-            Vector3 dir = (path.destination - transform.position).normalized;
-            Quaternion newRot = path.SimulateRotationTowards (dir, 360);
-            if (!path.enableRotation)
-                transform.rotation = Quaternion.RotateTowards (transform.rotation, newRot, speedRotation * Time.deltaTime);
-            else
-                enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
+            Vector3 dir = (agent.destination - transform.position).normalized;
+            Quaternion newRot = Quaternion.LookRotation (dir);
+
+            enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
             yield return null;
         }
     }
@@ -113,12 +108,12 @@ public class BaseEnemy : MonoBehaviour
     [Header ("Damge Proximity")]
     private bool damageProxy;
     private bool inRange = false;
-    private void OnTriggerEnter2D (Collider2D collision)
+    private void OnTriggerEnter (Collider collision)
     {
         //Enemies layer can only interact with the player
         inRange = true;
     }
-    private void OnTriggerExit2D (Collider2D collision)
+    private void OnTriggerExit (Collider collision)
     {
         //Enemies layer can only interact with the player
         inRange = false;

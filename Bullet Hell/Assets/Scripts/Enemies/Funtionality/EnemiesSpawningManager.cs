@@ -33,6 +33,8 @@ public static class EnemiesSpawningManager
             spawner.Spawn (enemyPrefab);
         }
     }
+
+    #region static
     public static void SpawnerAct (EnemySpawner spawner, GameObject enemyPrefab)
     {
         if (CheckForNull (spawner))
@@ -42,7 +44,6 @@ public static class EnemiesSpawningManager
         }
         spawner.Spawn (enemyPrefab);
     }
-    #region static
     public static void DeleteASpawner (EnemySpawner enemySpawner)
     {
         currentSpawners.Remove (enemySpawner);

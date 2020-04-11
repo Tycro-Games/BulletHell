@@ -1459,7 +1459,6 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_CameraOutput: 0
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
@@ -1471,6 +1470,7 @@ MonoBehaviour:
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
+  m_ClearDepth: 1
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -1481,6 +1481,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1908635955, guid: 4efc7a8a98c2a054c86d3120325ed168, type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAAAQIew79E3bRwIAAO8EAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMuO2jAU/RXkdakS2hFDdy0wTBcMaOhoNtmY+CaxcOzIj+El/r3XTkIyqSoh4Zxz7vW5j+RKuDQVpFbpleZsrRiQHyPiz+TLqCOf4URzJXf8Aq3mnTNbeBENmldquUI89mFGlWA1T3/KXHhxhKCTPFO6XLIc5spYg3BGhQGktLI+WiJ0HZET/o1nPuSMp8nUny54mkWjGx5TkBZ0J22FraxWOZkKWlbAvOVOPGnVcS2TWEyj8MZTJQQ3jRNiz1WodFcVoMGXyjjFwsLtXl4Azwvr0/ZjN1lmwDaOND0vuMb+1EnJL1U3raTmUNv6oMLB3Xedcv0PO44DnWlVPre3xpG/wRY8PbzSc0qN7fW0Dy8+23bySMWB7gW8FyBf1EorJxmSVjsf6gxMFt3jvbB5Aemhw2urA9BV/5+Mr+EWaj/NBS/3nvr6vQZ2QoVmh7mDxrH8RsNhK0yTAlHv4s3AH5r316chnrg2FqmmSunt7ZXTXkqWoWe+GmfnSksIcGO6AkmFPW8xjR0OcMD1rh0wT9S/KM3lDdfu/yAkwJ0+igbUVh3vwzKFOq7BFBtnBZfQmfbEC/ZprqSs96vfkzZs53RG015Y7jj7vFpkv589TGJ4xB+jQB/G2TSK42+PUzrJ0iieZSTsHpdYJxXb2mjTHpya7JJL3LP2+zFaaVqFXWeaHlf8Uqpey7nM1C7VAHJTZ7gbB42X4CvJloxjg3ZgLZdh3uSaEKHSA7DknigJlS5PVtOky5KQin8o65GEzMMHIyE3cvsLUEsDBBQAAAgIAAAQIez3megcbAAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM00lFQSi9KLMgoBooYgjilmSkgdrRSUpKlqZFhqgUQpSSmJprqppkbGBoaW5gnGqUlGxhapinFAtWXVBak+iXmpkL0BCSWZKRl5qVk5qXruRdlpriDjFaKrQUAUEsBAi0AFAAACAgAABAh7Dv0TdtHAgAA7wQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABAh7PeZ6BxsAAAAeAAAAAkAJAAAAAAAAAAAAAAAlAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABLAwAAAAA=
+      objectReference: {fileID: 0}
     - target: {fileID: 8059234859243079037, guid: 4efc7a8a98c2a054c86d3120325ed168,
         type: 3}
       propertyPath: m_Name
