@@ -69,7 +69,7 @@ public class BaseEnemy : MonoBehaviour
             if (agent.remainingDistance <= rangeToShoot)
             {
                 agent.isStopped = true;
-                StartCoroutine (PointPlayer ());
+                PointPlayer ();
                 OnShoot.Invoke ();
             }
             else
@@ -79,17 +79,15 @@ public class BaseEnemy : MonoBehaviour
             yield return null;
         }
     }
-    IEnumerator PointPlayer ()
+    void PointPlayer ()
     {
-        while (agent.isStopped)
-        {
+        Vector3 target = StaticInfo.PlayerPos;
+        target.y = enemyTransform.position.y;
+        Vector3 dir = (target - enemyTransform.position).normalized;
 
-            Vector3 dir = (agent.destination - transform.position).normalized;
-            Quaternion newRot = Quaternion.LookRotation (dir);
-
-            enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
-            yield return null;
-        }
+        Quaternion newRot = Quaternion.LookRotation (dir, Vector3.up);
+        enemyTransform.rotation = newRot;
+        enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);      
     }
 
     private void OnDrawGizmosSelected ()
