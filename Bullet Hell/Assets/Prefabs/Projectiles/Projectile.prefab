@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 6684052639383496632}
   - component: {fileID: 6254828685379327242}
   - component: {fileID: -6670924257617799745}
-  - component: {fileID: -2245328920020491002}
+  - component: {fileID: 8685100836214350195}
   m_Layer: 12
   m_Name: Projectile
   m_TagString: Untagged
@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6684052639383496635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.457}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4390318201113958649}
@@ -138,16 +138,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entryName: Projectile
---- !u!135 &-2245328920020491002
-SphereCollider:
+--- !u!58 &8685100836214350195
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6684052639383496635}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

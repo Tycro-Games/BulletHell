@@ -12,9 +12,11 @@ public class PlayerShooting : MonoBehaviour
    
     public void Shoot (InputAction.CallbackContext ctx)
     {
+
         pressing = ctx.ReadValue<float> () == 1 ? true : false;
         if (pressing)
         {
+
             if (!shooting)
             {
                 shooting = true;
