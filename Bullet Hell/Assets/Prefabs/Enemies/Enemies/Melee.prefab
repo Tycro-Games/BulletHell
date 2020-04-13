@@ -92,11 +92,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
+  speedRotation: 180
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
   rangeToShoot: 5
-  speedRotation: 180
 --- !u!135 &2065686052
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7013464988628411246}
-  - component: {fileID: 5024868578515485739}
+  - component: {fileID: 7446405157909712669}
   - component: {fileID: 347021905}
   - component: {fileID: 347021906}
   m_Layer: 11
@@ -145,7 +145,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5024868578515485739
+--- !u!114 &7446405157909712669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7013464988628411245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23663ab635345e94f97731a43be54da4, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f592b203f5c3bc40a7d115c9f8b4ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
