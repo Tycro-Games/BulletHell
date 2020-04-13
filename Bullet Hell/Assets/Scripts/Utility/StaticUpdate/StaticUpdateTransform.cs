@@ -6,4 +6,5 @@ public class StaticUpdateTransform : MonoBehaviour
     {
         StaticInfo.GetPos (transform);
     }
+
 }

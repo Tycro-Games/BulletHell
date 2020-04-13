@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         while (true)
         {
-            Vector3 dir = (CursorController.MousePosition () - transform.position).normalized;
+            Vector3 dir = (CursorController.MousePosition (0) - transform.position).normalized;
             Quaternion newRotation = Quaternion.LookRotation (dir, transform.up);
 
             transformToRotate.rotation = Quaternion.RotateTowards (previousTransform.rotation, newRotation, RotationSpeed);

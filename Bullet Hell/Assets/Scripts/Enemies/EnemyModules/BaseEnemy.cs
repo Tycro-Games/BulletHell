@@ -14,10 +14,11 @@ public class BaseEnemy : MonoBehaviour
     private void Awake ()
     {
         agent = GetComponentInParent<NavMeshAgent> ();
+        enemyTransform = agent.transform;
     }
     void Start ()
     {
-        enemyTransform = agent.transform;
+        
     }
     private void Update ()
     {
@@ -69,7 +70,7 @@ public class BaseEnemy : MonoBehaviour
             if (agent.remainingDistance <= rangeToShoot)
             {
                 agent.isStopped = true;
-                PointPlayer ();
+                StartCoroutine(PointPlayer ());
                 OnShoot.Invoke ();
             }
             else
@@ -79,15 +80,15 @@ public class BaseEnemy : MonoBehaviour
             yield return null;
         }
     }
-    void PointPlayer ()
+    IEnumerator PointPlayer ()
     {
         Vector3 target = StaticInfo.PlayerPos;
         target.y = enemyTransform.position.y;
         Vector3 dir = (target - enemyTransform.position).normalized;
 
         Quaternion newRot = Quaternion.LookRotation (dir, Vector3.up);
-        enemyTransform.rotation = newRot;
-        enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);      
+        enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
+        yield return null;
     }
 
     private void OnDrawGizmosSelected ()

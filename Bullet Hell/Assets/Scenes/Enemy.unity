@@ -128,6 +128,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 287784754, guid: 957985795e27b184cac6db75b4ed723d, type: 3}
+      propertyPath: speedRotation
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 4685291052926866945, guid: 957985795e27b184cac6db75b4ed723d,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -309,9 +313,9 @@ MonoBehaviour:
   - {x: 0.36721, y: 0.3672101, z: 0}
   - {x: -0.36721, y: 0.3672101, z: 0}
   m_ShapePathHash: 0
-  m_Mesh: {fileID: 1333369192}
-  m_InstanceId: -45032
---- !u!43 &1333369192
+  m_Mesh: {fileID: 1327409669}
+  m_InstanceId: 18656
+--- !u!43 &1327409669
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -509,7 +513,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

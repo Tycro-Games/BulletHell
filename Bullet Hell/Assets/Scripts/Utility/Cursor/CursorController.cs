@@ -38,11 +38,11 @@ public class CursorController : MonoBehaviour
         transform.rotation = rot;
     }
 
-  public static Vector3 MousePosition ()
+    public static Vector3 MousePosition (float height=5)
     {
         Vector3 CursorPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-        CursorPos.y = 0;
-        return CursorPos;
+        CursorPos.y = height;
+          return CursorPos;
     }
 
     Vector3 Normalize ()
@@ -57,7 +57,7 @@ public class CursorController : MonoBehaviour
     private void OnDrawGizmos ()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere (StaticInfo.PlayerPos, radius);
+        Gizmos.DrawWireSphere (transform.position, radius);
     }
 
 }
