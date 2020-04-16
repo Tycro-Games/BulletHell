@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8847329516831224529}
   - component: {fileID: 1911898530}
-  - component: {fileID: 2065686052}
+  - component: {fileID: 1860308898}
   m_Layer: 0
   m_Name: Atack
   m_TagString: Untagged
@@ -92,24 +92,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
+  speedRotation: 180
+  TrueIfFacing:
+    serializedVersion: 2
+    m_Bits: 0
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
   rangeToShoot: 5
-  speedRotation: 180
---- !u!135 &2065686052
-SphereCollider:
+--- !u!58 &1860308898
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3730561933420867566}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7013464988628411245
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +127,7 @@ GameObject:
   - component: {fileID: 7013464988628411246}
   - component: {fileID: 5024868578515485739}
   - component: {fileID: 347021905}
-  - component: {fileID: 347021906}
+  - component: {fileID: 1860308896}
   m_Layer: 11
   m_Name: Melee
   m_TagString: Untagged
@@ -181,19 +187,22 @@ NavMeshAgent:
   m_BaseOffset: 0.52
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &347021906
-BoxCollider:
+--- !u!58 &1860308896
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7013464988628411245}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
 --- !u!1 &7013464989341928132
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,26 +32,25 @@ public class CursorController : MonoBehaviour
     }
     void RotateToTarget ()
     {
-        Vector3 relativePos = (StaticInfo.PlayerPos - transform.position).normalized;
+        Vector2 relativePos = (StaticInfo.PlayerPos - transform.position).normalized;
 
         Quaternion rot = Quaternion.LookRotation (transform.forward, -relativePos);
         transform.rotation = rot;
     }
 
-    public static Vector3 MousePosition (float height=5)
+    public static Vector2 MousePosition ()
     {
-        Vector3 CursorPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-        CursorPos.y = height;
+        Vector2 CursorPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
           return CursorPos;
     }
 
-    Vector3 Normalize ()
+    Vector2 Normalize ()
     {
-        Vector3 dist = transform.position - StaticInfo.PlayerPos;
+        Vector2 dist = transform.position - StaticInfo.PlayerPos;
 
-        dist = Vector3.ClampMagnitude (dist, radius);
+        dist = Vector2.ClampMagnitude (dist, radius);
         if (LocalToPlayer)
-            dist += StaticInfo.PlayerPos;
+            dist +=(Vector2) StaticInfo.PlayerPos;
         return dist;
     }
     private void OnDrawGizmos ()

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Collider2D))]
 public class EnemyAIStats : CommonStats, IHitable
 {
     //this script kills you

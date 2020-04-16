@@ -12,9 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float RotationSpeed = 10.0f;
     [SerializeField]
     private float speedMovement = 0.0f;
-    Rigidbody rb;
-    [SerializeField]
-    private float Height = 0.0f;
+    Rigidbody2D rb;
 
     //Input
     private Camera cam;
@@ -26,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         cam = Camera.main;
 
-        rb = GetComponent<Rigidbody> ();
+        rb = GetComponent<Rigidbody2D> ();
 
         StartCoroutine (Rotate (transformToTurn));
 
@@ -41,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Move ()
     {
-        Vector3 move = new Vector3 (movement.x, Height, movement.y);
+        Vector2 move = movement;
         move *= Time.fixedDeltaTime * speedMovement;
         rb.MovePosition (rb.position + move);
 
@@ -55,12 +53,12 @@ public class PlayerMovement : MonoBehaviour
 
         while (true)
         {
-            Vector3 dir = (CursorController.MousePosition (0) - transform.position).normalized;
+            Vector2 dir = (CursorController.MousePosition () -(Vector2) transform.position).normalized;
             Quaternion newRotation = Quaternion.LookRotation (dir, transform.up);
 
             transformToRotate.rotation = Quaternion.RotateTowards (previousTransform.rotation, newRotation, RotationSpeed);
 
-            transformToRotate.RotateAround (transform.position, Vector3.up, Vector3.SignedAngle (transformToRotate.localPosition,dir,Vector3.up));
+            transformToRotate.RotateAround (transform.position, Vector3.forward, Vector2.SignedAngle (transformToRotate.localPosition,dir));
 
 
             yield return null;

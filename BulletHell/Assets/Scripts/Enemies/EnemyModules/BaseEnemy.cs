@@ -2,7 +2,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
-[RequireComponent (typeof (Collider))]
+using UnityEngine.SocialPlatforms;
+
+[RequireComponent (typeof (Collider2D))]
 public class BaseEnemy : MonoBehaviour
 {
     private NavMeshAgent agent = null;
@@ -11,15 +13,14 @@ public class BaseEnemy : MonoBehaviour
     private float TimeBetweenAtacks = .5f;
     [SerializeField]
     private float speedRotation = 180.0f;
+    [SerializeField]
+    private LayerMask TrueIfFacing = new LayerMask ();
     private void Awake ()
     {
         agent = GetComponentInParent<NavMeshAgent> ();
         enemyTransform = agent.transform;
     }
-    void Start ()
-    {
-        
-    }
+
     private void Update ()
     {
         if (enabled)
@@ -67,39 +68,56 @@ public class BaseEnemy : MonoBehaviour
         while (OnShoot != null && OnHit != null)
         {
 
-            if (agent.remainingDistance <= rangeToShoot)
+            if (agent.remainingDistance <= rangeToShoot)//in range
             {
-                agent.isStopped = true;
-                StartCoroutine(PointPlayer ());
-                OnShoot.Invoke ();
+
+                StartCoroutine (PointPlayer ());
+                if (isFacingPlayer ()) //if you face the player shoot
+                {
+                    agent.isStopped = true;
+                    OnShoot.Invoke ();
+                }
+                else
+                {
+                    agent.isStopped = false;//go to player
+                }
             }
             else
-            {
-                agent.isStopped = false;
-            }
+                agent.isStopped = false;//go to player
+
+
             yield return null;
+
         }
     }
-    IEnumerator PointPlayer ()
-    {
-        Vector3 target = StaticInfo.PlayerPos;
-        target.y = enemyTransform.position.y;
-        Vector3 dir = (target - enemyTransform.position).normalized;
+        bool isFacingPlayer ()
+        {
+            RaycastHit2D ray = Physics2D.Raycast (enemyTransform.position, enemyTransform.forward, rangeToShoot, TrueIfFacing);
+            Debug.DrawRay (enemyTransform.position, enemyTransform.forward * rangeToShoot, Color.blue);
+            if (ray.collider != null)
+                return true;
+            else
+                return false;
+        }
+        IEnumerator PointPlayer ()
+        {
+            Vector2 target = StaticInfo.PlayerPos;
+            Vector2 dir = (target - (Vector2)enemyTransform.position).normalized;
 
-        Quaternion newRot = Quaternion.LookRotation (dir, Vector3.up);
-        enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
-        yield return null;
-    }
+            Quaternion newRot = Quaternion.LookRotation (dir, Vector2.up);
+            enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
+            yield return null;
+        }
 
-    private void OnDrawGizmosSelected ()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere (transform.position, rangeToShoot);
-    }
+        private void OnDrawGizmosSelected ()
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere (transform.position, rangeToShoot);
+        }
     #endregion
 
-    #region atack proximity
-    //Damage PlayerEvent
+        #region atack proximity
+        //Damage PlayerEvent
 
     public delegate void Onhit (int dg);
     public static event Onhit OnHit;
@@ -107,12 +125,12 @@ public class BaseEnemy : MonoBehaviour
     [Header ("Damge Proximity")]
     private bool damageProxy;
     private bool inRange = false;
-    private void OnTriggerEnter (Collider collision)
+    private void OnTriggerEnter2D (Collider2D collision)
     {
         //Enemies layer can only interact with the player
         inRange = true;
     }
-    private void OnTriggerExit (Collider collision)
+    private void OnTriggerExit2D (Collider2D collision)
     {
         //Enemies layer can only interact with the player
         inRange = false;

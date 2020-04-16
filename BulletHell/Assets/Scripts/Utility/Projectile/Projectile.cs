@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
-[RequireComponent (typeof (SphereCollider))]
+[RequireComponent (typeof (CircleCollider2D))]
 public class Projectile : MonoBehaviour
 {
     private LayerMask collideableLayer;
     private float speed = 10.0f;
     private float velocity = 0.0f;
     private float thickness = 0.25f;
-    private SphereCollider col = null;
+    private CircleCollider2D col = null;
 
     private int damage;
     private bool destroyed = false;
@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
     }
     private void Awake ()
     {
-        col = GetComponent<SphereCollider> ();
+        col = GetComponent<CircleCollider2D> ();
         thickness = col.radius;
     }
     private void Update ()
@@ -59,14 +59,13 @@ public class Projectile : MonoBehaviour
     }
     void CheckSoroundings (float veloc)
     {
-        RaycastHit hit;
-        Ray ray = new Ray (transform.position, transform.forward);
-        if (Physics.Raycast (ray, out hit, veloc + thickness, collideableLayer))
+        RaycastHit2D hit = Physics2D.CircleCast (transform.position, thickness, transform.up, veloc, collideableLayer);
+        if (hit.collider != null)
         {
             HitObject (hit.collider, hit.point);
         }
     }
-    void HitObject (Collider col, Vector3 pointHit)
+    void HitObject (Collider2D col, Vector2 pointHit)
     {
         IHitable hit = col.GetComponent<IHitable> ();
         if (col.tag != "Player")
@@ -87,8 +86,8 @@ public class Projectile : MonoBehaviour
 
     void CheckStart ()
     {
-        Collider[] colliders = new Collider[10];
-        int cols = Physics.OverlapSphereNonAlloc (transform.position, thickness, colliders, collideableLayer);
+        Collider2D[] colliders = new Collider2D[10];
+        int cols = Physics2D.OverlapCircleNonAlloc (transform.position, thickness, colliders, collideableLayer);
         if (cols > 0)
         {
             HitObject (colliders[0], transform.position);

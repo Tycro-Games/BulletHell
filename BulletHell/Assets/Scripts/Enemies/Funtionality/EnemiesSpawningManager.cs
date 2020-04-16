@@ -50,7 +50,7 @@ public static class EnemiesSpawningManager
         Object.Destroy (enemySpawner.gameObject);
 
     }
-    public static void AddASpawner (Vector3 pos, GameObject Spawner)
+    public static void AddASpawner (Vector2 pos, GameObject Spawner)
     {
         GameObject enemySpawnerGameObject = Object.Instantiate (Spawner, pos, Quaternion.identity);
         enemySpawnerGameObject.transform.SetParent (EnemySpawnersParent);
