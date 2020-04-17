@@ -15,6 +15,11 @@ public class BaseEnemy : MonoBehaviour
     private float speedRotation = 180.0f;
     [SerializeField]
     private LayerMask TrueIfFacing = new LayerMask ();
+    [Header("Booleans")]
+    [SerializeField]
+    private bool Non_Moveable = false;
+    [SerializeField]
+    private bool StopAndShoot = false;
     private void Awake ()
     {
         agent = GetComponentInParent<NavMeshAgent> ();
@@ -23,7 +28,7 @@ public class BaseEnemy : MonoBehaviour
 
     private void Update ()
     {
-        if (enabled)
+        if (enemyTransform.gameObject.activeInHierarchy)
             agent.SetDestination (StaticInfo.PlayerPos);
     }
     public void Init (bool Shoot, bool Proxy, float repathSpeed)
@@ -67,17 +72,19 @@ public class BaseEnemy : MonoBehaviour
 
         while (OnShoot != null && OnHit != null)
         {
-
+            
             if (agent.remainingDistance <= rangeToShoot)//in range
             {
 
-                StartCoroutine (PointPlayer ());
+
+                PointPlayer ();
+                
                 if (isFacingPlayer ()) //if you face the player shoot
                 {
                     agent.isStopped = true;
                     OnShoot.Invoke ();
                 }
-                else
+                else if(!StopAndShoot)
                 {
                     agent.isStopped = false;//go to player
                 }
@@ -85,7 +92,8 @@ public class BaseEnemy : MonoBehaviour
             else
                 agent.isStopped = false;//go to player
 
-
+            if (Non_Moveable)
+                agent.isStopped = true;
             yield return null;
 
         }
@@ -99,14 +107,13 @@ public class BaseEnemy : MonoBehaviour
             else
                 return false;
         }
-        IEnumerator PointPlayer ()
+        void PointPlayer ()
         {
             Vector2 target = StaticInfo.PlayerPos;
             Vector2 dir = (target - (Vector2)enemyTransform.position).normalized;
 
             Quaternion newRot = Quaternion.LookRotation (dir, Vector2.up);
             enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
-            yield return null;
         }
 
         private void OnDrawGizmosSelected ()
@@ -141,7 +148,7 @@ public class BaseEnemy : MonoBehaviour
         while (OnHit != null)
         {
 
-            if (!PlayerStats.atacked && inRange && damageProxy && gameObject.activeSelf)
+            if (!PlayerStats.atacked && inRange && damageProxy && gameObject.activeInHierarchy)
             //translation: the player cand take damage, is in range and you've set true, the damage proximity bool
             {
                 OnHit (stats.Damage);
