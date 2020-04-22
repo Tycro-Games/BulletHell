@@ -183,8 +183,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4773802725013691521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3.38}
-  m_LocalScale: {x: 0.16389, y: 0.16389, z: 0.16389}
+  m_LocalPosition: {x: 0.737, y: 0.167, z: -3.38}
+  m_LocalScale: {x: 0.8042875, y: 0.8042875, z: 0.64343}
   m_Children: []
   m_Father: {fileID: 173040609033567662}
   m_RootOrder: 2
@@ -201,8 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93458017fe0a03a4689c602cd1ae25d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateToPlayer: 1
-  NormalizePos: 0
   LocalToPlayer: 1
   radius: 2
 --- !u!212 &7736320727861754020
@@ -244,12 +242,12 @@ SpriteRenderer:
   m_SortingLayerID: -153197839
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9cb7b6aa112111e4d8e4a3c8c238cc7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b9d6563e0426e74d9766ac0103c01a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -300,6 +298,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 605830113828030283, guid: 3dd9a9968bad06740997d0314e065c29,
+        type: 3}
+      propertyPath: speedMovement
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 605830113828030285, guid: 3dd9a9968bad06740997d0314e065c29,
         type: 3}

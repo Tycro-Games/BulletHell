@@ -6,12 +6,6 @@ public class CursorController : MonoBehaviour
 {
     private PlayerInput input;
     [SerializeField]
-    private bool RotateToPlayer = true;
-    [SerializeField]
-    private bool NormalizePos = true;
-    [SerializeField]
-    private bool LocalToPlayer = true;
-    [SerializeField]
     private float radius = 5.0f;
     private void Start ()
     {
@@ -22,36 +16,12 @@ public class CursorController : MonoBehaviour
     {
         if (input.currentControlScheme == "Keyboard+Mouse")
             transform.position = MousePosition ();
-
-
-        if (RotateToPlayer)
-            RotateToTarget ();
-
-        if (NormalizePos)
-            transform.position = Normalize ();
-    }
-    void RotateToTarget ()
-    {
-        Vector2 relativePos = (StaticInfo.PlayerPos - transform.position).normalized;
-
-        Quaternion rot = Quaternion.LookRotation (transform.forward, -relativePos);
-        transform.rotation = rot;
     }
 
     public static Vector2 MousePosition ()
     {
         Vector2 CursorPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
           return CursorPos;
-    }
-
-    Vector2 Normalize ()
-    {
-        Vector2 dist = transform.position - StaticInfo.PlayerPos;
-
-        dist = Vector2.ClampMagnitude (dist, radius);
-        if (LocalToPlayer)
-            dist +=(Vector2) StaticInfo.PlayerPos;
-        return dist;
     }
     private void OnDrawGizmos ()
     {

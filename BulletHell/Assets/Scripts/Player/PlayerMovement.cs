@@ -15,14 +15,15 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
 
     //Input
-    private Camera cam;
     private Vector2 movement;
-    private Quaternion newRotation;
-    private Vector2 Input;
-
+    private  Vector2 move;
+   public Vector2 GetMovement ()
+    {
+        return movement;
+    }
     void Start ()
     {
-        cam = Camera.main;
+
 
         rb = GetComponent<Rigidbody2D> ();
 
@@ -39,8 +40,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Move ()
     {
-        Vector2 move = movement;
+         move = movement;
         move *= Time.fixedDeltaTime * speedMovement;
+
         rb.MovePosition (rb.position + move);
 
     }
@@ -64,14 +66,6 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
     }
-   
-    public void SetRotationTurn (InputAction.CallbackContext ctx) //controller
-    {
-
-        Input = ctx.ReadValue<Vector2> ();
-
-
-        newRotation = Quaternion.LookRotation (transform.forward, Input);
-    }
+  
 
 }

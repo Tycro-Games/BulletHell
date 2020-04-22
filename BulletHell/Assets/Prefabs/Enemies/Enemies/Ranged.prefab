@@ -46,10 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
-  speedRotation: 180
+  speedRotation: 360
   TrueIfFacing:
     serializedVersion: 2
     m_Bits: 1024
+  Non_Moveable: 0
+  StopAndShoot: 1
   OnShoot:
     m_PersistentCalls:
       m_Calls:
@@ -65,6 +67,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rangeToShoot: 5
+  SpeedOfPrefire: 0
 --- !u!58 &66831343
 CircleCollider2D:
   m_ObjectHideFlags: 0
