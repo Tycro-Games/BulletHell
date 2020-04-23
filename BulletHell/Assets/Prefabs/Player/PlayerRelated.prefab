@@ -47,6 +47,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &249442554976695776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173040608097025455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb9d225b87453f4b82fe9a920c8e41c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointingSprite:
+  - sprite: {fileID: 21300000, guid: 505f0d80adec3344c8cd20d4417fa354, type: 3}
+    angle: 45
+  - sprite: {fileID: 21300000, guid: 5714b486dc83f3e44b719da6b3341228, type: 3}
+    angle: 90
+  - sprite: {fileID: 21300000, guid: 9f615545bdd31324281b85c2e6d55436, type: 3}
+    angle: 135
+  - sprite: {fileID: 21300000, guid: ed3dff29f92721b4aa19101c0974ca8b, type: 3}
+    angle: 180
+  - sprite: {fileID: 21300000, guid: c993084e2ee3f9243b14b4410288b6c8, type: 3}
+    angle: -45
+  - sprite: {fileID: 21300000, guid: 06cfd46281da64f4798ad1d8210e1411, type: 3}
+    angle: -90
+  - sprite: {fileID: 21300000, guid: e51a04730e4b0f8439b1d97389f4eaac, type: 3}
+    angle: -135
+  - sprite: {fileID: 0}
+    angle: -180
 --- !u!1 &173040609033567661
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93458017fe0a03a4689c602cd1ae25d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocalToPlayer: 1
   radius: 2
 --- !u!212 &7736320727861754020
 SpriteRenderer:
@@ -242,7 +270,7 @@ SpriteRenderer:
   m_SortingLayerID: -153197839
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1b9d6563e0426e74d9766ac0103c01a7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5bc6592bcf2af3488d33aa3a8ac7bce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
