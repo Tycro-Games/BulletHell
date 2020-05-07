@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+[RequireComponent (typeof (SpriteRenderer))]
 public class WeaponPointer : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private bool isFacingRight;
     [SerializeField]
-    private Sprite[] Sprites;
+    private Sprite[] Sprites = null;
 
     [SerializeField]
-    private Transform pos;
+    private Transform pos = null;
+
+
 
     private int symetryAngle = 0;
     private void Start ()
@@ -33,11 +36,18 @@ public class WeaponPointer : MonoBehaviour
         float angle = Vector2.Angle (Vector2.up, dir);
 
         int index = Mathf.RoundToInt (angle / symetryAngle);
-        if(!isFacingRight)
-        spriteRenderer.sprite = Sprites[index];
+        
+        if (index == 0)
+            spriteRenderer.sprite = Sprites[index];
         else
         {
-            spriteRenderer.sprite = Sprites[Sprites.Length-index];
+            if (!isFacingRight)
+                spriteRenderer.sprite = Sprites[index];
+            else
+            {
+
+                spriteRenderer.sprite = Sprites[Sprites.Length - index];
+            }
         }
     }
 }
