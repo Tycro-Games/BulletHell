@@ -15,6 +15,14 @@ public class BaseEnemy : MonoBehaviour
     private float speedRotation = 180.0f;
     [SerializeField]
     private LayerMask TrueIfFacing = new LayerMask ();
+    [SerializeField]
+    private bool NeedToFace = false;
+    [Header ("Booleans")]
+    [SerializeField]
+    private bool Non_Moveable = false;
+    [SerializeField]
+    private bool StopAndShoot = false;
+
     private void Awake ()
     {
         agent = GetComponentInParent<NavMeshAgent> ();
@@ -23,7 +31,7 @@ public class BaseEnemy : MonoBehaviour
 
     private void Update ()
     {
-        if (enabled)
+        if (enemyTransform.gameObject.activeInHierarchy)
             agent.SetDestination (StaticInfo.PlayerPos);
     }
     public void Init (bool Shoot, bool Proxy, float repathSpeed)
@@ -58,6 +66,8 @@ public class BaseEnemy : MonoBehaviour
     private UnityEvent OnShoot = null;
     [SerializeField]
     private float rangeToShoot = 5.0f;
+    [SerializeField]
+    private float SpeedOfPrefire = 1.5f;
 
 
     private Transform enemyTransform = null;
@@ -71,13 +81,15 @@ public class BaseEnemy : MonoBehaviour
             if (agent.remainingDistance <= rangeToShoot)//in range
             {
 
-                StartCoroutine (PointPlayer ());
-                if (isFacingPlayer ()) //if you face the player shoot
+
+                PointPlayer ();
+
+                if (isFacingPlayer () || NeedToFace) //if you face the player shoot
                 {
                     agent.isStopped = true;
                     OnShoot.Invoke ();
                 }
-                else
+                else if (!StopAndShoot)
                 {
                     agent.isStopped = false;//go to player
                 }
@@ -85,39 +97,43 @@ public class BaseEnemy : MonoBehaviour
             else
                 agent.isStopped = false;//go to player
 
-
+            if (Non_Moveable)
+                agent.isStopped = true;
             yield return null;
 
         }
     }
-        bool isFacingPlayer ()
-        {
-            RaycastHit2D ray = Physics2D.Raycast (enemyTransform.position, enemyTransform.forward, rangeToShoot, TrueIfFacing);
-            Debug.DrawRay (enemyTransform.position, enemyTransform.forward * rangeToShoot, Color.blue);
-            if (ray.collider != null)
-                return true;
-            else
-                return false;
-        }
-        IEnumerator PointPlayer ()
-        {
-            Vector2 target = StaticInfo.PlayerPos;
-            Vector2 dir = (target - (Vector2)enemyTransform.position).normalized;
+    bool isFacingPlayer ()
+    {
 
-            Quaternion newRot = Quaternion.LookRotation (dir, Vector2.up);
-            enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
-            yield return null;
-        }
+        RaycastHit2D ray = Physics2D.Raycast (enemyTransform.position, enemyTransform.forward, rangeToShoot, TrueIfFacing);
+        Debug.DrawRay (enemyTransform.position, enemyTransform.forward * rangeToShoot, Color.blue);
+        if (ray.collider != null)
+            return true;
+        else
+            return false;
+    }
+    void PointPlayer ()
+    {
+        Vector2 target = (Vector2)StaticInfo.PlayerPos + StaticInfo.VelocityOfPlayer * SpeedOfPrefire;
+        Vector2 dir = (target - (Vector2)enemyTransform.position).normalized;
 
-        private void OnDrawGizmosSelected ()
-        {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere (transform.position, rangeToShoot);
-        }
+        Debug.DrawLine (enemyTransform.position, (Vector2)enemyTransform.position + dir);
+
+        Quaternion newRot = Quaternion.LookRotation (dir, enemyTransform.up);
+
+        enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
+    }
+
+    private void OnDrawGizmosSelected ()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere (transform.position, rangeToShoot);
+    }
     #endregion
 
-        #region atack proximity
-        //Damage PlayerEvent
+    #region atack proximity
+    //Damage PlayerEvent
 
     public delegate void Onhit (int dg);
     public static event Onhit OnHit;
@@ -141,7 +157,7 @@ public class BaseEnemy : MonoBehaviour
         while (OnHit != null)
         {
 
-            if (!PlayerStats.atacked && inRange && damageProxy && gameObject.activeSelf)
+            if (!PlayerStats.atacked && inRange && damageProxy && gameObject.activeInHierarchy)
             //translation: the player cand take damage, is in range and you've set true, the damage proximity bool
             {
                 OnHit (stats.Damage);

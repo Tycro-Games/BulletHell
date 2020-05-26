@@ -1,0 +1,488 @@
+fileFormatVersion: 2
+guid: 651f750ea014b954f9a5b941110a6e49
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8485099708340494012
+    second: WalkWithoutLegsFront_0
+  - first:
+      213: 2384570600174338497
+    second: WalkWithoutLegsFront_1
+  - first:
+      213: 1194792434579724313
+    second: WalkWithoutLegsFront_2
+  - first:
+      213: -9204495159339555718
+    second: WalkWithoutLegsFront_3
+  - first:
+      213: 4179613082837394496
+    second: WalkWithoutLegsFront_4
+  - first:
+      213: 8976617577681768661
+    second: WalkWithoutLegsFront_5
+  - first:
+      213: 7430908092740704102
+    second: WalkWithoutLegsFront_6
+  - first:
+      213: -6846244750960418388
+    second: WalkWithoutLegsFront_7
+  - first:
+      213: -7909522281678790226
+    second: WalkWithoutLegsFront_8
+  - first:
+      213: -1163534843624948263
+    second: WalkWithoutLegsFront_9
+  - first:
+      213: 5147650450722311651
+    second: WalkWithoutLegsFront_10
+  - first:
+      213: -348227396705350320
+    second: WalkWithoutLegsFront_11
+  - first:
+      213: -1834790442959332718
+    second: WalkWithoutLegsFront_12
+  - first:
+      213: 4946307358265630495
+    second: WalkWithoutLegsFront_13
+  - first:
+      213: -2980706752850594720
+    second: WalkWithoutLegsFront_14
+  - first:
+      213: 5781687024211548010
+    second: WalkWithoutLegsFront_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 30
+        width: 54
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 441289075cede3a80800000000000000
+      internalID: -8485099708340494012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_1
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 30
+        width: 54
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c14b3da352b71120800000000000000
+      internalID: 2384570600174338497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_2
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 29
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 918d2739361c49010800000000000000
+      internalID: 1194792434579724313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_3
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 29
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7463ca8b60134080800000000000000
+      internalID: -9204495159339555718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_4
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 28
+        width: 54
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044291d44f7f00a30800000000000000
+      internalID: 4179613082837394496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_5
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 28
+        width: 54
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0df32702a539c70800000000000000
+      internalID: 8976617577681768661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_6
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 29
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 667926a2a83ef1760800000000000000
+      internalID: 7430908092740704102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_7
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 29
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca12f950ca04df0a0800000000000000
+      internalID: -6846244750960418388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_8
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 30
+        width: 54
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea1af79246bbb3290800000000000000
+      internalID: -7909522281678790226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_9
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 30
+        width: 54
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ddf1f1793b4adfe0800000000000000
+      internalID: -1163534843624948263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_10
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 29
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3edce2fbfc0207740800000000000000
+      internalID: 5147650450722311651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_11
+      rect:
+        serializedVersion: 2
+        x: 1821
+        y: 29
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d81561709da2bf0800000000000000
+      internalID: -348227396705350320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_12
+      rect:
+        serializedVersion: 2
+        x: 1981
+        y: 28
+        width: 54
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29a902230d38986e0800000000000000
+      internalID: -1834790442959332718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_13
+      rect:
+        serializedVersion: 2
+        x: 2141
+        y: 28
+        width: 54
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1fd25fe550d4a440800000000000000
+      internalID: 4946307358265630495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_14
+      rect:
+        serializedVersion: 2
+        x: 2301
+        y: 29
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0647bb0300762a6d0800000000000000
+      internalID: -2980706752850594720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WalkWithoutLegsFront_15
+      rect:
+        serializedVersion: 2
+        x: 2461
+        y: 29
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a675d9047bdac3050800000000000000
+      internalID: 5781687024211548010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
