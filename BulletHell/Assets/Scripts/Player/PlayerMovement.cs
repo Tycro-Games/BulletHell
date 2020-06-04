@@ -9,15 +9,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform transformToTurn = null;
     [SerializeField]
-    private float RotationSpeed = 10.0f;
-    [SerializeField]
     private float speedMovement = 0.0f;
     Rigidbody2D rb;
 
+    [Header ("Dash")]
+    public float DashMultiplier = 1.0f;
+    public float DashCooldown = 1.0f;
+
     //Input
     private Vector2 movement;
-    private  Vector2 move;
-   public Vector2 GetMovement ()
+    private Vector2 move;
+    public Vector2 GetMovement ()
     {
         return movement;
     }
@@ -28,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D> ();
 
         StartCoroutine (Rotate (transformToTurn));
-
+        StartCoroutine (Dash ());
     }
     private void FixedUpdate ()
     {
@@ -38,9 +40,24 @@ public class PlayerMovement : MonoBehaviour
     {
         movement = ctx.ReadValue<Vector2> ();
     }
+    public IEnumerator Dash ()
+    {
+        while (true)
+        {
+            if (Input.GetKeyDown (KeyCode.Space))
+            {
+                rb.position = (rb.position + DashMultiplier * movement);
+
+                yield return new WaitForSeconds (DashCooldown);
+            }
+            else
+                yield return null;
+        }
+
+    }
     private void Move ()
     {
-         move = movement;
+        move = movement;
         move *= Time.fixedDeltaTime * speedMovement;
 
         rb.MovePosition (rb.position + move);
@@ -49,23 +66,22 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Rotate (Transform transformToRotate)
     {
 
-        Transform previousTransform = transformToRotate;//save the transform
+        Vector2 dir = (CursorController.MousePosition () - (Vector2)transform.position).normalized;
+        Quaternion newRotation = Quaternion.LookRotation (dir, transform.up);
 
-        PlayerInput that = GetComponentInParent<PlayerInput> ();//ref to the player input
-
+        transformToRotate.rotation = newRotation;
         while (true)
         {
-            Vector2 dir = (CursorController.MousePosition () -(Vector2) transform.position).normalized;
-            Quaternion newRotation = Quaternion.LookRotation (dir, transform.up);
+             dir = (CursorController.MousePosition () - (Vector2)transform.position).normalized;
+             newRotation = Quaternion.LookRotation (dir, transform.up);
 
-            transformToRotate.rotation = Quaternion.RotateTowards (previousTransform.rotation, newRotation, RotationSpeed);
+            transformToRotate.RotateAround (transform.position, Vector3.forward, Vector2.SignedAngle (transformToRotate.localPosition, dir));
 
-            transformToRotate.RotateAround (transform.position, Vector3.forward, Vector2.SignedAngle (transformToRotate.localPosition,dir));
-
+            transformToRotate.rotation = newRotation;
 
             yield return null;
         }
     }
-  
+
 
 }

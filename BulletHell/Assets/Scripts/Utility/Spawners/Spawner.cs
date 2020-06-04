@@ -3,11 +3,11 @@
 public class Spawner
 {
 
-    public static GameObject Spawn (GameObject ObjectToSpawn, Transform transform, Transform parentTransform = null)
+    public static GameObject Spawn (GameObject ObjectToSpawn, Vector2 pos, Quaternion rot, Transform parentTransform = null)
     {
-        GameObject spawnedObject = PoolingObjectsSystem.Instantiate (ObjectToSpawn, transform.position, transform.rotation);
+        GameObject spawnedObject = PoolingObjectsSystem.Instantiate (ObjectToSpawn, pos, rot);
 
-        if (parentTransform!=null)
+        if (parentTransform != null)
             spawnedObject.transform.SetParent (parentTransform);
         return spawnedObject;
     }
