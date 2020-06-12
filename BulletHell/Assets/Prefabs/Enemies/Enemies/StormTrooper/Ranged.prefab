@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3473290747435577660}
-  - component: {fileID: 287784754}
   - component: {fileID: 66831343}
+  - component: {fileID: 8898526795849874519}
+  - component: {fileID: 3302972092805458196}
   m_Layer: 0
   m_Name: Atack
   m_TagString: Untagged
@@ -33,41 +34,6 @@ Transform:
   m_Father: {fileID: 4513914929474548416}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &287784754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097935039129421300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f4b805186997c4c804a19bbd625732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
-  speedRotation: 360
-  TrueIfFacing:
-    serializedVersion: 2
-    m_Bits: 1024
-  Non_Moveable: 0
-  StopAndShoot: 1
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4685291052926866946}
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  rangeToShoot: 5
-  SpeedOfPrefire: 0
 --- !u!58 &66831343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -84,6 +50,56 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &8898526795849874519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097935039129421300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad48791c4ec1aa4cb6d9985b16120db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4685291052926866946}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  rangeToShoot: 5
+  SpeedOfPrefire: 0.5
+  StopAndShoot: 1
+  Non_Moveable: 0
+  NeedToFace: 0
+  TrueIfFacing:
+    serializedVersion: 2
+    m_Bits: 1024
+  speedRotation: 180
+--- !u!114 &3302972092805458196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097935039129421300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703ad8dc402b3bd4bbd079aac6cf8dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
+  TimeBetweenAtacks: 0.5
+  damageProxy: 0
 --- !u!1 &3801900218337664386
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,9 +144,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2457722f804de5d429656214a9f40ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shooting: 1
-  damageProximity: 1
-  RepathSpeed: 0.75
+  Rotate: 0
+  ToStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8898526795849874519}
+        m_MethodName: ToStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3302972092805458196}
+        m_MethodName: ToStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  RepathSpeed: 0.1
 --- !u!1 &4685291052926866944
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 11400000, guid: cb753a812be4b3b48b0279b0840eead4, type: 2}
   projectiles: {fileID: 0}
+  offset: 1
   CollideableMask:
     serializedVersion: 2
     m_Bits: 1024

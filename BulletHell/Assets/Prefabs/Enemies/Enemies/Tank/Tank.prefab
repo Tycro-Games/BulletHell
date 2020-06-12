@@ -96,10 +96,15 @@ MonoBehaviour:
   TrueIfFacing:
     serializedVersion: 2
     m_Bits: 0
+  NeedToFace: 0
+  Non_Moveable: 0
+  StopAndShoot: 0
+  Rotate: 0
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
   rangeToShoot: 5
+  SpeedOfPrefire: 1.5
 --- !u!58 &1860308898
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -129,7 +134,7 @@ GameObject:
   - component: {fileID: 347021905}
   - component: {fileID: 1860308896}
   m_Layer: 11
-  m_Name: Melee
+  m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -175,8 +180,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 1
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0.2

@@ -29,12 +29,11 @@ public class PlayerStats : CommonStats, IHitable
     }
     private void OnEnable ()
     {
-        BaseEnemy.OnHit += TakeDamage;
-
+        EnemyController.HitEvent += TakeDamage;
     }
     private void OnDisable ()
     {
-        BaseEnemy.OnHit -= TakeDamage;
+        EnemyController.HitEvent -= TakeDamage;
 
     }
     public void TakeDamage (int dg)
