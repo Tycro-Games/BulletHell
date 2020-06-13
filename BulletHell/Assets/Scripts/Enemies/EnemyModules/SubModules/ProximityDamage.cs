@@ -14,7 +14,7 @@ public class ProximityDamage : BaseEnemy
     protected float TimeBetweenAtacks = .5f;
 
     [SerializeField]
-    private bool damageProxy=false;
+    private bool damageProxy=true;
 
     private bool inRange = false;
     private void OnTriggerEnter2D (Collider2D collision)

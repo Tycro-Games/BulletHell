@@ -26,7 +26,10 @@ public class BulletSpawner : MonoBehaviour
         {
             currentTime = Time.time + 1 / projectile.FirePerSecond;
 
-            Projectile projectileInit = Spawner.Spawn (projectile.projectilePrefab, transform.position + transform.forward * offset, transform.rotation, projectiles).GetComponent<Projectile> ();
+            Projectile projectileInit = Spawner.Spawn (projectile.projectilePrefab,
+                transform.position + transform.forward * offset,
+                transform.rotation,
+                projectiles).GetComponent<Projectile> ();
             projectileInit.Init (projectile.speed, projectile.damage, CollideableMask);
         }
 
