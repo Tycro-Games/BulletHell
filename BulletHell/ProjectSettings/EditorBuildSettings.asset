@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/EnemySpawners.unity
-    guid: 7c7ab1d24dd88164297ebfcaa16ebabe
+    path: Assets/Scenes/Player.unity
+    guid: d0d6760d7c16d8b4fb029c2f1e668f79
   m_configObjects: {}

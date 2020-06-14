@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2457722f804de5d429656214a9f40ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shooting: 0
-  damageProximity: 1
+  Rotate: 0
+  ToStart:
+    m_PersistentCalls:
+      m_Calls: []
   RepathSpeed: 0.1
 --- !u!1 &3730561933420867566
 GameObject:
@@ -56,7 +58,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8847329516831224529}
-  - component: {fileID: 1911898530}
   - component: {fileID: 1860308898}
   m_Layer: 0
   m_Name: Atack
@@ -79,32 +80,6 @@ Transform:
   m_Father: {fileID: 4186713285244602311}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1911898530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3730561933420867566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f4b805186997c4c804a19bbd625732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
-  speedRotation: 180
-  TrueIfFacing:
-    serializedVersion: 2
-    m_Bits: 0
-  NeedToFace: 0
-  Non_Moveable: 0
-  StopAndShoot: 0
-  Rotate: 0
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls: []
-  rangeToShoot: 5
-  SpeedOfPrefire: 1.5
 --- !u!58 &1860308898
 CircleCollider2D:
   m_ObjectHideFlags: 0
