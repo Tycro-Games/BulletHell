@@ -1,29 +1,43 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent (typeof (SpriteRenderer))]
 public class CursorController : MonoBehaviour
 {
+
     private PlayerInput input;
     [SerializeField]
     private float radius = 5.0f;
 
+    [SerializeField]
+    private float smooth = 5.0f;
+    [SerializeField]
+    private float speed = 5.0f;
 
+    private Vector2 velocity = Vector3.zero;
+
+    Transform cam = null;
     private void Start ()
     {
-        Cursor.visible = false;
+        cam = Camera.main.transform;
 
-        input = GetComponentInParent<PlayerInput> ();//ref to the player input
+        //Cursor.visible = false;
+
+        // input = GetComponentInParent<PlayerInput> ();//ref to the player input
     }
     private void Update ()
     {
-        if (input.currentControlScheme == "Keyboard+Mouse")
-            transform.position = MousePosition();
+        transform.position = MousePosition ();
+
+
+        //transform.position = Vector2.SmoothDamp (transform.position, MousePosition (), ref velocity, smooth);
+
     }
-   
     public static Vector2 MousePosition ()
     {
         Vector2 CursorPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+
         return CursorPos;
     }
     private void OnDrawGizmos ()

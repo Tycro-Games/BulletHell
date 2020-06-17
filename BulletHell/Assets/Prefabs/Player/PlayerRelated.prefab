@@ -441,7 +441,6 @@ GameObject:
   - component: {fileID: 4969260163026161472}
   - component: {fileID: 4521122283659631501}
   - component: {fileID: 7736320727861754020}
-  - component: {fileID: 5486462932266999553}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -476,7 +475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  MouseSensitivity: 1
+  smooth: 5
+  speed: 5
 --- !u!212 &7736320727861754020
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -527,27 +527,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &5486462932266999553
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4773802725013691521}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &6158417546478660539
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +621,7 @@ Animator:
   m_GameObject: {fileID: 6158417546478660539}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 34c2db95a7129464f867684087db42ba, type: 2}
+  m_Controller: {fileID: 9100000, guid: ee6a09f5cef03ae45935ed3678edef53, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
