@@ -92,7 +92,7 @@ Material:
     - _Surface: 0
     - _ZWrite: 1
     m_Colors:
-    - Color_6E4BB430: {r: 0, g: 1, b: 0.5137255, a: 0}
+    - Color_6E4BB430: {r: 0.18946455, g: 0.14042667, b: 0.060182862, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
