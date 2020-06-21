@@ -45,6 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rotate: 0
+  ToStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 358519889992804422}
+        m_MethodName: ToStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   RepathSpeed: 0.1
 --- !u!1 &3730561933420867566
 GameObject:
@@ -105,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
   TimeBetweenAtacks: 0.5
+  damageProxy: 1
 --- !u!58 &1860308898
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 7013464988628411245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.61, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4186713285244602311}
   - {fileID: 7013464989341928128}

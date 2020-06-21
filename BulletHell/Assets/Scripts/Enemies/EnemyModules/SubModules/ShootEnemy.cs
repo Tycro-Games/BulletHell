@@ -17,6 +17,10 @@ public class ShootEnemy : BaseEnemy
     private bool Non_Moveable = false;
     [SerializeField]
     private bool NeedToFace = false;
+
+    [Header("No Player")]
+    [SerializeField]
+    private bool NoDistantace = false;
     [SerializeField]
     private bool autoRotation = false;
     [SerializeField]
@@ -36,7 +40,7 @@ public class ShootEnemy : BaseEnemy
 
         while (OnShoot != null && EnemyController.HitEvent != null)
         {
-            if (agent.remainingDistance <= rangeToShoot)//in range
+            if (agent.remainingDistance <= rangeToShoot|| NoDistantace)//in range
             {
                 PointPlayer ();
 

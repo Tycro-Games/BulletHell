@@ -36,8 +36,6 @@ public class EnemyController : MonoBehaviour
         {
             atack[i].Init (RepathSpeed, enemyTransform, agent);
         }
-
-
     }
     private void Start ()
     {

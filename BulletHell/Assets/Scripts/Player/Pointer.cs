@@ -6,6 +6,9 @@ public class Pointer : MonoBehaviour
     [SerializeField]
     private bool IsRight = true;
 
+   
+    
+
     [SerializeField]
     private Transform Scale = null;
 
@@ -13,7 +16,11 @@ public class Pointer : MonoBehaviour
     private Transform ToRotate = null;
     private void Update ()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+        
+    }
+    private void FixedUpdate ()
+    {
+        Vector2 mousePos = CursorController.CursorPosition ();
         Vector2 dir = (mousePos - (Vector2)transform.position).normalized;
 
         Quaternion rot = Quaternion.LookRotation (transform.forward, dir);
