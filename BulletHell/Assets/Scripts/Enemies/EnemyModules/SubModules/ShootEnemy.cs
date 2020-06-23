@@ -1,7 +1,19 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-[RequireComponent (typeof (ShootEnemy))]
+[System.Serializable]
+public struct NonPlayerOriented
+{
+    public bool RandomDir;
+    public bool AutoRotation;
+    public bool ClockWise;
+    public NonPlayerOriented (bool randomDir, bool autoRotation, bool clockWise)
+    {
+        RandomDir = randomDir;
+        AutoRotation = autoRotation;
+        ClockWise = clockWise;
+    }
+}
 public class ShootEnemy : BaseEnemy
 {
     [Header ("Range")]
@@ -18,54 +30,73 @@ public class ShootEnemy : BaseEnemy
     [SerializeField]
     private bool NeedToFace = false;
 
-    [Header("No Player")]
+    [Header ("No Player")]
+    [SerializeField]
+    private bool PlayerNeed = false;
     [SerializeField]
     private bool NoDistantace = false;
-    [SerializeField]
-    private bool autoRotation = false;
-    [SerializeField]
-    private bool ClockWise = false;
+    public NonPlayerOriented NonPlayer;
+
     [SerializeField]
     private LayerMask TrueIfFacing = new LayerMask ();
     [SerializeField]
-    private float speedRotation = 180.0f;
+    private float speedRotation = 90.0f;
 
-
+    public void MakeItChangeDir ()
+    {
+        if (!NonPlayer.RandomDir)
+            return;
+        if (Random.Range (0, 1) == 0)
+            NonPlayer.ClockWise = !NonPlayer.ClockWise;
+        else
+            return;
+    }
     public void ToStart ()
     {
         StartCoroutine (AtackRange ());
     }
     public IEnumerator AtackRange ()
     {
-
         while (OnShoot != null && EnemyController.HitEvent != null)
         {
-            if (agent.remainingDistance <= rangeToShoot|| NoDistantace)//in range
+            if (PlayerNeed)//the player is needed
+            {
+                if (agent.remainingDistance <= rangeToShoot || NoDistantace)//in range
+                {
+                    PointPlayer ();
+
+                    if (IsFacingPlayer () || NeedToFace) //if you face the player shoot
+                    {
+                        agent.isStopped = true;
+                        OnShoot.Invoke ();
+                    }
+                    else if (!StopAndShoot)
+                    {
+                        agent.isStopped = false;//go to player
+                    }
+                }
+                else
+                    agent.isStopped = false;//go to player
+
+                if (Non_Moveable)
+                    agent.isStopped = true;
+                yield return null;
+            }
+            else //behavior if you just want to shoot
             {
                 PointPlayer ();
+                OnShoot.Invoke ();
 
-                if (IsFacingPlayer () || NeedToFace) //if you face the player shoot
-                {
+                if (Non_Moveable)
                     agent.isStopped = true;
-                    OnShoot.Invoke ();
-                }
-                else if (!StopAndShoot)
-                {
-                    agent.isStopped = false;//go to player
-                }
+                yield return null;
             }
-            else
-                agent.isStopped = false;//go to player
-
-            if (Non_Moveable)
-                agent.isStopped = true;
-            yield return null;
 
         }
     }
     bool IsFacingPlayer ()
     {
-        RaycastHit2D ray = Physics2D.Raycast (enemyTransform.position, enemyTransform.forward, rangeToShoot, TrueIfFacing);
+        RaycastHit2D ray = Physics2D.Raycast (transform.position, transform.forward, rangeToShoot, TrueIfFacing);
         Debug.DrawRay (enemyTransform.position, enemyTransform.forward * rangeToShoot, Color.blue);
         if (ray.collider != null)
             return true;
@@ -75,23 +106,23 @@ public class ShootEnemy : BaseEnemy
     void PointPlayer ()
     {
         Vector2 dir;
-        if (!autoRotation)
+        if (!NonPlayer.AutoRotation)
         {
             Vector2 target = (Vector2)StaticInfo.PlayerPos + StaticInfo.VelocityOfPlayer * SpeedOfPrefire;
-            dir = (target - (Vector2)enemyTransform.position).normalized;
+            dir = (target - (Vector2)transform.position).normalized;
         }
         else
         {
-            if (ClockWise)
+            if (NonPlayer.ClockWise)
                 dir = new Vector2 (Mathf.Sin (Time.time), Mathf.Cos (Time.time));
             else
                 dir = new Vector2 (Mathf.Cos (Time.time), Mathf.Sin (Time.time));
         }
-        Debug.DrawLine (enemyTransform.position, (Vector2)enemyTransform.position + dir);
+        Debug.DrawLine (transform.position, (Vector2)transform.position + dir);
 
-        Quaternion newRot = Quaternion.LookRotation (dir, enemyTransform.up);
+        Quaternion newRot = Quaternion.LookRotation (dir, transform.up);
 
-        enemyTransform.rotation = Quaternion.RotateTowards (enemyTransform.rotation, newRot, speedRotation * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards (transform.rotation, newRot, speedRotation * Time.deltaTime);
     }
     private void OnDrawGizmosSelected ()
     {
