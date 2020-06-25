@@ -1015,6 +1015,11 @@ PrefabInstance:
       propertyPath: m_AutoBraking
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5237964011992002253, guid: fb6c7b944aa9a2948aeb4aeccb9ce9d5,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5237964012127519348, guid: fb6c7b944aa9a2948aeb4aeccb9ce9d5,
         type: 3}
       propertyPath: m_LocalRotation.y
