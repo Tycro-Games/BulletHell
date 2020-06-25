@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class BulletSpawner : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class BulletSpawner : MonoBehaviour
     private float radiusCircle = 1.0f;
     [SerializeField]
     private LayerMask collideable = 0;
+    [SerializeField]
+    private UnityEvent OnShoot = null;
     public void ChangeProjectile (ProjectileObjects project)
     {
         projectile = project;
@@ -59,7 +62,7 @@ public class BulletSpawner : MonoBehaviour
     }
     public void LineOfSight ()
     {
-        if (Physics2D.CircleCast (transform.position,radiusCircle, transform.forward, distance, collideable))
+        if (Physics2D.CircleCast (transform.position, radiusCircle, transform.forward, distance, collideable))
         {
             Spawn ();
         }
@@ -72,6 +75,8 @@ public class BulletSpawner : MonoBehaviour
     {
         if (currentTime <= Time.time)
         {
+            OnShoot?.Invoke ();
+
             currentTime = Time.time + 1 / projectile.FirePerSecond;
 
             Projectile projectileInit = Spawner.Spawn (projectile.projectilePrefab,

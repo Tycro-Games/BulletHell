@@ -40,6 +40,13 @@ public class ShootEnemy : BaseEnemy
     private LayerMask TrueIfFacing = new LayerMask ();
     [SerializeField]
     private float speedRotation = 90.0f;
+    [Header ("Lateral")]
+    [SerializeField]
+    private float speedOnLateralShoot = 90.0f;
+    [SerializeField]
+    private float rotateLateralTime = 3.0f;
+    [SerializeField]
+    private bool OnBoost = false;
 
     public void MakeItChangeDir ()
     {
@@ -56,6 +63,27 @@ public class ShootEnemy : BaseEnemy
 
         StartCoroutine (AtackRange ());
     }
+
+    public void LookAtPlayer ()
+    {
+        if (!OnBoost)
+        {
+            StartCoroutine (ChangeRotation ());
+        }
+    }
+    IEnumerator ChangeRotation ()
+    {
+        float temp = speedRotation;
+        speedRotation = speedOnLateralShoot;
+
+        OnBoost = true;
+
+        yield return new WaitForSeconds (rotateLateralTime);
+
+        OnBoost = false;
+
+        speedRotation = temp;
+    }
     public IEnumerator AtackRange ()
     {
         while (OnShoot != null && EnemyController.HitEvent != null)
@@ -69,7 +97,7 @@ public class ShootEnemy : BaseEnemy
                     if (IsFacingPlayer () || NeedToFace) //if you face the player shoot
                     {
                         agent.isStopped = true;
-                        OnShoot.Invoke ();
+                        OnShoot?.Invoke ();
                     }
                     else if (!StopAndShoot)
                     {
@@ -86,13 +114,12 @@ public class ShootEnemy : BaseEnemy
             else //behavior if you just want to shoot
             {
                 PointPlayer ();
-                OnShoot.Invoke ();
+                OnShoot?.Invoke ();
 
                 if (Non_Moveable)
                     agent.isStopped = true;
                 yield return null;
             }
-
         }
     }
     bool IsFacingPlayer ()
@@ -104,13 +131,17 @@ public class ShootEnemy : BaseEnemy
         else
             return false;
     }
+    private Vector2 Dir ()
+    {
+        Vector2 target = (Vector2)StaticInfo.PlayerPos + StaticInfo.VelocityOfPlayer * SpeedOfPrefire;
+        return (target - (Vector2)transform.position).normalized;
+    }
     void PointPlayer (bool justRot = false)
     {
         Vector2 dir;
         if (!NonPlayer.AutoRotation)
         {
-            Vector2 target = (Vector2)StaticInfo.PlayerPos + StaticInfo.VelocityOfPlayer * SpeedOfPrefire;
-            dir = (target - (Vector2)transform.position).normalized;
+            dir = Dir ();
         }
         else
         {
@@ -121,6 +152,10 @@ public class ShootEnemy : BaseEnemy
         }
         Debug.DrawLine (transform.position, (Vector2)transform.position + dir);
 
+        Rotate (justRot, dir, speedRotation);
+    }
+    public void Rotate (bool justRot, Vector2 dir, float speedRotation)
+    {
         if (!justRot)
         {
             Quaternion newRot = Quaternion.LookRotation (dir, transform.up);
@@ -132,9 +167,11 @@ public class ShootEnemy : BaseEnemy
             transform.rotation = Quaternion.LookRotation (dir, transform.up);
         }
     }
+
     private void OnDrawGizmosSelected ()
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere (transform.position, rangeToShoot);
     }
+
 }

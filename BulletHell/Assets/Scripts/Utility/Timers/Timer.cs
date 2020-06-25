@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
     IEnumerator TimerLoop ()
     {
         yield return new WaitForSeconds (TimeToWait);
-        OnTimerFinished.Invoke ();
+        OnTimerFinished?.Invoke ();
 
         if(gameObject.activeInHierarchy)
         StartCoroutine (TimerLoop ());

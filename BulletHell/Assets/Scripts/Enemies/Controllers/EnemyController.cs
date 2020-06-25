@@ -40,6 +40,6 @@ public class EnemyController : MonoBehaviour
     private void Start ()
     {
         if (ToStart != null)
-            ToStart.Invoke ();
+            ToStart?.Invoke ();
     }
 }
