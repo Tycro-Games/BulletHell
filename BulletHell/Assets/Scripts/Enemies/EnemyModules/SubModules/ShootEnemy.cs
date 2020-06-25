@@ -29,7 +29,6 @@ public class ShootEnemy : BaseEnemy
     private bool Non_Moveable = false;
     [SerializeField]
     private bool NeedToFace = false;
-
     [Header ("No Player")]
     [SerializeField]
     private bool PlayerNeed = false;
@@ -53,6 +52,8 @@ public class ShootEnemy : BaseEnemy
     }
     public void ToStart ()
     {
+        PointPlayer (true);
+
         StartCoroutine (AtackRange ());
     }
     public IEnumerator AtackRange ()
@@ -103,7 +104,7 @@ public class ShootEnemy : BaseEnemy
         else
             return false;
     }
-    void PointPlayer ()
+    void PointPlayer (bool justRot = false)
     {
         Vector2 dir;
         if (!NonPlayer.AutoRotation)
@@ -120,9 +121,16 @@ public class ShootEnemy : BaseEnemy
         }
         Debug.DrawLine (transform.position, (Vector2)transform.position + dir);
 
-        Quaternion newRot = Quaternion.LookRotation (dir, transform.up);
+        if (!justRot)
+        {
+            Quaternion newRot = Quaternion.LookRotation (dir, transform.up);
 
-        transform.rotation = Quaternion.RotateTowards (transform.rotation, newRot, speedRotation * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards (transform.rotation, newRot, speedRotation * Time.deltaTime);
+        }
+        else
+        {
+            transform.rotation = Quaternion.LookRotation (dir, transform.up);
+        }
     }
     private void OnDrawGizmosSelected ()
     {

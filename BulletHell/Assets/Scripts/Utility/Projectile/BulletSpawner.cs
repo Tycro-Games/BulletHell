@@ -27,6 +27,13 @@ public class BulletSpawner : MonoBehaviour
     private Vector3 VectDir = Vector3.zero;
 
     private float currentTime = 0.0f;
+    [Header ("Raycast")]
+    [SerializeField]
+    private float distance = 10.0f;
+    [SerializeField]
+    private float radiusCircle = 1.0f;
+    [SerializeField]
+    private LayerMask collideable = 0;
     public void ChangeProjectile (ProjectileObjects project)
     {
         projectile = project;
@@ -50,6 +57,13 @@ public class BulletSpawner : MonoBehaviour
         }
         transform.rotation = Quaternion.LookRotation (VectDir);
     }
+    public void LineOfSight ()
+    {
+        if (Physics2D.CircleCast (transform.position,radiusCircle, transform.forward, distance, collideable))
+        {
+            Spawn ();
+        }
+    }
     private void Start ()
     {
         projectiles = GameObject.FindGameObjectWithTag ("PRojectORg").transform;
@@ -68,9 +82,9 @@ public class BulletSpawner : MonoBehaviour
         }
 
     }
-    private void OnDrawGizmosSelected ()
+    private void OnDrawGizmos ()
     {
         Gizmos.color = Color.yellow;
-        
+        Gizmos.DrawLine (transform.position, transform.position + transform.forward);
     }
 }
