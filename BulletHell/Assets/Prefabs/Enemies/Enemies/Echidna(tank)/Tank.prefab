@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3018583536709595122
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3018583536709595121}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -5.86, y: 1.04, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8262641903608449883}
   - {fileID: 3018583537606608476}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
-  HP: 25
+  HP: 400
 --- !u!195 &5237964011992002253
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -59,16 +59,16 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
-  m_Acceleration: 8
+  m_Speed: 1
+  m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 0.2
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.52
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!58 &5237964011091067708
@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5237964011320445112}
   - component: {fileID: 5237964011320445113}
+  - component: {fileID: 1341600250}
   m_Layer: 0
   m_Name: BulletSpawner (2)
   m_TagString: Untagged
@@ -190,13 +191,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5237964011320445119}
-  m_LocalRotation: {x: 0, y: -0.043619405, z: 0, w: 0.9990483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 3636933596854533709}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -5, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5237964011320445113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,8 +216,54 @@ MonoBehaviour:
   CollideableMask:
     serializedVersion: 2
     m_Bits: 1024
-  dir: 0
+  dir: 3
   Custom: 0
+  distance: 10
+  radiusCircle: 0.5
+  collideable:
+    serializedVersion: 2
+    m_Bits: 1024
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6827800175178406105}
+        m_MethodName: LookAtPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1341600250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237964011320445119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627f0bd5c7d8f44b9a98365ffe697c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToWait: 1
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5237964011320445113}
+        m_MethodName: LineOfSight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5237964011364307301
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +315,14 @@ MonoBehaviour:
     m_Bits: 1024
   dir: 0
   Custom: 0
+  distance: 10
+  radiusCircle: 1
+  collideable:
+    serializedVersion: 2
+    m_Bits: 0
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5237964012127519355
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5237964012127519348}
   - component: {fileID: 5237964012127519349}
+  - component: {fileID: 534395710}
   m_Layer: 0
   m_Name: BulletSpawner (1)
   m_TagString: Untagged
@@ -292,13 +348,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5237964012127519355}
-  m_LocalRotation: {x: 0, y: 0.043619405, z: 0, w: 0.9990483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 3636933596854533709}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 5, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5237964012127519349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,8 +373,54 @@ MonoBehaviour:
   CollideableMask:
     serializedVersion: 2
     m_Bits: 1024
-  dir: 0
+  dir: 1
   Custom: 0
+  distance: 10
+  radiusCircle: 0.5
+  collideable:
+    serializedVersion: 2
+    m_Bits: 1024
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6827800175178406105}
+        m_MethodName: LookAtPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &534395710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237964012127519355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f627f0bd5c7d8f44b9a98365ffe697c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToWait: 1
+  OnTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5237964012127519349}
+        m_MethodName: LineOfSight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8704746301318784025
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +491,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  RepathSpeed: 1
+  RepathSpeed: 0.5
 --- !u!1 &8896125303418135410
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,13 +579,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6827800175178406105}
-        m_MethodName: GoToARandomSpot
-        m_Mode: 4
+        m_MethodName: ChasePlayer
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -502,35 +604,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5237964012127519349}
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5237964011320445113}
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  rangeToShoot: 1.5
+  rangeToShoot: 0.5
   SpeedOfPrefire: 0.5
-  StopAndShoot: 0
+  StopAndShoot: 1
   Non_Moveable: 0
   NeedToFace: 1
   PlayerNeed: 0
-  NoDistantace: 0
+  NoDistantace: 1
   NonPlayer:
     RandomDir: 0
     AutoRotation: 0
@@ -538,4 +618,7 @@ MonoBehaviour:
   TrueIfFacing:
     serializedVersion: 2
     m_Bits: 1024
-  speedRotation: 360
+  speedRotation: 30
+  speedOnLateralShoot: 180
+  rotateLateralTime: 1
+  OnBoost: 0
