@@ -7,7 +7,8 @@ public class Timer : MonoBehaviour
 {
     [SerializeField]
     private float TimeToWait = 0;
-
+    [SerializeField]
+    private bool loop = false;
     [SerializeField]
     private UnityEvent OnTimerFinished = null;
 
@@ -24,8 +25,8 @@ public class Timer : MonoBehaviour
         yield return new WaitForSeconds (TimeToWait);
         OnTimerFinished?.Invoke ();
 
-        if(gameObject.activeInHierarchy)
-        StartCoroutine (TimerLoop ());
+        if (gameObject.activeInHierarchy && loop)
+            StartCoroutine (TimerLoop ());
     }
 
 }

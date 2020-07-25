@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public static class EnemiesSpawningManager
 {
     public static UnityEvent OnEnemySpawn;
-    private static List<EnemySpawner> currentSpawners = new List<EnemySpawner> ();
+    public static List<EnemySpawner> currentSpawners = new List<EnemySpawner> ();
 
     public static Transform EnemySpawnersParent { get; set; } = null;
 
