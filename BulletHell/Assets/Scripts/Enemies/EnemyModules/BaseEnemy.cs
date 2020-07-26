@@ -10,6 +10,9 @@ public class BaseEnemy : MonoBehaviour
     protected NavMeshAgent agent = null;
 
     [SerializeField]
+    private LayerMask Obstacles = 0;
+
+    [SerializeField]
     private UnityEvent OnRepath = null;
 
     [SerializeField]
@@ -30,7 +33,10 @@ public class BaseEnemy : MonoBehaviour
         Vector2 point = (Vector2)transform.position + Random.insideUnitCircle * radius;
         Vector2 dir = (StaticInfo.PlayerPos - transform.position).normalized * DirPower;
 
-        agent.SetDestination (point + dir);
+        if (!Physics2D.OverlapCircle (point + dir, radius, Obstacles))
+            agent.SetDestination (point + dir);
+        else
+            GoToARandomSpot (radius);
     }
     public void ChasePlayer ()
     {
