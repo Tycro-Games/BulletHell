@@ -6,6 +6,9 @@ public class FuckingRoom
 {
     public int x, y;
 
+    public int roomWidth;
+    public int roomHeight;
+
     public bool empty = true;
     public bool searched = false;
     public bool doorLeft = false;

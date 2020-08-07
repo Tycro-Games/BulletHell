@@ -9,4 +9,6 @@ public class RoomTile
     public int y = 0;
     public bool door;
     public bool walkable;
+    public bool props = false;
+    public float propSize = 0.8f;
 }

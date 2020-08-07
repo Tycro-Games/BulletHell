@@ -24,7 +24,7 @@ public class SpriteMapping : MonoBehaviour
 
     public int type = 0;
 
-    public Color normalColor,startColor,actualColor,bossColor,treasureColor;
+    public Color normalColor,startColor,actualColor,bossColor,treasureColor, bushColor, ruinColor;
     Color mainColor;
 
     SpriteRenderer rend;
@@ -161,6 +161,14 @@ public class SpriteMapping : MonoBehaviour
         else if (type == 4)            // treasure room
         {
             mainColor = treasureColor;
+        }
+        else if (type == 5)
+        {
+            mainColor = bushColor;
+        }
+        else if (type == 6)
+        {
+            mainColor = ruinColor;
         }
         rend.color = mainColor;
     }

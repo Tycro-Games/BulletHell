@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f1be3cb2fff7241b3dacabcc7d987f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tex: {fileID: 2800000, guid: dc7b8578c102bd546bd34dc9a366a8f0, type: 3}
   width: 17
   height: 11
   obstacleChance: 15
@@ -63,8 +62,11 @@ MonoBehaviour:
   - {fileID: 1487466451700926589, guid: d09290a63262d13409e340121344b331, type: 3}
   - {fileID: 4440928125999330603, guid: 00d1afd1576273d46b7c718d898aff61, type: 3}
   - {fileID: 4730691808908545900, guid: 27cd3f253453c6748908bef283f77de2, type: 3}
+  - {fileID: 4045753720566204867, guid: 964a3a67048fce6469a079f6abdbf68a, type: 3}
   - {fileID: 6988973724682366213, guid: 1316d235dd71e134d89da078e9c05f30, type: 3}
   door:
+  - {fileID: 2463965469396963115, guid: eefa53bc5c53ad140b419992853fc952, type: 3}
+  - {fileID: 2463965469396963115, guid: eefa53bc5c53ad140b419992853fc952, type: 3}
   - {fileID: 2463965469396963115, guid: eefa53bc5c53ad140b419992853fc952, type: 3}
   - {fileID: 2463965469396963115, guid: eefa53bc5c53ad140b419992853fc952, type: 3}
   - {fileID: 2463965469396963115, guid: eefa53bc5c53ad140b419992853fc952, type: 3}
@@ -76,7 +78,11 @@ MonoBehaviour:
   - {fileID: 4132001289023670055, guid: 52f806d8c64706a4db4ca70ac656565d, type: 3}
   - {fileID: 4132001289023670055, guid: 52f806d8c64706a4db4ca70ac656565d, type: 3}
   - {fileID: 4132001289023670055, guid: 52f806d8c64706a4db4ca70ac656565d, type: 3}
+  - {fileID: 4132001289023670055, guid: 52f806d8c64706a4db4ca70ac656565d, type: 3}
+  - {fileID: 4132001289023670055, guid: 52f806d8c64706a4db4ca70ac656565d, type: 3}
   wall:
+  - {fileID: 7658089742418210384, guid: 49cfe845c00d50744be918b57253fadc, type: 3}
+  - {fileID: 7658089742418210384, guid: 49cfe845c00d50744be918b57253fadc, type: 3}
   - {fileID: 7658089742418210384, guid: 49cfe845c00d50744be918b57253fadc, type: 3}
   - {fileID: 7658089742418210384, guid: 49cfe845c00d50744be918b57253fadc, type: 3}
   - {fileID: 7658089742418210384, guid: 49cfe845c00d50744be918b57253fadc, type: 3}
@@ -84,3 +90,6 @@ MonoBehaviour:
   - {fileID: 7658089742418210384, guid: 49cfe845c00d50744be918b57253fadc, type: 3}
   randomizeSeed: 1
   seed: 123
+  minScale: 0.8
+  maxScale: 1.2
+  maxDist: 0.5

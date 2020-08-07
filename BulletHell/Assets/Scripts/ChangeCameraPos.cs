@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeCamera : MonoBehaviour
+public class ChangeCameraPos : MonoBehaviour
 {
     public int x = 0, y = 0;
     GameObject mapGen;
@@ -20,11 +20,13 @@ public class ChangeCamera : MonoBehaviour
 
     private void Update()
     {
-        roomGen = GameObject.Find("RoomInstance(Clone)");
-        roomGenScript = roomGen.GetComponent<ActualFuckingRoomGenerator>();
-        transform.position = new Vector3(x * 50f + roomGenScript.width / 2f, y * 50f + roomGenScript.height / 2f - 0.5f, -5f);
-        Camera.main.orthographicSize = (roomGenScript.width + 1) / 3;
+        //if(Input.Get)
+        // I'll be back
+        float posX = x * 50f + mapGenScript.rooms[x, y].roomWidth / 2f;
+        float posY = y * 50f + mapGenScript.rooms[x, y].roomHeight / 2f;
+        transform.position = new Vector3(posX, posY, -5f);
         x = mapGenScript.x;
         y = mapGenScript.y;
+        //Camera.main.orthographicSize = (Mathf.Max(mapGenScript.rooms[x, y].roomWidth, mapGenScript.rooms[x, y].roomHeight) + 1);
     }
 }

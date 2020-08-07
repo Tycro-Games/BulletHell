@@ -11,12 +11,14 @@ public class MapGenerator : MonoBehaviour
     public int numberOfRooms = 80;
     public float bossChance = 10;
     public float treasureChance = 7;
+    public float bushChance = 10;
+    public float ruinChance = 10;
     public GameObject roomObj;
     public GameObject roomSpawner;
-    FuckingRoom[,] rooms;
+    public FuckingRoom[,] rooms;
     public Transform mapRoot;
 
-    ChangeCamera cameraChanger;
+    ChangeCameraPos cameraChanger;
 
     public int roomSpriteWidth = 12;
     public int roomSpriteHeight = 6;
@@ -83,6 +85,8 @@ public class MapGenerator : MonoBehaviour
                 if (i == width / 2 && j == height / 2)
                 {
                     rooms[i, j].type = 1;
+                    rooms[i, j].roomWidth = Random.Range(10, 30);
+                    rooms[i, j].roomHeight = Random.Range(10, 30);
                 }            
             }
         }
@@ -109,6 +113,14 @@ public class MapGenerator : MonoBehaviour
             if (Random.Range(0, 100) < treasureChance)
             {
                 rooms[x, y].type = 4;
+            }
+            if(Random.Range(0, 100) < bushChance) // aia cu tufisuri
+            {
+               rooms[x, y].type = 5;
+            }
+            if(Random.Range(0, 100) < ruinChance) // aia cu relicva din mijloc
+            {
+               rooms[x, y].type = 6;
             }
         }
         
@@ -198,6 +210,8 @@ public class MapGenerator : MonoBehaviour
             {
                 Vector2 roomSpawnPos = new Vector2(room.x * 50f, room.y * 50f);
                 ActualFuckingRoomGenerator roomGen = Object.Instantiate(roomSpawner, roomSpawnPos, Quaternion.identity).GetComponent<ActualFuckingRoomGenerator>();
+                roomGen.width = Random.Range(10, 30);
+                roomGen.height = Random.Range(10, 30);
                 roomGen.doorTop = room.doorTop;
                 roomGen.doorBot = room.doorBot;
                 roomGen.doorRight = room.doorRight;

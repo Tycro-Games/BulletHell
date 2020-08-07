@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ActualFuckingRoomGenerator : MonoBehaviour
 {
-    public Texture2D tex;
     public int width = 17;
     public int height = 11;
     public int obstacleChance = 20;
@@ -24,6 +23,10 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
     public bool randomizeSeed;
     public int seed;
 
+    public float minScale = 0.8f;
+    public float maxScale = 1.2f;
+    public float maxDist = 1f;
+
     //public ColorToGameObject[] mappings;
 
     public void Start()
@@ -40,22 +43,60 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
 
     public void GenerateRoom()
     {
-        
+        if (width % 2 == 0)
+            width++;
+        if (height % 2 == 0)
+            height++;
         tiles = new RoomTile[width, height];
+        GenerateTiles(width, height);
+    }
+    
+    public Vector2 ReturnLocalPos(RoomTile roomTile)
+    {
+        return new Vector2(roomTile.x, roomTile.y);
+    }
+
+    public Vector2 ReturnGlobalPos(RoomTile roomTile)
+    {
+        Vector2 pos = new Vector2(transform.parent.position.x + roomTile.x, transform.parent.position.y + roomTile.y);
+        return pos;
+    }
+
+    public void GenerateTiles(int width, int height)
+    {
         for(int i = 0; i < width; i++)
         {
-            for (int j = 0; j < height; j++)
+            for(int j = 0; j < height; j++)
             {
                 GenerateTile(i, j);
                 tiles[i, j].x = i;
-                tiles[i, j].y = j;
+                tiles[i, j].y = j;             
+            }
+        }
 
-                if(tiles[i, j].walkable == true && tiles[i, j].door != true)
+        for(int i = 0; i < width; i++)
+        {
+            for(int j = 0; j < height; j++)
+            {
+                if (Random.Range(0, 100) < propChance && tiles[i, j].walkable == true && tiles[i, j].door == false)
                 {
-                    if(Random.Range(0, 100) < propChance)
+                    if (roomType == 4 || roomType == 6)
+                    {
+                        if (!(i < width / 2 + 3 && i > width / 2 - 3) && !(j < height / 2 + 3 && j > height / 2 - 3))
+                        {
+                            SpawnProps(i, j);
+                        }
+                        else
+                        {
+                            Vector3 spawnPos = new Vector3(width / 2 + transform.position.x, height / 2 + transform.position.y, 0);
+                            Instantiate(props[10], spawnPos, Quaternion.identity);
+                        }
+                    }
+                    else
                     {
                         SpawnProps(i, j);
-                    }       
+                    }
+
                 }
             }
         }
@@ -122,19 +163,142 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
                 tiles[x, y].walkable = true;
             }
         }
+
+        if (roomType == 4 || roomType == 6)
+        {
+            if ((x < width / 2 + 3 && x > width / 2 - 3) && (y < height / 2 + 3 && y > height / 2 - 3))
+            {
+                tiles[x, y].door = false;
+                tiles[x, y].walkable = true;
+            }
+        }
     }
 
     void SpawnProps(int x, int y)
     {
-        foreach(GameObject prop in props)
+        if(roomType != 5)
         {
-            if(Random.Range(0, 100) < 100 / props.Length)
+            foreach (GameObject prop in props)
             {
-                Vector3 spawnPos = new Vector3(tiles[x, y].x + transform.position.x, tiles[x, y].y + transform.position.y, 0);
-                Instantiate(prop, spawnPos, Quaternion.identity);
-                break;
+                if (Random.Range(0, 100) < 100 / props.Length - 1 && prop != props[10])
+                {
+                    tiles[x, y].props = true;
+                    Vector3 spawnPos = new Vector3(tiles[x, y].x + transform.position.x, tiles[x, y].y + transform.position.y, 0);
+                    GameObject obj = Instantiate(prop, spawnPos, Quaternion.identity);
+                    RandomizeScale(obj, x, y);
+                    RandomizePos(obj, x, y);
+                    break;
+                }
             }
         }
+        else
+        {
+            if(Random.Range(0, 100) < 30)
+            {
+                tiles[x, y].props = true;
+                Vector3 spawnPos = new Vector3(tiles[x, y].x + transform.position.x, tiles[x, y].y + transform.position.y, 0);
+                GameObject obj = Instantiate(props[9], spawnPos, Quaternion.identity);
+                RandomizeScale(obj, x, y);
+            }
+        }
+        
+    }
+
+    void RandomizeScale(GameObject obj, int x, int y)
+    {
+        float scale;
+        if((x < width && tiles[x + 1, y].walkable == false) || (x > 0 && tiles[x - 1, y].walkable == false) || (y < height && tiles[x, y + 1].walkable == false) || (y > 0 && tiles[x, y - 1].walkable == false))
+        {
+            scale = Random.Range(minScale, 1);
+        }
+        else if((x < width && tiles[x + 1, y].props) || (x > 0 && tiles[x - 1, y].props) || (y < height && tiles[x, y + 1].props) || (y > 0 && tiles[x, y - 1].props))
+        {
+            scale = Random.Range(minScale, Mathf.Max(tiles[x + 1, y].propSize, tiles[x - 1, y].propSize, tiles[x, y + 1].propSize, tiles[x, y - 1].propSize));
+        }
+        else
+        {
+            scale = Random.Range(minScale, maxScale);
+        }
+        obj.transform.localScale = new Vector3(scale * 2f, scale * 2f, scale * 2f);
+    }
+
+    void RandomizePos(GameObject obj, int x, int y)
+    {
+        float xOffset = 0;
+        float yOffset = 0;
+        if(x < width && tiles[x + 1, y].walkable == false)
+        {
+            if(x > 0 && tiles[x - 1, y].walkable == false)
+            {
+                xOffset = 0;
+            }
+            else
+            {
+                xOffset = Random.Range(-maxDist, 0f);
+            }
+        }
+        else if(x > 0 && tiles[x - 1, y].walkable == false)
+        {
+            xOffset = Random.Range(0f, maxDist);
+        }
+        else
+        {
+            yOffset = Random.Range(-maxDist, maxDist);
+        }
+        if (y < height && tiles[x, y + 1].walkable == false)
+        {
+            if (y > 0 && tiles[x, y - 1].walkable == false)
+            {
+                yOffset = 0;
+            }
+            else
+            {
+                yOffset = Random.Range(-maxDist, 0f);
+            }
+        }
+        else if(y > 0 && tiles[x, y - 1].walkable == false)
+        {
+            yOffset = Random.Range(0f, maxDist);
+        }
+        else
+        {
+            yOffset = Random.Range(-maxDist, maxDist);
+        }
+
+        if (x < width && tiles[x + 1, y].props == true)
+        {
+            if (x > 0 && tiles[x - 1, y].props == true)
+            {
+                xOffset = 0;
+            }
+            else
+            {
+                xOffset += Random.Range(-0.3f, 0f);
+            }
+        }
+        else if (x > 0 && tiles[x - 1, y].props == true)
+        {
+            xOffset += Random.Range(0f, 0.3f);
+        }
+        if (y < height && tiles[x, y + 1].props == true)
+        {
+            if (y > 0 && tiles[x, y - 1].props == true)
+            {
+                yOffset = 0;
+            }
+            else
+            {
+                yOffset += Random.Range(-0.3f, 0f);
+            }
+        }
+        else if (y > 0 && tiles[x, y - 1].props == true)
+        {
+            yOffset += Random.Range(0f, 0.3f);
+        }
+
+        Vector3 offset = new Vector3(xOffset, yOffset, 0);
+
+        obj.transform.localPosition += offset;
     }
 
     public void SpawnRoom()
