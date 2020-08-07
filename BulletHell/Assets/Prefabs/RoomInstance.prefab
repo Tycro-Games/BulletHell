@@ -52,6 +52,7 @@ MonoBehaviour:
   doorBot: 0
   doorTop: 0
   roomType: 0
+  spawner: {fileID: 4321026748648950203, guid: 95ed8e7e87c6ffd488903a326c408ae9, type: 3}
   props:
   - {fileID: 991474632784312153, guid: 32293d2e568e52d439daf2e4547cc629, type: 3}
   - {fileID: 8917559102181394010, guid: 4dca475934a71e04b8ba4257cd9d46ef, type: 3}

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ActualFuckingRoomGenerator : MonoBehaviour
 {
+    int numOfSpawners = 3;
+    int propCount = 0;
+
+
     public int width = 17;
     public int height = 11;
     public int obstacleChance = 20;
@@ -14,6 +18,7 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
     public bool doorTop = false;
 
     public int roomType;
+    public GameObject spawner;
     public GameObject[] props;
     public GameObject[] door;
     public GameObject[] empty;
@@ -31,6 +36,8 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
 
     public void Start()
     {
+        numOfSpawners = width * height / 100;
+
         if (randomizeSeed)
         {
             seed = Random.Range(0, 9999999);
@@ -98,6 +105,15 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
                     }
 
                 }
+            }
+        }
+        
+        for (int i = 0; i < width; i++)
+        {
+            for(int j = 0; j < height; j++)
+            {
+                int count = 0;
+                PlaceSpawners(i, j, count);
             }
         }
     }
@@ -174,6 +190,19 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
         }
     }
 
+    void PlaceSpawners(int x, int y, int count)
+    {
+        if(tiles[x, y].props == true)
+        {
+            if(Random.Range(0f, 100f) < 100f / propCount && count != numOfSpawners)
+            {
+                Vector3 spawnPos = new Vector3(x + transform.position.x, y + transform.position.y, 0);
+                Instantiate(spawner, spawnPos, Quaternion.identity);
+                count++;
+            }
+        }
+    }
+
     void SpawnProps(int x, int y)
     {
         if(roomType != 5)
@@ -185,6 +214,7 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
                     tiles[x, y].props = true;
                     Vector3 spawnPos = new Vector3(tiles[x, y].x + transform.position.x, tiles[x, y].y + transform.position.y, 0);
                     GameObject obj = Instantiate(prop, spawnPos, Quaternion.identity);
+                    propCount++;
                     RandomizeScale(obj, x, y);
                     RandomizePos(obj, x, y);
                     break;
@@ -198,6 +228,7 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
                 tiles[x, y].props = true;
                 Vector3 spawnPos = new Vector3(tiles[x, y].x + transform.position.x, tiles[x, y].y + transform.position.y, 0);
                 GameObject obj = Instantiate(props[9], spawnPos, Quaternion.identity);
+                propCount++;
                 RandomizeScale(obj, x, y);
             }
         }
