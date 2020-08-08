@@ -194,7 +194,7 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
     {
         if(tiles[x, y].props == true)
         {
-            if(Random.Range(0f, 100f) < 100f / propCount && count != numOfSpawners)
+            if (Random.Range(0f, 100f) < Mathf.Max((100f / propCount * 2f), 4f) && count != numOfSpawners)
             {
                 Vector3 spawnPos = new Vector3(x + transform.position.x, y + transform.position.y, 0);
                 Instantiate(spawner, spawnPos, Quaternion.identity);
