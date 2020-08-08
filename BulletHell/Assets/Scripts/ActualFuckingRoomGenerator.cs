@@ -6,7 +6,7 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
 {
     int numOfSpawners = 3;
     int propCount = 0;
-
+    int count = 0;
 
     public int width = 17;
     public int height = 11;
@@ -107,13 +107,15 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
                 }
             }
         }
-        
-        for (int i = 0; i < width; i++)
+
+        while(count != numOfSpawners)
         {
-            for(int j = 0; j < height; j++)
+            for (int i = 0; i < width; i++)
             {
-                int count = 0;
-                PlaceSpawners(i, j, count);
+                for (int j = 0; j < height; j++)
+                {
+                    PlaceSpawners(i, j);
+                }
             }
         }
     }
@@ -190,7 +192,7 @@ public class ActualFuckingRoomGenerator : MonoBehaviour
         }
     }
 
-    void PlaceSpawners(int x, int y, int count)
+    void PlaceSpawners(int x, int y)
     {
         if(tiles[x, y].props == true)
         {
