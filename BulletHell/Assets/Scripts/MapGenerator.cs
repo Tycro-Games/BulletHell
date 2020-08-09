@@ -93,7 +93,7 @@ public class MapGenerator : MonoBehaviour
         GenerateRoom(width / 2, height / 2);
         if (numberOfRooms > width * height)
             numberOfRooms = width * height;
-        if (count != numberOfRooms)
+        if (count < numberOfRooms)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -125,22 +125,23 @@ public class MapGenerator : MonoBehaviour
         }
         
         count++;
-        if (count != numberOfRooms && Random.Range(0, 100) < chance && x > 0 && rooms[x - 1, y].searched == false)
+
+        if ((count != numberOfRooms && Random.Range(0, 100) < chance && x > 0 && rooms[x - 1, y].searched == false))
         {
             GenerateRoom(x - 1, y);
         }
-        if (count != numberOfRooms && Random.Range(0, 100) < chance && y > 0 && rooms[x, y - 1].searched == false)
+        if ((count != numberOfRooms && Random.Range(0, 100) < chance && y > 0 && rooms[x, y - 1].searched == false))
         {
-           GenerateRoom(x, y - 1);
+            GenerateRoom(x, y - 1);
         }
-        if (count != numberOfRooms && Random.Range(0, 100) < chance && x < width - 1 && rooms[x + 1, y].searched == false)
+        if ((count != numberOfRooms && Random.Range(0, 100) < chance && x < width - 1 && rooms[x + 1, y].searched == false))
         {
             GenerateRoom(x + 1, y);
         }
-        if (count != numberOfRooms && Random.Range(0, 100) < chance && y < height - 1 && rooms[x, y + 1].searched == false)
+        if ((count != numberOfRooms && Random.Range(0, 100) < chance && y < height - 1 && rooms[x, y + 1].searched == false))
         {
             GenerateRoom(x, y + 1);
-        }
+        }    
     }
 
     void SetDoors()
@@ -186,7 +187,7 @@ public class MapGenerator : MonoBehaviour
             if(room.empty == false)
             {
                 Vector2 spawnPos = new Vector2(room.x * (roomSpriteWidth + roomSpriteWidth / 3), room.y * (roomSpriteHeight + roomSpriteHeight / 3));
-                SpriteMapping mapper = Object.Instantiate(roomObj, spawnPos, Quaternion.identity).GetComponent<SpriteMapping>();
+                SpriteMapping mapper = Instantiate(roomObj, spawnPos, Quaternion.identity).GetComponent<SpriteMapping>();
 
                 if (room.sexuallyActive)
                     mapper.type = 2;
@@ -209,7 +210,7 @@ public class MapGenerator : MonoBehaviour
             if (room.empty == false)
             {
                 Vector2 roomSpawnPos = new Vector2(room.x * 50f, room.y * 50f);
-                ActualFuckingRoomGenerator roomGen = Object.Instantiate(roomSpawner, roomSpawnPos, Quaternion.identity).GetComponent<ActualFuckingRoomGenerator>();
+                ActualFuckingRoomGenerator roomGen = Instantiate(roomSpawner, roomSpawnPos, Quaternion.identity).GetComponent<ActualFuckingRoomGenerator>();
                 roomGen.width = Random.Range(10, 30);
                 roomGen.height = Random.Range(10, 30);
                 roomGen.doorTop = room.doorTop;
