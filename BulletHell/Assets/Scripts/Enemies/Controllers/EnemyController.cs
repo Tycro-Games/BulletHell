@@ -17,29 +17,28 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private UnityEvent ToStart = null;
 
-    [Header ("RepathSpeeds")]
+    [Header("RepathSpeeds")]
     [SerializeField]
     private float RepathSpeed = 0.75f;
 
-    public delegate void Onhit (int dg);
+    public delegate void Onhit(int dg);
     public static Onhit HitEvent = null;
-    void Awake ()
+    void Awake()
     {
-        agent = GetComponentInParent<NavMeshAgent> ();
+        agent = GetComponentInParent<NavMeshAgent>();
         enemyTransform = agent.transform;
 
         if (!Rotate)
             agent.updateRotation = false;
 
-        atack = GetComponentsInChildren<BaseEnemy> ();
+        atack = GetComponentsInChildren<BaseEnemy>();
         for (int i = 0; i < atack.Length; i++)
         {
-            atack[i].Init (RepathSpeed, enemyTransform, agent);
+            atack[i].Init(RepathSpeed, enemyTransform, agent);
         }
     }
-    private void Start ()
+    private void Start()
     {
-        if (ToStart != null)
-            ToStart?.Invoke ();
+        ToStart?.Invoke();
     }
 }

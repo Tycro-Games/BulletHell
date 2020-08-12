@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e6152a6c3ed054da72c1acf9ae5e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 3018583536709595121, guid: fb6c7b944aa9a2948aeb4aeccb9ce9d5, type: 3}
+  - {fileID: 7343753632532502122, guid: 957985795e27b184cac6db75b4ed723d, type: 3}
+  - {fileID: 7013464988628411245, guid: 0ff1e4eb38f4d2a4580f61223701abba, type: 3}
 --- !u!1 &8384565352546392680
 GameObject:
   m_ObjectHideFlags: 0

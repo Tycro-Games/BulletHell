@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-[RequireComponent (typeof (Collider2D))]
+[RequireComponent(typeof(Collider2D))]
 public class BaseEnemy : MonoBehaviour
 {
     protected Transform enemyTransform = null;
@@ -17,43 +17,44 @@ public class BaseEnemy : MonoBehaviour
 
     [SerializeField]
     private float DirPower = 1.0f;
-    private IEnumerator Repath (float time)
+    private IEnumerator Repath(float time)
     {
         while (true)
         {
+
             if (enemyTransform.gameObject.activeInHierarchy)
             {
-                OnRepath.Invoke ();
+                OnRepath.Invoke();
             }
-            yield return new WaitForSeconds (time);
+            yield return new WaitForSeconds(time);
         }
     }
-    public void GoToARandomSpot (float radius)
+    public void GoToARandomSpot(float radius)
     {
         Vector2 point = (Vector2)transform.position + Random.insideUnitCircle * radius;
         Vector2 dir = (StaticInfo.PlayerPos - transform.position).normalized * DirPower;
 
-        if (!Physics2D.OverlapCircle (point + dir, radius, Obstacles))
-            agent.SetDestination (point + dir);
+        if (!Physics2D.OverlapCircle(point + dir, radius, Obstacles))
+            agent.SetDestination(point + dir);
         else
-            GoToARandomSpot (radius);
+            GoToARandomSpot(radius);
     }
-    public void ChasePlayer ()
+    public void ChasePlayer()
     {
-        agent.SetDestination (StaticInfo.PlayerPos);
+        agent.SetDestination(StaticInfo.PlayerPos);
     }
-    public void Init (float repathSpeed, Transform EnemyTransform, NavMeshAgent Agent)
+    public void Init(float repathSpeed, Transform EnemyTransform, NavMeshAgent Agent)
     {
-        StopAllCoroutines ();
+        StopAllCoroutines();
 
         enemyTransform = EnemyTransform;
         agent = Agent;
 
-        StartCoroutine (Repath (repathSpeed));
+        StartCoroutine(Repath(repathSpeed));
     }
 
-    private void OnDisable ()
+    private void OnDisable()
     {
-        StopAllCoroutines ();
+        StopAllCoroutines();
     }
 }

@@ -7,7 +7,7 @@ public struct NonPlayerOriented
     public bool RandomDir;
     public bool AutoRotation;
     public bool ClockWise;
-    public NonPlayerOriented (bool randomDir, bool autoRotation, bool clockWise)
+    public NonPlayerOriented(bool randomDir, bool autoRotation, bool clockWise)
     {
         RandomDir = randomDir;
         AutoRotation = autoRotation;
@@ -16,7 +16,7 @@ public struct NonPlayerOriented
 }
 public class ShootEnemy : BaseEnemy
 {
-    [Header ("Range")]
+    [Header("Range")]
     [SerializeField]
     private UnityEvent OnShoot = null;
     [SerializeField]
@@ -29,7 +29,7 @@ public class ShootEnemy : BaseEnemy
     private bool Non_Moveable = false;
     [SerializeField]
     private bool NeedToFace = false;
-    [Header ("No Player")]
+    [Header("No Player")]
     [SerializeField]
     private bool PlayerNeed = false;
     [SerializeField]
@@ -37,10 +37,10 @@ public class ShootEnemy : BaseEnemy
     public NonPlayerOriented NonPlayer;
 
     [SerializeField]
-    private LayerMask TrueIfFacing = new LayerMask ();
+    private LayerMask TrueIfFacing = new LayerMask();
     [SerializeField]
     private float speedRotation = 90.0f;
-    [Header ("Lateral")]
+    [Header("Lateral")]
     [SerializeField]
     private float speedOnLateralShoot = 90.0f;
     [SerializeField]
@@ -48,56 +48,59 @@ public class ShootEnemy : BaseEnemy
     [SerializeField]
     private bool OnBoost = false;
 
-    public void MakeItChangeDir ()
+    public void MakeItChangeDir()
     {
         if (!NonPlayer.RandomDir)
             return;
-        if (Random.Range (0, 1) == 0)
+        if (Random.Range(0, 1) == 0)
             NonPlayer.ClockWise = !NonPlayer.ClockWise;
         else
             return;
     }
-    public void ToStart ()
-    {
-        PointPlayer (true);
 
-        StartCoroutine (AtackRange ());
+    public void ToStart()
+    {
+        PointPlayer(true);
+
+        StartCoroutine(AtackRange());
     }
 
-    public void LookAtPlayer ()
+    public void LookAtPlayer()
     {
         if (!OnBoost)
         {
-            StartCoroutine (ChangeRotation ());
+            StartCoroutine(ChangeRotation());
         }
     }
-    IEnumerator ChangeRotation ()
+    IEnumerator ChangeRotation()
     {
         float temp = speedRotation;
         speedRotation = speedOnLateralShoot;
 
         OnBoost = true;
 
-        yield return new WaitForSeconds (rotateLateralTime);
+        yield return new WaitForSeconds(rotateLateralTime);
 
         OnBoost = false;
 
         speedRotation = temp;
     }
-    public IEnumerator AtackRange ()
+    public IEnumerator AtackRange()
     {
+        yield return null;
+
         while (OnShoot != null && EnemyController.HitEvent != null)
         {
             if (PlayerNeed)//the player is needed
             {
                 if (agent.remainingDistance <= rangeToShoot || NoDistantace)//in range
                 {
-                    PointPlayer ();
+                    PointPlayer();
 
-                    if (IsFacingPlayer () || NeedToFace) //if you face the player shoot
+                    if (IsFacingPlayer() || NeedToFace) //if you face the player shoot
                     {
                         agent.isStopped = true;
-                        OnShoot?.Invoke ();
+                        OnShoot?.Invoke();
                     }
                     else if (!StopAndShoot)
                     {
@@ -113,8 +116,8 @@ public class ShootEnemy : BaseEnemy
             }
             else //behavior if you just want to shoot
             {
-                PointPlayer ();
-                OnShoot?.Invoke ();
+                PointPlayer();
+                OnShoot?.Invoke();
 
                 if (Non_Moveable)
                     agent.isStopped = true;
@@ -122,56 +125,56 @@ public class ShootEnemy : BaseEnemy
             }
         }
     }
-    bool IsFacingPlayer ()
+    bool IsFacingPlayer()
     {
-        RaycastHit2D ray = Physics2D.Raycast (transform.position, transform.forward, rangeToShoot, TrueIfFacing);
-        Debug.DrawRay (enemyTransform.position, enemyTransform.forward * rangeToShoot, Color.blue);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, transform.forward, rangeToShoot, TrueIfFacing);
+        Debug.DrawRay(enemyTransform.position, enemyTransform.forward * rangeToShoot, Color.blue);
         if (ray.collider != null)
             return true;
         else
             return false;
     }
-    private Vector2 Dir ()
+    private Vector2 Dir()
     {
         Vector2 target = (Vector2)StaticInfo.PlayerPos + StaticInfo.VelocityOfPlayer * SpeedOfPrefire;
         return (target - (Vector2)transform.position).normalized;
     }
-    void PointPlayer (bool justRot = false)
+    void PointPlayer(bool justRot = false)
     {
         Vector2 dir;
         if (!NonPlayer.AutoRotation)
         {
-            dir = Dir ();
+            dir = Dir();
         }
         else
         {
             if (NonPlayer.ClockWise)
-                dir = new Vector2 (Mathf.Sin (Time.time), Mathf.Cos (Time.time));
+                dir = new Vector2(Mathf.Sin(Time.time), Mathf.Cos(Time.time));
             else
-                dir = new Vector2 (Mathf.Cos (Time.time), Mathf.Sin (Time.time));
+                dir = new Vector2(Mathf.Cos(Time.time), Mathf.Sin(Time.time));
         }
-        Debug.DrawLine (transform.position, (Vector2)transform.position + dir);
+        Debug.DrawLine(transform.position, (Vector2)transform.position + dir);
 
-        Rotate (justRot, dir, speedRotation);
+        Rotate(justRot, dir, speedRotation);
     }
-    public void Rotate (bool justRot, Vector2 dir, float speedRotation)
+    public void Rotate(bool justRot, Vector2 dir, float speedRotation)
     {
         if (!justRot)
         {
-            Quaternion newRot = Quaternion.LookRotation (dir, transform.up);
+            Quaternion newRot = Quaternion.LookRotation(dir, transform.up);
 
-            transform.rotation = Quaternion.RotateTowards (transform.rotation, newRot, speedRotation * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRot, speedRotation * Time.deltaTime);
         }
         else
         {
-            transform.rotation = Quaternion.LookRotation (dir, transform.up);
+            transform.rotation = Quaternion.LookRotation(dir, transform.up);
         }
     }
 
-    private void OnDrawGizmosSelected ()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere (transform.position, rangeToShoot);
+        Gizmos.DrawWireSphere(transform.position, rangeToShoot);
     }
 
 }
