@@ -1,87 +1,101 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Users;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header ("Movement")]
+    [Header("Movement")]
     [SerializeField]
     private Transform transformToTurn = null;
     [SerializeField]
+    private Vector2 Limit = Vector2.zero;
+    [SerializeField]
+    private Vector2 Offset = Vector2.zero;
+    [SerializeField]
     private float speedMovement = 0.0f;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
 
-    [Header ("Dash")]
+    [Header("Dash")]
     public float DashMultiplier = 1.0f;
     public float DashCooldown = 1.0f;
 
     //Input
     private Vector2 movement;
     private Vector2 move;
-    public Vector2 GetMovement ()
+    public Vector2 GetMovement()
     {
         return movement;
     }
-    void Start ()
+    void Start()
     {
 
+        rb = GetComponent<Rigidbody2D>();
 
-        rb = GetComponent<Rigidbody2D> ();
+        StartCoroutine(Rotate(transformToTurn));
+        StartCoroutine(Dash());
+    }
+    private void FixedUpdate()
+    {
+        Vector2 pos = rb.position;
+        Vector2 limits = Limit / 2;
 
-        StartCoroutine (Rotate (transformToTurn));
-        StartCoroutine (Dash ());
+        pos.x = Mathf.Clamp(pos.x, -limits.x + Offset.x, limits.x + Offset.x);
+        pos.y = Mathf.Clamp(pos.y, -limits.y + Offset.y, limits.y + Offset.y);
+
+        rb.position = pos;
+        Move();
+
+
+
     }
-    private void FixedUpdate ()
+    public void SetMovement(InputAction.CallbackContext ctx)
     {
-        Move ();
+        movement = ctx.ReadValue<Vector2>();
     }
-    public void SetMovement (InputAction.CallbackContext ctx)
-    {
-        movement = ctx.ReadValue<Vector2> ();
-    }
-    public IEnumerator Dash ()
+    public IEnumerator Dash()
     {
         while (true)
         {
-            if (Input.GetKeyDown (KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 rb.position = (rb.position + DashMultiplier * movement);
 
-                yield return new WaitForSeconds (DashCooldown);
+                yield return new WaitForSeconds(DashCooldown);
             }
             else
                 yield return null;
         }
 
     }
-    private void Move ()
+    private void Move()
     {
         move = movement;
         move *= Time.fixedDeltaTime * speedMovement;
 
-        rb.MovePosition (rb.position + move);
-
+        rb.MovePosition(rb.position + move);
     }
-    IEnumerator Rotate (Transform transformToRotate)
+    IEnumerator Rotate(Transform transformToRotate)
     {
 
-        Vector2 dir = (CursorController.MousePosition () - (Vector2)transform.position).normalized;
-        Quaternion newRotation = Quaternion.LookRotation (dir, transform.up);
+        Vector2 dir = (CursorController.MousePosition() - (Vector2)transform.position).normalized;
+        Quaternion newRotation = Quaternion.LookRotation(dir, transform.up);
 
         transformToRotate.rotation = newRotation;
         while (true)
         {
-             dir = (CursorController.MousePosition () - (Vector2)transform.position).normalized;
-             newRotation = Quaternion.LookRotation (dir, transform.up);
+            dir = (CursorController.MousePosition() - (Vector2)transform.position).normalized;
+            newRotation = Quaternion.LookRotation(dir, transform.up);
 
-            transformToRotate.RotateAround (transform.position, Vector3.forward, Vector2.SignedAngle (transformToRotate.localPosition, dir));
+            transformToRotate.RotateAround(transform.position, Vector3.forward, Vector2.SignedAngle(transformToRotate.localPosition, dir));
 
             transformToRotate.rotation = newRotation;
 
             yield return null;
         }
     }
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(Offset, Limit);
+    }
 
 }

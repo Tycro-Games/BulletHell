@@ -21,7 +21,7 @@ TagManager:
   - Projectiles
   - PlayerNonInteract
   - Obstacles
-  - 
+  - Details
   - 
   - 
   - 
@@ -45,9 +45,12 @@ TagManager:
   - name: DetailsBackGound
     uniqueID: 278887809
     locked: 0
+  - name: AboveEverything
+    uniqueID: 4141769457
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: AboveEverything
-    uniqueID: 4141769457
+  - name: Player
+    uniqueID: 2213619171
     locked: 0

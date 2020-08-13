@@ -28,7 +28,7 @@ public class BulletSpawner : MonoBehaviour
     private Vector3 VectDir = Vector3.zero;
 
     private float currentTime = 0.0f;
-    [Header ("Raycast")]
+    [Header("Raycast")]
     [SerializeField]
     private float distance = 10.0f;
     [SerializeField]
@@ -37,11 +37,15 @@ public class BulletSpawner : MonoBehaviour
     private LayerMask collideable = 0;
     [SerializeField]
     private UnityEvent OnShoot = null;
-    public void ChangeProjectile (ProjectileObjects project)
+    [SerializeField]
+    private bool RandomTime = false;
+    [SerializeField]
+    private float FactorTime = 5;
+    public void ChangeProjectile(ProjectileObjects project)
     {
         projectile = project;
     }
-    private void Awake ()
+    private void Awake()
     {
         if (!Custom)
         {
@@ -58,38 +62,40 @@ public class BulletSpawner : MonoBehaviour
         {
 
         }
-        transform.rotation = Quaternion.LookRotation (VectDir);
+        transform.rotation = Quaternion.LookRotation(VectDir);
     }
-    public void LineOfSight ()
+    public void LineOfSight()
     {
-        if (Physics2D.CircleCast (transform.position, radiusCircle, transform.forward, distance, collideable))
+        if (Physics2D.CircleCast(transform.position, radiusCircle, transform.forward, distance, collideable))
         {
-            Spawn ();
+            Spawn();
         }
     }
-    private void Start ()
+    private void Start()
     {
-        projectiles = GameObject.FindGameObjectWithTag ("PRojectORg").transform;
+        projectiles = GameObject.FindGameObjectWithTag("PRojectORg").transform;
     }
-    public void Spawn ()
+    public void Spawn()
     {
         if (currentTime <= Time.time)
         {
-            OnShoot?.Invoke ();
+            OnShoot?.Invoke();
 
             currentTime = Time.time + 1 / projectile.FirePerSecond;
 
-            Projectile projectileInit = Spawner.Spawn (projectile.projectilePrefab,
-                transform.position + transform.forward * offset,
-                transform.rotation,
-                projectiles).GetComponent<Projectile> ();
-            projectileInit.Init (projectile.speed, projectile.damage, CollideableMask);
+            if (RandomTime)
+                currentTime += Mathf.Sin(transform.position.x) * FactorTime;
+            Projectile projectileInit = Spawner.Spawn(projectile.projectilePrefab,
+                    transform.position + transform.forward * offset,
+                    transform.rotation,
+                    projectiles).GetComponent<Projectile>();
+            projectileInit.Init(projectile.speed, projectile.damage, CollideableMask);
         }
 
     }
-    private void OnDrawGizmos ()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine (transform.position, transform.position + transform.forward);
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward);
     }
 }

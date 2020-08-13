@@ -1,7 +1,7 @@
-﻿using Cinemachine;
+﻿
 using UnityEngine;
 
-[RequireComponent (typeof (SpriteRenderer))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class CursorController : MonoBehaviour
 {
 
@@ -13,30 +13,30 @@ public class CursorController : MonoBehaviour
 
     private Vector2 velocity = Vector3.zero;
 
-    private static Transform cursorTransform=null;
-    private void Start ()
+    private static Transform cursorTransform = null;
+    private void Start()
     {
         cursorTransform = transform;
         Cursor.visible = false;
     }
-    private void Update ()
+    private void Update()
     {
-        transform.position = Vector2.SmoothDamp (transform.position, MousePosition (), ref velocity, smooth);
+        transform.position = Vector2.SmoothDamp(transform.position, MousePosition(), ref velocity, smooth);
     }
-    public static Vector2 CursorPosition ()
+    public static Vector2 CursorPosition()
     {
         return cursorTransform.position;
     }
-    public static Vector2 MousePosition ()
+    public static Vector2 MousePosition()
     {
-        Vector2 CursorPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+        Vector2 CursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         return CursorPos;
     }
-    private void OnDrawGizmos ()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere (transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 
 }

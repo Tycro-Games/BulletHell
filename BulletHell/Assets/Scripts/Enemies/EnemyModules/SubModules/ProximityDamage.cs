@@ -6,31 +6,31 @@ public class ProximityDamage : BaseEnemy
     [SerializeField]
     private Stats stats = null;
 
-    
 
-    [Header ("Damge Proximity")]
+
+    [Header("Damge Proximity")]
     [SerializeField]
     protected float TimeBetweenAtacks = .5f;
 
     [SerializeField]
-    private bool damageProxy=true;
+    private bool damageProxy = true;
 
     private bool inRange = false;
-    private void OnTriggerEnter2D (Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //Enemies layer can only interact with the player
         inRange = true;
     }
-    private void OnTriggerExit2D (Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         //Enemies layer can only interact with the player
         inRange = false;
     }
-    public void ToStart ()
+    public void ToStart()
     {
-        StartCoroutine (AtackProximity ());
+        StartCoroutine(AtackProximity());
     }
-    public IEnumerator AtackProximity ()
+    public IEnumerator AtackProximity()
     {
 
         while (EnemyController.HitEvent != null)
@@ -39,9 +39,9 @@ public class ProximityDamage : BaseEnemy
             if (!PlayerStats.atacked && inRange && damageProxy && gameObject.activeInHierarchy)
             //translation: the player cand take damage, is in range and you've set true, the damage proximity bool
             {
-                EnemyController.HitEvent (stats.Damage);
+                EnemyController.HitEvent(stats.Damage);
             }
-            yield return new WaitForSeconds (TimeBetweenAtacks);
+            yield return new WaitForSeconds(TimeBetweenAtacks);
         }
 
     }

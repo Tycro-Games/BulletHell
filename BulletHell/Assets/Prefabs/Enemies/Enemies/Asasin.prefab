@@ -175,6 +175,8 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
+  RandomTime: 1
+  FactorTime: 1
 --- !u!1 &2092303395
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +236,8 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
+  RandomTime: 1
+  FactorTime: 1
 --- !u!1 &2115591673
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +297,8 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
+  RandomTime: 1
+  FactorTime: 0.75
 --- !u!1 &3494094160556681349
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +474,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   DirPower: 1
+  animator: {fileID: 0}
+  anim: 0
   OnShoot:
     m_PersistentCalls:
       m_Calls:
@@ -534,6 +542,7 @@ GameObject:
   - component: {fileID: 5024868578515485739}
   - component: {fileID: 347021905}
   - component: {fileID: 1860308896}
+  - component: {fileID: 4507631354640922429}
   m_Layer: 11
   m_Name: Asasin
   m_TagString: Untagged
@@ -604,6 +613,22 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.006819427, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.477224
+--- !u!58 &4507631354640922429
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013464988628411245}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.006819427, y: 0}

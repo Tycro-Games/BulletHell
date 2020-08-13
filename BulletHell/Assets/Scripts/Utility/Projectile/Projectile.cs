@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-[RequireComponent (typeof (CircleCollider2D))]
+[RequireComponent(typeof(CircleCollider2D))]
 public class Projectile : MonoBehaviour
 {
     private LayerMask collideableLayer;
@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
     private bool destroyed = false;
     private readonly float lifetime = 5.0f;
 
-    public void Init (float Speed, int Damage, LayerMask Collide)
+    public void Init(float Speed, int Damage, LayerMask Collide)
     {
         speed = Speed;
         collideableLayer = Collide;
@@ -21,83 +21,83 @@ public class Projectile : MonoBehaviour
 
         destroyed = false;
 
-        CheckStart ();
+        CheckStart();
     }
-    private void OnEnable ()
+    private void OnEnable()
     {
-        StartCoroutine (DestroyProjectileTime (lifetime));
+        StartCoroutine(DestroyProjectileTime(lifetime));
     }
-    private void Awake ()
+    private void Awake()
     {
-        col = GetComponent<CircleCollider2D> ();
+        col = GetComponent<CircleCollider2D>();
         thickness = col.radius;
     }
-    private void Update ()
+    private void Update()
     {
         velocity = Time.deltaTime * speed;
 
-        
-        
 
-        transform.Translate (Vector3.forward * velocity, Space.Self);
+
+
+        transform.Translate(Vector3.forward * velocity, Space.Self);
 
     }
-    private void FixedUpdate ()
+    private void FixedUpdate()
     {
         if (!destroyed)
-            CheckSoroundings (velocity);
+            CheckSoroundings(velocity);
     }
-    public void DestroyProjectile ()
+    public void DestroyProjectile()
     {
         if (gameObject.activeInHierarchy)
-            PoolingObjectsSystem.Destroy (gameObject);
+            PoolingObjectsSystem.Destroy(gameObject);
     }
-    public IEnumerator DestroyProjectileTime (float lifetime)
+    public IEnumerator DestroyProjectileTime(float lifetime)
     {
-        yield return new WaitForSeconds (lifetime);
-        PoolingObjectsSystem.Destroy (gameObject);
+        yield return new WaitForSeconds(lifetime);
+        PoolingObjectsSystem.Destroy(gameObject);
     }
-    void CheckSoroundings (float veloc)
+    void CheckSoroundings(float veloc)
     {
-        RaycastHit2D hit = Physics2D.CircleCast (transform.position, thickness, transform.up, veloc, collideableLayer);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, thickness, transform.up, veloc, collideableLayer);
         if (hit.collider != null)
         {
-            HitObject (hit.collider, hit.point);
+            HitObject(hit.collider, hit.point);
         }
     }
-    void HitObject (Collider2D col, Vector2 pointHit)
+    void HitObject(Collider2D col, Vector2 pointHit)
     {
-        IHitable hit = col.GetComponent<IHitable> ();
+        IHitable hit = col.GetComponent<IHitable>();
         if (col.tag != "Player")
         {
             if (hit != null)
-                hit.TakeDamage (damage);
+                hit.TakeDamage(damage);
 
         }
         else
         {
             if (hit != null && !PlayerStats.atacked)
             {
-                hit.TakeDamage (damage);
+                hit.TakeDamage(damage);
             }
         }
-        DestroyProjectile ();
+        DestroyProjectile();
     }
 
-    void CheckStart ()
+    void CheckStart()
     {
         Collider2D[] colliders = new Collider2D[10];
-        int cols = Physics2D.OverlapCircleNonAlloc (transform.position, thickness, colliders, collideableLayer);
+        int cols = Physics2D.OverlapCircleNonAlloc(transform.position, thickness, colliders, collideableLayer);
         if (cols > 0)
         {
-            HitObject (colliders[0], transform.position);
+            HitObject(colliders[0], transform.position);
             destroyed = true;
         }
     }
-    private void OnDrawGizmos ()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere (transform.position, .5f);
+        Gizmos.DrawWireSphere(transform.position, .5f);
     }
 
 

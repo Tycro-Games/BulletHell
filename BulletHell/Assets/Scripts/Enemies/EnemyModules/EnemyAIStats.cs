@@ -4,14 +4,15 @@ using UnityEngine;
 public class EnemyAIStats : CommonStats, IHitable
 {
     //this script kills you
-    public void Die ()
+    public void Die()
     {
-        PoolingObjectsSystem.Destroy (gameObject);
+        EnemyManager.currentEnemies.Remove(gameObject);
+        PoolingObjectsSystem.Destroy(gameObject);
     }
-    public void TakeDamage (int dg)
+    public void TakeDamage(int dg)
     {
         HP -= dg;
         if (HP <= 0)
-            Die ();
+            Die();
     }
 }

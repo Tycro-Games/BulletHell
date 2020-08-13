@@ -16,6 +16,10 @@ public struct NonPlayerOriented
 }
 public class ShootEnemy : BaseEnemy
 {
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private bool anim = false;
     [Header("Range")]
     [SerializeField]
     private UnityEvent OnShoot = null;
@@ -100,7 +104,14 @@ public class ShootEnemy : BaseEnemy
                     if (IsFacingPlayer() || NeedToFace) //if you face the player shoot
                     {
                         agent.isStopped = true;
-                        OnShoot?.Invoke();
+
+                        if (anim)
+                        {
+                            if (!animator.GetBool("atack"))
+                                OnShoot?.Invoke();
+                        }
+                        else
+                            OnShoot?.Invoke();
                     }
                     else if (!StopAndShoot)
                     {
@@ -117,7 +128,14 @@ public class ShootEnemy : BaseEnemy
             else //behavior if you just want to shoot
             {
                 PointPlayer();
-                OnShoot?.Invoke();
+
+                if (anim)
+                {
+                    if (!animator.GetBool("atack"))
+                        OnShoot?.Invoke();
+                }
+                else
+                    OnShoot?.Invoke();
 
                 if (Non_Moveable)
                     agent.isStopped = true;

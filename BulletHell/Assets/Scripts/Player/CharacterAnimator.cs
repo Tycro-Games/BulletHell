@@ -6,27 +6,27 @@ public class CharacterAnimator : MonoBehaviour
 
     [SerializeField]
     private Animator anim = null;
-    private void Start ()
+    private void Start()
     {
-        movement = GetComponent<PlayerMovement> ();
+        movement = GetComponent<PlayerMovement>();
     }
-    private void Update ()
+    private void Update()
     {
-        float x = movement.GetMovement ().x;
-        float y = movement.GetMovement ().y;
-        if (Mathf.RoundToInt (x) == 0 && Mathf.RoundToInt (y) == 0)
+        float x = movement.GetMovement().x;
+        float y = movement.GetMovement().y;
+        if (Mathf.RoundToInt(x) == 0 && Mathf.RoundToInt(y) == 0)
         {
-            anim.SetFloat ("X", 0);
-            anim.SetTrigger ("stop");
+            anim.SetFloat("X", 0);
+            anim.SetTrigger("stop");
         }
         else
         {
-            ChangeDirection (x);
+            ChangeDirection(x);
         }
     }
-    void ChangeDirection (float x)
+    void ChangeDirection(float x)
     {
-        anim.SetFloat ("X", 1);    
+        anim.SetFloat("X", 1);
     }
-   
+
 }

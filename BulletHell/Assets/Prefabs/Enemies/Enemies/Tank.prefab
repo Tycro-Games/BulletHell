@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2145525848}
   - component: {fileID: 2145525847}
   - component: {fileID: 2145525846}
+  - component: {fileID: 3579273236110755924}
   m_Layer: 0
   m_Name: GPX
   m_TagString: Untagged
@@ -116,6 +117,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsRight: 1
+--- !u!114 &3579273236110755924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145525844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcfe4564e269d0488981b6f567084b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 5237964011992002253}
 --- !u!1 &3018583536709595121
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +142,7 @@ GameObject:
   - component: {fileID: 939871185809639607}
   - component: {fileID: 5237964011992002253}
   - component: {fileID: 5237964011091067708}
+  - component: {fileID: 9073591182514834947}
   m_Layer: 11
   m_Name: Tank
   m_TagString: Untagged
@@ -202,6 +217,22 @@ CircleCollider2D:
   m_Offset: {x: 0.05, y: 0}
   serializedVersion: 2
   m_Radius: 0.33
+--- !u!58 &9073591182514834947
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018583536709595121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &5237964011320445119
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +304,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  RandomTime: 0
+  FactorTime: 5
 --- !u!114 &1341600250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +393,8 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
+  RandomTime: 1
+  FactorTime: 0.5
 --- !u!1 &5237964012127519355
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +466,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  RandomTime: 0
+  FactorTime: 5
 --- !u!114 &534395710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,6 +672,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   DirPower: 1
+  animator: {fileID: 2145525847}
+  anim: 1
   OnShoot:
     m_PersistentCalls:
       m_Calls:

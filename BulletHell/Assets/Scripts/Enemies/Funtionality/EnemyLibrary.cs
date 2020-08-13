@@ -9,28 +9,27 @@ public class EnemyLibrary : MonoBehaviour
     [SerializeField]
     private Transform parentSpawners = null;
 
-    private void Awake ()
+    private void Awake()
     {
-        DontDestroyOnLoad (gameObject);
+        DontDestroyOnLoad(gameObject);
         if (enemyLibrary == null)
             enemyLibrary = this;
         else
-            Destroy (gameObject);
+            Destroy(gameObject);
     }
 
     // Start is called before the first frame update
-    void Start ()
+    void Start()
     {
         EnemiesSpawningManager.EnemySpawnersParent = parentSpawners;//init
-        
     }
-    public void AllSpawnersEnemy ()
+    public void AllSpawnersEnemy()
     {
-        EnemiesSpawningManager.EverySpawnerAct (EnemyPrefabs[Random.Range (0, EnemyPrefabs.Length)]);
+        EnemiesSpawningManager.EverySpawnerAct(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Length)]);
     }
-    public void SpawnEnemy (EnemySpawner enemySpawner, GameObject enemyPrefab)
+    public void SpawnEnemy(EnemySpawner enemySpawner, GameObject enemyPrefab)
     {
-        EnemiesSpawningManager.SpawnerAct (enemySpawner, enemyPrefab);
+        EnemiesSpawningManager.SpawnerAct(enemySpawner, enemyPrefab);
     }
 
 }

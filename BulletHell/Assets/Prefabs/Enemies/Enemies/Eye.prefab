@@ -59,6 +59,8 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
+  RandomTime: 1
+  FactorTime: 5
 --- !u!1 &1172535650
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +120,8 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
+  RandomTime: 1
+  FactorTime: 5
 --- !u!1 &1683345327
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +181,8 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
+  RandomTime: 1
+  FactorTime: 5
 --- !u!1 &1097935039129421300
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,17 +266,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8898526795849874519}
-        m_MethodName: ChasePlayer
-        m_Mode: 1
+        m_MethodName: GoToARandomSpot
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   DirPower: 1
+  animator: {fileID: 0}
+  anim: 0
   OnShoot:
     m_PersistentCalls:
       m_Calls:
@@ -489,6 +497,8 @@ MonoBehaviour:
   OnShoot:
     m_PersistentCalls:
       m_Calls: []
+  RandomTime: 1
+  FactorTime: 5
 --- !u!1 &6004278808346503475
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +627,7 @@ GameObject:
   - component: {fileID: 4685291054750003500}
   - component: {fileID: 494352580}
   - component: {fileID: 656232311}
+  - component: {fileID: 4187519064974674440}
   m_Layer: 11
   m_Name: Eye
   m_TagString: Untagged
@@ -686,6 +697,22 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.26
+--- !u!58 &4187519064974674440
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343753632532502122}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
