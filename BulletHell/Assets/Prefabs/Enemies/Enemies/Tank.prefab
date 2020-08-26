@@ -157,14 +157,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3018583536709595121}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.86, y: 1.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8262641903608449883}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &939871185809639607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +179,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
   HP: 400
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!195 &5237964011992002253
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -260,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 5237964011320445119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3636933596854533709}
   m_RootOrder: 2
@@ -282,9 +288,8 @@ MonoBehaviour:
   offset: 0.5
   CollideableMask:
     serializedVersion: 2
-    m_Bits: 17408
+    m_Bits: 19456
   dir: 3
-  Custom: 0
   distance: 10
   radiusCircle: 0.5
   collideable:
@@ -360,7 +365,7 @@ Transform:
   m_GameObject: {fileID: 5237964011364307301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3636933596854533709}
   m_RootOrder: 0
@@ -382,9 +387,8 @@ MonoBehaviour:
   offset: 0.5
   CollideableMask:
     serializedVersion: 2
-    m_Bits: 17408
+    m_Bits: 19456
   dir: 0
-  Custom: 0
   distance: 10
   radiusCircle: 1
   collideable:
@@ -422,7 +426,7 @@ Transform:
   m_GameObject: {fileID: 5237964012127519355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3636933596854533709}
   m_RootOrder: 1
@@ -444,9 +448,8 @@ MonoBehaviour:
   offset: 0.5
   CollideableMask:
     serializedVersion: 2
-    m_Bits: 17408
+    m_Bits: 19456
   dir: 1
-  Custom: 0
   distance: 10
   radiusCircle: 0.5
   collideable:

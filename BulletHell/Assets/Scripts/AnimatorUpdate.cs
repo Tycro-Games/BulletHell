@@ -11,28 +11,28 @@ public class AnimatorUpdate : MonoBehaviour
     private Animator animator = null;
 
     private NavMeshAgent agent;
-    void Start ()
+    void Start()
     {
-        agent = GetComponentInParent<NavMeshAgent> ();
-        animator = GetComponent<Animator> ();
+        agent = GetComponentInParent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
-    void Update ()
+    void Update()
     {
-        if (agent.remainingDistance<=agent.stoppingDistance)
+        if (agent.remainingDistance <= agent.stoppingDistance || agent.isStopped)
         {
-            animator.SetBool ("Stopped", true);
+            animator.SetBool("Stopped", true);
         }
         else
         {
-            animator.SetBool ("Stopped", false);
+            animator.SetBool("Stopped", false);
         }
 
         if (agent.destination.x < transform.position.x && IsRight)
-            Flip ();
+            Flip();
         if (agent.destination.x > transform.position.x && !IsRight)
-            Flip ();
+            Flip();
     }
-    public void Flip ()
+    public void Flip()
     {
         Vector3 scale = transform.localScale;
         scale.x *= -1;

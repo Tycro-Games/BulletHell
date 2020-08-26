@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System;
 public class PlayerStats : CommonStats, IHitable
 {
     [SerializeField]
@@ -13,8 +15,8 @@ public class PlayerStats : CommonStats, IHitable
     private float currentTime = 0.0f;
     private float finishTime = 0.0f;
 
-
-    private void Update ()
+    public static event Action deathEvent;
+    private void Update()
     {
         if (atacked)
         {
@@ -23,20 +25,20 @@ public class PlayerStats : CommonStats, IHitable
                 atacked = false;
         }
     }
-    public void Immortal ()
+    public void Immortal()
     {
         immortal = !immortal;
     }
-    private void OnEnable ()
+    private void OnEnable()
     {
         EnemyController.HitEvent += TakeDamage;
     }
-    private void OnDisable ()
+    private void OnDisable()
     {
         EnemyController.HitEvent -= TakeDamage;
 
     }
-    public void TakeDamage (int dg)
+    public void TakeDamage(int dg)
     {
         if (!immortal)
         {
@@ -54,18 +56,20 @@ public class PlayerStats : CommonStats, IHitable
 
                 //health staff
                 HP -= dg;
-                Debug.Log (HP);
+                Debug.Log(HP);
 
                 if (HP <= 0)
-                    Die ();
+                    Die();
             }
         }
     }
 
 
 
-    public void Die ()
+    public void Die()
     {
-        PoolingObjectsSystem.Destroy (gameObject);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);//restart
+        deathEvent?.Invoke();
     }
 }

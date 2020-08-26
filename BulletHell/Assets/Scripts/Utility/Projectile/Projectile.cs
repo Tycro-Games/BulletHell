@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     private LayerMask collideableLayer;
     private float speed = 10.0f;
     private float velocity = 0.0f;
+    [SerializeField]
     private float thickness = 0.25f;
     private CircleCollider2D col = null;
 
@@ -23,14 +24,18 @@ public class Projectile : MonoBehaviour
 
         CheckStart();
     }
+
     private void OnEnable()
     {
         StartCoroutine(DestroyProjectileTime(lifetime));
     }
+    private void OnDestroy()
+    {
+        DestroyProjectile();
+    }
     private void Awake()
     {
         col = GetComponent<CircleCollider2D>();
-        thickness = col.radius;
     }
     private void Update()
     {
@@ -39,7 +44,7 @@ public class Projectile : MonoBehaviour
 
 
 
-        transform.Translate(Vector3.forward * velocity, Space.Self);
+        transform.Translate(Vector2.up * velocity, Space.Self);
 
     }
     private void FixedUpdate()
@@ -97,7 +102,7 @@ public class Projectile : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, .5f);
+        Gizmos.DrawWireSphere(transform.position, thickness);
     }
 
 

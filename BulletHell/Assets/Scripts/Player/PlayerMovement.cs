@@ -26,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
     {
         return movement;
     }
+    public Vector2 GetMove()
+    {
+        return move;
+    }
     void Start()
     {
 
@@ -41,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         pos.x = Mathf.Clamp(pos.x, -limits.x + Offset.x, limits.x + Offset.x);
         pos.y = Mathf.Clamp(pos.y, -limits.y + Offset.y, limits.y + Offset.y);
+
 
         rb.position = pos;
         Move();

@@ -14,6 +14,8 @@ public class CharacterAnimator : MonoBehaviour
     {
         float x = movement.GetMovement().x;
         float y = movement.GetMovement().y;
+
+
         if (Mathf.RoundToInt(x) == 0 && Mathf.RoundToInt(y) == 0)
         {
             anim.SetFloat("X", 0);

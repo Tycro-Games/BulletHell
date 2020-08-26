@@ -50,7 +50,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17408
   dir: 1
-  Custom: 0
   distance: 10
   radiusCircle: 1
   collideable:
@@ -60,7 +59,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   RandomTime: 1
-  FactorTime: 5
+  FactorTime: 0
 --- !u!1 &1172535650
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +110,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17408
   dir: 3
-  Custom: 0
   distance: 10
   radiusCircle: 1
   collideable:
@@ -121,7 +119,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   RandomTime: 1
-  FactorTime: 5
+  FactorTime: 0
 --- !u!1 &1683345327
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +170,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17408
   dir: 2
-  Custom: 0
   distance: 10
   radiusCircle: 1
   collideable:
@@ -182,7 +179,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   RandomTime: 1
-  FactorTime: 5
+  FactorTime: 0
 --- !u!1 &1097935039129421300
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +206,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097935039129421300}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -219,7 +216,7 @@ Transform:
   - {fileID: 1172535651}
   m_Father: {fileID: 4513914929474548416}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!58 &66831343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -255,24 +252,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8898526795849874519}
-        m_MethodName: MakeItChangeDir
+        m_MethodName: ChasePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8898526795849874519}
-        m_MethodName: GoToARandomSpot
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 5
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -326,21 +312,65 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   rangeToShoot: 10
   SpeedOfPrefire: 0
-  StopAndShoot: 1
-  Non_Moveable: 0
-  NeedToFace: 1
+  StopAndShoot: 0
+  Non_Moveable: 1
+  NeedToFace: 0
   PlayerNeed: 0
   NoDistantace: 1
   NonPlayer:
-    RandomDir: 0
-    AutoRotation: 0
+    RandomDir: 1
+    AutoRotation: 1
     ClockWise: 0
   TrueIfFacing:
     serializedVersion: 2
     m_Bits: 1024
-  speedRotation: 90
+  speedRotation: 180
   speedOnLateralShoot: 90
   rotateLateralTime: 3
   OnBoost: 0
@@ -488,7 +518,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17408
   dir: 0
-  Custom: 0
   distance: 10
   radiusCircle: 1
   collideable:
@@ -498,7 +527,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   RandomTime: 1
-  FactorTime: 5
+  FactorTime: 0
 --- !u!1 &6004278808346503475
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +693,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
   HP: 100
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4685291052926866946}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 150240662}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1683345329}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1172535652}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!195 &494352580
 NavMeshAgent:
   m_ObjectHideFlags: 0

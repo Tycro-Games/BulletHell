@@ -17,7 +17,7 @@ public struct NonPlayerOriented
 public class ShootEnemy : BaseEnemy
 {
     [SerializeField]
-    private Animator animator;
+    private Animator animator = null;
     [SerializeField]
     private bool anim = false;
     [Header("Range")]
@@ -25,8 +25,6 @@ public class ShootEnemy : BaseEnemy
     private UnityEvent OnShoot = null;
     [SerializeField]
     private float rangeToShoot = 5.0f;
-    [SerializeField]
-    private float SpeedOfPrefire = 1.5f;
     [SerializeField]
     private bool StopAndShoot = false;
     [SerializeField]
@@ -61,12 +59,18 @@ public class ShootEnemy : BaseEnemy
         else
             return;
     }
-
+    IEnumerator currentAtack = null;
+    private void OnDisable()
+    {
+        currentAtack = null;
+    }
     public void ToStart()
     {
-        PointPlayer(true);
-
-        StartCoroutine(AtackRange());
+        if (currentAtack == null)
+        {
+            currentAtack = AtackRange();
+            StartCoroutine(currentAtack);
+        }
     }
 
     public void LookAtPlayer()
@@ -91,16 +95,16 @@ public class ShootEnemy : BaseEnemy
     }
     public IEnumerator AtackRange()
     {
-        yield return null;
+        PointPlayer(true);
+
 
         while (OnShoot != null && EnemyController.HitEvent != null)
         {
             if (PlayerNeed)//the player is needed
             {
+                PointPlayer();
                 if (agent.remainingDistance <= rangeToShoot || NoDistantace)//in range
                 {
-                    PointPlayer();
-
                     if (IsFacingPlayer() || NeedToFace) //if you face the player shoot
                     {
                         agent.isStopped = true;
@@ -137,6 +141,7 @@ public class ShootEnemy : BaseEnemy
                 else
                     OnShoot?.Invoke();
 
+
                 if (Non_Moveable)
                     agent.isStopped = true;
                 yield return null;
@@ -146,7 +151,7 @@ public class ShootEnemy : BaseEnemy
     bool IsFacingPlayer()
     {
         RaycastHit2D ray = Physics2D.Raycast(transform.position, transform.forward, rangeToShoot, TrueIfFacing);
-        Debug.DrawRay(enemyTransform.position, enemyTransform.forward * rangeToShoot, Color.blue);
+        Debug.DrawRay(enemyTransform.position, transform.forward * rangeToShoot, Color.blue);
         if (ray.collider != null)
             return true;
         else
@@ -154,8 +159,7 @@ public class ShootEnemy : BaseEnemy
     }
     private Vector2 Dir()
     {
-        Vector2 target = (Vector2)StaticInfo.PlayerPos + StaticInfo.VelocityOfPlayer * SpeedOfPrefire;
-        return (target - (Vector2)transform.position).normalized;
+        return (target.position - transform.position).normalized;
     }
     void PointPlayer(bool justRot = false)
     {
@@ -179,13 +183,13 @@ public class ShootEnemy : BaseEnemy
     {
         if (!justRot)
         {
-            Quaternion newRot = Quaternion.LookRotation(dir, transform.up);
+            Quaternion newRot = Quaternion.LookRotation(dir, -Vector3.forward);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, newRot, speedRotation * Time.deltaTime);
         }
         else
         {
-            transform.rotation = Quaternion.LookRotation(dir, transform.up);
+            transform.rotation = Quaternion.LookRotation(dir, -Vector3.forward);
         }
     }
 

@@ -17,6 +17,8 @@ public class BaseEnemy : MonoBehaviour
 
     [SerializeField]
     private float DirPower = 1.0f;
+    private bool chasing = false;
+    protected Transform target;
     private IEnumerator Repath(float time)
     {
         while (true)
@@ -31,8 +33,10 @@ public class BaseEnemy : MonoBehaviour
     }
     public void GoToARandomSpot(float radius)
     {
+        if (chasing)
+            return;
         Vector2 point = (Vector2)transform.position + Random.insideUnitCircle * radius;
-        Vector2 dir = (StaticInfo.PlayerPos - transform.position).normalized * DirPower;
+        Vector2 dir = (target.position - transform.position).normalized * DirPower;
 
         if (!Physics2D.OverlapCircle(point + dir, radius, Obstacles))
             agent.SetDestination(point + dir);
@@ -41,12 +45,14 @@ public class BaseEnemy : MonoBehaviour
     }
     public void ChasePlayer()
     {
-        agent.SetDestination(StaticInfo.PlayerPos);
+        chasing = true;
+        agent.SetDestination(target.position);
     }
-    public void Init(float repathSpeed, Transform EnemyTransform, NavMeshAgent Agent)
+    public void Init(Transform Target, float repathSpeed, Transform EnemyTransform, NavMeshAgent Agent)
     {
         StopAllCoroutines();
 
+        target = Target;
         enemyTransform = EnemyTransform;
         agent = Agent;
 

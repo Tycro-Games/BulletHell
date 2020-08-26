@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
-
+using System;
 public class EnemyController : MonoBehaviour
 {
     public static Transform playerTransform = null;
@@ -20,11 +20,13 @@ public class EnemyController : MonoBehaviour
     [Header("RepathSpeeds")]
     [SerializeField]
     private float RepathSpeed = 0.75f;
-
     public delegate void Onhit(int dg);
     public static Onhit HitEvent = null;
+    Transform target;
+
     void Awake()
     {
+        target = FindObjectOfType<PlayerMovement>().transform;
         agent = GetComponentInParent<NavMeshAgent>();
         enemyTransform = agent.transform;
 
@@ -34,7 +36,7 @@ public class EnemyController : MonoBehaviour
         atack = GetComponentsInChildren<BaseEnemy>();
         for (int i = 0; i < atack.Length; i++)
         {
-            atack[i].Init(RepathSpeed, enemyTransform, agent);
+            atack[i].Init(target, RepathSpeed, enemyTransform, agent);
         }
     }
     private void Start()
@@ -42,3 +44,4 @@ public class EnemyController : MonoBehaviour
         ToStart?.Invoke();
     }
 }
+

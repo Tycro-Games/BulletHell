@@ -22,8 +22,6 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField]
     private Direction dir = Direction.forw;
 
-    [SerializeField]
-    private bool Custom = false;
 
     private Vector3 VectDir = Vector3.zero;
 
@@ -45,24 +43,21 @@ public class BulletSpawner : MonoBehaviour
     {
         projectile = project;
     }
-    private void Awake()
+    private void Start()
     {
-        if (!Custom)
-        {
-            if (dir == Direction.forw)
-                VectDir = transform.forward;
-            else if (dir == Direction.right)
-                VectDir = transform.right;
-            else if (dir == Direction.back)
-                VectDir = -transform.forward;
-            else if (dir == Direction.left)
-                VectDir = -transform.right;
-        }
-        else
-        {
+        if (dir == Direction.forw)
+            VectDir = transform.forward;
+        else if (dir == Direction.right)
+            VectDir = transform.right;
+        else if (dir == Direction.back)
+            VectDir = -transform.forward;
+        else if (dir == Direction.left)
+            VectDir = -transform.right;
 
-        }
-        transform.rotation = Quaternion.LookRotation(VectDir);
+        transform.rotation = Quaternion.LookRotation(VectDir, Vector3.forward);
+
+
+        projectiles = GameObject.FindGameObjectWithTag("PRojectORg").transform;
     }
     public void LineOfSight()
     {
@@ -71,10 +66,7 @@ public class BulletSpawner : MonoBehaviour
             Spawn();
         }
     }
-    private void Start()
-    {
-        projectiles = GameObject.FindGameObjectWithTag("PRojectORg").transform;
-    }
+
     public void Spawn()
     {
         if (currentTime <= Time.time)
@@ -84,10 +76,11 @@ public class BulletSpawner : MonoBehaviour
             currentTime = Time.time + 1 / projectile.FirePerSecond;
 
             if (RandomTime)
-                currentTime += Mathf.Sin(transform.position.x) * FactorTime;
+                currentTime += Mathf.Abs(Mathf.Sin(Time.time)) * FactorTime;
+
             Projectile projectileInit = Spawner.Spawn(projectile.projectilePrefab,
                     transform.position + transform.forward * offset,
-                    transform.rotation,
+                    Quaternion.LookRotation(Vector3.forward, transform.forward),
                     projectiles).GetComponent<Projectile>();
             projectileInit.Init(projectile.speed, projectile.damage, CollideableMask);
         }

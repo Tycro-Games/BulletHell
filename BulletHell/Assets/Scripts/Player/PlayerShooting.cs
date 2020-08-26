@@ -1,35 +1,22 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
-    private bool shooting = false;
-    bool pressing;
     [SerializeField]
     private UnityEvent OnShoot = null;
-   
-    public void Shoot (InputAction.CallbackContext ctx)
-    {
-        pressing = ctx.ReadValue<float> () == 1 ? true : false;
-        if (pressing)
-        {
-            if (!shooting)
-            {
-                shooting = true;
-                StartCoroutine (Shooting ());
 
-            }
-        }
-    }
-    IEnumerator Shooting ()
+    private void Update()
     {
-        while (pressing)
+        if (Input.GetMouseButton(0))
         {
-            OnShoot.Invoke ();
-            yield return null;
+            Shooting();
         }
-        shooting = false;
+
+    }
+    void Shooting()
+    {
+        OnShoot?.Invoke();
     }
 }

@@ -4,16 +4,19 @@ public class FlipEnemy : MonoBehaviour
 {
     [SerializeField]
     private bool IsRight = true;
-
-
-    private void Update ()
+    Vector2 target;
+    private void Start()
     {
-            if (StaticInfo.PlayerPos.x < transform.position.x && IsRight)
-                Flip ();
-        if (StaticInfo.PlayerPos.x > transform.position.x && !IsRight)
-            Flip ();
+        target = FindObjectOfType<PlayerMovement>().transform.position;
     }
-    public void Flip ()
+    private void Update()
+    {
+        if (target.x < transform.position.x && IsRight)
+            Flip();
+        if (target.x > transform.position.x && !IsRight)
+            Flip();
+    }
+    public void Flip()
     {
         Vector3 scale = transform.localScale;
         scale.x *= -1;
