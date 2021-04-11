@@ -15,7 +15,8 @@ namespace Bog
         public Texture2D room = null;
 
         [HideInInspector]
-        public Vector2[] neighbours = new Vector2[4];
+        public List<Vector2> neighboursFrom = new List<Vector2>();
+        public List<Vector2> neighboursBack = new List<Vector2>();
 
         [HideInInspector]
         public Vector2 currentPos;
@@ -23,7 +24,7 @@ namespace Bog
         public Room(Vector2 pos, Texture2D type)
         {
             room = type;
-            //  neighbours[dir] = 1;
+
             currentPos = pos;
         }
     }

@@ -46,6 +46,7 @@ namespace Bog
         private Room start;
 
         private List<Room> grid = new List<Room>();
+        private List<Texture2D> roomsToTake = new List<Texture2D>();
         private List<Vector2> possibles = new List<Vector2>();
         private HashSet<Vector2> occupied = new HashSet<Vector2>();
 
@@ -62,18 +63,22 @@ namespace Bog
 
             possibles.Remove(start.currentPos);
 
-            int max = GetTotalRoomsCount();
-            while (max != 0)
+            InitRooms();
+            while (roomsToTake.Count != 0)
             {
                 int index = Random.Range(0, possibles.Count);
                 Vector2 pos = possibles[index];
-                Room newRoom = new Room(pos, rooms[0].room.room);
-
+                if (occupied.Contains(pos))
+                {
+                    possibles.Remove(pos);
+                    continue;
+                }
+                Texture2D setRoom = roomsToTake[Random.Range(0, roomsToTake.Count)];
+                Room newRoom = new Room(pos, setRoom);
+                roomsToTake.Remove(setRoom);
                 grid.Add(newRoom);
 
                 GetNeight(newRoom);
-
-                max--;
             }
             MakeRooms();
         }
@@ -86,7 +91,8 @@ namespace Bog
                 GameObject roomObj = new GameObject(texture.name);
                 roomObj.transform.position = room.currentPos;
                 roomObj.transform.parent = transform;
-                for (int i = 0; i < texture.width; i++)
+
+                for (int i = 0; i < texture.width; i++)//make tiles
                     for (int j = 0; j < texture.height; j++)
                     {
                         Color color = texture.GetPixel(i, j);
@@ -100,6 +106,12 @@ namespace Bog
                             }
                         }
                     }
+                if (room != grid[0])
+                    for(int i=0;i<room.neighboursFrom.Count;i++)
+                    {
+                        Instantiate(tiles[0].obj, room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
+                        Instantiate(tiles[0].obj, room.neighboursBack[i], Quaternion.identity, roomObj.transform);//tile for the room to the door
+                    }
             }
         }
 
@@ -109,22 +121,29 @@ namespace Bog
         private void GetNeight(Room room)
         {
             occupied.Add(room.currentPos);
+
             for (int i = 0; i < 4; i++)
             {
                 Vector2 newPos = room.currentPos + new Vector2(NX[i] * roomW, NY[i] * roomH);
                 if (!occupied.Contains(newPos))
                     possibles.Add(newPos);
+                else
+                {
+                    room.neighboursFrom.Add(newPos - new Vector2(NX[i] * roomW / 2 + NX[i] * 1, NY[i] * roomH / 2 + NY[i] * 1));
+                    room.neighboursBack.Add(newPos - new Vector2(NX[i] * roomW / 2 - NX[i] * 1, NY[i] * roomH / 2 - NY[i] * 1));
+                }
             }
         }
 
-        private int GetTotalRoomsCount()
+        private void InitRooms()
         {
-            int max = 0;
             foreach (Cell room in rooms)
             {
-                max += room.count;
+                for (int i = 0; i < room.count; i++)
+                {
+                    roomsToTake.Add(room.room.room);
+                }
             }
-            return max;
         }
     }
 }
