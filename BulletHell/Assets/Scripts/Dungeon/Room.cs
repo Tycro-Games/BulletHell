@@ -16,7 +16,12 @@ namespace Bog
 
         [HideInInspector]
         public List<Vector2> neighboursFrom = new List<Vector2>();
-        public List<Vector2> neighboursBack = new List<Vector2>();
+
+        [HideInInspector]
+
+        public List<Vector2> neighboursBack = new List<Vector2>();[HideInInspector]
+
+        public List<Vector2> ToRoom = new List<Vector2>();
 
         [HideInInspector]
         public Vector2 currentPos;

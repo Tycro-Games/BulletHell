@@ -3,13 +3,14 @@ using UnityEngine.Events;
 
 public class BulletSpawner : MonoBehaviour
 {
-    enum Direction
+    private enum Direction
     {
         forw, right, back, left
     };
 
     [SerializeField]
     private ProjectileObjects projectile;
+
     [SerializeField]
     private Transform projectiles = null;
 
@@ -22,27 +23,34 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField]
     private Direction dir = Direction.forw;
 
-
     private Vector3 VectDir = Vector3.zero;
 
     private float currentTime = 0.0f;
+
     [Header("Raycast")]
     [SerializeField]
     private float distance = 10.0f;
+
     [SerializeField]
     private float radiusCircle = 1.0f;
+
     [SerializeField]
     private LayerMask collideable = 0;
+
     [SerializeField]
     private UnityEvent OnShoot = null;
+
     [SerializeField]
     private bool RandomTime = false;
+
     [SerializeField]
     private float FactorTime = 5;
+
     public void ChangeProjectile(ProjectileObjects project)
     {
         projectile = project;
     }
+
     private void Start()
     {
         if (dir == Direction.forw)
@@ -55,10 +63,8 @@ public class BulletSpawner : MonoBehaviour
             VectDir = -transform.right;
 
         transform.rotation = Quaternion.LookRotation(VectDir, Vector3.forward);
-
-
-        projectiles = GameObject.FindGameObjectWithTag("PRojectORg").transform;
     }
+
     public void LineOfSight()
     {
         if (Physics2D.CircleCast(transform.position, radiusCircle, transform.forward, distance, collideable))
@@ -77,15 +83,15 @@ public class BulletSpawner : MonoBehaviour
 
             if (RandomTime)
                 currentTime += Mathf.Abs(Mathf.Sin(Time.time)) * FactorTime;
-
+            // Vector2 dir = (CursorController.cursorTransform.position - transform.position).normalized;
             Projectile projectileInit = Spawner.Spawn(projectile.projectilePrefab,
-                    transform.position + transform.forward * offset,
-                    Quaternion.LookRotation(Vector3.forward, transform.forward),
-                    projectiles).GetComponent<Projectile>();
+                   transform.position + transform.forward * offset,
+                   Quaternion.LookRotation(Vector3.forward, transform.forward),
+                   projectiles).GetComponent<Projectile>();
             projectileInit.Init(projectile.speed, projectile.damage, CollideableMask);
         }
-
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

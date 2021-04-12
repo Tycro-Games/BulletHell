@@ -37,6 +37,9 @@ namespace Bog
         public float roomW = 18;
 
         [SerializeField]
+        private GameObject Door;
+
+        [SerializeField]
         private Tiles[] tiles;
 
         [SerializeField]
@@ -107,10 +110,20 @@ namespace Bog
                         }
                     }
                 if (room != grid[0])
-                    for(int i=0;i<room.neighboursFrom.Count;i++)
+                    for (int i = 0; i < room.neighboursFrom.Count; i++)
                     {
-                        Instantiate(tiles[0].obj, room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
-                        Instantiate(tiles[0].obj, room.neighboursBack[i], Quaternion.identity, roomObj.transform);//tile for the room to the door
+                        GameObject door1 = Instantiate(Door, room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
+
+                        GameObject door2 = Instantiate(Door, room.neighboursBack[i], Quaternion.identity, roomObj.transform);//tile for the room to the door
+
+                        Teleport teleport1 = door1.GetComponent<Teleport>();
+                        Teleport teleport2 = door2.GetComponent<Teleport>();
+                        teleport1.Destination = door2.transform.position;
+                        teleport1.parentRoom = room.ToRoom[i];
+                        teleport2.Destination = door1.transform.position;
+                        teleport2.parentRoom = room.currentPos;
+
+
                     }
             }
         }
@@ -131,6 +144,7 @@ namespace Bog
                 {
                     room.neighboursFrom.Add(newPos - new Vector2(NX[i] * roomW / 2 + NX[i] * 1, NY[i] * roomH / 2 + NY[i] * 1));
                     room.neighboursBack.Add(newPos - new Vector2(NX[i] * roomW / 2 - NX[i] * 1, NY[i] * roomH / 2 - NY[i] * 1));
+                    room.ToRoom.Add(newPos);
                 }
             }
         }
