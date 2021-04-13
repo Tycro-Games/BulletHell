@@ -23,8 +23,10 @@ public class PlayerMovement : MonoBehaviour
     public float DashMultiplier = 1.0f;
 
     public float DashCooldown = 1.0f;
+
     [HideInInspector]
     public bool Teleported = false;
+
     //Input
     private Vector2 movement;
 
@@ -96,7 +98,8 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Rotate(Transform transformToRotate)
     {
-        Vector2 dir = ((Vector2)CursorController.cursorTransform.position - (Vector2)transform.position).normalized;
+        Vector2 dir = (CursorController.cursorTransform.position - transform.position).normalized;
+
         Quaternion newRotation = Quaternion.LookRotation(dir, transform.up);
 
         transformToRotate.rotation = newRotation;

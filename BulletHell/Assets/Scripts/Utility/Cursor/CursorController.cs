@@ -13,7 +13,7 @@ public class CursorController : MonoBehaviour
 
     public static Transform cursorTransform = null;
 
-    private void Start()
+    private void Awake()
     {
         cursorTransform = transform;
         Cursor.visible = false;
