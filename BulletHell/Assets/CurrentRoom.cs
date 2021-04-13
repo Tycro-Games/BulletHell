@@ -8,9 +8,11 @@ namespace Bog
     {
         private Transform newCamera = null;
         private PlayerMovement player = null;
+        private Dungeon dungeon;
 
         private void Start()
         {
+            dungeon = GetComponent<Dungeon>();
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
             newCamera = Camera.main.transform;
         }
@@ -19,7 +21,13 @@ namespace Bog
         {
             newRoom.z = newCamera.position.z;
             newCamera.position = newRoom;
-            player.ChangePosition(destination,newRoom);
+            player.ChangePosition(destination, newRoom);
+            ActivateCamera(dungeon.grid[newRoom].GetComponent<RoomTriggerStart>());
+        }
+
+        public void ActivateCamera(RoomTriggerStart room)
+        {
+            room.FirstEnter();
         }
 
         private void OnEnable()

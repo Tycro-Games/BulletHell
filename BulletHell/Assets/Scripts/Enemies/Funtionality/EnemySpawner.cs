@@ -1,19 +1,26 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemySpawner : MonoBehaviour
+namespace Bog.Assets.Scripts.Enemies.Funtionality
 {
-    [SerializeField]
-    private UnityEvent OnStart = null;
-    private void Start()
+    public class EnemySpawner : MonoBehaviour
     {
-        EnemiesSpawningManager.currentSpawners.Add(this);
-        OnStart?.Invoke();
-    }
-    public void Spawn(GameObject enemyPrefab)
-    {
-        GameObject enemy = Spawner.Spawn(enemyPrefab, transform.position, Quaternion.identity, transform);
-        EnemyManager.currentEnemies.Add(enemy);
-    }
+        [SerializeField]
+        private GameObject enemyPrefab = null;
 
+        private RoomTriggerStart triggerStart = null;
+
+        private void Start()
+        {
+            triggerStart = GetComponentInParent<RoomTriggerStart>();
+            triggerStart.OnStart += Spawn;
+            EnemiesSpawningManager.currentSpawners.Add(this);
+        }
+
+        public void Spawn()
+        {
+            GameObject enemy = Spawner.Spawn(enemyPrefab, transform.position, Quaternion.identity, transform);
+            RoomTriggerStart.currentEnemies.Add(enemy);
+        }
+    }
 }

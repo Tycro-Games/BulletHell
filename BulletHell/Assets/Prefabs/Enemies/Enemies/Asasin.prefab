@@ -48,6 +48,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -166,7 +167,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17408
   dir: 0
-  Custom: 0
   distance: 10
   radiusCircle: 1
   collideable:
@@ -227,7 +227,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17408
   dir: 0
-  Custom: 0
   distance: 10
   radiusCircle: 1
   collideable:
@@ -288,7 +287,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 17408
   dir: 0
-  Custom: 0
   distance: 10
   radiusCircle: 1
   collideable:
@@ -348,6 +346,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 358519889992804422}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ToStart
         m_Mode: 1
         m_Arguments:
@@ -359,6 +358,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1617289871664403525}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ToStart
         m_Mode: 1
         m_Arguments:
@@ -420,12 +420,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   OnRepath:
     m_PersistentCalls:
       m_Calls: []
   DirPower: 1
-  stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
+  damage: 10
   TimeBetweenAtacks: 0.5
   damageProxy: 1
 --- !u!58 &1860308898
@@ -458,11 +458,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   OnRepath:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1617289871664403525}
+        m_TargetAssemblyTypeName: 
         m_MethodName: GoToARandomSpot
         m_Mode: 4
         m_Arguments:
@@ -480,6 +481,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2115591675}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -491,6 +493,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 748359401}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -502,6 +505,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2092303397}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -513,7 +517,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rangeToShoot: 1.5
-  SpeedOfPrefire: 0.5
   StopAndShoot: 0
   Non_Moveable: 0
   NeedToFace: 1
@@ -580,6 +583,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
   HP: 25
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!195 &347021905
 NavMeshAgent:
   m_ObjectHideFlags: 0

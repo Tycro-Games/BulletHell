@@ -40,6 +40,9 @@ namespace Bog
         private GameObject Door;
 
         [SerializeField]
+        private GameObject RoomParent;
+
+        [SerializeField]
         private Tiles[] tiles;
 
         [SerializeField]
@@ -48,7 +51,11 @@ namespace Bog
         [SerializeField]
         private Room start;
 
-        private List<Room> grid = new List<Room>();
+        [HideInInspector]
+        public Dictionary<Vector2, GameObject> grid = new Dictionary<Vector2, GameObject>();
+
+        private List<Room> roomList = new List<Room>();
+
         private List<Texture2D> roomsToTake = new List<Texture2D>();
         private List<Vector2> possibles = new List<Vector2>();
         private HashSet<Vector2> occupied = new HashSet<Vector2>();
@@ -60,7 +67,7 @@ namespace Bog
 
         public void GenerateRooms()
         {
-            grid.Add(start);
+            roomList.Add(start);
             start.currentPos = new Vector2(size.col / 2, size.rows / 2);
             GetNeight(start);
 
@@ -79,7 +86,7 @@ namespace Bog
                 Texture2D setRoom = roomsToTake[Random.Range(0, roomsToTake.Count)];
                 Room newRoom = new Room(pos, setRoom);
                 roomsToTake.Remove(setRoom);
-                grid.Add(newRoom);
+                roomList.Add(newRoom);
 
                 GetNeight(newRoom);
             }
@@ -88,10 +95,11 @@ namespace Bog
 
         private void MakeRooms()
         {
-            foreach (Room room in grid)
+            foreach (Room room in roomList)
             {
                 Texture2D texture = room.room;
-                GameObject roomObj = new GameObject(texture.name);
+                GameObject roomObj = Instantiate(RoomParent);
+                grid.Add(room.currentPos, roomObj);
                 roomObj.transform.position = room.currentPos;
                 roomObj.transform.parent = transform;
 
@@ -109,12 +117,12 @@ namespace Bog
                             }
                         }
                     }
-                if (room != grid[0])
+                if (room!=roomList[0])
                     for (int i = 0; i < room.neighboursFrom.Count; i++)
                     {
                         GameObject door1 = Instantiate(Door, room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
 
-                        GameObject door2 = Instantiate(Door, room.neighboursBack[i], Quaternion.identity, roomObj.transform);//tile for the room to the door
+                        GameObject door2 = Instantiate(Door, room.neighboursBack[i], Quaternion.identity, grid[room.ToRoom[i]].transform);//tile for the room to the door
 
                         Teleport teleport1 = door1.GetComponent<Teleport>();
                         Teleport teleport2 = door2.GetComponent<Teleport>();
@@ -122,8 +130,6 @@ namespace Bog
                         teleport1.parentRoom = room.ToRoom[i];
                         teleport2.Destination = door1.transform.position;
                         teleport2.parentRoom = room.currentPos;
-
-
                     }
             }
         }

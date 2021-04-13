@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Bog.Assets.Scripts.Enemies.Funtionality;
+using UnityEngine;
 
 public class EnemyLibrary : MonoBehaviour
 {
@@ -19,17 +20,18 @@ public class EnemyLibrary : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         EnemiesSpawningManager.EnemySpawnersParent = parentSpawners;//init
     }
+
     public void AllSpawnersEnemy()
     {
-        EnemiesSpawningManager.EverySpawnerAct(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Length)]);
-    }
-    public void SpawnEnemy(EnemySpawner enemySpawner, GameObject enemyPrefab)
-    {
-        EnemiesSpawningManager.SpawnerAct(enemySpawner, enemyPrefab);
+        EnemiesSpawningManager.EverySpawnerAct();
     }
 
+    public void SpawnEnemy(EnemySpawner enemySpawner)
+    {
+        EnemiesSpawningManager.SpawnerAct(enemySpawner);
+    }
 }
