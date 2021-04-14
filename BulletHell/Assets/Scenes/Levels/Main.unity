@@ -318,7 +318,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864785496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7db81c3edda63d4fa0c9767340153cf, type: 3}
   m_Name: 
@@ -615,6 +615,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 173040608097025445, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: speedMovement
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 173040608703941520, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
         type: 3}
       propertyPath: CollideableMask.m_Bits
@@ -689,6 +694,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 7070607778024230596, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
         type: 3}

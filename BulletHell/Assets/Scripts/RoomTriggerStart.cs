@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bog
 {
@@ -10,6 +11,9 @@ namespace Bog
         private bool first = true;
 
         public event Action OnStart;
+
+        [SerializeField]
+        private UnityEvent Start;
 
         public event Action OnEnd;
 
