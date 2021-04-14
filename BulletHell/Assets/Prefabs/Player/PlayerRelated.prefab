@@ -135,7 +135,10 @@ MonoBehaviour:
   transformToTurn: {fileID: 173040608703941535}
   Limit: {x: 14.8, y: 6.8}
   Offset: {x: 500, y: 500}
-  speedMovement: 4
+  speedMovement: 2
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 16384
   DashMultiplier: 2
   DashCooldown: 1
   Teleported: 0

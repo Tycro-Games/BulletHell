@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     [Header("Dash")]
+    [SerializeField]
+    private LayerMask obstacles = 0;
+
     public float DashMultiplier = 1.0f;
 
     public float DashCooldown = 1.0f;
@@ -80,9 +83,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                rb.position = (rb.position + DashMultiplier * movement);
+                if (!Physics2D.OverlapCircle(rb.position + DashMultiplier * movement, .1f, obstacles))
+                {
+                    rb.position = (rb.position + DashMultiplier * movement);
 
-                yield return new WaitForSeconds(DashCooldown);
+                    yield return new WaitForSeconds(DashCooldown);
+                }
+                yield return null;
             }
             else
                 yield return null;

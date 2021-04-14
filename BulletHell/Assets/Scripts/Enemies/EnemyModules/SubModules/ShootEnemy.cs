@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+
 [System.Serializable]
 public struct NonPlayerOriented
 {
     public bool RandomDir;
     public bool AutoRotation;
     public bool ClockWise;
+
     public NonPlayerOriented(bool randomDir, bool autoRotation, bool clockWise)
     {
         RandomDir = randomDir;
@@ -14,39 +16,53 @@ public struct NonPlayerOriented
         ClockWise = clockWise;
     }
 }
+
 public class ShootEnemy : BaseEnemy
 {
     [SerializeField]
     private Animator animator = null;
+
     [SerializeField]
     private bool anim = false;
+
     [Header("Range")]
     [SerializeField]
     private UnityEvent OnShoot = null;
+
     [SerializeField]
     private float rangeToShoot = 5.0f;
+
     [SerializeField]
     private bool StopAndShoot = false;
+
     [SerializeField]
     private bool Non_Moveable = false;
+
     [SerializeField]
     private bool NeedToFace = false;
+
     [Header("No Player")]
     [SerializeField]
     private bool PlayerNeed = false;
+
     [SerializeField]
     private bool NoDistantace = false;
+
     public NonPlayerOriented NonPlayer;
 
     [SerializeField]
-    private LayerMask TrueIfFacing = new LayerMask();
+    private LayerMask InteractableToFace = new LayerMask();
+
     [SerializeField]
     private float speedRotation = 90.0f;
+
     [Header("Lateral")]
     [SerializeField]
     private float speedOnLateralShoot = 90.0f;
+
     [SerializeField]
     private float rotateLateralTime = 3.0f;
+
     [SerializeField]
     private bool OnBoost = false;
 
@@ -59,11 +75,14 @@ public class ShootEnemy : BaseEnemy
         else
             return;
     }
-    IEnumerator currentAtack = null;
+
+    private IEnumerator currentAtack = null;
+
     private void OnDisable()
     {
         currentAtack = null;
     }
+
     public void ToStart()
     {
         if (currentAtack == null)
@@ -80,7 +99,8 @@ public class ShootEnemy : BaseEnemy
             StartCoroutine(ChangeRotation());
         }
     }
-    IEnumerator ChangeRotation()
+
+    private IEnumerator ChangeRotation()
     {
         float temp = speedRotation;
         speedRotation = speedOnLateralShoot;
@@ -93,10 +113,10 @@ public class ShootEnemy : BaseEnemy
 
         speedRotation = temp;
     }
+
     public IEnumerator AtackRange()
     {
         PointPlayer(true);
-
 
         while (OnShoot != null && EnemyController.HitEvent != null)
         {
@@ -141,27 +161,29 @@ public class ShootEnemy : BaseEnemy
                 else
                     OnShoot?.Invoke();
 
-
                 if (Non_Moveable)
                     agent.isStopped = true;
                 yield return null;
             }
         }
     }
-    bool IsFacingPlayer()
+
+    private bool IsFacingPlayer()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, transform.forward, rangeToShoot, TrueIfFacing);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, transform.forward, rangeToShoot, InteractableToFace);
         Debug.DrawRay(enemyTransform.position, transform.forward * rangeToShoot, Color.blue);
-        if (ray.collider != null)
+        if (ray.collider != null && ray.collider.CompareTag("Player"))
             return true;
         else
             return false;
     }
+
     private Vector2 Dir()
     {
         return (target.position - transform.position).normalized;
     }
-    void PointPlayer(bool justRot = false)
+
+    private void PointPlayer(bool justRot = false)
     {
         Vector2 dir;
         if (!NonPlayer.AutoRotation)
@@ -179,6 +201,7 @@ public class ShootEnemy : BaseEnemy
 
         Rotate(justRot, dir, speedRotation);
     }
+
     public void Rotate(bool justRot, Vector2 dir, float speedRotation)
     {
         if (!justRot)
@@ -198,5 +221,4 @@ public class ShootEnemy : BaseEnemy
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, rangeToShoot);
     }
-
 }
