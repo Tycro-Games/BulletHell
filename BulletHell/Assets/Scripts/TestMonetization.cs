@@ -8,14 +8,10 @@ namespace Bog
     {
         private SpriteRenderer sprite;
 
-        private void Start()
-        {
-            sprite = GetComponent<SpriteRenderer>();
-        }
-
         // register one or both events if you want to use them
         private void OnEnable()
         {
+            sprite = GetComponent<SpriteRenderer>();
             WMBroadcaster.OnMonetizationStart += OnMonetizationStart;
             WMBroadcaster.OnMonetizationProgress += OnMonetizationProgress;
         }

@@ -39,9 +39,11 @@ public class WMBroadcaster : MonoBehaviour
 
 #if UNITY_WEBGL
 #if UNITY_EDITOR
+
     private static void InitializeMonetization(string paymentPointer)
     {
     }
+
 #else
     [DllImport("__Internal")]
     private static extern void InitializeMonetization(string paymentPointer);
@@ -64,13 +66,13 @@ public class WMBroadcaster : MonoBehaviour
         }
     }
 
-    public void monetizationstart(String detailJson)
+    public void monetizationstart(string detailJson)
     {
         var detail = wm_MiniJSON.Json.Deserialize(detailJson) as Dictionary<string, object>;
         OnMonetizationStart?.Invoke(detail);
     }
 
-    public void monetizationprogress(String detailJson)
+    public void monetizationprogress(string detailJson)
     {
         var detail = wm_MiniJSON.Json.Deserialize(detailJson) as Dictionary<string, object>;
         OnMonetizationProgress?.Invoke(detail);
