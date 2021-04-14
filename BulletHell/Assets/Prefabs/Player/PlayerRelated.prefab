@@ -139,6 +139,7 @@ MonoBehaviour:
   speedMovement: 4
   DashMultiplier: 2
   DashCooldown: 1
+  Teleported: 0
 --- !u!114 &173040608097025442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3339576499530998188
 MonoBehaviour:
@@ -230,7 +231,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 0.25, y: 0.25}
   m_Direction: 0
 --- !u!1 &173040608703941534
 GameObject:

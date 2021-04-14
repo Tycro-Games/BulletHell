@@ -112,12 +112,12 @@ namespace Bog
                         {
                             if (tile.col == color)
                             {
-                                Instantiate(tile.obj, new Vector2(roomObj.transform.position.x - texture.width / 2, roomObj.transform.position.y - texture.height / 2) + new Vector2(i, j), Quaternion.identity, roomObj.transform);
+                                Instantiate(tile.obj, new Vector2(roomObj.transform.position.x - texture.width / 2, roomObj.transform.position.y - texture.height / 2) + new Vector2(i, j), Quaternion.identity, roomObj.transform.GetChild(0));
                                 break;
                             }
                         }
                     }
-                if (room!=roomList[0])
+                if (room != roomList[0])
                     for (int i = 0; i < room.neighboursFrom.Count; i++)
                     {
                         GameObject door1 = Instantiate(Door, room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room

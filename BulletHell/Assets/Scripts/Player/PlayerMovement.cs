@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        PoolingObjectsSystem.Reset();
         rb = GetComponent<Rigidbody2D>();
         Offset = transform.position;
         StartCoroutine(Rotate(transformToTurn));

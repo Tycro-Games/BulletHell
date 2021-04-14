@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b6411699664b974a8520dd9a93427ee, type: 3}
-  m_Name: OchiSor Dubios
+  m_Script: {fileID: 11500000, guid: 24296dd222ecbd049850d1789044495e, type: 3}
+  m_Name: High
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6684052639383496635, guid: 1e7277087431ac645be141feef1a1204,
-    type: 3}
-  speed: 1
-  damage: 25
-  FirePerSecond: 50
+  Enemies:
+  - {fileID: 3018583536709595121, guid: fb6c7b944aa9a2948aeb4aeccb9ce9d5, type: 3}

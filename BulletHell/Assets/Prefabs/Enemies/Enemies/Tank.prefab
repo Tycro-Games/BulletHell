@@ -49,6 +49,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -178,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
-  HP: 400
+  HP: 100
   OnDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -288,7 +289,7 @@ MonoBehaviour:
   offset: 0.5
   CollideableMask:
     serializedVersion: 2
-    m_Bits: 19456
+    m_Bits: 17408
   dir: 3
   distance: 10
   radiusCircle: 0.5
@@ -299,6 +300,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6827800175178406105}
+        m_TargetAssemblyTypeName: 
         m_MethodName: LookAtPlayer
         m_Mode: 1
         m_Arguments:
@@ -329,6 +331,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5237964011320445113}
+        m_TargetAssemblyTypeName: 
         m_MethodName: LineOfSight
         m_Mode: 1
         m_Arguments:
@@ -387,7 +390,7 @@ MonoBehaviour:
   offset: 0.5
   CollideableMask:
     serializedVersion: 2
-    m_Bits: 19456
+    m_Bits: 17408
   dir: 0
   distance: 10
   radiusCircle: 1
@@ -448,7 +451,7 @@ MonoBehaviour:
   offset: 0.5
   CollideableMask:
     serializedVersion: 2
-    m_Bits: 19456
+    m_Bits: 17408
   dir: 1
   distance: 10
   radiusCircle: 0.5
@@ -459,6 +462,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6827800175178406105}
+        m_TargetAssemblyTypeName: 
         m_MethodName: LookAtPlayer
         m_Mode: 1
         m_Arguments:
@@ -489,6 +493,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5237964012127519349}
+        m_TargetAssemblyTypeName: 
         m_MethodName: LineOfSight
         m_Mode: 1
         m_Arguments:
@@ -549,6 +554,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5497007785836143834}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ToStart
         m_Mode: 1
         m_Arguments:
@@ -560,6 +566,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 6827800175178406105}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ToStart
         m_Mode: 1
         m_Arguments:
@@ -621,12 +628,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   OnRepath:
     m_PersistentCalls:
       m_Calls: []
   DirPower: 1
-  stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
+  damage: 10
   TimeBetweenAtacks: 0.5
   damageProxy: 1
 --- !u!58 &5237964011091067710
@@ -659,11 +666,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   OnRepath:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6827800175178406105}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ChasePlayer
         m_Mode: 1
         m_Arguments:
@@ -681,6 +689,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5237964011364307303}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -691,8 +700,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  rangeToShoot: 0.5
-  SpeedOfPrefire: 0.5
+  rangeToShoot: 1
   StopAndShoot: 1
   Non_Moveable: 0
   NeedToFace: 1
@@ -705,7 +713,7 @@ MonoBehaviour:
   TrueIfFacing:
     serializedVersion: 2
     m_Bits: 1024
-  speedRotation: 50
+  speedRotation: 60
   speedOnLateralShoot: 180
   rotateLateralTime: 1
   OnBoost: 0

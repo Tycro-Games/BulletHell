@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6437357357105992933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 6684052639383496632}
   m_RootOrder: 0
@@ -55,6 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -79,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6684052639383496635
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 6684052639383496635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.10242, y: 0.10242, z: 0.10242}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4390318201113958649}
   m_Father: {fileID: 0}
@@ -125,7 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6f358c40b0d884e92f0c5800b3818d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thickness: 0.06
+  thickness: 0.12
+  lifetime: 100
 --- !u!114 &-6670924257617799745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,4 +157,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1

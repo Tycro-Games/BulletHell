@@ -11,7 +11,7 @@ namespace Bog
 
         public event Action OnStart;
 
-        public  event Action OnEnd;
+        public event Action OnEnd;
 
         private void Awake()
         {
@@ -27,11 +27,10 @@ namespace Bog
                 print(name + " " + "works");
                 first = false;
                 OnStart?.Invoke();
-                
             }
         }
 
-        public  void End()
+        public void End()
         {
             if (currentEnemies.Count == 0)
             {

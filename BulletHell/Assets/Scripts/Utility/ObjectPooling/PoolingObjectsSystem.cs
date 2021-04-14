@@ -3,7 +3,13 @@ using UnityEngine;
 
 public class PoolingObjectsSystem
 {
-    public static Dictionary<string, PoolingEntry> PoolingObjects = new Dictionary<string, PoolingEntry>();
+    public static Dictionary<string, PoolingEntry> PoolingObjects;
+
+    public static void Reset()
+    {
+        PoolingObjects = new Dictionary<string, PoolingEntry>();
+    }
+
     public static GameObject Instantiate(GameObject objectToSpawn, Vector3 pos, Quaternion rotation)
     {
         PoolingObjectName name = objectToSpawn.GetComponent<PoolingObjectName>();
@@ -27,6 +33,7 @@ public class PoolingObjectsSystem
             return Object.Instantiate(objectToSpawn, pos, rotation);
         }
     }
+
     public static void Destroy(GameObject objectToDestroy)
     {
         PoolingObjectName name = objectToDestroy.GetComponent<PoolingObjectName>();

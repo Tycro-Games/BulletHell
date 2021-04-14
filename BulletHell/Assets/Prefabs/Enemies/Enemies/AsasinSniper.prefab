@@ -52,12 +52,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   OnRepath:
     m_PersistentCalls:
       m_Calls: []
   DirPower: 1
-  stats: {fileID: 11400000, guid: b664c43ab7beb8f47a88e21de4b6c29a, type: 2}
+  damage: 10
   TimeBetweenAtacks: 0.5
   damageProxy: 1
 --- !u!58 &3168913776901245289
@@ -95,23 +95,25 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4434914080767906446}
+        m_TargetAssemblyTypeName: 
         m_MethodName: GoToARandomSpot
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  DirPower: -1
+  DirPower: -0.1
   animator: {fileID: 0}
   anim: 0
   OnShoot:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3168913776647936816}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -123,7 +125,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rangeToShoot: 5
-  SpeedOfPrefire: 0.5
   StopAndShoot: 0
   Non_Moveable: 0
   NeedToFace: 0
@@ -190,6 +191,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3387702779035692685}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ToStart
         m_Mode: 1
         m_Arguments:
@@ -201,6 +203,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 4434914080767906446}
+        m_TargetAssemblyTypeName: 
         m_MethodName: ToStart
         m_Mode: 1
         m_Arguments:
@@ -211,7 +214,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  RepathSpeed: 5
+  RepathSpeed: 1
 --- !u!58 &521990767117007744
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -336,6 +339,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -518,6 +522,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3149940883405416388}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -529,6 +534,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 6939028878435847970}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -540,6 +546,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2771472211979686137}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -551,6 +558,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 806642166770939894}
+        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:

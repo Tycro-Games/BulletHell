@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b6411699664b974a8520dd9a93427ee, type: 3}
-  m_Name: Default
+  m_Script: {fileID: 11500000, guid: 24296dd222ecbd049850d1789044495e, type: 3}
+  m_Name: Low
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6684052639383496635, guid: 1e7277087431ac645be141feef1a1204,
-    type: 3}
-  speed: 7
-  damage: 10
-  FirePerSecond: 5
+  Enemies:
+  - {fileID: 7013464988628411245, guid: 0ff1e4eb38f4d2a4580f61223701abba, type: 3}
+  - {fileID: 5381497495605847462, guid: 6102acb37117d0e46a7e2d8dfe7f4e19, type: 3}

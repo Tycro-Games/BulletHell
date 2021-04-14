@@ -17,13 +17,14 @@ public class BaseEnemy : MonoBehaviour
 
     [SerializeField]
     private float DirPower = 1.0f;
+
     private bool chasing = false;
     protected Transform target;
+
     private IEnumerator Repath(float time)
     {
         while (true)
         {
-
             if (enemyTransform.gameObject.activeInHierarchy)
             {
                 OnRepath.Invoke();
@@ -31,23 +32,29 @@ public class BaseEnemy : MonoBehaviour
             yield return new WaitForSeconds(time);
         }
     }
+
     public void GoToARandomSpot(float radius)
     {
         if (chasing)
             return;
         Vector2 point = (Vector2)transform.position + Random.insideUnitCircle * radius;
+
         Vector2 dir = (target.position - transform.position).normalized * DirPower;
 
-        if (!Physics2D.OverlapCircle(point + dir, radius, Obstacles))
-            agent.SetDestination(point + dir);
+        Vector2 newpos = point + dir;
+
+        if (!Physics2D.OverlapCircle(newpos, radius, Obstacles))
+            agent.SetDestination(newpos);
         else
-            GoToARandomSpot(radius);
+            GoToARandomSpot(radius - .5f);
     }
+
     public void ChasePlayer()
     {
         chasing = true;
         agent.SetDestination(target.position);
     }
+
     public void Init(Transform Target, float repathSpeed, Transform EnemyTransform, NavMeshAgent Agent)
     {
         StopAllCoroutines();
