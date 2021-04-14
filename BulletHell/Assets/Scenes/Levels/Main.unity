@@ -505,7 +505,11 @@ MonoBehaviour:
     col: 1000
   roomH: 10
   roomW: 18
-  Door: {fileID: 3675800658148456906, guid: 28f4263c000d82c4195303ee485f1b73, type: 3}
+  Door:
+  - {fileID: 3675800658148456906, guid: e05c9422be2328944bb2d0035d4b2f6b, type: 3}
+  - {fileID: 3675800658148456906, guid: 4f3a16e3f5f949a47bdd2bf5cec1865d, type: 3}
+  - {fileID: 3675800658148456906, guid: b2d9f011187d4bb4098749768fd69d4c, type: 3}
+  - {fileID: 3675800658148456906, guid: ad1af62e838a3bd4d90176665aba0286, type: 3}
   RoomParent: {fileID: 3207449709230562695, guid: b7dcdd553eb7c584e8ef57730a59d137,
     type: 3}
   tiles:
@@ -525,7 +529,7 @@ MonoBehaviour:
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 3
+  - count: 0
     room:
       room: {fileID: 2800000, guid: b6112eb1002d6894498e5e9e2cc35f93, type: 3}
       neighboursFrom: []

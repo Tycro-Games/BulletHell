@@ -37,7 +37,7 @@ namespace Bog
         public float roomW = 18;
 
         [SerializeField]
-        private GameObject Door;
+        private GameObject[] Door;
 
         [SerializeField]
         private GameObject RoomParent;
@@ -120,9 +120,14 @@ namespace Bog
                 if (room != roomList[0])
                     for (int i = 0; i < room.neighboursFrom.Count; i++)
                     {
-                        GameObject door1 = Instantiate(Door, room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
+                        int d1 = (int)room.ToRoomD[room.neighboursFrom[i]];
 
-                        GameObject door2 = Instantiate(Door, room.neighboursBack[i], Quaternion.identity, grid[room.ToRoom[i]].transform);//tile for the room to the door
+                        GameObject door1 = Instantiate(Door[d1], room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
+                        int d2 = (int)room.ToRoomD[room.neighboursBack[i]];
+                       
+                        GameObject door2 = Instantiate(Door[d2], room.neighboursBack[i], 
+                            Quaternion.identity,
+                            grid[room.ToRoom[i]].transform);//tile for the room to the door
 
                         Teleport teleport1 = door1.GetComponent<Teleport>();
                         Teleport teleport2 = door2.GetComponent<Teleport>();
@@ -148,9 +153,30 @@ namespace Bog
                     possibles.Add(newPos);
                 else
                 {
-                    room.neighboursFrom.Add(newPos - new Vector2(NX[i] * roomW / 2 + NX[i] * 1, NY[i] * roomH / 2 + NY[i] * 1));
-                    room.neighboursBack.Add(newPos - new Vector2(NX[i] * roomW / 2 - NX[i] * 1, NY[i] * roomH / 2 - NY[i] * 1));
+                    Vector2 from = newPos - new Vector2(NX[i] * roomW / 2 + NX[i] * 1, NY[i] * roomH / 2 + NY[i] * 1);
+                    room.neighboursFrom.Add(from);
+                    Vector2 back = newPos - new Vector2(NX[i] * roomW / 2 - NX[i] * 1, NY[i] * roomH / 2 - NY[i] * 1);
+                    room.neighboursBack.Add(back);
                     room.ToRoom.Add(newPos);
+                    Neighbours neigh = new Neighbours();
+                    if (i == 0)
+                        neigh = Neighbours.up;
+                    else if (i == 1)
+                        neigh = Neighbours.down;
+                    else if (i == 2)
+                        neigh = Neighbours.right;
+                    else if (i == 3)
+                        neigh = Neighbours.left;
+                    room.ToRoomD.Add(from, neigh);
+                    if (neigh == Neighbours.up)
+                        neigh = Neighbours.down;
+                    else if (neigh == Neighbours.down)
+                        neigh = Neighbours.up;
+                    else if (neigh == Neighbours.right)
+                        neigh = Neighbours.left;
+                    else if (neigh == Neighbours.left)
+                        neigh = Neighbours.right;
+                    room.ToRoomD.Add(back, neigh);
                 }
             }
         }

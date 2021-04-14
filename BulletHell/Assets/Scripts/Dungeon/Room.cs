@@ -6,7 +6,7 @@ namespace Bog
 {
     public enum Neighbours
     {
-        left, up, right, down
+        up, down, right, left
     };
 
     [System.Serializable]
@@ -21,6 +21,9 @@ namespace Bog
 
         public List<Vector2> neighboursBack = new List<Vector2>();[HideInInspector]
 
+        public Dictionary<Vector2, Neighbours> ToRoomD = new Dictionary<Vector2, Neighbours>();
+
+        [HideInInspector]
         public List<Vector2> ToRoom = new List<Vector2>();
 
         [HideInInspector]

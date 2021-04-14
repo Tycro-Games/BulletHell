@@ -319,12 +319,12 @@ MonoBehaviour:
   PlayerNeed: 1
   NoDistantace: 1
   NonPlayer:
-    RandomDir: 1
-    AutoRotation: 1
+    RandomDir: 0
+    AutoRotation: 0
     ClockWise: 0
-  TrueIfFacing:
+  InteractableToFace:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 17408
   speedRotation: 180
   speedOnLateralShoot: 90
   rotateLateralTime: 3
