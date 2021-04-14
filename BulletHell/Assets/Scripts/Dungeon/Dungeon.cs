@@ -28,7 +28,7 @@ namespace Bog
     public class Dungeon : MonoBehaviour
     {
         [SerializeField]
-        private Size size;
+        private Size size = new Size();
 
         [SerializeField]
         public float roomH = 10;
@@ -37,19 +37,19 @@ namespace Bog
         public float roomW = 18;
 
         [SerializeField]
-        private GameObject[] Door;
+        private GameObject[] Door = null;
 
         [SerializeField]
-        private GameObject RoomParent;
+        private GameObject RoomParent = null;
 
         [SerializeField]
-        private Tiles[] tiles;
+        private Tiles[] tiles = null;
 
         [SerializeField]
-        private Cell[] rooms;
+        private Cell[] rooms = null;
 
         [SerializeField]
-        private Room start;
+        private Room start = null;
 
         [HideInInspector]
         public Dictionary<Vector2, GameObject> grid = new Dictionary<Vector2, GameObject>();
@@ -124,8 +124,8 @@ namespace Bog
 
                         GameObject door1 = Instantiate(Door[d1], room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
                         int d2 = (int)room.ToRoomD[room.neighboursBack[i]];
-                       
-                        GameObject door2 = Instantiate(Door[d2], room.neighboursBack[i], 
+
+                        GameObject door2 = Instantiate(Door[d2], room.neighboursBack[i],
                             Quaternion.identity,
                             grid[room.ToRoom[i]].transform);//tile for the room to the door
 
