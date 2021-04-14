@@ -49,10 +49,11 @@ public class Projectile : MonoBehaviour
 
     private void CheckStart()
     {
-        Collider2D[] colliders = new Collider2D[10];
+        Collider2D[] colliders = new Collider2D[1];
         int cols = Physics2D.OverlapCircleNonAlloc(transform.position, thickness, colliders, collideableLayer);
         if (cols > 0)
         {
+            CheckSoroundings(thickness);
             DestroyProjectile();
             destroyed = true;
         }
