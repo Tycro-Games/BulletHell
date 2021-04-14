@@ -594,6 +594,8 @@ MonoBehaviour:
     obj: {fileID: 2300811034371699769, guid: 38201fbd096b8fb41b62b65838ffd737, type: 3}
   - col: {r: 1, g: 0, b: 0, a: 1}
     obj: {fileID: 7474485215219892436, guid: b9e8a3b48e16647459714e3cdbdad3a2, type: 3}
+  - col: {r: 1, g: 0.42745098, b: 1, a: 1}
+    obj: {fileID: 7905376933831015292, guid: 869e95ca0561dc94ead99f0c87ea2f5a, type: 3}
   rooms:
   - count: 6
     room:
@@ -801,7 +803,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.2490655, g: 0.2735849, b: 0.27174327, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1060,10 +1062,10 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.8862745, g: 0.87473947, b: 0.7647059, a: 1}
+  m_Intensity: 0.05
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: c73b806c817d9f10f162def600000000e325f183
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
