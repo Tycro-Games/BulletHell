@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0.1
+  lifetime: 30
   lightMultiplier: 1.5
 --- !u!114 &-6670924257617799745
 MonoBehaviour:

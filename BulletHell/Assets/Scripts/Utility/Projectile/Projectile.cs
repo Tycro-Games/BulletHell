@@ -16,7 +16,10 @@ public class Projectile : MonoBehaviour
 
     private int damage;
     private bool destroyed = false;
-    private float lifetime;
+
+    [SerializeField]
+    private float lifetime = 30f;
+
     private float lives = 0;
     private Rigidbody2D rb = null;
 
@@ -25,9 +28,8 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private float lightMultiplier = 1.0f;
 
-    public void Init(float Speed, int Damage, LayerMask Collide, float life, float lifetime)
+    public void Init(float Speed, int Damage, LayerMask Collide, float life)
     {
-        this.lifetime = lifetime;
         lives = life;
         speed = Speed;
         collideableLayer = Collide;
