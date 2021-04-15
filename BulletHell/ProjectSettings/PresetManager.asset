@@ -18,6 +18,9 @@ PresetManager:
       m_ManagedTypePPtr: {fileID: 0}
       m_ManagedTypeFallback: 
     second:
+    - m_Preset: {fileID: 2655988077585873504, guid: 580fe452a22b99748805cc43f5d88a85,
+        type: 2}
+      m_Filter: 
     - m_Preset: {fileID: 2655988077585873504, guid: 9d6792a32af98df4f8c893e2635bfbed,
         type: 2}
       m_Filter: 
