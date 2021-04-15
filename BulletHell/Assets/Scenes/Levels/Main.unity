@@ -1462,6 +1462,16 @@ PrefabInstance:
       propertyPath: m_ShadowVolumeIntensity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[5]
+      value: -140218801
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9131167780351174627, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
         type: 3}
       propertyPath: m_LocalRotation.z

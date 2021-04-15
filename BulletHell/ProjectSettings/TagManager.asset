@@ -23,7 +23,7 @@ TagManager:
   - PlayerNonInteract
   - Obstacles
   - Details
-  - 
+  - Floricele
   - 
   - 
   - 
@@ -54,4 +54,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2213619171
+    locked: 0
+  - name: Floricele
+    uniqueID: 4154748495
     locked: 0
