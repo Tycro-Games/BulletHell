@@ -1369,6 +1369,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
         type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
       propertyPath: m_UseNormalMap
       value: 1
       objectReference: {fileID: 0}
@@ -1426,6 +1431,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PointLightInnerRadius
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: m_ShadowIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[0]
+      value: 1820343239
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: 278887809
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: -153197839
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[4]
+      value: -2081348125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767049942297543421, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: m_ShadowVolumeIntensity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9131167780351174627, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
         type: 3}
@@ -1845,8 +1880,8 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.7397133, g: 0.624911, b: 0.8773585, a: 1}
-  m_Intensity: 0.2
+  m_Color: {r: 0.51931703, g: 0.495283, b: 1, a: 1}
+  m_Intensity: 0.36
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: c73b806c817d9f10f162def600000000e325f183
   m_LightCookieSprite: {fileID: 0}
