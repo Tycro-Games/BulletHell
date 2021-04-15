@@ -17,3 +17,5 @@ MonoBehaviour:
   speed: 5
   damage: 10
   FirePerSecond: 5
+  lifetime: 30
+  life: 2
