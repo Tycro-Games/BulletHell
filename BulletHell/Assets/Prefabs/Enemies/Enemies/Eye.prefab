@@ -45,7 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 11400000, guid: cb753a812be4b3b48b0279b0840eead4, type: 2}
   projectiles: {fileID: 0}
-  offset: 0.5
+  offsetX: 1
+  offsetY: 0
   CollideableMask:
     serializedVersion: 2
     m_Bits: 17408
@@ -105,7 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 11400000, guid: cb753a812be4b3b48b0279b0840eead4, type: 2}
   projectiles: {fileID: 0}
-  offset: 0.5
+  offsetX: 1
+  offsetY: 0
   CollideableMask:
     serializedVersion: 2
     m_Bits: 17408
@@ -165,7 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 11400000, guid: cb753a812be4b3b48b0279b0840eead4, type: 2}
   projectiles: {fileID: 0}
-  offset: 0.5
+  offsetX: 1
+  offsetY: 0
   CollideableMask:
     serializedVersion: 2
     m_Bits: 17408
@@ -314,7 +317,7 @@ MonoBehaviour:
         m_CallState: 2
   rangeToShoot: 10
   StopAndShoot: 0
-  Non_Moveable: 1
+  Non_Moveable: 0
   NeedToFace: 0
   PlayerNeed: 1
   NoDistantace: 1
@@ -343,7 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   OnRepath:
     m_PersistentCalls:
       m_Calls: []
@@ -468,7 +471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 11400000, guid: cb753a812be4b3b48b0279b0840eead4, type: 2}
   projectiles: {fileID: 0}
-  offset: 0.5
+  offsetX: 1
+  offsetY: 0
   CollideableMask:
     serializedVersion: 2
     m_Bits: 17408

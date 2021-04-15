@@ -48,7 +48,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -162,7 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 11400000, guid: 3e3337d197d6a9142bc60602d0e954a1, type: 2}
   projectiles: {fileID: 0}
-  offset: 0.5
+  offsetX: 1
+  offsetY: 0
   CollideableMask:
     serializedVersion: 2
     m_Bits: 17408
@@ -171,10 +171,21 @@ MonoBehaviour:
   radiusCircle: 1
   collideable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   OnShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1617289871664403525}
+        m_MethodName: GoToARandomSpot
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   RandomTime: 1
   FactorTime: 1
 --- !u!1 &2092303395
@@ -222,7 +233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 11400000, guid: 3e3337d197d6a9142bc60602d0e954a1, type: 2}
   projectiles: {fileID: 0}
-  offset: 0.5
+  offsetX: 1
+  offsetY: 0
   CollideableMask:
     serializedVersion: 2
     m_Bits: 17408
@@ -231,10 +243,21 @@ MonoBehaviour:
   radiusCircle: 1
   collideable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   OnShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1617289871664403525}
+        m_MethodName: GoToARandomSpot
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   RandomTime: 1
   FactorTime: 1
 --- !u!1 &2115591673
@@ -282,7 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 11400000, guid: 3e3337d197d6a9142bc60602d0e954a1, type: 2}
   projectiles: {fileID: 0}
-  offset: 0.5
+  offsetX: 1
+  offsetY: 0
   CollideableMask:
     serializedVersion: 2
     m_Bits: 17408
@@ -291,12 +315,23 @@ MonoBehaviour:
   radiusCircle: 1
   collideable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   OnShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1617289871664403525}
+        m_MethodName: GoToARandomSpot
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   RandomTime: 1
-  FactorTime: 0.75
+  FactorTime: 1
 --- !u!1 &1409730221260454582
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +453,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 358519889992804422}
-        m_TargetAssemblyTypeName: 
         m_MethodName: ToStart
         m_Mode: 1
         m_Arguments:
@@ -430,7 +464,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1617289871664403525}
-        m_TargetAssemblyTypeName: 
         m_MethodName: ToStart
         m_Mode: 1
         m_Arguments:
@@ -535,14 +568,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1617289871664403525}
-        m_TargetAssemblyTypeName: 
         m_MethodName: GoToARandomSpot
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 3
+          m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -553,7 +585,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2115591675}
-        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -565,7 +596,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 748359401}
-        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -577,7 +607,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2092303397}
-        m_TargetAssemblyTypeName: 
         m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
@@ -588,19 +617,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  rangeToShoot: 1.5
+  rangeToShoot: 15
   StopAndShoot: 0
   Non_Moveable: 0
-  NeedToFace: 1
-  PlayerNeed: 0
-  NoDistantace: 0
+  NeedToFace: 0
+  PlayerNeed: 1
+  NoDistantace: 1
   NonPlayer:
     RandomDir: 0
     AutoRotation: 0
     ClockWise: 0
-  TrueIfFacing:
+  InteractableToFace:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 17408
   speedRotation: 360
   speedOnLateralShoot: 90
   rotateLateralTime: 3
@@ -658,7 +687,18 @@ MonoBehaviour:
   HP: 25
   OnDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1617289871664403525}
+        m_MethodName: GoToARandomSpot
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDead:
     m_PersistentCalls:
       m_Calls: []

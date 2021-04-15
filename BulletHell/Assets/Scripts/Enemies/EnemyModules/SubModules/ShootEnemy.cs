@@ -127,6 +127,7 @@ public class ShootEnemy : BaseEnemy
                 {
                     if (IsFacingPlayer() || NeedToFace) //if you face the player shoot
                     {
+                        if(StopAndShoot)
                         agent.isStopped = true;
 
                         if (anim)

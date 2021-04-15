@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e6152a6c3ed054da72c1acf9ae5e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 11400000, guid: 85ed73b0c17b7df4c8424252db7e1dc9, type: 2}
+  enemyPrefab: {fileID: 11400000, guid: 916f66ec78cd7a742a808700d02ba362, type: 2}
 --- !u!58 &5487257184688617559
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -108,7 +108,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

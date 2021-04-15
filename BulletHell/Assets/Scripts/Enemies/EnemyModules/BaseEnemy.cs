@@ -42,7 +42,7 @@ public class BaseEnemy : MonoBehaviour
         Vector2 dir = (target.position - transform.position).normalized * DirPower;
 
         Vector2 newpos = point + dir;
-
+        agent.isStopped = false;
         if (!Physics2D.OverlapCircle(newpos, radius, Obstacles))
             agent.SetDestination(newpos);
         else

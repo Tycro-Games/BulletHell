@@ -507,9 +507,9 @@ MonoBehaviour:
   roomW: 18
   Door:
   - {fileID: 3675800658148456906, guid: e05c9422be2328944bb2d0035d4b2f6b, type: 3}
-  - {fileID: 3675800658148456906, guid: e05c9422be2328944bb2d0035d4b2f6b, type: 3}
-  - {fileID: 3675800658148456906, guid: e05c9422be2328944bb2d0035d4b2f6b, type: 3}
-  - {fileID: 3675800658148456906, guid: e05c9422be2328944bb2d0035d4b2f6b, type: 3}
+  - {fileID: 3675800658148456906, guid: 4f3a16e3f5f949a47bdd2bf5cec1865d, type: 3}
+  - {fileID: 3675800658148456906, guid: b2d9f011187d4bb4098749768fd69d4c, type: 3}
+  - {fileID: 3675800658148456906, guid: ad1af62e838a3bd4d90176665aba0286, type: 3}
   RoomParent: {fileID: 3207449709230562695, guid: b7dcdd553eb7c584e8ef57730a59d137,
     type: 3}
   tiles:
@@ -776,7 +776,7 @@ PrefabInstance:
     - target: {fileID: 3307818410219516396, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
         type: 3}
       propertyPath: m_Radius
-      value: 0.63
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3307818410219516396, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
         type: 3}
