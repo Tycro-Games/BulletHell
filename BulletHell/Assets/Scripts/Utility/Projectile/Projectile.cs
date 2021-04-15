@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class Projectile : MonoBehaviour
@@ -15,20 +16,27 @@ public class Projectile : MonoBehaviour
 
     private int damage;
     private bool destroyed = false;
-
-    [SerializeField]
-    private float lifetime = 5.0f;
-
+    private float lifetime;
+    private float lives = 0;
     private Rigidbody2D rb = null;
 
-    public void Init(float Speed, int Damage, LayerMask Collide)
+    private Light2D light = null;
+
+    [SerializeField]
+    private float lightMultiplier = 1.0f;
+
+    public void Init(float Speed, int Damage, LayerMask Collide, float life, float lifetime)
     {
+        this.lifetime = lifetime;
+        lives = life;
         speed = Speed;
         collideableLayer = Collide;
         damage = Damage;
 
         destroyed = false;
         rb = GetComponent<Rigidbody2D>();
+        light = GetComponentInChildren<Light2D>();
+        light.intensity = lives * lightMultiplier;
         CheckStart();
     }
 
@@ -100,11 +108,16 @@ public class Projectile : MonoBehaviour
         {
             hitable.TakeDamage(damage);
         }
-        else if (hit.collider.CompareTag("project"))
+        else if (hit.collider.CompareTag("project") && lives > 0)
         {
             Vector2 reflect = Vector2.Reflect(transform.up, hit.normal);
             float rot = 90 - Mathf.Atan2(reflect.y, reflect.x) * Mathf.Rad2Deg;
             transform.eulerAngles = -new Vector3(0, 0, rot);
+
+            light.intensity = lives * lightMultiplier;
+            if (lives <= 0)
+                DestroyProjectile();
+            lives--;
             return;
         }
 

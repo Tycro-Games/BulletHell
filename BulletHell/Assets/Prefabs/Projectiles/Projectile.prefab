@@ -131,9 +131,9 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.4198113, b: 1, a: 1}
   m_Intensity: 2
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000c73b806c
+  m_ApplyToSortingLayers: 00000000c73b806ce325f183
   m_LightCookieSprite: {fileID: 0}
-  m_UseNormalMap: 0
+  m_UseNormalMap: 1
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thickness: 0.12
-  lifetime: 30
+  lightMultiplier: 5
 --- !u!114 &-6670924257617799745
 MonoBehaviour:
   m_ObjectHideFlags: 0

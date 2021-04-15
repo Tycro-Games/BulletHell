@@ -88,7 +88,7 @@ public class BulletSpawner : MonoBehaviour
                    transform.position + transform.forward * offset,
                    Quaternion.LookRotation(Vector3.forward, transform.forward),
                    projectiles).GetComponent<Projectile>();
-            projectileInit.Init(projectile.speed, projectile.damage, CollideableMask);
+            projectileInit.Init(projectile.speed, projectile.damage, CollideableMask, projectile.life, projectile.lifetime);
         }
     }
 
