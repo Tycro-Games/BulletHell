@@ -15,7 +15,10 @@ public class BulletSpawner : MonoBehaviour
     private Transform projectiles = null;
 
     [SerializeField]
-    private float offset = 1.0f;
+    private float offsetX = 1.0f;
+
+    [SerializeField]
+    private float offsetY = 0;
 
     [SerializeField]
     private LayerMask CollideableMask = 0;
@@ -85,7 +88,7 @@ public class BulletSpawner : MonoBehaviour
                 currentTime += Mathf.Abs(Mathf.Sin(Time.time)) * FactorTime;
             // Vector2 dir = (CursorController.cursorTransform.position - transform.position).normalized;
             Projectile projectileInit = Spawner.Spawn(projectile.projectilePrefab,
-                   transform.position + transform.forward * offset,
+                   transform.position + transform.forward * offsetX + transform.up * offsetY,
                    Quaternion.LookRotation(Vector3.forward, transform.forward),
                    projectiles).GetComponent<Projectile>();
             projectileInit.Init(projectile.speed, projectile.damage, CollideableMask, projectile.life, projectile.lifetime);
@@ -95,6 +98,6 @@ public class BulletSpawner : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward);
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * offsetX + transform.up * offsetY);
     }
 }

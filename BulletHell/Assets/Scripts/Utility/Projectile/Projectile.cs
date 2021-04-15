@@ -40,14 +40,14 @@ public class Projectile : MonoBehaviour
         CheckStart();
     }
 
-    private void OnEnable()
-    {
-        StartCoroutine(DestroyProjectileTime(lifetime));
-    }
-
     private void OnDestroy()
     {
         DestroyProjectile();
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(DestroyProjectileTime(lifetime));
     }
 
     private void Awake()
@@ -78,6 +78,7 @@ public class Projectile : MonoBehaviour
 
     public void DestroyProjectile()
     {
+        StopCoroutine("DestroyProjectileTime");
         if (gameObject.activeInHierarchy)
             PoolingObjectsSystem.Destroy(gameObject);
     }
@@ -114,10 +115,10 @@ public class Projectile : MonoBehaviour
             float rot = 90 - Mathf.Atan2(reflect.y, reflect.x) * Mathf.Rad2Deg;
             transform.eulerAngles = -new Vector3(0, 0, rot);
 
-            light.intensity = lives * lightMultiplier;
             if (lives <= 0)
                 DestroyProjectile();
             lives--;
+            light.intensity = lives * lightMultiplier;
             return;
         }
 
