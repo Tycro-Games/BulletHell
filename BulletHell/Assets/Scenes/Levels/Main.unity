@@ -647,6 +647,11 @@ PrefabInstance:
       propertyPath: Limit.y
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 173040608097025445, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
+        type: 3}
+      propertyPath: speedMovement
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 173040608703941520, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
         type: 3}
       propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.size
@@ -992,14 +997,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410405566}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 32
-  m_RefResolutionX: 512
-  m_RefResolutionY: 288
+  m_RefResolutionX: 640
+  m_RefResolutionY: 180
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0
