@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System;
+using UnityEngine.Events;
 
 public class PlayerStats : CommonStats, IHitable
 {
@@ -19,6 +20,10 @@ public class PlayerStats : CommonStats, IHitable
     private float finishTime = 0.0f;
 
     public static event Action deathEvent;
+    [SerializeField]
+    private  UnityEvent OnHit;
+    [SerializeField]
+    private UnityEvent OnDead;
 
     private void Update()
     {
@@ -66,7 +71,12 @@ public class PlayerStats : CommonStats, IHitable
                 Debug.Log(HP);
 
                 if (HP <= 0)
+                {
                     Die();
+
+                }
+                else
+                    OnHit?.Invoke();
             }
         }
     }
@@ -75,5 +85,6 @@ public class PlayerStats : CommonStats, IHitable
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);//restart
         deathEvent?.Invoke();
+        OnDead?.Invoke();
     }
 }

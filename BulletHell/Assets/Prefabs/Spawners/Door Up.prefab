@@ -67,9 +67,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 278887809
+  m_SortingLayer: -2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7c2b66ba3b2f3342a085e7d71f38249, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -91,8 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3675800658148456909}
   - component: {fileID: 923958933009624666}
-  - component: {fileID: 3273109266024837098}
-  m_Layer: 0
+  - component: {fileID: 3754113378398865309}
+  m_Layer: 13
   m_Name: Door Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,8 +130,8 @@ MonoBehaviour:
   Destination: {x: 0, y: 0}
   parentRoom: {x: 0, y: 0, z: 0}
   offset: 1
---- !u!61 &3273109266024837098
-BoxCollider2D:
+--- !u!58 &3754113378398865309
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -144,18 +144,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.68
 --- !u!1 &5894200812993797591
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ namespace Bog
             roomTrigger = GetComponentInParent<RoomTriggerStart>();
             roomTrigger.OnStart += CheckEnemies;
             roomTrigger.OnEnd += Activate;
-            movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+            movement = FindObjectOfType<PlayerMovement>();
             player = movement.transform;
         }
         private void OnDisable()
@@ -46,7 +46,7 @@ namespace Bog
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (canTele)
-                if (collision.CompareTag("Player") && !movement.Teleported)
+                if (collision.CompareTag("Teleport") && !movement.Teleported)
                 {
                     OnTeleport?.Invoke(parentRoom, Destination + dir(Destination) * offset);
                     movement.Teleported = true;
@@ -55,7 +55,7 @@ namespace Bog
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.CompareTag("Player") && movement.Teleported)
+            if (collision.CompareTag("Teleport") && movement.Teleported)
             {
                 movement.Teleported = false;
             }

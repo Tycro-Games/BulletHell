@@ -13,7 +13,7 @@ namespace Bog
         private void Start()
         {
             dungeon = GetComponent<Dungeon>();
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+            player = FindObjectOfType<PlayerMovement>();
             newCamera = Camera.main.transform;
         }
 
