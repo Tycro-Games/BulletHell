@@ -504,22 +504,22 @@ MonoBehaviour:
   - col: {r: 1, g: 0.42745098, b: 1, a: 1}
     obj: {fileID: 7905376933831015292, guid: 869e95ca0561dc94ead99f0c87ea2f5a, type: 3}
   rooms:
-  - count: 5
+  - count: 2
     room:
-      room: {fileID: 2800000, guid: c9086051166bea7419b552b248b17f95, type: 3}
+      room: {fileID: 2800000, guid: 6e2f709df028f29468cd74aa313dface, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 0
+  - count: 2
     room:
-      room: {fileID: 2800000, guid: b6112eb1002d6894498e5e9e2cc35f93, type: 3}
+      room: {fileID: 2800000, guid: 08a9d6c7dc68c524580593f1e1e80c87, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
   start:
-    room: {fileID: 2800000, guid: b6112eb1002d6894498e5e9e2cc35f93, type: 3}
+    room: {fileID: 2800000, guid: caf750937e9dc424bb88282a23bb5ef0, type: 3}
     neighboursFrom: []
     neighboursBack: []
     ToRoom:
