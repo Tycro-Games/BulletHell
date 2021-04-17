@@ -169,6 +169,22 @@ namespace Bog
                     }
                 else if (room == roomList[roomList.Count - 1])
                 {
+                    for (int i = 0; i < room.neighboursFrom.Count; i++)
+                    {
+                        int d1 = (int)room.ToRoomD[room.neighboursFrom[i]];
+
+                        GameObject door1 = Instantiate(Door[d1], room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
+                        int d2 = (int)room.ToRoomD[room.neighboursBack[i]];
+
+                        GameObject door2 = Instantiate(Door[d2], room.neighboursBack[i], Quaternion.identity, grid[room.ToRoom[i]].transform);//tile for the room to the door
+                        door1.name = "end";
+                        Teleport teleport1 = door1.GetComponent<Teleport>();
+                        Teleport teleport2 = door2.GetComponent<Teleport>();
+                        teleport1.Destination = door2.transform.position;
+                        teleport1.parentRoom = room.ToRoom[i];
+                        teleport2.Destination = door1.transform.position;
+                        teleport2.parentRoom = room.currentPos;
+                    }
                 }
             }
         }
