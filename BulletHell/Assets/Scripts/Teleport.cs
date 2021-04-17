@@ -26,22 +26,23 @@ namespace Bog
             movement = FindObjectOfType<PlayerMovement>();
             player = movement.transform;
         }
+
         private void OnDisable()
         {
             roomTrigger.OnEnd -= Activate;
             roomTrigger.OnStart -= CheckEnemies;
         }
-        void Activate()
+
+        private void Activate()
         {
             canTele = true;
         }
+
         public void CheckEnemies()
         {
             if (RoomTriggerStart.currentEnemies.Count != 0)
                 canTele = false;
         }
-
-        
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

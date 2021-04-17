@@ -51,6 +51,9 @@ namespace Bog
         [SerializeField]
         private Room start = null;
 
+        [SerializeField]
+        private Room end = null;
+
         [HideInInspector]
         public Dictionary<Vector2, GameObject> grid = new Dictionary<Vector2, GameObject>();
 
@@ -76,21 +79,49 @@ namespace Bog
             InitRooms();
             while (roomsToTake.Count != 0)
             {
+                PlaceRooms();
+            }
+
+            PlaceRooms(end);
+            MakeRooms();
+        }
+
+        private void PlaceRooms()
+        {
+            int index = Random.Range(0, possibles.Count);
+            Vector2 pos = possibles[index];
+            if (occupied.Contains(pos))
+            {
+                possibles.Remove(pos);
+                return;
+            }
+            Texture2D setRoom = roomsToTake[Random.Range(0, roomsToTake.Count)];
+            Room newRoom = new Room(pos, setRoom);
+            roomsToTake.Remove(setRoom);
+            roomList.Add(newRoom);
+
+            GetNeight(newRoom);
+        }
+
+        private void PlaceRooms(Room RoomToPlace)
+        {
+            bool placed = false;
+            while (!placed)
+            {
                 int index = Random.Range(0, possibles.Count);
                 Vector2 pos = possibles[index];
                 if (occupied.Contains(pos))
                 {
                     possibles.Remove(pos);
-                    continue;
+                    return;
                 }
-                Texture2D setRoom = roomsToTake[Random.Range(0, roomsToTake.Count)];
+                Texture2D setRoom = RoomToPlace.room;
                 Room newRoom = new Room(pos, setRoom);
-                roomsToTake.Remove(setRoom);
-                roomList.Add(newRoom);
 
+                roomList.Add(newRoom);
+                placed = true;
                 GetNeight(newRoom);
             }
-            MakeRooms();
         }
 
         private void MakeRooms()
@@ -117,7 +148,7 @@ namespace Bog
                             }
                         }
                     }
-                if (room != roomList[0])
+                if (room != roomList[0] && room != roomList[roomList.Count - 1])
                     for (int i = 0; i < room.neighboursFrom.Count; i++)
                     {
                         int d1 = (int)room.ToRoomD[room.neighboursFrom[i]];
@@ -136,6 +167,9 @@ namespace Bog
                         teleport2.Destination = door1.transform.position;
                         teleport2.parentRoom = room.currentPos;
                     }
+                else if (room == roomList[roomList.Count - 1])
+                {
+                }
             }
         }
 

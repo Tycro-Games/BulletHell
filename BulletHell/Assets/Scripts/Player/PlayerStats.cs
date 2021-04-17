@@ -21,9 +21,9 @@ public class PlayerStats : CommonStats, IHitable
 
     public static event Action deathEvent;
     [SerializeField]
-    private  UnityEvent OnHit;
+    private  UnityEvent OnHit=null;
     [SerializeField]
-    private UnityEvent OnDead;
+    private UnityEvent OnDead=null;
 
     private void Update()
     {
