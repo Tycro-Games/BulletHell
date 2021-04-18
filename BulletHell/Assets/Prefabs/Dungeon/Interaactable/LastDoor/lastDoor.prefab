@@ -199,6 +199,9 @@ MonoBehaviour:
   Destination: {x: 0, y: 0}
   parentRoom: {x: 0, y: 0, z: 0}
   offset: 1.25
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &2509290351655628442
 CircleCollider2D:
   m_ObjectHideFlags: 0
