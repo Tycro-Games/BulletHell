@@ -122,11 +122,9 @@ namespace Bog
             pos = possibles[index];
             while (occupied.Contains(pos))
             {
-                 
                 possibles.Remove(pos);
                 index = Random.Range(0, possibles.Count);
                 pos = possibles[index];
-               
             }
             Texture2D setRoom = RoomToPlace.room;
             Room newRoom = new Room(pos, setRoom);
@@ -175,6 +173,8 @@ namespace Bog
 
                         Teleport teleport1 = door1.GetComponent<Teleport>();
                         Teleport teleport2 = door2.GetComponent<Teleport>();
+                        teleport1.otherDoor = door2;
+                        teleport2.otherDoor = door1;
                         teleport1.Destination = door2.transform.position;
                         teleport1.parentRoom = room.ToRoom[i];
                         teleport2.Destination = door1.transform.position;

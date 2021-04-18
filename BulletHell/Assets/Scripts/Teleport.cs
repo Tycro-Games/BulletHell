@@ -19,7 +19,8 @@ namespace Bog
 
         [SerializeField]
         private UnityEvent OnEnter;
-
+        [HideInInspector]
+        public GameObject otherDoor;
         private bool first = false;
 
         private void Start()
@@ -30,7 +31,11 @@ namespace Bog
             movement = FindObjectOfType<PlayerMovement>();
             player = movement.transform;
         }
-
+        public void ChangeSprites(Sprite newSprite)
+        {
+            GetComponentInChildren<SpriteRenderer>().sprite = newSprite;
+            otherDoor.GetComponentInChildren<SpriteRenderer>().sprite = newSprite;
+        }
         private void OnDisable()
         {
             roomTrigger.OnEnd -= Activate;
