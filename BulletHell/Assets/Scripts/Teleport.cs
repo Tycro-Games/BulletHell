@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bog
 {
@@ -15,6 +16,11 @@ namespace Bog
 
         [SerializeField]
         private float offset = 0.5f;
+
+        [SerializeField]
+        private UnityEvent OnEnter;
+
+        private bool first = false;
 
         private void Start()
         {
@@ -49,6 +55,11 @@ namespace Bog
                 {
                     OnTeleport?.Invoke(parentRoom, Destination + dir(Destination) * offset);
                     movement.Teleported = true;
+                    if (!first)
+                    {
+                        OnEnter?.Invoke();
+                        first = true;
+                    }
                 }
         }
 
