@@ -108,23 +108,24 @@ namespace Bog
 
         private void PlaceRooms(Room RoomToPlace)
         {
-            bool placed = false;
-            while (!placed)
+            Vector2 pos;
+
+            for (int i = 0; i < possibles.Count; i++)
             {
-                int index = Random.Range(0, possibles.Count);
-                Vector2 pos = possibles[index];
+                pos = possibles[i];
                 if (occupied.Contains(pos))
                 {
                     possibles.Remove(pos);
-                    return;
                 }
-                Texture2D setRoom = RoomToPlace.room;
-                Room newRoom = new Room(pos, setRoom);
-
-                roomList.Add(newRoom);
-                placed = true;
-                GetNeight(newRoom);
             }
+            int index = Random.Range(0, possibles.Count);
+            pos = possibles[index];
+            Texture2D setRoom = RoomToPlace.room;
+            Room newRoom = new Room(pos, setRoom);
+
+            roomList.Add(newRoom);
+
+            GetNeight(newRoom);
         }
 
         private void MakeRooms()

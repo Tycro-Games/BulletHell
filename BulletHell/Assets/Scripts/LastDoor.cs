@@ -1,21 +1,28 @@
-﻿using System.Collections;
+﻿using Bog.Assets.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LastDoor : MonoBehaviour
+namespace Bog
 {
-    private Collider2D doorCollide = null;
-
-    private void Start()
+    public class LastDoor : MonoBehaviour
     {
-        doorCollide = GetComponent<Collider2D>();
-        doorCollide.enabled = false;
-        DoorManager doorManager = FindObjectOfType<DoorManager>();
-        doorManager.doors.Add(this);
-    }
+        private Collider2D doorCollide = null;
+        private Teleport tele = null;
 
-    public void Activate()
-    {
-        doorCollide.enabled = true;
+
+        private void Start()
+        {
+            doorCollide = GetComponent<Collider2D>();
+            tele = GetComponent<Teleport>();
+            DoorManager doorManager = FindObjectOfType<DoorManager>();
+            doorManager.doors.Add(this);
+        }
+
+        public void Activate()
+        {
+            tele.enabled = true;
+            doorCollide.enabled = true;
+        }
     }
 }

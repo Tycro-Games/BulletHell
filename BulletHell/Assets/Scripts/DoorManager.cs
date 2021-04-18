@@ -1,16 +1,19 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorManager : MonoBehaviour
+namespace Bog
 {
-    [HideInInspector]
-    public List<LastDoor> doors = new List<LastDoor>();
-
-    public void Activate()
+    public class DoorManager : MonoBehaviour
     {
-        for (int i = 0; i < doors.Count; i++)
+        [HideInInspector]
+        public List<LastDoor> doors = new List<LastDoor>();
+
+        public void Activate()
         {
-            doors[i].Activate();
+            for (int i = 0; i < doors.Count; i++)
+            {
+                doors[i].Activate();
+            }
         }
     }
 }
