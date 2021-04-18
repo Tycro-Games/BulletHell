@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Destination: {x: 0, y: 0}
   parentRoom: {x: 0, y: 0, z: 0}
-  offset: 1
+  offset: 1.25
 --- !u!58 &1128984497618105504
 CircleCollider2D:
   m_ObjectHideFlags: 0

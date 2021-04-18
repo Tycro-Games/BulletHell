@@ -118,7 +118,7 @@ public class ShootEnemy : BaseEnemy
     {
         PointPlayer(true);
 
-        while (OnShoot != null && EnemyController.HitEvent != null)
+        while (OnShoot != null && EnemyController.HitEvent != null && agent.enabled == true)
         {
             if (PlayerNeed)//the player is needed
             {
@@ -127,8 +127,8 @@ public class ShootEnemy : BaseEnemy
                 {
                     if (IsFacingPlayer() || NeedToFace) //if you face the player shoot
                     {
-                        if(StopAndShoot)
-                        agent.isStopped = true;
+                        if (StopAndShoot)
+                            agent.isStopped = true;
 
                         if (anim)
                         {
