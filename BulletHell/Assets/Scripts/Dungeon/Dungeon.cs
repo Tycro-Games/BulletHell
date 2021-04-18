@@ -120,6 +120,14 @@ namespace Bog
             }
             int index = Random.Range(0, possibles.Count);
             pos = possibles[index];
+            while (occupied.Contains(pos))
+            {
+                 
+                possibles.Remove(pos);
+                index = Random.Range(0, possibles.Count);
+                pos = possibles[index];
+               
+            }
             Texture2D setRoom = RoomToPlace.room;
             Room newRoom = new Room(pos, setRoom);
 
