@@ -353,11 +353,16 @@ MonoBehaviour:
     col: 1000
   roomH: 10
   roomW: 18
-  Door:
+  normalDoor:
   - {fileID: 3675800658148456906, guid: e05c9422be2328944bb2d0035d4b2f6b, type: 3}
-  - {fileID: 3675800658148456906, guid: 4f3a16e3f5f949a47bdd2bf5cec1865d, type: 3}
-  - {fileID: 3675800658148456906, guid: b2d9f011187d4bb4098749768fd69d4c, type: 3}
-  - {fileID: 3675800658148456906, guid: ad1af62e838a3bd4d90176665aba0286, type: 3}
+  - {fileID: 2196399914758005744, guid: f2f6b3e195b55004bbd897513073334d, type: 3}
+  - {fileID: 2196399914758005744, guid: 9824d7fcbf22c5d42bd00416f0b0ca05, type: 3}
+  - {fileID: 2196399914758005744, guid: edba60e5ee72fb04e95bb05dba0ae690, type: 3}
+  lastDoor:
+  - {fileID: 3675800658148456906, guid: e05c9422be2328944bb2d0035d4b2f6b, type: 3}
+  - {fileID: 2196399914758005744, guid: f2f6b3e195b55004bbd897513073334d, type: 3}
+  - {fileID: 2196399914758005744, guid: 9824d7fcbf22c5d42bd00416f0b0ca05, type: 3}
+  - {fileID: 2196399914758005744, guid: edba60e5ee72fb04e95bb05dba0ae690, type: 3}
   RoomParent: {fileID: 3207449709230562695, guid: b7dcdd553eb7c584e8ef57730a59d137,
     type: 3}
   tiles:

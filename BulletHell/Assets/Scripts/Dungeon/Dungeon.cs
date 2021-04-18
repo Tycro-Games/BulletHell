@@ -37,7 +37,10 @@ namespace Bog
         public float roomW = 18;
 
         [SerializeField]
-        private GameObject[] Door = null;
+        private GameObject[] normalDoor = null;
+
+        [SerializeField]
+        private GameObject[] lastDoor = null;
 
         [SerializeField]
         private GameObject RoomParent = null;
@@ -130,6 +133,7 @@ namespace Bog
             {
                 Texture2D texture = room.room;
                 GameObject roomObj = Instantiate(RoomParent);
+
                 grid.Add(room.currentPos, roomObj);
                 roomObj.transform.position = room.currentPos;
                 roomObj.transform.parent = transform;
@@ -153,10 +157,10 @@ namespace Bog
                     {
                         int d1 = (int)room.ToRoomD[room.neighboursFrom[i]];
 
-                        GameObject door1 = Instantiate(Door[d1], room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
+                        GameObject door1 = Instantiate(normalDoor[d1], room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
                         int d2 = (int)room.ToRoomD[room.neighboursBack[i]];
 
-                        GameObject door2 = Instantiate(Door[d2], room.neighboursBack[i],
+                        GameObject door2 = Instantiate(normalDoor[d2], room.neighboursBack[i],
                             Quaternion.identity,
                             grid[room.ToRoom[i]].transform);//tile for the room to the door
 
@@ -169,15 +173,16 @@ namespace Bog
                     }
                 else if (room == roomList[roomList.Count - 1])
                 {
+                    roomObj.name = "End Room";
                     for (int i = 0; i < room.neighboursFrom.Count; i++)
                     {
                         int d1 = (int)room.ToRoomD[room.neighboursFrom[i]];
 
-                        GameObject door1 = Instantiate(Door[d1], room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
+                        GameObject door1 = Instantiate(lastDoor[d1], room.neighboursFrom[i], Quaternion.identity, roomObj.transform);//tile for the door to the room
                         int d2 = (int)room.ToRoomD[room.neighboursBack[i]];
 
-                        GameObject door2 = Instantiate(Door[d2], room.neighboursBack[i], Quaternion.identity, grid[room.ToRoom[i]].transform);//tile for the room to the door
-                        door1.name = "end";
+                        GameObject door2 = Instantiate(lastDoor[d2], room.neighboursBack[i], Quaternion.identity, grid[room.ToRoom[i]].transform);//tile for the room to the door
+
                         Teleport teleport1 = door1.GetComponent<Teleport>();
                         Teleport teleport2 = door2.GetComponent<Teleport>();
                         teleport1.Destination = door2.transform.position;
