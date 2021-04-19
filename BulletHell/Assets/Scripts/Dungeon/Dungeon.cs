@@ -140,7 +140,7 @@ namespace Bog
             {
                 Texture2D texture = room.room;
                 GameObject roomObj = Instantiate(RoomParent);
-
+                roomObj.name = texture.name;
                 grid.Add(room.currentPos, roomObj);
                 roomObj.transform.position = room.currentPos;
                 roomObj.transform.parent = transform;
@@ -174,11 +174,11 @@ namespace Bog
                         Teleport teleport1 = door1.GetComponent<Teleport>();
                         Teleport teleport2 = door2.GetComponent<Teleport>();
                         teleport1.otherDoor = door2;
-                        teleport2.otherDoor = door1;
                         teleport1.Destination = door2.transform.position;
                         teleport1.parentRoom = room.ToRoom[i];
                         teleport2.Destination = door1.transform.position;
                         teleport2.parentRoom = room.currentPos;
+                        teleport2.otherDoor = door1;
                     }
                 else if (room == roomList[roomList.Count - 1])
                 {
@@ -194,8 +194,10 @@ namespace Bog
 
                         Teleport teleport1 = door1.GetComponent<Teleport>();
                         Teleport teleport2 = door2.GetComponent<Teleport>();
+                        teleport1.otherDoor = door2;
                         teleport1.Destination = door2.transform.position;
                         teleport1.parentRoom = room.ToRoom[i];
+                        teleport2.otherDoor = door1;
                         teleport2.Destination = door1.transform.position;
                         teleport2.parentRoom = room.currentPos;
                     }

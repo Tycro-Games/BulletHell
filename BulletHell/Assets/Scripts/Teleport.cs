@@ -18,9 +18,14 @@ namespace Bog
         private float offset = 0.5f;
 
         [SerializeField]
-        private UnityEvent OnEnter;
+        private UnityEvent OnEnter = null;
+
         [HideInInspector]
-        public GameObject otherDoor;
+        public GameObject otherDoor = null;
+
+        [SerializeField]
+        private Sprite newSprite = null;
+
         private bool first = false;
 
         private void Start()
@@ -31,11 +36,13 @@ namespace Bog
             movement = FindObjectOfType<PlayerMovement>();
             player = movement.transform;
         }
-        public void ChangeSprites(Sprite newSprite)
+
+        public void ChangeSprites()
         {
             GetComponentInChildren<SpriteRenderer>().sprite = newSprite;
             otherDoor.GetComponentInChildren<SpriteRenderer>().sprite = newSprite;
         }
+
         private void OnDisable()
         {
             roomTrigger.OnEnd -= Activate;
@@ -62,6 +69,7 @@ namespace Bog
                     movement.Teleported = true;
                     if (!first)
                     {
+                        ChangeSprites();
                         OnEnter?.Invoke();
                         first = true;
                     }
