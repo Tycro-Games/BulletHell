@@ -407,7 +407,7 @@ MonoBehaviour:
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 1
+  - count: 2
     room:
       room: {fileID: 2800000, guid: b09cad03a2a3a5e4f8ba5fdad7ca8633, type: 3}
       neighboursFrom: []

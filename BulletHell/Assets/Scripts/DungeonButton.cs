@@ -8,6 +8,7 @@ namespace Bog
     {
         private ButtonManager buttonDungeon = null;
         private SpriteRenderer sprite = null;
+        private bool first = false;
 
         private void Start()
         {
@@ -18,9 +19,10 @@ namespace Bog
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Teleport"))
+            if (collision.CompareTag("Teleport") && !first)
             {
                 buttonDungeon.RemoveOne(this);
+                first = true;
             }
         }
     }
