@@ -20,6 +20,7 @@ public class PlayerStats : CommonStats, IHitable
     private float finishTime = 0.0f;
 
     public static event Action deathEvent;
+    public static event Action<int> Hit;
     [SerializeField]
     private  UnityEvent OnHit=null;
     [SerializeField]
@@ -76,7 +77,10 @@ public class PlayerStats : CommonStats, IHitable
 
                 }
                 else
+                {
                     OnHit?.Invoke();
+                    Hit?.Invoke(HP);
+                }
             }
         }
     }
