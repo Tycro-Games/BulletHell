@@ -4,15 +4,13 @@ using UnityEngine.Events;
 
 namespace Bog
 {
-    public class Teleport : MonoBehaviour
+    public class Teleport : TeleportBase
     {
         public Vector2 Destination;
         public Vector3 parentRoom;
         public static Action<Vector3, Vector2> OnTeleport;
         private PlayerMovement movement;
         private Transform player;
-        private bool canTele = true;
-        private RoomTriggerStart roomTrigger = null;
 
         [SerializeField]
         private float offset = 0.5f;
@@ -30,9 +28,7 @@ namespace Bog
 
         private void Start()
         {
-            roomTrigger = GetComponentInParent<RoomTriggerStart>();
-            roomTrigger.OnStart += CheckEnemies;
-            roomTrigger.OnEnd += Activate;
+            Init();
             movement = FindObjectOfType<PlayerMovement>();
             player = movement.transform;
         }
@@ -41,23 +37,6 @@ namespace Bog
         {
             GetComponentInChildren<SpriteRenderer>().sprite = newSprite;
             otherDoor.GetComponentInChildren<SpriteRenderer>().sprite = newSprite;
-        }
-
-        private void OnDisable()
-        {
-            roomTrigger.OnEnd -= Activate;
-            roomTrigger.OnStart -= CheckEnemies;
-        }
-
-        private void Activate()
-        {
-            canTele = true;
-        }
-
-        public void CheckEnemies()
-        {
-            if (RoomTriggerStart.currentEnemies.Count != 0)
-                canTele = false;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
