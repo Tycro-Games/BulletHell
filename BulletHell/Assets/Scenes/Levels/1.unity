@@ -617,33 +617,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 522791688, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
-      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 522791688, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
-      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 522791688, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
-      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 522791688, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
       propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1061002899}
-    - target: {fileID: 522791688, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
-      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Animate
-      objectReference: {fileID: 0}
-    - target: {fileID: 522791688, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
-      propertyPath: OnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 522791688, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
-      propertyPath: UntilNextHit
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 2001832553, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
