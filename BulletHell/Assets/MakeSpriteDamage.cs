@@ -26,6 +26,9 @@ namespace Bog
         private void Start()
         {
             ren = GetComponent<SpriteRenderer>();
+            Color NewCol = ren.color;
+            NewCol.a = 0;
+            ren.color = NewCol;
         }
 
         public void Animate()
