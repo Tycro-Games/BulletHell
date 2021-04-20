@@ -50,7 +50,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 0.43
+    m_Value: 0.61
     min: 0
   intensity:
     m_OverrideState: 1
@@ -58,7 +58,7 @@ MonoBehaviour:
     min: 0
   scatter:
     m_OverrideState: 1
-    m_Value: 0.969
+    m_Value: 0.948
     min: 0
     max: 1
   clamp:
@@ -112,11 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
   m_Name: ColorAdjustments
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: 2.49
+    m_Value: 0.05
   contrast:
     m_OverrideState: 0
     m_Value: 0

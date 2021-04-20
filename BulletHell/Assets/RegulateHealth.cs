@@ -6,21 +6,25 @@ namespace Bog
 {
     public class RegulateHealth : MonoBehaviour
     {
-        [SerializeField]
-        private float Multiplier = 1f;
-
         private Material material;
+
         [SerializeField]
-        private int minVal = 0;
+        private float multiplier = 1;
+
+        [ColorUsage(true, true)]
         [SerializeField]
-        private int maxVal = 100;
-       
+        private Color start;
+
+        [ColorUsage(true, true)]
+        [SerializeField]
+        private Color end;
+
         private void Start()
         {
             SpriteRenderer sprite = GetComponent<SpriteRenderer>();
             sprite.sharedMaterial = new Material(sprite.sharedMaterial);
             material = sprite.sharedMaterial;
-          
+            start = material.GetColor("_color");
         }
 
         private void OnEnable()
@@ -36,12 +40,14 @@ namespace Bog
         public void UpdateHealth(int HP)
         {
             Color col = material.GetColor("_color");
-            
+
             Color.RGBToHSV(material.GetColor("_color"), out float H, out float S, out float V);
-         
-            float inter= Mathf.InverseLerp(minVal, maxVal, HP);
-            col = new Color(col.r * inter * Multiplier, col.g * inter * Multiplier, col.b * inter * Multiplier);
+
+            float inter = Mathf.InverseLerp(0, 100, HP * multiplier);
+            col = Color.Lerp(end, start, inter);
+
             material.SetColor("_color", col);
+            Debug.Log(inter);
         }
     }
 }

@@ -48,4 +48,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _color: {r: 0, g: 9.734288, b: 1.787672, a: 0.8666667}
+    - _color: {r: 0, g: 9.734286, b: 1.8347347, a: 1}
