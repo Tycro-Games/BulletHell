@@ -13,7 +13,7 @@ namespace Bog
                 canTele = false;
         }
 
-        protected void Activate()
+        public virtual void Activate()
         {
             canTele = true;
         }

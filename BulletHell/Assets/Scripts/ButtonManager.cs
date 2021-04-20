@@ -9,9 +9,6 @@ namespace Bog
         [HideInInspector]
         public List<DungeonButton> dungeonButtons = new List<DungeonButton>();
 
-        [SerializeField]
-        private int Count;
-
         private DoorManager doorManager = null;
 
         private void Start()
