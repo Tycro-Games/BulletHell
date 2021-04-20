@@ -9,6 +9,7 @@ namespace Bog
         private Material material;
 
         [SerializeField]
+        [Range(0, 1)]
         private float multiplier = 1;
 
         [ColorUsage(true, true)]
