@@ -10,6 +10,10 @@ namespace Bog
         private float Multiplier = 1f;
 
         private Material material;
+        [SerializeField]
+        private int minVal = 0;
+        [SerializeField]
+        private int maxVal = 100;
        
         private void Start()
         {
