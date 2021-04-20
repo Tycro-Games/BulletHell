@@ -39,7 +39,7 @@ namespace Bog
             
             Color.RGBToHSV(material.GetColor("_color"), out float H, out float S, out float V);
          
-            float inter= Mathf.InverseLerp(0, 100, HP);
+            float inter= Mathf.InverseLerp(minVal, maxVal, HP);
             col = new Color(col.r * inter * Multiplier, col.g * inter * Multiplier, col.b * inter * Multiplier);
             material.SetColor("_color", col);
         }
