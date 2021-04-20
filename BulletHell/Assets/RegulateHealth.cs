@@ -16,7 +16,7 @@ namespace Bog
             SpriteRenderer sprite = GetComponent<SpriteRenderer>();
             sprite.sharedMaterial = new Material(sprite.sharedMaterial);
             material = sprite.sharedMaterial;
-            hp = 100;
+          
         }
 
         private void OnEnable()
