@@ -5,13 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class LoadScenes : MonoBehaviour
 {
-    public void LoadScene (string name)
+    public void LoadScene(string name)
     {
-        SceneManager.LoadScene (name);
+        SceneManager.LoadScene(name);
     }
 
-    public void Quit ()
+    public void NextLevel()
     {
-        Application.Quit ();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
