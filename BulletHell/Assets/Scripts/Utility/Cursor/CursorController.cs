@@ -13,14 +13,27 @@ public class CursorController : MonoBehaviour
 
     public static Transform cursorTransform = null;
 
+    [SerializeField]
+    private Sprite normalCursor = null;
+
+    [SerializeField]
+    private Sprite pressedCursor = null;
+
+    private SpriteRenderer ren = null;
+
     private void Awake()
     {
+        ren = GetComponent<SpriteRenderer>();
         cursorTransform = transform;
         Cursor.visible = false;
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            ren.sprite = normalCursor;
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+            ren.sprite = pressedCursor;
         transform.position = Vector2.SmoothDamp(transform.position, MousePosition(), ref velocity, smooth);
     }
 

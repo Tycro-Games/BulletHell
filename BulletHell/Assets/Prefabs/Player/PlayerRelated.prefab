@@ -619,6 +619,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2
   smooth: 0.01
+  normalCursor: {fileID: 21300000, guid: cbbc4825cdc9a2944bac36d6cde7fac0, type: 3}
+  pressedCursor: {fileID: 21300000, guid: 1d4f9ca0ff26423429b280a8066c62ab, type: 3}
 --- !u!212 &1743737041
 SpriteRenderer:
   m_ObjectHideFlags: 0
