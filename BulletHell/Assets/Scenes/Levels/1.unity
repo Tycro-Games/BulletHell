@@ -410,13 +410,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 451169636, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
+      propertyPath: Multiplier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451169636, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
+      propertyPath: minVal
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1714846918, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
       propertyPath: Multiplier
-      value: 0.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1714846918, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
       propertyPath: maxVal
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714846918, guid: 71d8d95fcc1445d4b84fecfb9ac041b0, type: 3}
+      propertyPath: minVal
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 173040609033567661, guid: 71d8d95fcc1445d4b84fecfb9ac041b0,
         type: 3}
