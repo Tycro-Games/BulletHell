@@ -10,9 +10,7 @@ namespace Bog
         private float Multiplier = 1f;
 
         private Material material;
-        [SerializeField]
-        private float initIntensity=1;
-        float hp=100;
+       
         private void Start()
         {
             SpriteRenderer sprite = GetComponent<SpriteRenderer>();
@@ -37,8 +35,8 @@ namespace Bog
             
             Color.RGBToHSV(material.GetColor("_color"), out float H, out float S, out float V);
          
-           
-            col = new Color(col.r * HP * Multiplier, col.g * HP * Multiplier, col.b * HP * Multiplier);
+            float inter= Mathf.InverseLerp(0, 100, HP);
+            col = new Color(col.r * inter * Multiplier, col.g * inter * Multiplier, col.b * inter * Multiplier);
             material.SetColor("_color", col);
         }
     }
