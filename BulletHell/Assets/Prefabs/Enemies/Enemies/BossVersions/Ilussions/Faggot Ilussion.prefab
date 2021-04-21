@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 3312043713847714598, guid: 035c3746c0fc55a4c85ef2896fc7bf30,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.77254903}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b47312f367fe84791a683a43426bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: 3e3337d197d6a9142bc60602d0e954a1, type: 2}
+  projectile: {fileID: 11400000, guid: 4ba502c31e667004e880ab5075b038b9, type: 2}
   projectiles: {fileID: 0}
   offsetX: 1
   offsetY: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   RandomTime: 1
-  FactorTime: 1
+  FactorTime: 3
 --- !u!1 &1409730221260454582
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,9 +678,8 @@ GameObject:
   - component: {fileID: 347021905}
   - component: {fileID: 1860308896}
   - component: {fileID: 4507631354640922429}
-  - component: {fileID: 3599191051539175504}
-  m_Layer: 11
-  m_Name: Faggot
+  m_Layer: 0
+  m_Name: Faggot Ilussion
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -788,7 +787,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7013464988628411245}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -797,18 +796,3 @@ CircleCollider2D:
   m_Offset: {x: -0.006819427, y: 0}
   serializedVersion: 2
   m_Radius: 0.47
---- !u!114 &3599191051539175504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7013464988628411245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23cb9f75148fd14b81936861f420065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemies:
-  - {fileID: 0}
-  life: 3

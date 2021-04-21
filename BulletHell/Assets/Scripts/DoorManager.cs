@@ -8,11 +8,14 @@ namespace Bog
         [HideInInspector]
         public List<LastDoor> doors = new List<LastDoor>();
 
+        [SerializeField]
+        private Sprite UnblockedDoor = null;
+
         public void Activate()
         {
             for (int i = 0; i < doors.Count; i++)
             {
-                doors[i].Activate();
+                doors[i].Activate(UnblockedDoor);
             }
         }
     }

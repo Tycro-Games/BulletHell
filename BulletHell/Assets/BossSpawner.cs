@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BossSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private GameObject[] Enemies;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private float life = 10;
+
+    public void Spawn()
     {
-        
+        GameObject enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, Quaternion.identity, transform);
+        Destroy(enemy, life);
     }
 }

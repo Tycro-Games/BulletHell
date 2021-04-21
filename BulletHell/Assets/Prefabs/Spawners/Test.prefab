@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7474485215219892437}
   - component: {fileID: 5487257184688617559}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: Test
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e6152a6c3ed054da72c1acf9ae5e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 11400000, guid: 85ed73b0c17b7df4c8424252db7e1dc9, type: 2}
+  Enemies:
+  - {fileID: 7013464988628411245, guid: d4b1eee533daf96458d520ff0c40a771, type: 3}
 --- !u!58 &5487257184688617559
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -281,36 +281,38 @@ MonoBehaviour:
     obj: {fileID: 5534190880067044053, guid: df180c623e92b3d43b0c3b4b60c079f4, type: 3}
   - col: {r: 1, g: 0, b: 0.8980392, a: 1}
     obj: {fileID: 7908878343463407365, guid: 62960b57e42122640bddc7d42887d85c, type: 3}
+  - col: {r: 0.8784314, g: 0, b: 0, a: 1}
+    obj: {fileID: 7474485215219892436, guid: d43c62e8eb4cfbe42afb6ad9e0081b66, type: 3}
   rooms:
-  - count: 2
+  - count: 0
     room:
       room: {fileID: 2800000, guid: 6213a0b401878e74a9541d27bf99f8a8, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 2
+  - count: 0
     room:
       room: {fileID: 2800000, guid: 68b72e0766bd6cc40b290c489e5198ff, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 2
+  - count: 0
     room:
       room: {fileID: 2800000, guid: 9286e329da599e343adffa8cb013b951, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 2
+  - count: 0
     room:
       room: {fileID: 2800000, guid: 3dd2c9d2fe1624c48a2592433b259742, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 2
+  - count: 1
     room:
       room: {fileID: 2800000, guid: b09cad03a2a3a5e4f8ba5fdad7ca8633, type: 3}
       neighboursFrom: []
@@ -513,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doors: []
+  UnblockedDoor: {fileID: 0}
 --- !u!114 &1517467589
 MonoBehaviour:
   m_ObjectHideFlags: 0
