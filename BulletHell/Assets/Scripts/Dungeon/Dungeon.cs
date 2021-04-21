@@ -140,6 +140,7 @@ namespace Bog
             {
                 Texture2D texture = room.room;
                 GameObject roomObj = Instantiate(RoomParent);
+
                 roomObj.name = texture.name;
                 grid.Add(room.currentPos, roomObj);
                 roomObj.transform.position = room.currentPos;
@@ -160,6 +161,8 @@ namespace Bog
                         }
                     }
                 if (room != roomList[0] && room != roomList[roomList.Count - 1])
+                {
+                    roomObj.transform.GetChild(1).gameObject.SetActive(false);
                     for (int i = 0; i < room.neighboursFrom.Count; i++)
                     {
                         int d1 = (int)room.ToRoomD[room.neighboursFrom[i]];
@@ -180,6 +183,7 @@ namespace Bog
                         teleport2.parentRoom = room.currentPos;
                         teleport2.otherDoor = door1;
                     }
+                }
                 else if (room == roomList[roomList.Count - 1])
                 {
                     roomObj.name = "End Room";

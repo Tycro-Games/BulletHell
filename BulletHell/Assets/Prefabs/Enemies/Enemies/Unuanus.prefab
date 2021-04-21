@@ -403,7 +403,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3018583536709595121}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.31
   m_Speed: 1
   m_Acceleration: 4
   avoidancePriority: 50
@@ -429,9 +429,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: 0}
+  m_Offset: {x: 0.05162388, y: -0}
   serializedVersion: 2
-  m_Radius: 0.33
+  m_Radius: 0.36410078
 --- !u!58 &9073591182514834947
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -445,9 +445,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: 0}
+  m_Offset: {x: 0.06786233, y: -0}
   serializedVersion: 2
-  m_Radius: 0.23
+  m_Radius: 0.32905468
 --- !u!1 &5237964011320445119
 GameObject:
   m_ObjectHideFlags: 0

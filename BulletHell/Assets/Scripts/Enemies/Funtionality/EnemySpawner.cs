@@ -5,7 +5,7 @@ namespace Bog.Assets.Scripts.Enemies.Funtionality
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField]
-        private EnemySpawn enemyPrefab = null;
+        private GameObject[] Enemies;
 
         private RoomTriggerStart triggerStart = null;
 
@@ -17,7 +17,7 @@ namespace Bog.Assets.Scripts.Enemies.Funtionality
 
         public void Spawn()
         {
-            GameObject enemy = Spawner.Spawn(enemyPrefab.Enemies[Random.Range(0, enemyPrefab.Enemies.Length)], transform.position, Quaternion.identity, transform);
+            GameObject enemy = Spawner.Spawn(Enemies[Random.Range(0, Enemies.Length)], transform.position, Quaternion.identity, transform);
             RoomTriggerStart.currentEnemies.Add(enemy);
         }
     }

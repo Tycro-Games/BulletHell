@@ -126,6 +126,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086613cf6c61fe0479aa2c568a72436d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTouch:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5534190879310310716}
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: -6465968987276694219, guid: 84ada502ae43d23468a543133c96a92b,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!58 &8286598517498182333
 CircleCollider2D:
   m_ObjectHideFlags: 0

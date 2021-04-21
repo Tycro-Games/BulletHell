@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bog
 {
@@ -9,6 +10,9 @@ namespace Bog
         private ButtonManager buttonDungeon = null;
         private SpriteRenderer sprite = null;
         private bool first = false;
+
+        [SerializeField]
+        private UnityEvent OnTouch = null;
 
         private void Start()
         {
@@ -23,6 +27,7 @@ namespace Bog
             {
                 buttonDungeon.RemoveOne(this);
                 first = true;
+                OnTouch?.Invoke();
             }
         }
     }

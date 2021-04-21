@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -20,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     [Header("Dash")]
+    [SerializeField]
+    private UnityEvent OnDash = null;
+
     [SerializeField]
     private LayerMask obstacles = 0;
 
@@ -86,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!Physics2D.OverlapCircle(rb.position + DashMultiplier * movement, .1f, obstacles))
                 {
                     rb.position = (rb.position + DashMultiplier * movement);
-
+                    OnDash?.Invoke();
                     yield return new WaitForSeconds(DashCooldown);
                 }
                 yield return null;

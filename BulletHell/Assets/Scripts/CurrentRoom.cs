@@ -9,6 +9,7 @@ namespace Bog
         private Transform newCamera = null;
         private PlayerMovement player = null;
         private Dungeon dungeon;
+        private GameObject lastRoom;
 
         private void Start()
         {
@@ -22,7 +23,11 @@ namespace Bog
             newRoom.z = newCamera.position.z;
             newCamera.position = newRoom;
             player.ChangePosition(destination, newRoom);
-            ActivateCamera(dungeon.grid[newRoom].GetComponent<RoomTriggerStart>());
+            if (lastRoom != null)
+                lastRoom.transform.GetChild(1).gameObject.SetActive(false);
+            lastRoom = dungeon.grid[newRoom];
+            lastRoom.transform.GetChild(1).gameObject.SetActive(true);
+            ActivateCamera(lastRoom.GetComponent<RoomTriggerStart>());
         }
 
         public void ActivateCamera(RoomTriggerStart room)
