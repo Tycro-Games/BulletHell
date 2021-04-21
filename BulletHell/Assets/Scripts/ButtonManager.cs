@@ -13,12 +13,18 @@ namespace Bog
         [SerializeField]
         private Sprite[] HowManyToGo = null;
 
+        [HideInInspector]
         public Sprite current = null;
+
+        [SerializeField]
+        private Sprite end = null;
 
         private int index = 0;
         private DoorManager doorManager = null;
 
         public event Action<Sprite> OnChange = null;
+
+        public event Action<Sprite> OnEnd = null;
 
         private void Start()
         {
@@ -29,9 +35,10 @@ namespace Bog
         {
             dungeonButtons.Remove(button);
             current = HowManyToGo[index++];
-            OnChange(current);
+            OnChange?.Invoke(current);
             if (dungeonButtons.Count == 0)
             {
+                OnEnd?.Invoke(end);
                 doorManager.Activate();
             }
         }

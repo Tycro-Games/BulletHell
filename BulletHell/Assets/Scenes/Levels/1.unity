@@ -526,8 +526,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonButtons: []
-  HowManyToGo: []
+  HowManyToGo:
+  - {fileID: -6465968987276694219, guid: 84ada502ae43d23468a543133c96a92b, type: 3}
+  - {fileID: 4924857039860283856, guid: 84ada502ae43d23468a543133c96a92b, type: 3}
+  - {fileID: -6152699879343269427, guid: 84ada502ae43d23468a543133c96a92b, type: 3}
+  - {fileID: -1667817113290478244, guid: 84ada502ae43d23468a543133c96a92b, type: 3}
+  - {fileID: 6763061502182195093, guid: 84ada502ae43d23468a543133c96a92b, type: 3}
   current: {fileID: 0}
+  end: {fileID: 21300000, guid: 2d07880a0887bc942be528b73aa01362, type: 3}
 --- !u!1 &1732077886
 GameObject:
   m_ObjectHideFlags: 0

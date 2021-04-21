@@ -14,11 +14,35 @@ namespace Bog
         [SerializeField]
         private UnityEvent OnTouch = null;
 
+        [SerializeField]
+        private SpriteRenderer Buttons = null;
+
+        [SerializeField]
+        private SpriteRenderer LastButton = null;
+
         private void Start()
         {
             sprite = GetComponentInChildren<SpriteRenderer>();
             buttonDungeon = FindObjectOfType<ButtonManager>();
             buttonDungeon.dungeonButtons.Add(this);
+            buttonDungeon.OnChange += ChangeSprite;
+            buttonDungeon.OnEnd += ChangeLastSprite;
+        }
+
+        private void ChangeSprite(Sprite sprite)
+        {
+            LastButton.sprite = sprite;
+        }
+
+        private void ChangeLastSprite(Sprite sprite)
+        {
+            Buttons.sprite = sprite;
+        }
+
+        private void OnDisable()
+        {
+            buttonDungeon.OnChange -= ChangeSprite;
+            buttonDungeon.OnEnd -= ChangeLastSprite;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
