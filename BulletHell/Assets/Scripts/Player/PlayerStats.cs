@@ -20,11 +20,19 @@ public class PlayerStats : CommonStats, IHitable
     private float finishTime = 0.0f;
 
     public static event Action deathEvent;
+
     public static event Action<int> Hit;
+
     [SerializeField]
-    private  UnityEvent OnHit=null;
+    private UnityEvent OnHit = null;
+
     [SerializeField]
-    private UnityEvent OnDead=null;
+    private UnityEvent OnDead = null;
+
+    private void Start()
+    {
+        StopTime(1);
+    }
 
     private void Update()
     {
@@ -34,6 +42,11 @@ public class PlayerStats : CommonStats, IHitable
             if (currentTime > finishTime)
                 atacked = false;
         }
+    }
+
+    public void StopTime(float time)
+    {
+        Time.timeScale = time;
     }
 
     public void Immortal()
@@ -74,7 +87,6 @@ public class PlayerStats : CommonStats, IHitable
                 if (HP <= 0)
                 {
                     Die();
-
                 }
                 else
                 {
@@ -87,7 +99,6 @@ public class PlayerStats : CommonStats, IHitable
 
     public void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);//restart
         deathEvent?.Invoke();
         OnDead?.Invoke();
     }

@@ -678,6 +678,7 @@ GameObject:
   - component: {fileID: 347021905}
   - component: {fileID: 1860308896}
   - component: {fileID: 4507631354640922429}
+  - component: {fileID: -7809704645562312179}
   m_Layer: 0
   m_Name: Faggot Ilussion
   m_TagString: Untagged
@@ -742,6 +743,20 @@ MonoBehaviour:
   OnDead:
     m_PersistentCalls:
       m_Calls: []
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7809704645562312179}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!195 &347021905
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -796,3 +811,19 @@ CircleCollider2D:
   m_Offset: {x: -0.006819427, y: 0}
   serializedVersion: 2
   m_Radius: 0.47
+--- !u!114 &-7809704645562312179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013464988628411245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23cb9f75148fd14b81936861f420065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 593519521428349119, guid: b0c5009d7c4fb844a9a0efcbaf8fdb7f, type: 3}
+  life: 5
+  trans: {fileID: 0}

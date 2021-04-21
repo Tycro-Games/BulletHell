@@ -677,6 +677,7 @@ GameObject:
   - component: {fileID: 3168913775999280282}
   - component: {fileID: 3168913776901245291}
   - component: {fileID: 1545980004752470518}
+  - component: {fileID: -5988952797663578154}
   m_Layer: 11
   m_Name: FrogWorm
   m_TagString: Untagged
@@ -773,6 +774,20 @@ MonoBehaviour:
         m_CallState: 2
   OnDead:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5988952797663578154}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDestroy:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!195 &3168913775999280282
 NavMeshAgent:
@@ -828,6 +843,22 @@ CircleCollider2D:
   m_Offset: {x: 0.004890561, y: 0}
   serializedVersion: 2
   m_Radius: 0.31094205
+--- !u!114 &-5988952797663578154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5381497495605847462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23cb9f75148fd14b81936861f420065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 593519521428349119, guid: b0c5009d7c4fb844a9a0efcbaf8fdb7f, type: 3}
+  life: 5
+  trans: {fileID: 0}
 --- !u!1 &6664988723461009494
 GameObject:
   m_ObjectHideFlags: 0

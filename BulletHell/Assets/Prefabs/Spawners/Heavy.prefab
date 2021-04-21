@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7474485215219892437}
   - component: {fileID: 5487257184688617559}
   m_Layer: 0
-  m_Name: Test
+  m_Name: Heavy
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 7013464988628411245, guid: d4b1eee533daf96458d520ff0c40a771, type: 3}
+  - {fileID: 3018583536709595121, guid: fb6c7b944aa9a2948aeb4aeccb9ce9d5, type: 3}
 --- !u!58 &5487257184688617559
 CircleCollider2D:
   m_ObjectHideFlags: 0

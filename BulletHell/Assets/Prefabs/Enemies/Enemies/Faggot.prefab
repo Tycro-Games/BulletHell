@@ -742,6 +742,20 @@ MonoBehaviour:
         m_CallState: 2
   OnDead:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3599191051539175504}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDestroy:
+    m_PersistentCalls:
       m_Calls: []
 --- !u!195 &347021905
 NavMeshAgent:
@@ -810,5 +824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 0}
-  life: 3
+  - {fileID: 593519521428349119, guid: b0c5009d7c4fb844a9a0efcbaf8fdb7f, type: 3}
+  life: 5
+  trans: {fileID: 0}

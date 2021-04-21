@@ -14,6 +14,9 @@ namespace Bog.Assets.Scripts.Enemies.EnemyModules
         [SerializeField]
         private UnityEvent OnDead = null;
 
+        [SerializeField]
+        private UnityEvent onDestroy = null;
+
         private NavMeshAgent agent = null;
 
         private void Start()
@@ -29,6 +32,11 @@ namespace Bog.Assets.Scripts.Enemies.EnemyModules
             GetComponentInParent<RoomTriggerStart>().End();
 
             PoolingObjectsSystem.Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            onDestroy?.Invoke();
         }
 
         public void TakeDamage(int dg)

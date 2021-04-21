@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 5237964011992002253}
   - component: {fileID: 5237964011091067708}
   - component: {fileID: 9073591182514834947}
+  - component: {fileID: -246529989740920882}
   m_Layer: 11
   m_Name: Unuanus
   m_TagString: Untagged
@@ -392,6 +393,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   OnDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -246529989740920882}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDestroy:
     m_PersistentCalls:
       m_Calls: []
 --- !u!195 &5237964011992002253
@@ -448,6 +463,22 @@ CircleCollider2D:
   m_Offset: {x: 0.06786233, y: -0}
   serializedVersion: 2
   m_Radius: 0.32905468
+--- !u!114 &-246529989740920882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018583536709595121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23cb9f75148fd14b81936861f420065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 593519521428349119, guid: b0c5009d7c4fb844a9a0efcbaf8fdb7f, type: 3}
+  life: 5
+  trans: {fileID: 0}
 --- !u!1 &5237964011320445119
 GameObject:
   m_ObjectHideFlags: 0
