@@ -4,10 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LastText : MonoBehaviour
 {
-    private TextMeshProUGUI text;
+    private Image text;
 
     [SerializeField]
     private UnityEvent OnEnd = null;
@@ -16,14 +17,14 @@ public class LastText : MonoBehaviour
     private UnityEvent nextLevel = null;
 
     [SerializeField]
-    private string EndGame;
+    private Image EndGame;
 
     private void OnEnable()
     {
         if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount)
         {
-            text = GetComponent<TextMeshProUGUI>();
-            text.text = EndGame;
+            text = GetComponent<Image>();
+            text = EndGame;
             OnEnd?.Invoke();
         }
         else

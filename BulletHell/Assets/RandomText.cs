@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class RandomText : MonoBehaviour
 {
-    private TextMeshProUGUI text;
+    private Image text;
 
     [SerializeField]
-    private string[] DeathPoems = null;
+    private Sprite[] DeathPoems = null;
 
     private void OnEnable()
     {
-        text = GetComponent<TextMeshProUGUI>();
-        text.text = DeathPoems[Random.Range(0, DeathPoems.Length)];
+        text = GetComponent<Image>();
+        text.sprite = DeathPoems[Random.Range(0, DeathPoems.Length)];
     }
 }
