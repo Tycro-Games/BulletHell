@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 namespace Bog
 {
@@ -15,7 +16,7 @@ namespace Bog
         {
             dungeon = GetComponent<Dungeon>();
             player = FindObjectOfType<PlayerMovement>();
-            newCamera = Camera.main.transform;
+            newCamera = FindObjectOfType<CinemachineVirtualCamera>().transform;
         }
 
         public void ChangeCurrentRoom(Vector3 newRoom, Vector2 destination)
