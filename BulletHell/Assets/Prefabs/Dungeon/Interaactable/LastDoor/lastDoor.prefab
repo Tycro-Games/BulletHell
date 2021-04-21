@@ -203,7 +203,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   otherDoor: {fileID: 0}
-  newSprite: {fileID: 21300000, guid: 3a9cf98ce9809c2409b25421bffc3405, type: 3}
+  newSprite: {fileID: 21300000, guid: a5ab75e04dc01a5448f0dd0b17f45332, type: 3}
 --- !u!58 &2509290351655628442
 CircleCollider2D:
   m_ObjectHideFlags: 0
