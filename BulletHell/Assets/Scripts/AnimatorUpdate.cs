@@ -20,7 +20,7 @@ public class AnimatorUpdate : MonoBehaviour
 
     private void Update()
     {
-        if (agent == null && !gameObject.activeSelf)
+        if (agent == null && agent.isActiveAndEnabled)
             return;
         if (agent.remainingDistance <= agent.stoppingDistance || agent.isStopped)
         {

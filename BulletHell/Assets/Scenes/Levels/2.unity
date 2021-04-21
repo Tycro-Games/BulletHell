@@ -273,39 +273,37 @@ MonoBehaviour:
     obj: {fileID: 0}
   - col: {r: 0.12941177, g: 1, b: 0, a: 1}
     obj: {fileID: 2300811034371699769, guid: 38201fbd096b8fb41b62b65838ffd737, type: 3}
-  - col: {r: 1, g: 0, b: 0, a: 1}
-    obj: {fileID: 7474485215219892436, guid: b9e8a3b48e16647459714e3cdbdad3a2, type: 3}
+  - col: {r: 0.3207547, g: 0.16491634, b: 0.16491634, a: 1}
+    obj: {fileID: 0}
   - col: {r: 0.7830189, g: 0.2770114, b: 0.7830189, a: 1}
     obj: {fileID: 0}
   - col: {r: 1, g: 0.49411765, b: 0, a: 1}
     obj: {fileID: 5534190880067044053, guid: df180c623e92b3d43b0c3b4b60c079f4, type: 3}
   - col: {r: 1, g: 0, b: 0.8980392, a: 1}
     obj: {fileID: 7908878343463407365, guid: 62960b57e42122640bddc7d42887d85c, type: 3}
-  - col: {r: 0.8784314, g: 0, b: 0, a: 1}
-    obj: {fileID: 7474485215219892436, guid: d43c62e8eb4cfbe42afb6ad9e0081b66, type: 3}
   rooms:
-  - count: 1
+  - count: 0
     room:
       room: {fileID: 2800000, guid: 6213a0b401878e74a9541d27bf99f8a8, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 1
+  - count: 0
     room:
       room: {fileID: 2800000, guid: 68b72e0766bd6cc40b290c489e5198ff, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 2
+  - count: 0
     room:
       room: {fileID: 2800000, guid: 9286e329da599e343adffa8cb013b951, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 2
+  - count: 0
     room:
       room: {fileID: 2800000, guid: 3dd2c9d2fe1624c48a2592433b259742, type: 3}
       neighboursFrom: []
@@ -315,6 +313,33 @@ MonoBehaviour:
   - count: 2
     room:
       room: {fileID: 2800000, guid: b09cad03a2a3a5e4f8ba5fdad7ca8633, type: 3}
+      neighboursFrom: []
+      neighboursBack: []
+      ToRoom: []
+      currentPos: {x: 0, y: 0}
+  tilesRandom:
+  - col: {r: 1, g: 0, b: 0, a: 1}
+    obj:
+    - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
+    - {fileID: 7474485215219892436, guid: dabd1121821c2a643bbac5c132611319, type: 3}
+    - {fileID: 7474485215219892436, guid: b9e8a3b48e16647459714e3cdbdad3a2, type: 3}
+  - col: {r: 0.8784314, g: 0, b: 0, a: 1}
+    obj:
+    - {fileID: 0}
+  oneRoomRandom:
+  - count: 3
+    room:
+    - room: {fileID: 2800000, guid: 68b72e0766bd6cc40b290c489e5198ff, type: 3}
+      neighboursFrom: []
+      neighboursBack: []
+      ToRoom: []
+      currentPos: {x: 0, y: 0}
+    - room: {fileID: 2800000, guid: 9286e329da599e343adffa8cb013b951, type: 3}
+      neighboursFrom: []
+      neighboursBack: []
+      ToRoom: []
+      currentPos: {x: 0, y: 0}
+    - room: {fileID: 2800000, guid: 3dd2c9d2fe1624c48a2592433b259742, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []

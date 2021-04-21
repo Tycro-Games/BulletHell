@@ -12,6 +12,13 @@ namespace Bog
     }
 
     [System.Serializable]
+    public struct Cells
+    {
+        public int count;
+        public Room[] room;
+    }
+
+    [System.Serializable]
     public struct Size
     {
         public int rows;
@@ -23,6 +30,13 @@ namespace Bog
     {
         public Color col;
         public GameObject obj;
+    }
+
+    [System.Serializable]
+    public struct TilesRand
+    {
+        public Color col;
+        public GameObject[] obj;
     }
 
     public class Dungeon : MonoBehaviour
@@ -50,6 +64,12 @@ namespace Bog
 
         [SerializeField]
         private Cell[] rooms = null;
+
+        [SerializeField]
+        private TilesRand[] tilesRandom = null;
+
+        [SerializeField]
+        private Cells[] oneRoomRandom = null;
 
         [SerializeField]
         private Room start = null;
@@ -159,6 +179,15 @@ namespace Bog
                                 break;
                             }
                         }
+                        if (tilesRandom.Length != 0)
+                            foreach (TilesRand tile in tilesRandom)
+                            {
+                                if (tile.col == color)
+                                {
+                                    Instantiate(tile.obj[Random.Range(0, tile.obj.Length)], new Vector2(roomObj.transform.position.x - texture.width / 2, roomObj.transform.position.y - texture.height / 2) + new Vector2(i, j), Quaternion.identity, roomObj.transform.GetChild(0));
+                                    break;
+                                }
+                            }
                     }
                 if (room != roomList[0] && room != roomList[roomList.Count - 1])
                 {
@@ -259,6 +288,13 @@ namespace Bog
                 for (int i = 0; i < room.count; i++)
                 {
                     roomsToTake.Add(room.room.room);
+                }
+            }
+            foreach (Cells room in oneRoomRandom)
+            {
+                for (int i = 0; i < room.room.Length; i++)
+                {
+                    roomsToTake.Add(room.room[Random.Range(0, room.room.Length)].room);
                 }
             }
         }
