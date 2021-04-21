@@ -26,9 +26,10 @@ namespace Bog
 
         public event Action<Sprite> OnEnd = null;
 
-        private void Start()
+        private void Awake()
         {
             doorManager = GetComponent<DoorManager>();
+            current = HowManyToGo[index++];
         }
 
         public void RemoveOne(DungeonButton button)

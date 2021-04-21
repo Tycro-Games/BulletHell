@@ -186,6 +186,7 @@ namespace Bog
                 }
                 else if (room == roomList[roomList.Count - 1])
                 {
+                    roomObj.transform.GetChild(1).gameObject.SetActive(false);
                     roomObj.name = "End Room";
                     for (int i = 0; i < room.neighboursFrom.Count; i++)
                     {

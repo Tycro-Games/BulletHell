@@ -27,16 +27,17 @@ namespace Bog
             buttonDungeon.dungeonButtons.Add(this);
             buttonDungeon.OnChange += ChangeSprite;
             buttonDungeon.OnEnd += ChangeLastSprite;
+            ChangeSprite(buttonDungeon.current);
         }
 
         private void ChangeSprite(Sprite sprite)
         {
-            LastButton.sprite = sprite;
+            Buttons.sprite = sprite;
         }
 
         private void ChangeLastSprite(Sprite sprite)
         {
-            Buttons.sprite = sprite;
+            LastButton.sprite = sprite;
         }
 
         private void OnDisable()
