@@ -350,7 +350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thickness: 0.1
   lifetime: 30
-  lightMultiplier: 1
+  limitIntensity: 3
+  lightMultiplier: 2
 --- !u!114 &-6670924257617799745
 MonoBehaviour:
   m_ObjectHideFlags: 0

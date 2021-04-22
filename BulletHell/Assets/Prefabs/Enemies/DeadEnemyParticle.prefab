@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8993384283380138273}
   - component: {fileID: 4607987166683922032}
+  - component: {fileID: 926126853094871780}
+  - component: {fileID: 4377303104078172169}
   m_Layer: 14
   m_Name: DeadEnemyParticle
   m_TagString: Untagged
@@ -49,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 4c52a1c6ac2693644a690233703b5e35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,3 +83,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &926126853094871780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593519521428349119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670a3767ef77ab241bce438874585a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstColor: {r: 0.54901963, g: 4, b: 0, a: 1}
+  secondColor: {r: 0, g: 1.9764706, b: 4, a: 1}
+--- !u!114 &4377303104078172169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593519521428349119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aa71bc349645e41a87243ea009104a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

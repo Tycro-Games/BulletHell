@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace Bog
 {
-    public class RegulateHealth : MonoBehaviour
+    public class RegulateHealth : MaterialGetter
     {
-        private Material material;
-
         [SerializeField]
         [Range(0, 1)]
         private float multiplier = 1;
@@ -22,9 +20,7 @@ namespace Bog
 
         private void Start()
         {
-            SpriteRenderer sprite = GetComponent<SpriteRenderer>();
-            sprite.sharedMaterial = new Material(sprite.sharedMaterial);
-            material = sprite.sharedMaterial;
+            GetMaterial();
             start = material.GetColor("_color");
         }
 

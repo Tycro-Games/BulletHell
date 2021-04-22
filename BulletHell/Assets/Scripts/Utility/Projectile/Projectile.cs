@@ -26,6 +26,9 @@ public class Projectile : MonoBehaviour
     private Light2D light = null;
 
     [SerializeField]
+    private float limitIntensity = 3;
+
+    [SerializeField]
     private float lightMultiplier = 1.0f;
 
     public void Init(float Speed, int Damage, LayerMask Collide, float life)
@@ -38,7 +41,7 @@ public class Projectile : MonoBehaviour
         destroyed = false;
         rb = GetComponent<Rigidbody2D>();
         light = GetComponentInChildren<Light2D>();
-        light.intensity = lives * lightMultiplier;
+        light.intensity = Mathf.Clamp(lives * lightMultiplier, limitIntensity, 100);
         CheckStart();
     }
 
@@ -120,7 +123,7 @@ public class Projectile : MonoBehaviour
             if (lives <= 0)
                 DestroyProjectile();
             lives--;
-            light.intensity = lives * lightMultiplier;
+            light.intensity = Mathf.Clamp(lives * lightMultiplier, limitIntensity, 100); ;
             return;
         }
 
