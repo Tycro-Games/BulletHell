@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doors: []
-  UnblockedDoor: {fileID: 0}
+  UnblockedDoor: {fileID: 21300000, guid: d9cdcac2e4aa7b94eb1027981d5de9c6, type: 3}
 --- !u!114 &1517467589
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -115,7 +115,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "2.1.5",
+      "version": "2.1.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
