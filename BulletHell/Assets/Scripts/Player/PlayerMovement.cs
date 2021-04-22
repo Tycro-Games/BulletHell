@@ -25,7 +25,13 @@ public class PlayerMovement : MonoBehaviour
     private UnityEvent OnDash = null;
 
     [SerializeField]
+    private UnityEvent OnStartDash = null;
+
+    [SerializeField]
     private LayerMask obstacles = 0;
+
+    [SerializeField]
+    private float DashSpeed = 1.0f;
 
     public float DashMultiplier = 1.0f;
 
@@ -38,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
 
     private Vector2 move;
+    private bool IsNotDashing = true;
 
     public Vector2 GetMovement()
     {
@@ -85,13 +92,22 @@ public class PlayerMovement : MonoBehaviour
     {
         while (true)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && IsNotDashing)
             {
-                if (!Physics2D.OverlapCircle(rb.position + DashMultiplier * movement, .1f, obstacles))
+                RaycastHit2D hit = Physics2D.CircleCast(transform.position, .3f,  DashMultiplier * movement, DashMultiplier, obstacles);
+                if (hit.collider == null)
                 {
-                    rb.position = (rb.position + DashMultiplier * movement);
+                    IsNotDashing = false;
+                    Vector2 Dest = (Vector2)transform.position + DashMultiplier * movement;
+                    OnStartDash?.Invoke();
+                    while ((Vector2)transform.position != Dest)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, Dest, Time.deltaTime * DashSpeed);
+                        yield return null;
+                    }
                     OnDash?.Invoke();
                     yield return new WaitForSeconds(DashCooldown);
+                    IsNotDashing = true;
                 }
                 yield return null;
             }
@@ -131,5 +147,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(Offset, Limit);
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + (DashMultiplier * movement).normalized);
     }
 }
