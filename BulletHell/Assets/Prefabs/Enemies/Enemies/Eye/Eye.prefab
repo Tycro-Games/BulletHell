@@ -255,8 +255,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8898526795849874519}
-        m_MethodName: ChasePlayer
-        m_Mode: 1
+        m_MethodName: GoToARandomSpot
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -323,7 +323,7 @@ MonoBehaviour:
   NoDistantace: 1
   NonPlayer:
     RandomDir: 0
-    AutoRotation: 0
+    AutoRotation: 1
     ClockWise: 0
   InteractableToFace:
     serializedVersion: 2

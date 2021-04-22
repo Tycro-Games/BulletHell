@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossSpawner : MonoBehaviour
+public class GameObjectSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] Enemies;
