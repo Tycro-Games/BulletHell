@@ -286,41 +286,22 @@ MonoBehaviour:
   rooms:
   - count: 1
     room:
-      room: {fileID: 2800000, guid: 6213a0b401878e74a9541d27bf99f8a8, type: 3}
-      neighboursFrom: []
-      neighboursBack: []
-      ToRoom: []
-      currentPos: {x: 0, y: 0}
-  - count: 1
-    room:
-      room: {fileID: 2800000, guid: 68b72e0766bd6cc40b290c489e5198ff, type: 3}
-      neighboursFrom: []
-      neighboursBack: []
-      ToRoom: []
-      currentPos: {x: 0, y: 0}
-  - count: 2
-    room:
-      room: {fileID: 2800000, guid: 9286e329da599e343adffa8cb013b951, type: 3}
-      neighboursFrom: []
-      neighboursBack: []
-      ToRoom: []
-      currentPos: {x: 0, y: 0}
-  - count: 2
-    room:
-      room: {fileID: 2800000, guid: 3dd2c9d2fe1624c48a2592433b259742, type: 3}
-      neighboursFrom: []
-      neighboursBack: []
-      ToRoom: []
-      currentPos: {x: 0, y: 0}
-  - count: 1
-    room:
       room: {fileID: 2800000, guid: b09cad03a2a3a5e4f8ba5fdad7ca8633, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
   tilesRandom: []
-  oneRoomRandom: []
+  oneRoomRandom:
+  - count: 5
+  RandomRooms:
+  - {fileID: 2800000, guid: 6213a0b401878e74a9541d27bf99f8a8, type: 3}
+  - {fileID: 2800000, guid: 68b72e0766bd6cc40b290c489e5198ff, type: 3}
+  - {fileID: 2800000, guid: 9286e329da599e343adffa8cb013b951, type: 3}
+  - {fileID: 2800000, guid: 3dd2c9d2fe1624c48a2592433b259742, type: 3}
+  - {fileID: 2800000, guid: c31d8cb82288fb5489993b91eb959d9f, type: 3}
+  - {fileID: 2800000, guid: b10968779183fcd44bf5595a489e4d93, type: 3}
+  - {fileID: 2800000, guid: bfbd05e4a7979874fbb5f999c2234593, type: 3}
   start:
     room: {fileID: 2800000, guid: b6344e693a11da544988fbf142c92159, type: 3}
     neighboursFrom: []

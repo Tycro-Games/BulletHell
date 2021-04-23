@@ -12,10 +12,9 @@ namespace Bog
     }
 
     [System.Serializable]
-    public struct Cells
+    public class Cells
     {
         public int count;
-        public Room[] room;
     }
 
     [System.Serializable]
@@ -33,7 +32,7 @@ namespace Bog
     }
 
     [System.Serializable]
-    public struct TilesRand
+    public class TilesRand
     {
         public Color col;
         public GameObject[] obj;
@@ -72,6 +71,8 @@ namespace Bog
 
         [SerializeField]
         private Cells[] oneRoomRandom = null;
+
+        public Texture2D[] RandomRooms = null;
 
         [SerializeField]
         private Room start = null;
@@ -163,7 +164,8 @@ namespace Bog
             {
                 Texture2D texture = room.room;
                 GameObject roomObj = Instantiate(RoomParent);
-
+                if (texture == null)
+                    continue;
                 roomObj.name = texture.name;
                 grid.Add(room.currentPos, roomObj);
                 roomObj.transform.position = room.currentPos;
@@ -301,7 +303,7 @@ namespace Bog
             {
                 for (int i = 0; i < room.count; i++)
                 {
-                    roomsToTake.Add(room.room[Random.Range(0, room.room.Length)].room);
+                    roomsToTake.Add(RandomRooms[Random.Range(0, RandomRooms.Length)]);
                 }
             }
         }

@@ -11,8 +11,6 @@ public class LoadScenes : MonoBehaviour
     [SerializeField]
     private float transTime = 1f;
 
-    private int indexa = 0;
-
     public void LoadScene(string name)
     {
         StartCoroutine(LoadLevel(0));
@@ -26,7 +24,7 @@ public class LoadScenes : MonoBehaviour
     private IEnumerator LoadLevel(int levelIndex)
     {
         anim.SetTrigger("Fade");
-        indexa = levelIndex;
+
         yield return new WaitForSecondsRealtime(transTime);
 
         SceneManager.LoadScene(levelIndex);

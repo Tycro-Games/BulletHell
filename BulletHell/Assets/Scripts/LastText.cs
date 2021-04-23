@@ -21,10 +21,8 @@ public class LastText : MonoBehaviour
 
     private void OnEnable()
     {
-        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
         {
-            text = GetComponent<Image>();
-            text.sprite = EndGame;
             OnEnd?.Invoke();
         }
         else
