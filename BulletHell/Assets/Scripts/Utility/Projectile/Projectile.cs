@@ -112,17 +112,19 @@ public class Projectile : MonoBehaviour
         }
         else if (hitable != null && !PlayerStats.atacked)
         {
-            hitable.TakeDamage(damage);
+             hitable.TakeDamage(damage);
         }
         else if (hit.collider.CompareTag("project") && lives > 0)
         {
             Vector2 reflect = Vector2.Reflect(transform.up, hit.normal);
             float rot = 90 - Mathf.Atan2(reflect.y, reflect.x) * Mathf.Rad2Deg;
             transform.eulerAngles = -new Vector3(0, 0, rot);
+            
+
+            lives--;
 
             if (lives <= 0)
                 DestroyProjectile();
-            lives--;
             light.intensity = Mathf.Clamp(lives * lightMultiplier, limitIntensity, 100); ;
             return;
         }

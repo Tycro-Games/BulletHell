@@ -712,7 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 522791686}
   - component: {fileID: 522791688}
-  - component: {fileID: 522791687}
+  - component: {fileID: 1643360495252855218}
   m_Layer: 10
   m_Name: Health
   m_TagString: Player
@@ -813,8 +813,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!70 &522791687
-CapsuleCollider2D:
+--- !u!58 &1643360495252855218
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -826,9 +826,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01681213, y: -0.06916809}
-  m_Size: {x: 0.16637573, y: 0.18777466}
-  m_Direction: 0
+  m_Offset: {x: 0.10093689, y: -0.07221985}
+  serializedVersion: 2
+  m_Radius: 0.14030457
 --- !u!1 &589824927
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,8 +986,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061002896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0026, y: 0, z: 0}
-  m_LocalScale: {x: 0.48408353, y: 1.0332056, z: 0.34015}
+  m_LocalPosition: {x: -0.0026, y: 0.0296, z: 0}
+  m_LocalScale: {x: 0.48408353, y: 1.0923488, z: 0.34015}
   m_Children: []
   m_Father: {fileID: 6836397112855658390}
   m_RootOrder: 1
@@ -1723,6 +1723,7 @@ GameObject:
   - component: {fileID: 3339576499530998188}
   - component: {fileID: 424849090}
   - component: {fileID: 1056769605540758349}
+  - component: {fileID: 1271070053}
   m_Layer: 13
   m_Name: Player
   m_TagString: Untagged
@@ -1778,9 +1779,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 522791688}
+        m_MethodName: Immortal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStartDash:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 522791688}
+        m_MethodName: Immortal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1271070053}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Dash
+          m_BoolArgument: 0
+        m_CallState: 2
   obstacles:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 18432
+  DashSpeed: 5
   DashMultiplier: 1
   DashCooldown: 0.5
   Teleported: 0
@@ -1857,8 +1895,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.066589355, y: -0.04005432}
-  m_Size: {x: 0.33068848, y: 0.77835083}
+  m_Offset: {x: 0.016143799, y: -0.04005432}
+  m_Size: {x: 0.3501587, y: 0.77835083}
   m_Direction: 0
 --- !u!114 &1056769605540758349
 MonoBehaviour:
@@ -1890,6 +1928,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &1271070053
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173040608097025455}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24f9764f3c429e041a70074201d0de1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &173040608703941534
 GameObject:
   m_ObjectHideFlags: 0

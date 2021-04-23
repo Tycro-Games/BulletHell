@@ -10,8 +10,8 @@ public class PlayerStats : CommonStats, IHitable
     [SerializeField]
     private float UntilNextHit = .5f;
 
-    [SerializeField]
-    private bool immortal = false;
+    [HideInInspector]
+    public bool immortal = false;
 
     //auxiliary
     public static bool atacked = false;

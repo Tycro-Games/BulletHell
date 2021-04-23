@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && IsNotDashing)
             {
-                RaycastHit2D hit = Physics2D.CircleCast(transform.position, .3f,  DashMultiplier * movement, DashMultiplier, obstacles);
+                RaycastHit2D hit = Physics2D.CircleCast(transform.position, .3f,  DashMultiplier * movement, (DashMultiplier * movement).magnitude, obstacles);
                 if (hit.collider == null)
                 {
                     IsNotDashing = false;
@@ -147,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(Offset, Limit);
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + (DashMultiplier * movement).normalized);
+       
+        Gizmos.DrawRay(transform.position, (DashMultiplier * movement).normalized);
     }
 }
