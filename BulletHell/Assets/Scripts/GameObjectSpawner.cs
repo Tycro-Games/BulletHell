@@ -22,4 +22,14 @@ public class GameObjectSpawner : MonoBehaviour
             enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, Quaternion.identity, trans);
         Destroy(enemy, life);
     }
+
+    public void SpawnWithRotationInv()
+    {
+        GameObject enemy;
+        if (trans == null)
+            enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, Quaternion.Inverse(transform.rotation));
+        else
+            enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, Quaternion.identity, trans);
+        Destroy(enemy, life);
+    }
 }

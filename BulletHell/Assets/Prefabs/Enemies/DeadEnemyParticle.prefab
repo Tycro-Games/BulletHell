@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4607987166683922032}
   - component: {fileID: 926126853094871780}
   - component: {fileID: 4377303104078172169}
+  - component: {fileID: 4068192849982964870}
   m_Layer: 14
   m_Name: DeadEnemyParticle
   m_TagString: Untagged
@@ -69,15 +70,16 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1820343239
-  m_SortingLayer: -3
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: eee99b3ea2be4ad468c4813e027e4b4d, type: 3}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 5986030973748356752, guid: 5c2610326718e0b428b42fd8182ed5a8,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -95,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670a3767ef77ab241bce438874585a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstColor: {r: 0.54901963, g: 4, b: 0, a: 1}
-  secondColor: {r: 0, g: 1.9764706, b: 4, a: 1}
+  firstColor: {r: 0.28272247, g: 1.9999998, b: 0, a: 1}
+  secondColor: {r: 0, g: 0.99476427, b: 1.9999998, a: 1}
 --- !u!114 &4377303104078172169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +111,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6aa71bc349645e41a87243ea009104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4068192849982964870
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593519521428349119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a87f3b696f76fd44298a0518238b7cc5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

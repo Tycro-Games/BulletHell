@@ -288,7 +288,6 @@ MonoBehaviour:
   - col: {r: 1, g: 0, b: 0, a: 1}
     obj:
     - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
-    - {fileID: 7474485215219892436, guid: dabd1121821c2a643bbac5c132611319, type: 3}
   oneRoomRandom:
   - count: 5
     room:
