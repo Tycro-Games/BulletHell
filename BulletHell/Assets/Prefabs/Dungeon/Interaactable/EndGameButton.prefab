@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 9135542402232096705}
-  transTime: 10
+  transTime: 8
 --- !u!1 &5282285900613911939
 GameObject:
   m_ObjectHideFlags: 0
