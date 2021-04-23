@@ -209,8 +209,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236685835628898102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0073, y: -0.0058, z: 3.6100004}
-  m_LocalScale: {x: 0.59036446, y: 1.0302517, z: 3.0870302}
+  m_LocalPosition: {x: -0, y: 0, z: 3.6100004}
+  m_LocalScale: {x: 0.5818239, y: 1.0418727, z: 3.0870302}
   m_Children: []
   m_Father: {fileID: 2145525845}
   m_RootOrder: 1
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 9073591182514834947}
   - component: {fileID: -246529989740920882}
   m_Layer: 11
-  m_Name: Unuanus
+  m_Name: Rusher
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -418,9 +418,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 3018583536709595121}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.31
+  m_Radius: 0.5
   m_Speed: 1
-  m_Acceleration: 4
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0.25
@@ -446,7 +446,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.05162388, y: -0}
   serializedVersion: 2
-  m_Radius: 0.36410078
+  m_Radius: 0.57
 --- !u!58 &9073591182514834947
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -462,7 +462,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.06786233, y: -0}
   serializedVersion: 2
-  m_Radius: 0.32905468
+  m_Radius: 0.55
 --- !u!114 &-246529989740920882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,269 +479,6 @@ MonoBehaviour:
   - {fileID: 593519521428349119, guid: b0c5009d7c4fb844a9a0efcbaf8fdb7f, type: 3}
   life: 5
   trans: {fileID: 0}
---- !u!1 &5237964011320445119
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5237964011320445112}
-  - component: {fileID: 5237964011320445113}
-  - component: {fileID: 1341600250}
-  m_Layer: 0
-  m_Name: BulletSpawner (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5237964011320445112
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237964011320445119}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3636933596854533709}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5237964011320445113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237964011320445119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0b47312f367fe84791a683a43426bc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: 3e3337d197d6a9142bc60602d0e954a1, type: 2}
-  projectiles: {fileID: 0}
-  offsetX: 1
-  offsetY: 0
-  CollideableMask:
-    serializedVersion: 2
-    m_Bits: 17408
-  dir: 3
-  distance: 10
-  radiusCircle: 0.5
-  collideable:
-    serializedVersion: 2
-    m_Bits: 1024
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6827800175178406105}
-        m_MethodName: LookAtPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  RandomTime: 0
-  FactorTime: 5
---- !u!114 &1341600250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237964011320445119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f627f0bd5c7d8f44b9a98365ffe697c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeToWait: 0.5
-  loop: 1
-  OnTimerFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5237964011320445113}
-        m_MethodName: LineOfSight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!1 &5237964011364307301
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5237964011364307302}
-  - component: {fileID: 5237964011364307303}
-  m_Layer: 0
-  m_Name: BulletSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5237964011364307302
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237964011364307301}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3636933596854533709}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5237964011364307303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237964011364307301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0b47312f367fe84791a683a43426bc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: 3e3337d197d6a9142bc60602d0e954a1, type: 2}
-  projectiles: {fileID: 0}
-  offsetX: 1
-  offsetY: 0
-  CollideableMask:
-    serializedVersion: 2
-    m_Bits: 17408
-  dir: 0
-  distance: 10
-  radiusCircle: 1
-  collideable:
-    serializedVersion: 2
-    m_Bits: 1024
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls: []
-  RandomTime: 1
-  FactorTime: 0.5
---- !u!1 &5237964012127519355
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5237964012127519348}
-  - component: {fileID: 5237964012127519349}
-  - component: {fileID: 534395710}
-  m_Layer: 0
-  m_Name: BulletSpawner (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5237964012127519348
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237964012127519355}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3636933596854533709}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5237964012127519349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237964012127519355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0b47312f367fe84791a683a43426bc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: 3e3337d197d6a9142bc60602d0e954a1, type: 2}
-  projectiles: {fileID: 0}
-  offsetX: 1
-  offsetY: 0
-  CollideableMask:
-    serializedVersion: 2
-    m_Bits: 17408
-  dir: 1
-  distance: 10
-  radiusCircle: 0.5
-  collideable:
-    serializedVersion: 2
-    m_Bits: 1024
-  OnShoot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6827800175178406105}
-        m_MethodName: LookAtPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  RandomTime: 0
-  FactorTime: 5
---- !u!114 &534395710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5237964012127519355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f627f0bd5c7d8f44b9a98365ffe697c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeToWait: 0.5
-  loop: 1
-  OnTimerFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5237964012127519349}
-        m_MethodName: LineOfSight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6776569832976777800
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,10 +652,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5237964011364307302}
-  - {fileID: 5237964012127519348}
-  - {fileID: 5237964011320445112}
+  m_Children: []
   m_Father: {fileID: 8262641903608449883}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -994,18 +728,7 @@ MonoBehaviour:
   anim: 1
   OnShoot:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5237964011364307303}
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   rangeToShoot: 10
   StopAndShoot: 0
   Non_Moveable: 0
