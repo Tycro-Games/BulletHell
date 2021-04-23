@@ -17,14 +17,14 @@ public class LastText : MonoBehaviour
     private UnityEvent nextLevel = null;
 
     [SerializeField]
-    private Image EndGame;
+    private Sprite EndGame;
 
     private void OnEnable()
     {
         if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
         {
             text = GetComponent<Image>();
-            text = EndGame;
+            text.sprite = EndGame;
             OnEnd?.Invoke();
         }
         else

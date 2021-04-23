@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7474485215219892437}
   - component: {fileID: 5487257184688617559}
   m_Layer: 0
-  m_Name: All
+  m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e6152a6c3ed054da72c1acf9ae5e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemies: []
+  Enemies:
+  - {fileID: 7343753632532502122, guid: fa775ed5781b1ef44b0e78d6164cafbd, type: 3}
+  - {fileID: 7343753632532502122, guid: 18234c27a9796f046a7a537ac068c822, type: 3}
+  - {fileID: 7343753632532502122, guid: 957985795e27b184cac6db75b4ed723d, type: 3}
+  - {fileID: 7343753632532502122, guid: e82d6f50f05c2e5428eb88340816914b, type: 3}
+  - {fileID: 3018583536709595121, guid: e9ee5cffa2e29e54d82d0029b428cd4f, type: 3}
+  - {fileID: 3018583536709595121, guid: fb6c7b944aa9a2948aeb4aeccb9ce9d5, type: 3}
+  - {fileID: 7013464988628411245, guid: 62f884d8dd85468479e8d63fb51e9a56, type: 3}
+  - {fileID: 5381497495605847462, guid: 6102acb37117d0e46a7e2d8dfe7f4e19, type: 3}
+  - {fileID: 7013464988628411245, guid: 0ff1e4eb38f4d2a4580f61223701abba, type: 3}
+  - {fileID: 7013464988628411245, guid: 44ac813599e4f1a4fadc71f690d40053, type: 3}
+  - {fileID: 7013464988628411245, guid: 44ac813599e4f1a4fadc71f690d40053, type: 3}
+  - {fileID: 7013464988628411245, guid: 0ff1e4eb38f4d2a4580f61223701abba, type: 3}
+  - {fileID: 5381497495605847462, guid: 6102acb37117d0e46a7e2d8dfe7f4e19, type: 3}
+  - {fileID: 3018583536709595121, guid: fb6c7b944aa9a2948aeb4aeccb9ce9d5, type: 3}
+  - {fileID: 3018583536709595121, guid: fb6c7b944aa9a2948aeb4aeccb9ce9d5, type: 3}
+  - {fileID: 7343753632532502122, guid: 957985795e27b184cac6db75b4ed723d, type: 3}
+  - {fileID: 7343753632532502122, guid: 957985795e27b184cac6db75b4ed723d, type: 3}
 --- !u!58 &5487257184688617559
 CircleCollider2D:
   m_ObjectHideFlags: 0

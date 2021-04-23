@@ -5,7 +5,7 @@ public class CommonStats : MonoBehaviour
     [SerializeField]
     protected Stats stats = null;
 
-    [Header ("Stats")]
+    [Header("Stats")]
     [SerializeField]
     protected int HP = 100;
 }

@@ -281,29 +281,27 @@ MonoBehaviour:
     obj: {fileID: 5534190880067044053, guid: df180c623e92b3d43b0c3b4b60c079f4, type: 3}
   - col: {r: 1, g: 0, b: 0.8980392, a: 1}
     obj: {fileID: 7908878343463407365, guid: 62960b57e42122640bddc7d42887d85c, type: 3}
-  - col: {r: 0.8784314, g: 0, b: 0, a: 1}
-    obj: {fileID: 7474485215219892436, guid: 3d25a50a6df3de1419b35a2e00536a3a, type: 3}
   rooms: []
   tilesRandom:
   - col: {r: 1, g: 0, b: 0, a: 1}
     obj:
-    - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
-    - {fileID: 7474485215219892436, guid: 217171fbbb6344e4da75aca8d9aaae02, type: 3}
     - {fileID: 7474485215219892436, guid: f6cad8aa37df52f41b16a1eaf7e7c052, type: 3}
-    - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
-    - {fileID: 7474485215219892436, guid: 3d25a50a6df3de1419b35a2e00536a3a, type: 3}
     - {fileID: 7474485215219892436, guid: c5751c67dd034bc48ab8c4803b7cef1b, type: 3}
-    - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
-    - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
-    - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
-    - {fileID: 7474485215219892436, guid: 483753b3c177a714b8285b13652cbbc4, type: 3}
-    - {fileID: 7474485215219892436, guid: 483753b3c177a714b8285b13652cbbc4, type: 3}
-    - {fileID: 7474485215219892436, guid: 483753b3c177a714b8285b13652cbbc4, type: 3}
-    - {fileID: 7474485215219892436, guid: 483753b3c177a714b8285b13652cbbc4, type: 3}
+    - {fileID: 7474485215219892436, guid: f6cad8aa37df52f41b16a1eaf7e7c052, type: 3}
+    - {fileID: 7474485215219892436, guid: f6cad8aa37df52f41b16a1eaf7e7c052, type: 3}
+    - {fileID: 7474485215219892436, guid: c5751c67dd034bc48ab8c4803b7cef1b, type: 3}
+    - {fileID: 7474485215219892436, guid: 48d4f9991fff624469cfc9097714a03a, type: 3}
+    - {fileID: 7474485215219892436, guid: 48d4f9991fff624469cfc9097714a03a, type: 3}
+    - {fileID: 7474485215219892436, guid: 7c8bdb57c21076f4fbd40ef839ef8f2c, type: 3}
+    - {fileID: 7474485215219892436, guid: 7c8bdb57c21076f4fbd40ef839ef8f2c, type: 3}
+    - {fileID: 7474485215219892436, guid: 7c8bdb57c21076f4fbd40ef839ef8f2c, type: 3}
+  - col: {r: 0.8784314, g: 0, b: 0, a: 1}
+    obj:
+    - {fileID: 7474485215219892436, guid: 36639b8187ccd9342a2764bcda917433, type: 3}
   oneRoomRandom:
   - count: 7
     room: []
-  - count: 3
+  - count: 4
     room:
     - room: {fileID: 2800000, guid: b09cad03a2a3a5e4f8ba5fdad7ca8633, type: 3}
       neighboursFrom: []
@@ -522,10 +520,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dungeonButtons: []
   HowManyToGo:
-  - {fileID: 21300000, guid: 5882d381f63ffb94d991fe698bfe7b18, type: 3}
-  - {fileID: 21300000, guid: fe57656fb1812394399ba4becf8d33c5, type: 3}
-  - {fileID: 21300000, guid: 60bd8a5d1c3222b49b6d93bf6cf7b86b, type: 3}
-  - {fileID: 21300000, guid: 766b6923bede34d44b6d3ea11ab602a7, type: 3}
+  - {fileID: 21300000, guid: cd9a89f4672c28549a8b106b86e5a23a, type: 3}
+  - {fileID: 21300000, guid: 4d6d70d68f03c684bb15393497ad97c7, type: 3}
+  - {fileID: 21300000, guid: 4552e597b1207f349b9e1001e5d8443e, type: 3}
+  - {fileID: 21300000, guid: 74a47ab4d096e9c42ad73c96f6ee8e0a, type: 3}
+  - {fileID: 21300000, guid: 0c499607ae07df348bc003b80c0ce20d, type: 3}
+  - {fileID: 21300000, guid: bc50b7628d487f24f82458a01591f23a, type: 3}
   current: {fileID: 0}
   end: {fileID: 21300000, guid: 75f87b47f78d27b4a990d88f8f980394, type: 3}
 --- !u!1 &1732077886

@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 7474485215219892437}
   - component: {fileID: 5487257184688617559}
   m_Layer: 0
-  m_Name: Eye
+  m_Name: AllBoss
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7474485215219892438
 Transform:
@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 7343753632532502122, guid: 957985795e27b184cac6db75b4ed723d, type: 3}
-  - {fileID: 7343753632532502122, guid: e82d6f50f05c2e5428eb88340816914b, type: 3}
-  - {fileID: 7343753632532502122, guid: 18234c27a9796f046a7a537ac068c822, type: 3}
-  - {fileID: 7343753632532502122, guid: fa775ed5781b1ef44b0e78d6164cafbd, type: 3}
+  - {fileID: 7343753632532502122, guid: ac8e15bc1b7011b4489a92ad7a956d5f, type: 3}
+  - {fileID: 7013464988628411245, guid: d4b1eee533daf96458d520ff0c40a771, type: 3}
+  - {fileID: 3018583536709595121, guid: 3c69c9d191614ee4d82f96dbbafd3f1a, type: 3}
+  - {fileID: 7013464988628411245, guid: 850ec645c1057c5409e1b4a6489aab4f, type: 3}
 --- !u!58 &5487257184688617559
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2160046347545237967
 Transform:

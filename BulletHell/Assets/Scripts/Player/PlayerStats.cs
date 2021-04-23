@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.Events;
 
-public class PlayerStats : CommonStats, IHitable
+public class PlayerStats : MonoBehaviour, IHitable
 {
     [SerializeField]
     private float UntilNextHit = .5f;
+
+    [SerializeField]
+    private int hP = 100;
 
     [HideInInspector]
     public bool immortal = false;
@@ -29,9 +32,24 @@ public class PlayerStats : CommonStats, IHitable
     [SerializeField]
     private UnityEvent OnDead = null;
 
+    protected int HP
+    {
+        get => hP;
+        set
+        {
+            hP = value;
+        }
+    }
+
     private void Start()
     {
         StopTime(1);
+    }
+
+    public void ResetHP()
+    {
+        HP = 100;
+        Hit?.Invoke(hP);
     }
 
     private void Update()

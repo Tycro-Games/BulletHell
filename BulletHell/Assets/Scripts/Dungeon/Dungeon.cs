@@ -77,7 +77,7 @@ namespace Bog
         private Room start = null;
 
         [SerializeField]
-        private Room end = null;
+        private Room[] end = null;
 
         [HideInInspector]
         public Dictionary<Vector2, GameObject> grid = new Dictionary<Vector2, GameObject>();
@@ -108,7 +108,7 @@ namespace Bog
                 PlaceRooms();
             }
 
-            PlaceRooms(end);
+            PlaceRooms(end[Random.Range(0, end.Length)]);
             MakeRooms();
         }
 

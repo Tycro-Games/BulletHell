@@ -20,8 +20,11 @@ namespace Bog
         [SerializeField]
         private SpriteRenderer LastButton = null;
 
+        private PlayerStats player;
+
         private void Start()
         {
+            player = FindObjectOfType<PlayerStats>();
             sprite = GetComponentInChildren<SpriteRenderer>();
             buttonDungeon = FindObjectOfType<ButtonManager>();
             buttonDungeon.dungeonButtons.Add(this);
@@ -50,6 +53,7 @@ namespace Bog
         {
             if (collision.CompareTag("Teleport") && !first)
             {
+                player.ResetHP();
                 buttonDungeon.RemoveOne(this);
                 first = true;
                 OnTouch?.Invoke();

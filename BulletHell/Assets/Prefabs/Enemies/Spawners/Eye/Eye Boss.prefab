@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7474485215219892437}
   - component: {fileID: 5487257184688617559}
   m_Layer: 0
-  m_Name: staticEye
+  m_Name: Eye Boss
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 7343753632532502122, guid: e82d6f50f05c2e5428eb88340816914b, type: 3}
+  - {fileID: 7343753632532502122, guid: ac8e15bc1b7011b4489a92ad7a956d5f, type: 3}
 --- !u!58 &5487257184688617559
 CircleCollider2D:
   m_ObjectHideFlags: 0

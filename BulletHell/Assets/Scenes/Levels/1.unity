@@ -329,7 +329,7 @@ MonoBehaviour:
     - {x: 0, y: 0}
     currentPos: {x: 0, y: 0}
   end:
-    room: {fileID: 2800000, guid: 89259f4a84a47c444aff3e4d68c19994, type: 3}
+  - room: {fileID: 2800000, guid: 89259f4a84a47c444aff3e4d68c19994, type: 3}
     neighboursFrom: []
     neighboursBack: []
     ToRoom: []
