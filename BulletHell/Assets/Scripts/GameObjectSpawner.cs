@@ -27,9 +27,9 @@ public class GameObjectSpawner : MonoBehaviour
     {
         GameObject enemy;
         if (trans == null)
-            enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, Quaternion.Inverse(transform.rotation));
+            enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, transform.rotation);
         else
-            enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, Quaternion.identity, trans);
+            enemy = Instantiate(Enemies[Random.Range(0, Enemies.Length)], transform.position, transform.rotation, trans);
         Destroy(enemy, life);
     }
 }

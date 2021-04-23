@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.Universal;
 
 [RequireComponent(typeof(CircleCollider2D))]
@@ -45,6 +46,9 @@ public class Projectile : MonoBehaviour
         CheckStart();
     }
 
+    [SerializeField]
+    private UnityEvent Ondisable = null;
+
     private void OnDestroy()
     {
         DestroyProjectile();
@@ -85,12 +89,16 @@ public class Projectile : MonoBehaviour
     {
         StopCoroutine("DestroyProjectileTime");
         if (gameObject.activeInHierarchy)
+        {
+            Ondisable?.Invoke();
             PoolingObjectsSystem.Destroy(gameObject);
+        }
     }
 
     public IEnumerator DestroyProjectileTime(float lifetime)
     {
         yield return new WaitForSeconds(lifetime);
+        Ondisable?.Invoke();
         PoolingObjectsSystem.Destroy(gameObject);
     }
 
@@ -112,20 +120,19 @@ public class Projectile : MonoBehaviour
         }
         else if (hitable != null && !PlayerStats.atacked)
         {
-             hitable.TakeDamage(damage);
+            hitable.TakeDamage(damage);
         }
         else if (hit.collider.CompareTag("project") && lives > 0)
         {
             Vector2 reflect = Vector2.Reflect(transform.up, hit.normal);
             float rot = 90 - Mathf.Atan2(reflect.y, reflect.x) * Mathf.Rad2Deg;
             transform.eulerAngles = -new Vector3(0, 0, rot);
-            
 
             lives--;
 
             if (lives <= 0)
                 DestroyProjectile();
-            
+
             light.intensity = Mathf.Clamp(lives * lightMultiplier, limitIntensity, 100); ;
             return;
         }
