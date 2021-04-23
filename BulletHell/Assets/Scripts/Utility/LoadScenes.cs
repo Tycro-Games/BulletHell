@@ -25,27 +25,11 @@ public class LoadScenes : MonoBehaviour
 
     private IEnumerator LoadLevel(int levelIndex)
     {
-        isLoading = true;
         anim.SetTrigger("Fade");
         indexa = levelIndex;
         yield return new WaitForSecondsRealtime(transTime);
 
         SceneManager.LoadScene(levelIndex);
-    }
-
-    private bool isLoading = false;
-
-    private void Update()
-    {
-        if (isLoading && Input.anyKeyDown)
-        {
-            SceneManager.LoadScene(indexa);
-        }
-    }
-
-    private void Start()
-    {
-        isLoading = false;
     }
 
     public void Quit()

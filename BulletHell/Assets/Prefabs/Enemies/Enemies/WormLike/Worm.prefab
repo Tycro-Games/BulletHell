@@ -675,7 +675,7 @@ MonoBehaviour:
   StopAndShoot: 0
   Non_Moveable: 0
   NeedToFace: 0
-  PlayerNeed: 1
+  PlayerNeed: 0
   NoDistantace: 1
   NonPlayer:
     RandomDir: 0
@@ -922,6 +922,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!195 &347021905
 NavMeshAgent:
   m_ObjectHideFlags: 0

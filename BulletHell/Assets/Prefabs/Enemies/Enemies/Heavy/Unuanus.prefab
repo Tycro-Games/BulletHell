@@ -1010,7 +1010,7 @@ MonoBehaviour:
   StopAndShoot: 0
   Non_Moveable: 0
   NeedToFace: 0
-  PlayerNeed: 1
+  PlayerNeed: 0
   NoDistantace: 1
   NonPlayer:
     RandomDir: 0
