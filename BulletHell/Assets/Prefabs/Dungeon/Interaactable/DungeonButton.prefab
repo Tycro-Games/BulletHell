@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 5534190880067044055}
   - component: {fileID: 8286598517498182333}
   - component: {fileID: 6520771521850581604}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: DungeonButton
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}

@@ -125,6 +125,7 @@ public class Projectile : MonoBehaviour
 
             if (lives <= 0)
                 DestroyProjectile();
+            
             light.intensity = Mathf.Clamp(lives * lightMultiplier, limitIntensity, 100); ;
             return;
         }

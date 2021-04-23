@@ -10,7 +10,8 @@ namespace Bog
         private Transform newCamera = null;
         private PlayerMovement player = null;
         private Dungeon dungeon;
-        private GameObject lastRoom;
+        [HideInInspector]
+        public GameObject lastRoom;
 
         private void Start()
         {

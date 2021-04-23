@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b47312f367fe84791a683a43426bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: cb753a812be4b3b48b0279b0840eead4, type: 2}
+  projectile: {fileID: 11400000, guid: 655c0c7ae44422d4296af4957087f9eb, type: 2}
   projectiles: {fileID: 0}
   offsetX: 1
   offsetY: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b47312f367fe84791a683a43426bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: cb753a812be4b3b48b0279b0840eead4, type: 2}
+  projectile: {fileID: 11400000, guid: 655c0c7ae44422d4296af4957087f9eb, type: 2}
   projectiles: {fileID: 0}
   offsetX: 1
   offsetY: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b47312f367fe84791a683a43426bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: cb753a812be4b3b48b0279b0840eead4, type: 2}
+  projectile: {fileID: 11400000, guid: 655c0c7ae44422d4296af4957087f9eb, type: 2}
   projectiles: {fileID: 0}
   offsetX: 1
   offsetY: 0
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b47312f367fe84791a683a43426bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: cb753a812be4b3b48b0279b0840eead4, type: 2}
+  projectile: {fileID: 11400000, guid: 655c0c7ae44422d4296af4957087f9eb, type: 2}
   projectiles: {fileID: 0}
   offsetX: 1
   offsetY: 0
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 4187519064974674440}
   - component: {fileID: 2898365769788138887}
   m_Layer: 11
-  m_Name: Eye
+  m_Name: SlowEyes
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1008,7 +1008,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.57
-  m_Speed: 2.8
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 360

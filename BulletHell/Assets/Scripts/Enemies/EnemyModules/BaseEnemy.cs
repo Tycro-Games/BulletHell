@@ -20,6 +20,7 @@ public class BaseEnemy : MonoBehaviour
 
     private bool chasing = false;
     protected Transform target;
+    private bool IsRepathing = false;
 
     private IEnumerator Repath(float time)
     {
@@ -37,6 +38,7 @@ public class BaseEnemy : MonoBehaviour
     {
         if (chasing)
             return;
+
         Vector2 point = (Vector2)transform.position + Random.insideUnitCircle * radius;
 
         Vector2 dir = (target.position - transform.position).normalized * DirPower;
@@ -57,6 +59,7 @@ public class BaseEnemy : MonoBehaviour
 
     public void Init(Transform Target, float repathSpeed, Transform EnemyTransform, NavMeshAgent Agent)
     {
+        IsRepathing = false;
         StopAllCoroutines();
 
         target = Target;

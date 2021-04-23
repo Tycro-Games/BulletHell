@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b6411699664b974a8520dd9a93427ee, type: 3}
-  m_Name: OchiSor
+  m_Name: LowRate
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6684052639383496635, guid: 1e7277087431ac645be141feef1a1204,
+  projectilePrefab: {fileID: 6684052639383496635, guid: 4576d570696fb2d49af89264cd4a82a9,
     type: 3}
-  speed: 4
-  damage: 10
-  FirePerSecond: 2.5
-  life: 2
+  speed: 2
+  damage: 2
+  FirePerSecond: 0.5
+  life: 5

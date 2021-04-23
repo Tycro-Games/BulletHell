@@ -273,8 +273,8 @@ MonoBehaviour:
     obj: {fileID: 0}
   - col: {r: 0.12941177, g: 1, b: 0, a: 1}
     obj: {fileID: 2300811034371699769, guid: 38201fbd096b8fb41b62b65838ffd737, type: 3}
-  - col: {r: 1, g: 0, b: 0, a: 1}
-    obj: {fileID: 7474485215219892436, guid: b9e8a3b48e16647459714e3cdbdad3a2, type: 3}
+  - col: {r: 1, g: 0.48584908, b: 0.48584908, a: 1}
+    obj: {fileID: 7474485215219892436, guid: db4bda1589f97674aaeacf0e67795476, type: 3}
   - col: {r: 0.7830189, g: 0.2770114, b: 0.7830189, a: 1}
     obj: {fileID: 0}
   - col: {r: 1, g: 0.49411765, b: 0, a: 1}
@@ -298,14 +298,14 @@ MonoBehaviour:
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 0
+  - count: 1
     room:
       room: {fileID: 2800000, guid: 9286e329da599e343adffa8cb013b951, type: 3}
       neighboursFrom: []
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  - count: 0
+  - count: 1
     room:
       room: {fileID: 2800000, guid: 3dd2c9d2fe1624c48a2592433b259742, type: 3}
       neighboursFrom: []
@@ -319,7 +319,11 @@ MonoBehaviour:
       neighboursBack: []
       ToRoom: []
       currentPos: {x: 0, y: 0}
-  tilesRandom: []
+  tilesRandom:
+  - col: {r: 1, g: 0, b: 0, a: 1}
+    obj:
+    - {fileID: 7474485215219892436, guid: 376d8633a0814324d8bb8c61181115ce, type: 3}
+    - {fileID: 7474485215219892436, guid: db4bda1589f97674aaeacf0e67795476, type: 3}
   oneRoomRandom: []
   start:
     room: {fileID: 2800000, guid: b6344e693a11da544988fbf142c92159, type: 3}
@@ -346,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8cf33cb3d726b4fbc99d77df3db3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastRoom: {fileID: 0}
 --- !u!1001 &1077339456
 PrefabInstance:
   m_ObjectHideFlags: 0
