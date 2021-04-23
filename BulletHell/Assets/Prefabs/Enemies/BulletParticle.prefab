@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4607987166683922032}
   - component: {fileID: 926126853094871780}
   - component: {fileID: 4377303104078172169}
-  - component: {fileID: 4068192849982964870}
+  - component: {fileID: 1495638671588988384}
   m_Layer: 14
   m_Name: BulletParticle
   m_TagString: Untagged
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6aa71bc349645e41a87243ea009104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &4068192849982964870
+--- !u!95 &1495638671588988384
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

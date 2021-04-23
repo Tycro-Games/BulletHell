@@ -1119,7 +1119,7 @@ MonoBehaviour:
   Enemies:
   - {fileID: 7343753632532502122, guid: ebcd9746acd1a1047a9d06fccbc3c623, type: 3}
   life: 5
-  trans: {fileID: 0}
+  trans: {fileID: 7343753632532502121}
 --- !u!114 &2898365769788138887
 MonoBehaviour:
   m_ObjectHideFlags: 0

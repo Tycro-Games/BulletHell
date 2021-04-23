@@ -41,7 +41,8 @@ namespace Bog
 
     public class Dungeon : MonoBehaviour
     {
-        CurrentRoom roomFirst;
+        private CurrentRoom roomFirst;
+
         [SerializeField]
         private Size size = new Size();
 
@@ -193,7 +194,6 @@ namespace Bog
                     }
                 if (room != roomList[0] && room != roomList[roomList.Count - 1])
                 {
-
                     roomObj.transform.GetChild(1).gameObject.SetActive(false);
                     for (int i = 0; i < room.neighboursFrom.Count; i++)
                     {
@@ -239,12 +239,10 @@ namespace Bog
                         teleport2.parentRoom = room.currentPos;
                     }
                 }
-                else if(room == roomList[0])
+                else if (room == roomList[0])
                 {
                     roomFirst.lastRoom = roomObj;
                 }
-                
-
             }
         }
 
@@ -301,7 +299,7 @@ namespace Bog
             }
             foreach (Cells room in oneRoomRandom)
             {
-                for (int i = 0; i < room.room.Length; i++)
+                for (int i = 0; i < room.count; i++)
                 {
                     roomsToTake.Add(room.room[Random.Range(0, room.room.Length)].room);
                 }
