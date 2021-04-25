@@ -402,8 +402,8 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 237.76999
-  m_PointLightOuterAngle: 238.11
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
   m_PointLightOuterRadius: 1.3570923
   m_PointLightDistance: 3
@@ -709,7 +709,8 @@ AudioSource:
   m_GameObject: {fileID: 7908878343463407365}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3dd488e49d7a2ea40966e52624e09cc2,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 827f2f6da8e88cd4fa0feb6e068d5543, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

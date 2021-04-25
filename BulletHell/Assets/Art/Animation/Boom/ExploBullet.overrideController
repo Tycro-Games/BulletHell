@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ExploBullet
+  m_Controller: {fileID: 9100000, guid: a87f3b696f76fd44298a0518238b7cc5, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: caf0c4927483d7441aee3045a7891795, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d785eafc5432dd84ebd1fe1cf85eb74b, type: 2}

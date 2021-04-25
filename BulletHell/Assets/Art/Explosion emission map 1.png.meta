@@ -1,0 +1,380 @@
+fileFormatVersion: 2
+guid: 13f711b3664803d45a46a09af9f88a52
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 488811441254266714
+    second: Explosion emission map_0
+  - first:
+      213: 5530619842864183608
+    second: Explosion emission map_1
+  - first:
+      213: -2229255337614866718
+    second: Explosion emission map_2
+  - first:
+      213: 8945947787967537776
+    second: Explosion emission map_3
+  - first:
+      213: -8608368954180050865
+    second: Explosion emission map_4
+  - first:
+      213: -2805271061810635352
+    second: Explosion emission map_5
+  - first:
+      213: -2040310860246680161
+    second: Explosion emission map_6
+  - first:
+      213: -5815631017622586872
+    second: Explosion emission map_7
+  - first:
+      213: 2784287552946058675
+    second: Explosion emission map_8
+  - first:
+      213: -8823246662974615240
+    second: Explosion emission map_9
+  - first:
+      213: -3633393791129118486
+    second: Explosion emission map_10
+  - first:
+      213: -6682323309817388147
+    second: Explosion emission map_11
+  - first:
+      213: 4971246875762947230
+    second: Explosion emission map_12
+  - first:
+      213: -1724163590737286881
+    second: Explosion emission map_13
+  - first:
+      213: -3129300265416408802
+    second: Explosion emission map_14
+  - first:
+      213: -2088470040353896314
+    second: Explosion emission map_15
+  - first:
+      213: 1597348980550379842
+    second: Explosion emission map_16
+  - first:
+      213: 270449615706844225
+    second: Explosion emission map_17
+  - first:
+      213: -2697884599405406761
+    second: Explosion emission map_18
+  - first:
+      213: -2612190638453161255
+    second: Explosion emission map_19
+  - first:
+      213: -4063499176129737455
+    second: Explosion emission map_20
+  - first:
+      213: -4436199038172002140
+    second: Explosion emission map_21
+  - first:
+      213: 4262175700804618773
+    second: Explosion emission map_22
+  - first:
+      213: -9075767455457841743
+    second: Explosion emission map_23
+  - first:
+      213: -8240349652728558647
+    second: Explosion emission map_24
+  - first:
+      213: -3716973588205172230
+    second: Explosion emission map_25
+  - first:
+      213: 8755016800978340375
+    second: Explosion emission map_26
+  - first:
+      213: 6488222925084946737
+    second: Explosion emission map_27
+  - first:
+      213: -2924256493394057420
+    second: Explosion emission map_28
+  - first:
+      213: -3498898953764044400
+    second: Explosion emission map_29
+  - first:
+      213: 269612119447078560
+    second: Explosion emission map_30
+  - first:
+      213: -4519724095562789911
+    second: Explosion emission map_31
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Explosion emission map_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a577b1e7a6b98c600800000000000000
+      internalID: 488811441254266714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion emission map_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83975a1d175b0cc40800000000000000
+      internalID: 5530619842864183608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion emission map_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e682dfd4181011e0800000000000000
+      internalID: -2229255337614866718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion emission map_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0722ff09d14662c70800000000000000
+      internalID: 8945947787967537776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion emission map_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40e8969b0ee88880800000000000000
+      internalID: -8608368954180050865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion emission map_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad181e05dca119d0800000000000000
+      internalID: -2805271061810635352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion emission map_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9dff97251c5fa3e0800000000000000
+      internalID: -2040310860246680161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion emission map_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80abcd9e66aba4fa0800000000000000
+      internalID: -5815631017622586872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

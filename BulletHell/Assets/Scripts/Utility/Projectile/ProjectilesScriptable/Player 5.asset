@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6411699664b974a8520dd9a93427ee, type: 3}
+  m_Name: Player 5
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6684052639383496635, guid: 1e7277087431ac645be141feef1a1204,
+    type: 3}
+  speed: 10
+  damage: 13
+  FirePerSecond: 2.5
+  life: 3
