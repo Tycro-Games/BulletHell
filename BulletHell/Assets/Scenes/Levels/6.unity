@@ -336,22 +336,22 @@ MonoBehaviour:
     - {x: 0, y: 0}
     currentPos: {x: 0, y: 0}
   end:
-  - room: {fileID: 2800000, guid: 89259f4a84a47c444aff3e4d68c19994, type: 3}
+  - room: {fileID: 2800000, guid: 44d2c5b1859e1e640adeb687146e99cc, type: 3}
     neighboursFrom: []
     neighboursBack: []
     ToRoom: []
     currentPos: {x: 0, y: 0}
-  - room: {fileID: 2800000, guid: 8e3bd0a7a69a7c34297187e5f746582d, type: 3}
+  - room: {fileID: 2800000, guid: 127547866cf4fd44692e95852e944aab, type: 3}
     neighboursFrom: []
     neighboursBack: []
     ToRoom: []
     currentPos: {x: 0, y: 0}
-  - room: {fileID: 2800000, guid: f9faec39fc5f3ee4eb633f2b2b7a322a, type: 3}
+  - room: {fileID: 2800000, guid: 46b54ed880082274889e75624f46ce2a, type: 3}
     neighboursFrom: []
     neighboursBack: []
     ToRoom: []
     currentPos: {x: 0, y: 0}
-  - room: {fileID: 2800000, guid: 682242a4e63088049bbab87fb957088b, type: 3}
+  - room: {fileID: 2800000, guid: 9ff661600c7af2842aab35a8962e95a0, type: 3}
     neighboursFrom: []
     neighboursBack: []
     ToRoom: []
