@@ -49,6 +49,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private UnityEvent Ondisable = null;
 
+    [SerializeField]
+    private UnityEvent OnRicoshet = null;
+
     private void OnDestroy()
     {
         DestroyProjectile();
@@ -132,7 +135,8 @@ public class Projectile : MonoBehaviour
 
             if (lives <= 0)
                 DestroyProjectile();
-
+            else
+                OnRicoshet?.Invoke();
             light.intensity = Mathf.Clamp(lives * lightMultiplier, limitIntensity, 100); ;
             return;
         }

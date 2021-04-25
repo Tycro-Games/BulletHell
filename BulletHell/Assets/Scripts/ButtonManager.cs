@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bog
 {
@@ -26,6 +27,9 @@ namespace Bog
 
         public event Action<Sprite> OnEnd = null;
 
+        [SerializeField]
+        private UnityEvent OnEnding = null;
+
         private void Awake()
         {
             doorManager = GetComponent<DoorManager>();
@@ -39,6 +43,7 @@ namespace Bog
             OnChange?.Invoke(current);
             if (dungeonButtons.Count == 0)
             {
+                OnEnding?.Invoke();
                 OnEnd?.Invoke(end);
                 doorManager.Activate();
             }
