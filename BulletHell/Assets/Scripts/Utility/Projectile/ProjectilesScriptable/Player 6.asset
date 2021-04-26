@@ -16,5 +16,5 @@ MonoBehaviour:
     type: 3}
   speed: 10
   damage: 10
-  FirePerSecond: 2.5
+  FirePerSecond: 3.5
   life: 3
