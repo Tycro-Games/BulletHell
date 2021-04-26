@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -306,7 +306,7 @@ MonoBehaviour:
     obj:
     - {fileID: 7474485215219892436, guid: 36639b8187ccd9342a2764bcda917433, type: 3}
   oneRoomRandom:
-  - count: 21
+  - {fileID: 11400000, guid: a4f7cb057ae2c5646b665077ad541f7a, type: 2}
   RandomRooms:
   - {fileID: 2800000, guid: 9286e329da599e343adffa8cb013b951, type: 3}
   - {fileID: 2800000, guid: 3dd2c9d2fe1624c48a2592433b259742, type: 3}
@@ -333,27 +333,7 @@ MonoBehaviour:
     ToRoom:
     - {x: 0, y: 0}
     currentPos: {x: 0, y: 0}
-  end:
-  - room: {fileID: 2800000, guid: 44d2c5b1859e1e640adeb687146e99cc, type: 3}
-    neighboursFrom: []
-    neighboursBack: []
-    ToRoom: []
-    currentPos: {x: 0, y: 0}
-  - room: {fileID: 2800000, guid: 127547866cf4fd44692e95852e944aab, type: 3}
-    neighboursFrom: []
-    neighboursBack: []
-    ToRoom: []
-    currentPos: {x: 0, y: 0}
-  - room: {fileID: 2800000, guid: 9ff661600c7af2842aab35a8962e95a0, type: 3}
-    neighboursFrom: []
-    neighboursBack: []
-    ToRoom: []
-    currentPos: {x: 0, y: 0}
-  - room: {fileID: 2800000, guid: 46b54ed880082274889e75624f46ce2a, type: 3}
-    neighboursFrom: []
-    neighboursBack: []
-    ToRoom: []
-    currentPos: {x: 0, y: 0}
+  end: {fileID: 11400000, guid: 1a49f0f4de9beec44b6450400b2fe5a6, type: 2}
 --- !u!114 &957256408
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -79,7 +79,7 @@ namespace Bog
         private Room start = null;
 
         [SerializeField]
-        private Texture2D[] end = null;
+        private RoomScriptable end = null;
 
         [HideInInspector]
         public Dictionary<Vector2, GameObject> grid = new Dictionary<Vector2, GameObject>();
@@ -110,7 +110,7 @@ namespace Bog
                 PlaceRooms();
             }
 
-            PlaceRooms(end[Random.Range(0, end.Length)]);
+            PlaceRooms(end.room[Random.Range(0, end.room.Length)]);
             MakeRooms();
         }
 
@@ -304,7 +304,7 @@ namespace Bog
             {
                 for (int i = 0; i < room.count; i++)
                 {
-                    roomsToTake.Add(RandomRooms[Random.Range(0, RandomRooms.Length)]);
+                    roomsToTake.Add(room.room[Random.Range(0, room.room.Length)]);
                 }
             }
         }

@@ -565,7 +565,7 @@ MonoBehaviour:
       currentPos: {x: 0, y: 0}
   tilesRandom: []
   oneRoomRandom:
-  - count: 5
+  - {fileID: 11400000, guid: 217faa52c9d88694c847925a1c698393, type: 2}
   RandomRooms:
   - {fileID: 2800000, guid: 6213a0b401878e74a9541d27bf99f8a8, type: 3}
   - {fileID: 2800000, guid: 68b72e0766bd6cc40b290c489e5198ff, type: 3}
@@ -581,12 +581,7 @@ MonoBehaviour:
     ToRoom:
     - {x: 0, y: 0}
     currentPos: {x: 0, y: 0}
-  end:
-  - room: {fileID: 2800000, guid: 44d2c5b1859e1e640adeb687146e99cc, type: 3}
-    neighboursFrom: []
-    neighboursBack: []
-    ToRoom: []
-    currentPos: {x: 0, y: 0}
+  end: {fileID: 11400000, guid: 29e3e6c3cc0b5a247bbd2ec7555d317c, type: 2}
 --- !u!114 &957256408
 MonoBehaviour:
   m_ObjectHideFlags: 0
