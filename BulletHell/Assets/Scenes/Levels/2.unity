@@ -298,9 +298,9 @@ MonoBehaviour:
     - {fileID: 7474485215219892436, guid: 217171fbbb6344e4da75aca8d9aaae02, type: 3}
     - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
     - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
-    - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
-    - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
-    - {fileID: 7474485215219892436, guid: 81769d8c14909674193cd01fe78fb05b, type: 3}
+    - {fileID: 7474485215219892436, guid: b9e8a3b48e16647459714e3cdbdad3a2, type: 3}
+    - {fileID: 7474485215219892436, guid: b9e8a3b48e16647459714e3cdbdad3a2, type: 3}
+    - {fileID: 7474485215219892436, guid: b9e8a3b48e16647459714e3cdbdad3a2, type: 3}
     - {fileID: 7474485215219892436, guid: b9e8a3b48e16647459714e3cdbdad3a2, type: 3}
   oneRoomRandom:
   - {fileID: 11400000, guid: f1fef46e3e94ca84da74898897a9db05, type: 2}
