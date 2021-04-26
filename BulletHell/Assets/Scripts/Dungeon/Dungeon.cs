@@ -1,3 +1,4 @@
+using Bog.Assets.Scripts.Dungeon;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,7 +71,7 @@ namespace Bog
         private TilesRand[] tilesRandom = null;
 
         [SerializeField]
-        private Cells[] oneRoomRandom = null;
+        private RoomScriptable[] oneRoomRandom = null;
 
         public Texture2D[] RandomRooms = null;
 
@@ -78,7 +79,7 @@ namespace Bog
         private Room start = null;
 
         [SerializeField]
-        private Room[] end = null;
+        private Texture2D[] end = null;
 
         [HideInInspector]
         public Dictionary<Vector2, GameObject> grid = new Dictionary<Vector2, GameObject>();
@@ -130,7 +131,7 @@ namespace Bog
             GetNeight(newRoom);
         }
 
-        private void PlaceRooms(Room RoomToPlace)
+        private void PlaceRooms(Texture2D RoomToPlace)
         {
             Vector2 pos;
 
@@ -150,7 +151,7 @@ namespace Bog
                 index = Random.Range(0, possibles.Count);
                 pos = possibles[index];
             }
-            Texture2D setRoom = RoomToPlace.room;
+            Texture2D setRoom = RoomToPlace;
             Room newRoom = new Room(pos, setRoom);
 
             roomList.Add(newRoom);
@@ -299,7 +300,7 @@ namespace Bog
                     roomsToTake.Add(room.room.room);
                 }
             }
-            foreach (Cells room in oneRoomRandom)
+            foreach (RoomScriptable room in oneRoomRandom)
             {
                 for (int i = 0; i < room.count; i++)
                 {
