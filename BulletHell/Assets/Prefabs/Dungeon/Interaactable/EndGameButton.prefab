@@ -371,7 +371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5774825234478786137}
   m_LocalRotation: {x: -0, y: -0, z: 0.0025117646, w: 0.99999684}
-  m_LocalPosition: {x: -0.021, y: -0.372, z: 0}
+  m_LocalPosition: {x: -0.021, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7908878343463407366}
@@ -389,35 +389,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LightType: 3
+  m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 0.9433962, g: 0.493948, b: 0.820988, a: 1}
-  m_Intensity: 1
-  m_LightVolumeOpacity: 0
+  m_FalloffIntensity: 0.45
+  m_Color: {r: 0.797451, g: 0.44255075, b: 0.8018868, a: 1}
+  m_Intensity: 0.6
+  m_LightVolumeOpacity: 0.06
   m_ApplyToSortingLayers: c73b806c817d9f10f162def600000000e325f1834f6ea4f7
   m_LightCookieSprite: {fileID: 0}
-  m_UseNormalMap: 0
+  m_UseNormalMap: 1
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 0.06199123
   m_PointLightOuterRadius: 1.3570923
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapeLightFalloffSize: 0.98
+  m_ShapeLightFalloffOffset: {x: 0, y: -0.2}
   m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
+  - {x: -1.09083, y: -0.35257855, z: 0}
+  - {x: -0.8044161, y: -0.5195651, z: 0}
+  - {x: -0.48834804, y: -0.5899403, z: 0}
+  - {x: 0.03428357, y: -0.62008053, z: 0}
+  - {x: 0.55729604, y: -0.57455707, z: 0}
+  - {x: 0.92695385, y: -0.40584254, z: 0}
+  - {x: 1.068037, y: -0.23318627, z: 0}
+  - {x: 1.1105174, y: 0.007355943, z: 0}
+  - {x: 0.89062625, y: 0.20913109, z: 0}
+  - {x: 0.54118764, y: 0.32663757, z: 0}
+  - {x: 0.039294045, y: 0.37730968, z: 0}
+  - {x: -0.31845987, y: 0.36534947, z: 0}
+  - {x: -0.70065284, y: 0.26713106, z: 0}
+  - {x: -1.0971879, y: 0.0803549, z: 0}
+  - {x: -1.2152292, y: -0.13917138, z: 0}
 --- !u!1 &7370407045270819439
 GameObject:
   m_ObjectHideFlags: 0
