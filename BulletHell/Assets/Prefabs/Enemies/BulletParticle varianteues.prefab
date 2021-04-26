@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 4607987166683922032}
   - component: {fileID: 926126853094871780}
   - component: {fileID: 4377303104078172169}
-  - component: {fileID: 4068192849982964870}
-  - component: {fileID: 4613760214150593302}
-  - component: {fileID: 2179719570418569148}
+  - component: {fileID: 1495638671588988384}
+  - component: {fileID: 8462771076002553275}
+  - component: {fileID: 5097888554226213592}
   m_Layer: 14
-  m_Name: DeadEnemyParticle
+  m_Name: BulletParticle varianteues
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 593519521428349119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.51454, y: 0.51454, z: 0.51454}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5986030973748356752, guid: 5c2610326718e0b428b42fd8182ed5a8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670a3767ef77ab241bce438874585a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstColor: {r: 1.8196079, g: 0, b: 6.6509805, a: 1}
-  secondColor: {r: 0.45259926, g: 0.03137261, b: 5.992157, a: 1}
+  firstColor: {r: 0, g: 2.2106936, b: 21.361254, a: 1}
+  secondColor: {r: 0, g: 21.361254, b: 14.384396, a: 1}
 --- !u!114 &4377303104078172169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6aa71bc349645e41a87243ea009104a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &4068192849982964870
+--- !u!95 &1495638671588988384
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ Animator:
   m_GameObject: {fileID: 593519521428349119}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a87f3b696f76fd44298a0518238b7cc5, type: 2}
+  m_Controller: {fileID: 22100000, guid: 6e2ddeefba41b25478dc105b99989a51, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -132,7 +132,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!82 &4613760214150593302
+--- !u!82 &8462771076002553275
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 3dd488e49d7a2ea40966e52624e09cc2,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 29876756f66f3b74dade146699453c16, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 52073e9d258368941aa8493915cfea9e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -229,7 +229,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2179719570418569148
+--- !u!114 &5097888554226213592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,5 +241,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328885d6088904a4b8089023f47496cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minS: 1
-  maxS: 2
+  minS: 0.5
+  maxS: 1

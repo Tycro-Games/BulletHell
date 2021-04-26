@@ -14,9 +14,21 @@ namespace Bog
         [SerializeField]
         private Color secondColor;
 
+        private SpriteRenderer sprite = null;
+
+        private void Start()
+        {
+            sprite = GetComponent<SpriteRenderer>();
+        }
+
         public Color RandomBetween()
         {
             return Color.Lerp(firstColor, secondColor, Random.Range(0f, 1f));
+        }
+
+        public void SetColor()
+        {
+            sprite.color = RandomBetween();
         }
     }
 }

@@ -282,7 +282,7 @@ MonoBehaviour:
   - col: {r: 1, g: 0, b: 0.8980392, a: 1}
     obj: {fileID: 7908878343463407365, guid: 62960b57e42122640bddc7d42887d85c, type: 3}
   - col: {r: 0.8784314, g: 0, b: 0, a: 1}
-    obj: {fileID: 7474485215219892436, guid: 217171fbbb6344e4da75aca8d9aaae02, type: 3}
+    obj: {fileID: 7474485215219892436, guid: 3d25a50a6df3de1419b35a2e00536a3a, type: 3}
   rooms:
   - count: 0
     room:
@@ -323,6 +323,8 @@ MonoBehaviour:
   - col: {r: 1, g: 0, b: 0, a: 1}
     obj:
     - {fileID: 7474485215219892436, guid: 953a2d9557d2e0d498c5865f559a9516, type: 3}
+    - {fileID: 7474485215219892436, guid: d43c62e8eb4cfbe42afb6ad9e0081b66, type: 3}
+    - {fileID: 7474485215219892436, guid: 48d4f9991fff624469cfc9097714a03a, type: 3}
   oneRoomRandom: []
   RandomRooms: []
   start:
@@ -333,27 +335,7 @@ MonoBehaviour:
     - {x: 0, y: 0}
     currentPos: {x: 0, y: 0}
   end:
-  - room: {fileID: 0}
-    neighboursFrom: []
-    neighboursBack: []
-    ToRoom: []
-    currentPos: {x: 0, y: 0}
-  - room: {fileID: 0}
-    neighboursFrom: []
-    neighboursBack: []
-    ToRoom: []
-    currentPos: {x: 0, y: 0}
-  - room: {fileID: 0}
-    neighboursFrom: []
-    neighboursBack: []
-    ToRoom: []
-    currentPos: {x: 0, y: 0}
-  - room: {fileID: 0}
-    neighboursFrom: []
-    neighboursBack: []
-    ToRoom: []
-    currentPos: {x: 0, y: 0}
-  - room: {fileID: 0}
+  - room: {fileID: 2800000, guid: 44d2c5b1859e1e640adeb687146e99cc, type: 3}
     neighboursFrom: []
     neighboursBack: []
     ToRoom: []
