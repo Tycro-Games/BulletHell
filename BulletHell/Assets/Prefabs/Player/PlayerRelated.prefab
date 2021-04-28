@@ -758,7 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569192524623c6a4d97cd6c81a7ac6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UntilNextHit: 0.25
+  UntilNextHit: 0.5
   hP: 100
   immortal: 0
   OnHit:
