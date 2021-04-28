@@ -2,6 +2,7 @@
 using UnityEngine.AI;
 using UnityEngine.Events;
 using System;
+
 public class EnemyController : MonoBehaviour
 {
     public static Transform playerTransform = null;
@@ -11,6 +12,7 @@ public class EnemyController : MonoBehaviour
     protected Transform enemyTransform = null;
 
     private BaseEnemy[] atack;
+
     [SerializeField]
     private bool Rotate = true;
 
@@ -20,11 +22,13 @@ public class EnemyController : MonoBehaviour
     [Header("RepathSpeeds")]
     [SerializeField]
     private float RepathSpeed = 0.75f;
-    public delegate void Onhit(int dg);
-    public static Onhit HitEvent = null;
-    Transform target;
 
-    void Awake()
+    public delegate void Onhit(int dg);
+
+    public static Onhit HitEvent = null;
+    private Transform target;
+
+    private void OnEnable()
     {
         target = FindObjectOfType<PlayerMovement>().transform;
         agent = GetComponentInParent<NavMeshAgent>();
@@ -39,9 +43,9 @@ public class EnemyController : MonoBehaviour
             atack[i].Init(target, RepathSpeed, enemyTransform, agent);
         }
     }
+
     private void Start()
     {
         ToStart?.Invoke();
     }
 }
-
