@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d20e3777d1a488c98702c0f9d66e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paymentPointer: $ilp.uphold.com/rxiBxdZNR883
+  paymentPointer: $ilp.gatehub.net/946011569
   simulateMonetization: 0
