@@ -13,6 +13,9 @@ namespace Bog
         private Transform player;
 
         [SerializeField]
+        private float dist = 1f;
+
+        [SerializeField]
         private float offset = 0.5f;
 
         [SerializeField]
@@ -41,7 +44,7 @@ namespace Bog
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (canTele)
+            if (canTele && Vector2.Distance(player.position, transform.position) <= dist)
                 if (collision.CompareTag("Teleport") && !movement.Teleported)
                 {
                     OnTeleport?.Invoke(parentRoom, Destination + dir(Destination) * offset);
