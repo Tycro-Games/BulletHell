@@ -94,25 +94,24 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && IsNotDashing)
             {
-                RaycastHit2D hit = Physics2D.CircleCast(transform.position, .3f,  DashMultiplier * movement, (DashMultiplier * movement).magnitude, obstacles);
-                if (hit.collider == null)
+                Vector2 Dest = (Vector2)transform.position + DashMultiplier * movement;
+
+                RaycastHit2D hitRay = Physics2D.CircleCast(transform.position, .3f, DashMultiplier * movement, (DashMultiplier * movement).magnitude, obstacles);
+
+                IsNotDashing = false;
+                if (hitRay.collider != null)
+                    Dest = hitRay.point;
+                OnStartDash?.Invoke();
+                while ((Vector2)transform.position != Dest)
                 {
-                    IsNotDashing = false;
-                    Vector2 Dest = (Vector2)transform.position + DashMultiplier * movement;
-                    OnStartDash?.Invoke();
-                    while ((Vector2)transform.position != Dest)
-                    {
-                        transform.position = Vector2.MoveTowards(transform.position, Dest, Time.deltaTime * DashSpeed);
-                        yield return null;
-                    }
-                    OnDash?.Invoke();
-                    yield return new WaitForSeconds(DashCooldown);
-                    IsNotDashing = true;
+                    transform.position = Vector2.MoveTowards(transform.position, Dest, Time.deltaTime * DashSpeed);
+                    yield return null;
                 }
-                yield return null;
+                OnDash?.Invoke();
+                yield return new WaitForSeconds(DashCooldown);
+                IsNotDashing = true;
             }
-            else
-                yield return null;
+            yield return null;
         }
     }
 
@@ -147,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(Offset, Limit);
-       
+
         Gizmos.DrawRay(transform.position, (DashMultiplier * movement).normalized);
     }
 }
