@@ -42,11 +42,11 @@ namespace Bog
 
         private IEnumerator Anim()
         {
-            float oldApl = ren.color.a;
+            float oldApl = ren.color.a;//alpha
             while (oldApl <= Transparent)
             {
                 Color NewCol = ren.color;
-                //   oldApl = Mathf.InverseLerp(0, Transparent, oldApl);
+
                 oldApl += animationUp.Evaluate(Time.deltaTime * Speed);
                 NewCol.a = oldApl;
                 ren.color = NewCol;
@@ -56,7 +56,7 @@ namespace Bog
             while (oldApl > 0)
             {
                 Color NewCol = ren.color;
-                //    downApl = Mathf.InverseLerp(0, Transparent, downApl);
+
                 oldApl -= animationDown.Evaluate(Time.deltaTime * SpeedDown);
 
                 NewCol.a = oldApl;
